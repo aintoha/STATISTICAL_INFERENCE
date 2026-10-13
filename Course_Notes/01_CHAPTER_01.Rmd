@@ -1,0 +1,1694 @@
+# Probability (Basic Concepts)
+
+## Basic Concepts of Statistics & Random Experiments
+
+* Statistics involves collecting, classifying, summarizing, organizing, analyzing, and interpreting data
+* A random experiment is an experiment where the outcome cannot be predicted with certainty.
+* **Defining Characteristics of a Random Experiment:**
+  (a) All possible outcomes of the experiment are known in advance.
+  (b) Any single performance of the experiment results in an outcome that is not known in advance.
+  (c) The experiment can be repeated under identical conditions.
+
+## Definition of a Set & Membership
+
+* **Definition** A set is simply a collection of objects, these objects being called elements or members of the set.
+* Examples include the set of all real numbers and the set of all UPNM students
+* Membership of a set $X$ by an object $x$ is denoted by a special symbol $\in$, read as "belongs to"
+* The statement $x \in X$ means that $x$ is an element of, or belongs to, $X$ . 
+* There is also an opposite statement $x \notin X$ which means that $x$ is not an element of, or does not belong to, $X$ .
+* **Example:** For example, with $S$ being the set of all students registered for TPQ3783, 
+  <br><br>
+  <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"> $\in S$ (enter your name) 
+
+## Specifying sets
+
+* Example of a set
+
+  \begin{align}
+  S:= \{1, 2, 3, 4, 5, 6\}
+  \end{align}
+
+  * The notation “:= ” means “is defined to be equal to
+  * $S$ is a set that contains exactly six numbers listed 
+  * The order of the elements does not matter. Its membership/ existance in the set is important
+  * If the set is large (multiple/ many members/ elements) **and** have a clear pattern, $\ldots$ is typically used. E.g.: $S:= \{1, \ldots, 20\}$
+
+## Standard sets
+
+
+## Definition and Properties of Probability
+
+* Probability is a real-valued set function $P$ that assigns a number $P(A)$ to each event $A$ in the sample space $S$.
+* $P(A) \ge 0$
+* $P(S) = 1$
+* If $A_1, A_2, \dots$ are mutually exclusive events ($A_i \cap A_j = \emptyset$ for $i \neq j$), then $P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots$
+* $P(\emptyset) = 0$ and $0 \le P(A) \le 1$
+* $P(A') = 1 - P(A)$
+* $P(B \cap A') = P(B) - P(B \cap A)$
+* $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+* If $A \subset B$, then $P(A) \le P(B)$
+
+
+### Examples of Random Experiments
+
+* **The experiment of tossing a coin:** 
+  * There are two possible outcomes: getting a Head (H) or getting a Tail (T). 
+  * Even though we know both **possible outcomes**, we cannot definitively predict that we will get a tail if we throw the coin in a particular manner.
+* **The experiment of rolling a die:** 
+  * There are six possible outcomes: the die showing up 1, 2, 3, 4, 5, or 6. 
+  * We cannot for sure predict that we can make a particular number appear on the face of the dice when it is rolled.
+
+### Applied Real-Life Examples
+
+* **Quality Control & Manufacturing:** 
+  * Testing the length of life of a 60-watt light bulb until it burns out.
+    * There infinitely number of possible of outcomes. (Why?)
+* **Environmental Testing:** 
+  * Counting the number of bacteria colonies in a 100-milliliter water sample taken from a specific lake basin.
+* **Technology Reliability:** 
+  * Measuring the continuous amount of time in hours that a computer functions before breaking down.
+* **Queueing & Logistics:** 
+  * Measuring the waiting time in minutes until the first customer or patient arrives at a facility.
+
+### Properties of Probability 
+
+* Sample Space, $S$
+* The event set, $E$
+* The probability measure, $p$
+
+### Properties of Probability: Examples
+
+* **The experiment of tossing a coin:** 
+  * Sample Space, $S:= \{H, T \}$ 
+  * Event set of getting a Head, $E:= \{H \}$ 
+  * Probability measure of $E$: $p = \frac{1}{2}$ 
+
+|Probability measure| Description |
+|--------------------------|-------------|
+|$P(A) \ge 0$| Probabibility of an event $A$ is $0$ or greater |
+|$P(S) = 1$  | Probability of space $S$ is 1 |
+|$0 \le P(A) \le 1$ | Probability is always between $0$ and $1$.|
+
+## Review of Set Algebra
+
+|Symbols | Description|
+|--------|------------|
+|$\emptyset$ |  The null set or empty set.|
+|$A \subset B$ | $A$ is a subset of $B$. |
+|$A \cup B$ | the union of $A$ and $B$, representing elements in either set.|
+|$A \cap B$ |The intersection of $A$ and $B$, representing elements shared by both sets.|
+|$A'$ | The complement of $A$, representing everything outside of $A$.|
+|**Mutually Exclusive:** |Events $A_1, A_2, \dots, A_k$ are mutually exclusive if $A_i \cap A_j = \emptyset$ for $i \neq j$; they are disjoint sets.|
+|**Exhaustive Events:** |Events $A_1, A_2, \dots, A_k$ are exhaustive if their union forms the entire sample space, $A_1 \cup A_2 \cup \dots \cup A_k = S$.|
+
+* So if $A_1, A_2, \dots, A_k$ are mutually exclusive and exhaustive events, we know that $A_1 \cap A_2=\emptyset$, for $i \ne j$ and $A_1 \cup A_2 \cup \dots \cup A_k = S$
+
+
+### Properties of Set Operations
+
+* **Commutative Laws:** 
+  * $A \cup B = B \cup A$.
+  * $A \cap B = B \cap A$.
+* **Associative Laws:** 
+  * $A \cup B \cup C = A \cup (B \cup C)$.
+  * $A \cap B \cap C = A \cap (B \cap C)$.
+* **Distributive Laws:** 
+  * $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+  * $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+* **De Morgan's Laws:** 
+  * $(A \cup B)' = A' \cap B'$. (First Law)
+  * $(A \cap B)' = A' \cup B'$. (Second Law)
+
+
+## Additional Properties of Probability
+
+* Probability is a real-valued set function $P$ that assigns a number $P(A)$ to each event $A$ in the sample space $S$.
+
+|Properties of probability | Description |
+|---------------|------------------------------|
+|$P(A) \ge 0$| Probabibility of an event $A$ is $0$ or greater. |
+|$P(S) = 1$  | Probability of space $S$ is 1. |
+|$P(\emptyset) = 0$ | Probability of an empty set $\emptyset$ is $0$.|
+|$0 \le P(A) \le 1$ | Probability is always between $0$ and $1$.|
+|$P(A') = 1 - P(A)$ | Given event $A$. The probability of the complement of event $A$, i.e. $A^{c}$ or $A$' is $1 - P(A)$ |
+|$P(A) = \sum_{i = 1}^{\infty} P(A \cap B_{i})$ | | 
+|$P(A) \le P(B)$ | If $A \subset B$, then $P(A) \le P(B)$|
+|$P(B \cap A)$  | Probability that elements exists in both events $A$ and $B$ |
+|* $P(B \cap A') = P(B) - P(B \cap A)$ | |
+|$P(A \cup B) = P(A) + P(B) - P(A \cap B)$ | |
+|$P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots$ | If $A_1, A_2, \dots$ are mutually exclusive events ($A_i \cap A_j = \emptyset$ for $i \neq j$), then $P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots$.|
+
+### Axioms of probabilities
+
+1. 
+
+2. If $P$ is a probability function and $A$ and $B$ are any sets in $\mathbfcal{B}$, then
+
+a. $P(A \cap A^{c}) = P(B) - P(A \cap B)$
+
+    Proof: 
+
+\begin{align}
+  B  =& (B \cap A) \cup (B \cap A^{c}) \\
+  P(B) =& P(B \cap A) + P(B \cap A^{c}) \\
+  P(B \cap A^{c}) =& P(B) -P(B \cap A)
+\end{align}
+
+b. $P(A \cup A^{c}) = P(A) + P(B) - P(A \cap B)$
+
+  Proof: 
+
+\begin{align}
+  A \cup B  =& A \cup (B \cap A^{c}) \\
+  P(A \cup B)  =& P(A) + P(B \cap A^{c}) \\
+  P(A \cup B)  =& P(A) + P(B) -P(B \cap A) \\
+\end{align}
+
+3. 
+
+### Probability Calculation Example
+
+* **Experiment:** Tossing a coin twice.
+* **Sample Space:** $S := \{HH, HT, TH, TT\}$, where each outcome is equally likely with a probability of $1/4$.
+    (Hint: *equally likely*: each elements in the set of equal chance of being selected hence each element has the probability of 1/4)
+  * Let $E := \{HH, HT\}$ be the event that the first toss is a head.
+  * Let $F := \{HH, TH\}$ be the event that the second toss is a head.
+  
+  Find the probability of the union $P(E \cup F)$:
+  
+  **Answer** (step-by-step):
+  1. $P(E \cup F) = P(E) + P(F) - P(E \cap F)$.
+  2. $P(E \cup F) = 1/2 + 1/2 - P(\{HH\})$.
+  3. $P(E \cup F) = 1 - 1/4 = 3/4$.
+  4. Alternatively, $P(E \cup F) = P(\{HH, HT, TH\}) = 3/4$.
+
+### Probability Calculation Example
+
+* **Experiment:** Tossing a fair dice.
+* **Sample Space:** $S := \{1, 2, 3, 4, 5, 6\}$ where each outcome is equally likely
+
+  * Let $E$ be the event that consist of event numbers
+  * Let $F$ be the event that consist of numbers greater than 3
+  
+  Find the probability of the union $P(E \cup F)$:
+  
+  **Answer** (step-by-step):
+  1. Probability for each element is $\frac{1}{2}$
+  2. $E := \{2, 4, 6\}$, hence $P(E) = \frac{1}{2}$
+  3. $E := \{4, 5, 6\}$, hence $P(F) = \frac{1}{2}$
+  4. $(E \cap F) := \{4,  6 \}$, hence $P(E \cap F) = \frac{1}{3}$
+  5. $P(E \cup F) = P(E) + P(F) - P(E \cap F)$.
+  6. $P(E \cup F) = 1 - 1/3 = \frac{2}{3}$.
+  7.  Alternatively, $P(E \cup F) = P(\{H2, 4, 5, 6\}) = \frac{4}{6} = \frac{2}{3}$.
+
+### Probability Calculation: In-class exercise (A practice to your quiz)
+** Task:**  To answer the following questions, you will need to pair up with a friend. 
+
+a) You are given 10 minutes. Try to answer the following questions. 
+
+b) After 10 minutes, switch your answer with your friend. 5 minutes, review your friends work and add any missing steps/ fix the calculation if needed. 
+
+1. If $P(A) = 0.4$, $P(B) = 0.5$ and $P(A \cap B)  = 0.3$, calculate the following: 
+
+  a. $P(A \cup B)$
+
+  b. $P(A \cap B')$
+
+  c. $P(A' \cup B)$
+
+  <span style="float:right;">[6 mark]</span> 
+ <br>
+2. A fair die is rolled three times. Let $A_{1} := {\text{Outcome is 1 or 2 on the first rolle}}$, $A_{2} := {\text{Outcome is 3 or 4 on the first rolle}}$, and $A_{3} := {\text{Outcome is 5 or 6 on the first rolle}}$. Given that 
+
+  * $P(A_{i}) = \frac{1}{3}$ for $i = 1, 2, 3$
+
+  * $P(A_{i} \cap A_{j}) = \left(\frac{1}{3}\right)^{2}$ for $i \ne j$ and $P(A_{1} \cap A_{2} \cap A_{3})  = \left(\frac{1}{3}\right)^{3}$. 
+
+  Find $P(A_1 \cup A_2 \cup A_3)$. 
+
+  <span style="float:right;">[4 mark]</span> 
+<br>
+
+## Method of Enumeration & Multiplication Principle
+
+* The method of enumeration is used to determine the **number of outcomes associated with the events of certain random experiments**.
+* **Multiplication Principle:** If an experiment $E_1$ has $n_1$ outcomes and for each possible outcome, a second experiment $E_2$ has $n_2$ possible outcomes, the composite experiment $E_1 E_2$ has $n_1 n_2$ possible outcomes.
+* **Example:** Tossing a coin ($E_1$ with 2 outcomes) and rolling a die ($E_2$ with 6 outcomes).
+  * The total number of outcomes is $2 \times 6 = 12$.
+  * The sample space represented in ordered pairs: $S = \{(H,1), (H,2), (H,3), (H,4), (H,5), (H,6), (T,1), (T,2), (T,3), (T,4), (T,5), (T,6)\}$.
+* If an experiment is repeated multiple times, such as tossing a coin ten times, the number of outcomes in the sample space is $2 \times 2 \times \dots \times 2 = 2^{10}$.
+
+## Probability Distribution
+
+* Experiment involves arrangement, selection and replacement.
+
+* Suppose that we have 4 letter a,b,c and d, the number of possible four-letter code easily can be calculated if each letter can be repeated which is $4^4=256$
+
+* If consider without repetition, then the number of possible four-letter code is the number of permutation of 4 letter which is $4!=24.$
+
+## Permutations and Combinations (Sampling)
+
+* **Arrangement and Replacement Example:** Given 4 letters a, b, c, and d. 
+  * With repetition: The number of possible four-letter codes is $4^4 = 256$. 
+  * Without repetition: The number of possible four-letter codes is a permutation of 4 letters, which is $4! = 24$.
+* **Case 1 (Replacement, Ordered):** Sampling with replacement of an ordered sample of size $r$ yields $n^r$ arrangements, i.e. $r = n^r$.
+* **Case 2 (No Replacement, Ordered - Permutation):** Sampling without replacement of $r$ ordered items from $n$ objects. 
+  * $_nP_r = \frac{n!}{(n-r)!}$. It must be true that $r \le n$.
+* **Case 3 (No Replacement, Unordered - Combination):** Sampling without replacement of $r$ selected objects from $n$ objects with unordered subsets.
+  * $_nC_r = \frac{n!}{r!(n-r)!}$.
+
+## Permutation Calculation Example
+
+1. How many four-letter code words are possiblle using the letters in **IOWA** if
+
+    a. The letters may not be repeated
+
+    - There are 4 letters. 
+
+    - Each time a letter is placed, the number available reduced by 1
+
+    - $$4 \times 3 \times 2 \times 1 = 24$$
+
+    b. The letters may be repeated
+
+2. Suppose that two tennis players A and B are playing in a match. The first player that wins three sets will win the match. How many ways could this tennis match ends?
+
+##  Intervals
+
+- Consider two numbers, $a, b \in \mathbb{R}$
+
+- The open interval is: $(a, b):= \{x \in \mathbb{R}: a < x < b \}$
+
+- The close interval is: $[a, b]:= \{x \in \mathbb{R}: a \le x \le b \}$
+
+- The open and close interval: $(a, b]:= \{x \in \mathbb{R}: a < x \le b \}$
+
+- The close and open interval: $[a, b):= \{x \in \mathbb{R}: a \le x < b \}$
+
+- Unbounded intervals: $[a, \infty):= \{x \in \mathbb{R}: a \le x \}$
+
+- Unbounded intervals: $(-\infty, b]:= \{x \in \mathbb{R}: x \le b \}$
+
+## Probability
+
+### Probability of an event 
+
+* Probability of any event, $A$, as the proportion of the possible outcomes which give rise to that event
+
+\begin{align}
+\frac{\text{no. of possible outcomes which give rise to event}}{\text{total no. of possible outcomes}}
+\end{align}
+
+### Probability of an event: Equally likely outcomes
+
+**The Leibniz-Galileo Problem**
+
+In a game of tossing three fair dice, Leibniz thought that probability of getting a total is 10 and the probability that the total is 9 are equals. However, Galileo
+thought that these two probabilities are in the ratio 27:25. 
+
+```{r draw-dice, echo=FALSE, fig.width=6, fig.height=2.5, fig.align='center'}
+# Load the required library
+library(ggplot2)
+
+# Coordinates for the 3 dice boxes
+boxes <- data.frame(
+  xmin = c(0.5, 2.0, 3.5),
+  xmax = c(1.5, 3.0, 4.5),
+  ymin = c(0.5, 0.5, 0.5),
+  ymax = c(1.5, 1.5, 1.5)
+)
+
+# Coordinates for the dots (pips) on each die
+pips <- data.frame(
+  x = c(
+    1.0, 0.75, 1.25, 0.75, 1.25,  # Die 1: Value 5
+    2.5, 2.25, 2.75,              # Die 2: Value 3
+    3.75, 4.25                    # Die 3: Value 2
+  ),
+  y = c(
+    1.0, 0.75, 1.25, 1.25, 0.75,  # Die 1: Value 5
+    1.0, 0.75, 1.25,              # Die 2: Value 3
+    0.75, 1.25                    # Die 3: Value 2
+  )
+)
+
+# Plot the dice
+ggplot() +
+  # Draw the white dice bodies with black borders
+  geom_rect(data = boxes, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+            fill = "white", color = "black", linewidth = 1.2) +
+  # Draw the black dots
+  geom_point(data = pips, aes(x = x, y = y), size = 8, color = "black") +
+  # Keep the aspect ratio perfectly square so the dice don't stretch
+  coord_fixed(ratio = 1) +
+  # Remove all axes, grids, and background colors
+  theme_void() +
+  # Add the title
+  ggtitle("Three Dice Summing to 10") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)))
+```
+
+```{r draw-dice-nine, echo=FALSE, fig.width=6, fig.height=2.5, fig.align='center'}
+# Load the required library
+library(ggplot2)
+
+# Coordinates for the 3 dice boxes (kept exactly the same)
+boxes <- data.frame(
+  xmin = c(0.5, 2.0, 3.5),
+  xmax = c(1.5, 3.0, 4.5),
+  ymin = c(0.5, 0.5, 0.5),
+  ymax = c(1.5, 1.5, 1.5)
+)
+
+# Coordinates for the dots (pips) on each die
+pips <- data.frame(
+  x = c(
+    # Die 1: Value 4 (Four corners)
+    0.75, 1.25, 0.75, 1.25,  
+    # Die 2: Value 3 (Diagonal)
+    2.5, 2.25, 2.75,              
+    # Die 3: Value 2 (Diagonal)
+    3.75, 4.25                    
+  ),
+  y = c(
+    # Die 1: Value 4 (Four corners)
+    1.25, 1.25, 0.75, 0.75,  
+    # Die 2: Value 3 (Diagonal)
+    1.0, 0.75, 1.25,              
+    # Die 3: Value 2 (Diagonal)
+    0.75, 1.25                    
+  )
+)
+
+# Plot the dice
+ggplot() +
+  # Draw the white dice bodies with black borders
+  geom_rect(data = boxes, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+            fill = "white", color = "black", linewidth = 1.2) +
+  # Draw the black dots
+  geom_point(data = pips, aes(x = x, y = y), size = 8, color = "black") +
+  # Keep the aspect ratio perfectly square so the dice don't stretch
+  coord_fixed(ratio = 1) +
+  # Remove all axes, grids, and background colors
+  theme_void() +
+  # Add the title
+  ggtitle("Three Dice Summing to 9 (4 + 3 + 2)") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)))
+``` 
+
+| Partition | No. of orderings | | Partition | No. of orderings |
+| :---: | :---: | :---: | :---: | :---: |
+| **Total score of 9** | | | **Total score of 10** | |
+| 1+2+6 | 6 | | 1+3+6 | 6 |
+| 1+3+5 | 6 | | 1+4+5 | 6 |
+| 1+4+4 | 3 | | 2+2+6 | 3 |
+| 2+2+5 | 3 | | 2+3+5 | 6 |
+| 2+3+4 | 6 | | 2+4+4 | 3 |
+| 3+3+3 | 1 | | 3+3+4 | 3 |
+| **Total** | **25** | | **Total** | **27** |
+  
+
+### Probability of an event: Frequency interpretation of probability
+
+If an ``experiment" can be repeated indefinitely, then the relative frequency of any event
+at any stage is defined as
+
+\begin{align}
+\frac{\text{no. of occurrences of event so far}}{\text{total no. of repetitions of experiment so far}}
+\end{align}
+
+- This relative frequency will obviously fluctuate randomly as the number of repetitions increases, but the expectation is that it will in the long run settle down to a limiting value which is the probability of the event.
+
+- This method is to find the probabilities to events in cases where there is no symmetry
+
+### Probability of an event: Example
+
+A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that 2 are defective?
+
+**Answer (Step-by-step)**
+
+1. Total no.of possible outcomes is how many ways that 5 defective items is chosen.
+
+${15 \choose 5} = 3003$ 
+
+
+2. No. of possible outcomes which give rise to event
+
+${6 \choose 2} = 15$ 
+
+3. Probability of event $A$: $P(A) =  \frac{15}{3003}
+
+
+### Probability of an event: Example
+
+A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that **at least** 2 are defective?
+
+**Answer (Step-by-step)**
+
+1. If at least two are defective, we use OR (2 OR 3 OR 4 OR 5)
+
+   |Defective | Non-defective|
+   |----------|--------------|
+   |2   |3 |
+   |3 |2 |
+   |4 | 1|
+   |5 | 0 |
+
+2. No. of possible outcomes of choosing 5 items is 
+
+  $${15 \choose 5} = 5005$$
+3. The probability is 
+
+  $$\frac{{6 \choose 2}{9 \choose 3} + {6 \choose 3}{9 \choose 2} + {6 \choose 4}{9 \choose 1} + {6 \choose 5}{9 \choose 0}}{3003} = \frac{2121}{3003} = 0.706$$
+
+    
+### Probability of an event: Classical vs Uniform Measures
+
+- Recall the clasical measure: 
+
+- E.g.: Let $S:= \{s_1, s_2, \ldots, s_k\}$. For any events $A \subset S$, 
+
+\begin{align}
+\frac{\text{no. of possible outcomes in $A$}}{\text{total no. of possible outcomes in $S$}}
+\end{align}
+
+
+- If $A:= \{s_i\}$, then $P(A) =$  <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;">
+
+- For constinuous $S$, we use **uniform** measure
+
+    - if $S$ is two-dimensional and of finite area then we define
+    $$P(A) = \frac{\text{area of $A$}}{{\text{area of $S$}}}$$
+
+- Note: 
+    
+    - When an outcome is chosen at random from a sample space $S$: classical probability measure is used 
+
+    - When $S$ is discrete, and the uniform measure if $S$ is continuous.
+
+    - For continuous probability measures, events of probability $0$ are NOT impossible and events of probability $1$ are NOT certain.
+
+### Probability of an event: Classical vs Uniform Measures: Example
+
+The diagram below shows a rectangle with a length of 8 and a width of 4. It is divided into four triangular regions by drawing the two diagonal lines from corner to corner. The regions are numbered from 1 to 4: 
+
+  - Region 1 is the top triangle, 
+
+  - Region 2 is the right triangle, 
+
+  - Region 3 is the bottom triangle, and 
+
+  - Region 4 is the left triangle. 
+
+The perimeter is divided into 4 edges numbered in accordance with the regions (Edge 1 is the top edge, Edge 2 is the right edge, etc.).
+
+(i) A **point** is chosen at random from the **rectangle**. What is the probability that it is **in** region 1? What is the probability that it is **in** region 2?
+
+(ii) A **point** is chosen at random from the **perimeter of the rectangle**. What is the probability that it is **on** edge 1? What is the probability that it is **on** edge 2?
+
+```{r draw-rectangle-diagram, echo=FALSE, fig.width=8, fig.height=5, fig.align='center'}
+# Load the required library
+library(ggplot2)
+
+ggplot() +
+  # Draw the outer rectangle (Length = 8, Width = 4)
+  geom_rect(aes(xmin = 0, xmax = 8, ymin = 0, ymax = 4), 
+            fill = "white", color = "black", linewidth = 1) +
+  
+  # Draw the two diagonal lines connecting the corners
+  geom_segment(aes(x = 0, y = 4, xend = 8, yend = 0), color = "black", linewidth = 0.5) +
+  geom_segment(aes(x = 0, y = 0, xend = 8, yend = 4), color = "black", linewidth = 0.5) +
+  
+  # Add the Region numbers inside the triangles
+  geom_text(aes(x = 4, y = 3, label = "1"), size = 8, fontface = "bold", color = "blue") +
+  geom_text(aes(x = 6.5, y = 2, label = "2"), size = 8, fontface = "bold", color = "blue") +
+  geom_text(aes(x = 4, y = 1, label = "3"), size = 8, fontface = "bold", color = "blue") +
+  geom_text(aes(x = 1.5, y = 2, label = "4"), size = 8, fontface = "bold", color = "blue") +
+  
+  # Add the Edge labels on the outside perimeter
+  geom_text(aes(x = 4, y = 4.3, label = "Edge 1"), size = 5) +
+  geom_text(aes(x = 8.4, y = 2, label = "Edge 2"), size = 5, angle = 270) +
+  geom_text(aes(x = 4, y = -0.3, label = "Edge 3"), size = 5) +
+  geom_text(aes(x = -0.4, y = 2, label = "Edge 4"), size = 5, angle = 90) +
+  
+  # Keep the aspect ratio exactly 1:1 so the 8x4 dimensions are visually accurate
+  coord_fixed(ratio = 1, xlim = c(-1, 9), ylim = c(-1, 5)) +
+  
+  # Remove the axes and background grid
+  theme_void() +
+  
+  # Add a title
+  ggtitle("Geometric Probability: Rectangle Regions") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)))
+```
+
+**Solution**
+
+(i) To find the probability of a point landing in a specific region, we divide the area of that region by the total area of the shape.
+
+  - Total Area: The rectangle has a length of 8 and a width of 4.
+    
+    Total Area = $8 \times 4 = 32$.
+    
+  - Region 1 (Top Triangle): The base of this triangle is the top edge of the rectangle (length 8). Because the diagonals meet exactly in the center, the perpendicular height of this triangle is half of the rectangle's width ($4 \div 2 = 2$).
+    
+    Area of Region 1 = $\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 8 \times 2 = 8$.
+    
+    
+  - Region 2 (Right Triangle): The base of this triangle is the right edge of the rectangle (width 4). The perpendicular height from the center to this edge is half of the rectangle's length ($8 \div 2 = 4$).
+  
+    Area of Region 2 = $\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 4 \times 4 = 8$.
+    
+  - Note: The diagonals of any rectangle divide it into four triangles of equal area, even though they have different perimeters
+  
+  - Dividing the region areas by the total area gives the final probabilities:
+  
+    - The probability that a random point is in Region 1 is 
+      $$\frac{8}{32} = \frac{1}{4}  = 0.25$$
+      
+    - The probability that a random point is in Region 2 is 
+    
+    $$\frac{8}{32} = \frac{1}{4} = 0.25$$ 
+
+(ii) To find the probability of a point landing on a specific edge, we divide the length of that edge by the total perimeter.
+
+  - Total Perimeter: The rectangle has two sides of length 8 and two sides of length 4.Total Perimeter = $8 + 8 + 4 + 4 = 24$.
+  
+    - Edge 1 (Top Edge): This edge has a length of 8.
+    
+    - Edge 2 (Right Edge): This edge has a length of 4.
+
+  - Dividing the edge lengths by the total perimeter gives the final probabilities:
+    
+    - The probability that a random point on the perimeter is on Edge 1 is 
+    $$\frac{8}{24} = \frac{1}{3}  = 0.333$$
+    
+    - The probability that a random point on the perimeter is on Edge 2 is 
+    $$\frac{4}{24} = \frac{1}{6} = 0.167$$
+
+### Probability of an event: Classical vs Uniform Measures: Example
+
+- Consider the experiment where one point is chosen at random from the interval $[0, 1]$. For $a \in [0, 1]$, $P(a) = 0$, that is, the event $x = a$ has probability $0$, in the uniform probability measure. 
+
+  - Points have zero length. 
+
+  - But that does not mean that this event is impossible: 
+
+  - if we choose a point at random from $[0, 1]$ then any point could be chosen but the probability that a particular point is chosen is 0. 
+  
+- To get a positive probability, we need an event: 
+
+  - E.g.: $\frac{1}{4} \le a \le \frac{3}{4}$ where the probability is $\frac{1}{2}$
+
+## Independent vs. Dependent Events
+
+* **Problem Context:** Consider selecting 2 cards from a standard deck of 52 cards.
+  * *With replacement:* The probability of obtaining two kings involves **independent events**.
+  * *Without replacement:* The probability of obtaining two kings involves **dependent events**.
+
+* **Independent Events:** Two events are independent if the occurrence of one of the events does not affect the probability of the occurrence of the other event.
+
+\begin{align}
+P(A \cap B) = P(A) P(B)
+\end{align}
+
+* For more then two finite events, a set of *mutually exclusive* events are 
+
+\begin{align}
+P(A_1 \cap A_2 \cap \ldots A_k) = P(A_1) P(A_2) \ldots P(A_k)
+\end{align}
+
+* **Dependent Events:** Two events are dependent if the occurrence of one of the events affects the probability of the occurrence of the other event. 
+
+* Problems with dependent events can often be solved using conditional probability, also known as the multiplication rule.
+
+* Events that are not independent are dependent.
+
+* Event $A$ and $B$ are **independent** iff $P(A \cap B) = P(A \cap B) = P(A) P(B)$. Otherwise,  $A$ and $B$ are **dependent**
+
+* Dependent events can be solved using tree diagaram 
+
+### Independent Events: Example
+Let $A$ and $B$ be independent events with $P(A) = 0.7$ and $P(B) = 0.2$. Compute 
+
+a. $P(A \cap B)$ 
+
+  Since $A$ and $B$ are independent, 
+\begin{align}
+P(A \cap B)  = P(A) P(B) = 0.7 \times 0.2 = 0.14 
+\end{align}
+
+b. $P(A \cup B)$ 
+
+  Since $A$ and $B$ are independent, then using the 
+
+\begin{align}
+P(A \cup B)  = P(A) + P(B) - P(A \cap B) = 0.7 + 0.2 -0.14 = 0.76 
+\end{align}
+
+c. $P(A' \cup B')$ 
+
+  Using De Morgan's second law, 
+
+\begin{align}
+P(A' \cup B')  = 1 - P(A \cap B)'  = 1 - 0.76 = 0.24
+\end{align}
+
+### Independent Events: Example
+
+Toss a fair coin twice. Let $A$ be the event “head on first toss”, $B$ be the event “head on second toss” and $C$ be the event “same face on both tosses”. Show that these three events are pairwise independent but not mutually independent. 
+
+**Solution**: 
+
+1. Toss a fair coin twice lead to a sample space
+
+$$S := \{HH, HT, TH, TT\} $$
+
+2. The sets of event $A, B$ and $C$ are
+
+\begin{align}
+A:= &  \{HH, HT\} \\
+B:= &  \{HH, TH\} \\
+C:= &  \{HH, TT\} \\
+\end{align}
+
+3. The probability of each events are
+
+\begin{align}
+P(A) =& \frac{1}{2} \\
+P(B) =& \frac{1}{2} \\
+P(C) =& \frac{1}{2}
+\end{align}
+
+4. The  intersection of the events are
+
+\begin{align}
+A \cap B:= &  \{HH\} \\
+A \cap C:= &  \{HH\} \\
+B \cap C:= &  \{HH\} \\
+\end{align}
+
+
+5. To show pariwise independent, we need to show that 
+
+\begin{align}
+P(A \cap B) =& P(A)P(B) \\
+P(A \cap C) =& P(A)P(C) \\
+P(B \cap C) =& P(B)P(C)
+\end{align}
+
+6. Hence, 
+
+\begin{align}
+P(A \cap B) =& \frac{1}{4} \rightarrow P(A)P(B) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}\\
+P(A \cap C) =& \frac{1}{4} \rightarrow P(A)P(C) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}\\
+P(B \cap C) =& \frac{1}{4} \rightarrow P(B)P(C) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}
+\end{align}
+
+7. Therefore, the events $A$, $B$, and $C$ are pairwise independent.
+
+8. Three events $A$, $B$, and $C$ are mutually independent if they are pairwise independent and satisfy 
+
+$$P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)$$
+
+9. The intersection of events are 
+
+$$A \cap B \cap C:= \{HH\} $$
+so the probabilty is 
+
+$$P(A \cap B \cap C)  = \frac{1}{4}$$
+10. The product of probability is 
+
+$$P(A) \cdot P(B) \cdot P(C) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}$$
+
+Since $P(A \cap B \cap C) \neq P(A) \cdot P(B) \cdot P(C)$ ($\frac{1}{4} \neq \frac{1}{8}$), the events $A$, $B$, and $C$ are not mutually independent.
+
+### Independent Events: Exercise 
+If $P(A) = 0.8$, $P(B) = 0.5$, and $P(A \cup B) = 0.9$, are $A$ and $B$ independent events? Show your answer. 
+<br>
+
+**Solution:**
+
+To show $A$ and $B$ are independent, we need to show $P(A)P(B) = P(A \cap B)$
+
+\begin{align}
+P(A \cup B) =& P(A) + P(B) - P(A \cap B) \\
+P(A \cap B) =& P(A) + P(B) -  P(A \cup B) = 0.8 + 0.5 - 0.9 = 0.4\\
+P(A)P(B) =& (0.8)(0.5) = 0.4 = P(A \cap B) 
+\end{align}
+
+Since $P(A \cap B) = 0.4$ and $P(A) \cdot P(B) = 0.4$, the condition $P(A \cap B) = P(A) \cdot P(B)$ is satisfied.
+
+### Independent Events: Exercise
+
+Let $A$ be the event that the sum of the two numbers shown is $7$, let $B$ be the event that the sum of the two numbers shown is 8 and $C$ be the event that the first number shown is even. 
+
+a. Find the probabilities of the events $A, B, C$, $A \cap C$ and $B \cap C$. 
+
+b. Are $A$ and $C$ independent? Are $B$ and $C$ independent? 
+
+c. Justify your answers.
+
+**Solution:**
+
+```{r sample-space-table, results='asis', echo = FALSE}
+# Create 6x6 matrix of ordered pairs
+sample_space <- outer(1:6, 1:6, Vectorize(function(i, j) sprintf("(%d, %d)", i, j)))
+
+# Render clean markdown table without row/column headers
+knitr::kable(sample_space, col.names = rep("", 6), align = "c")
+```
+
+a. Probabilities of EventsEvent 
+
+  - $A$ (Sum is 7):
+  
+    - $A = \{(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\}$
+    
+    - Number of outcomes $n(A) = 6$
+    
+    - $P(A) = \frac{6}{36} = \frac{1}{6}$
+    
+  - Event $B$ (Sum is 8):$
+  
+    - B = \{(2,6), (3,5), (4,4), (5,3), (6,2)\}$
+    
+    - Number of outcomes $n(B) = 5$
+    
+    - $P(B) = \frac{5}{36}$
+    
+  - Event $C$ (First number shown is even):
+      
+      - $C = \{(2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (4,1), (4,2), (4,3), (4,4), (4,5), (4,6), (6,1), (6,2), (6,3), (6,4), (6,5), (6,6)\}$
+      
+      - Number of outcomes $n(C) = 18$
+      
+      - $P(C) = \frac{18}{36} = \frac{1}{2}$
+      
+  - Event $A \cap C$ (Sum is 7 AND first number is even):
+    
+      - $A \cap C = \{(2,5), (4,3), (6,1)\}$
+      
+      - Number of outcomes $n(A \cap C) = 3$
+      
+      - $P(A \cap C) = \frac{3}{36} = \frac{1}{12}$
+      
+    - Event $B \cap C$ (Sum is 8 AND first number is even):
+      
+      - $B \cap C = \{(2,6), (4,4), (6,2)\}$
+        
+      - Number of outcomes $n(B \cap C) = 3$
+        
+      - $P(B \cap C) = \frac{3}{36} = \frac{1}{12}$
+  
+b. Independence Results$A$ and $C$ are independent.$B$ and $C$ are NOT independent.
+  
+c. Justification
+  
+  - Two events $X$ and $Y$ are independent if and only if $P(X \cap Y) = P(X) \cdot P(Y)$.
+  
+  - For $A$ and $C$:
+    
+    - $P(A \cap C) = \frac{1}{12}$
+    
+    - $P(A) \cdot P(C) = \frac{1}{6} \times \frac{1}{2} = \frac{1}{12}$
+    
+    - Since $P(A \cap C) = P(A) \cdot P(C)$, events $A$ and $C$ are independent.
+    
+  - For $B$ and $C$:
+    
+    - $P(B \cap C) = \frac{3}{36} = \frac{1}{12}$
+    
+    - $P(B) \cdot P(C) = \frac{5}{36} \times \frac{1}{2} = \frac{5}{72}$
+      
+    - Since $P(B \cap C) \neq P(B) \cdot P(C)$ ($\frac{6}{72} \neq \frac{5}{72}$), events $B$ and $C$ are not independent.
+
+### Independent Events vs. Dependent Events: Examples 
+
+**Independent Events**
+
+- Flipping a coin and rolling a die: Getting "Heads" on the coin doesn't change your 1-in-6 chance of rolling a "4" on the die.
+
+- Buying a lottery ticket and getting a flat tire: Winning (or losing) the lottery has no influence on the probability of your tire popping on the way home.
+
+- Having a boy, then having another boy: The biological odds of having a boy are roughly 50%. Having a boy first does not magically make the odds of having a girl next time 100%. The odds reset to 50% for the second child.
+
+-  When training a model to recognize tumors in MRI scans, Patient A's scan is completely independent of Patient B's scan. The outcome of one does not change the probability of the other. If you shuffle the order of the images during training, the model learns exactly the same way.
+
+-  This classification algorithm (often used for spam filtering) calculates probabilities by making a "naive" assumption: it treats every feature as an independent event. It assumes the presence of the word "urgent" in an email is completely independent of the presence of the word "money," multiplying their individual probabilities together to guess if the email is spam.
+
+**Dependent Events**
+
+-  If you draw an Ace from a standard 52-card deck and keep it in your hand, the odds of drawing another Ace change. There are now only 3 Aces left in a 51-card deck.
+
+- If you have 10 black socks and 10 white socks, the odds of pulling a black sock are 50%. If you pull out a black sock and put it on your foot, there are now only 9 black socks left out of 19. The odds for your second pull have changed.
+
+- If there is a major accident on your route to work (Event A), the probability that you will be late to work (Event B) drastically increases. (Traffic data)
+
+- Text generation relies entirely on dependent probability. If an LLM is generating a sentence and has already output "The quick brown", the probability of the next word being "fox" is massively higher than it would have been if the previous words were "I ate a". The next prediction depends directly on the sequence of previous predictions. (Large Language Models (NLP))
+
+- The probability that it will rain on Tuesday is highly dependent on the barometric pressure and weather conditions from Monday. Models like ARIMA or Recurrent Neural Networks (RNNs) are specifically designed to handle this dependency. (Time Series Forecasting)
+
+### Probability Tree Diagram
+* Tree diagrams can be used to determine the value of the probability for dependent events.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load the library
+library(DiagrammeR)
+
+# Create the tree diagram using Graphviz syntax
+grViz("
+digraph probability_tree {
+  
+  # Set graph orientation to Left-to-Right
+  graph [rankdir = LR]
+  
+  # Define node aesthetics
+  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]
+  
+  # Define the nodes
+  Start [label = 'Start', fillcolor = lightgrey]
+  A [label = 'Event A']
+  B [label = 'Event B']
+  C1 [label = 'Outcome C']
+  D1 [label = 'Outcome D']
+  C2 [label = 'Outcome C']
+  D2 [label = 'Outcome D']
+  
+  # Define the edges (branches) and their probability labels
+  Start -> A [label = ' P(A)']
+  Start -> B [label = ' P(B)']
+  
+  A -> C1 [label = ' P(C|A)']
+  A -> D1 [label = ' P(D|A)']
+  
+  B -> C2 [label = ' P(C|B)']
+  B -> D2 [label = ' P(D|B)']
+}
+")
+```
+
+
+## Conditional Probability
+
+* **Definition 1.3-1:** The conditional probability of an event $A$, given that event $B$ has occurred, is defined mathematically.
+* The formula for conditional probability is:
+  
+  $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+  
+  provided that $P(B) > 0$.
+
+### Properties of Independent Events
+
+* **Definition:** Events $A$ and $B$ are independent if and only if $P(A \cap B) = P(A)P(B)$. Otherwise, $A$ and $B$ are called dependent events.
+* **Properties of Independent Events:**
+  * If $A$ and $B$ are independent, then $P(A|B) = P(A)$ if $P(B) > 0$, and $P(B|A) = P(B)$ if $P(A) > 0$.
+  * If $A$ and $B$ are independent, so are $A$ and $B'$, $A'$ and $B$, and $A'$ and $B'$.
+
+
+### Conditional Probability: Example 
+
+A bowl contains 8 chips, where 3 of the chips are red and the remaining five are blue. Two chips are to be drawn successively, at random and without replacement. We use conditional probability to find the probability that the first draw results in a red chip ($C_1$) and that the second draw results in a blue chip ($C_2$).
+
+```{r probability-tree, echo=FALSE, message=FALSE, warning=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph probability_tree {
+  graph [rankdir = LR] // Left to Right layout
+  
+  // Define node styles
+  node [shape = plaintext, fontname = Helvetica, fontsize = 14]
+  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]
+  
+  // Define the nodes
+  Start [label = 'Start\n(8 chips)']
+  R1 [label = 'Red  ']
+  B1 [label = 'Blue ']
+  R2a [label = 'Red ']
+  B2a [label = 'Blue  ']
+  R2b [label = 'Red ']
+  B2b [label = 'Blue ']
+  
+  // Define the edges and probabilities
+  Start -> R1 
+  Start -> B1 
+  
+  R1 -> R2a
+  R1 -> B2a  // This is the path C1 -> C2
+  
+  B1 -> R2b 
+  B1 -> B2b 
+}
+")
+```
+
+a. Calculate the conditional probability that a red chip was drawn in the second step given that the a  blue chip was drawn previously.
+
+b. What is the probability of drawing a red chips in the second time?
+
+**Solution:**
+
+a. When a blue chip is drawn on the first try (without replacement):
+
+  - The total remaining chips in the bowl becomes $8 - 1 = 7$.
+  
+  
+  - The remaining number of red chips is still 3.
+  
+  
+  - Therefore, the conditional probability is:
+      $$P(R_2 \mid B_1) = \frac{3}{7}$$
+b. Probability of drawing a red chip on the 2nd draw: $P(R_2)$
+
+- Using the Law of Total Probability, drawing a red chip on the second draw can happen under two mutually exclusive scenarios depending on the outcome of the first draw:
+
+
+- First draw is Red, second draw is Red ($R_1 \cap R_2$)
+
+- First draw is Blue, second draw is Red ($B_1 \cap R_2$)$$P(R_2) = P(R_1 \cap R_2) + P(B_1 \cap R_2)$$
+$$P(R_2) = P(R_1) \cdot P(R_2 \mid R_1) + P(B_1) \cdot P(R_2 \mid B_1)$$
+
+- Substitute the probabilities:
+
+  
+  - $P(R_1) = \frac{3}{8}$
+  
+  - $P(R_2 \mid R_1) = \frac{2}{7}$ (if a red is drawn first, 2 red chips remain out of 7)
+  
+  - $P(B_1) = \frac{5}{8}$
+  
+  - $P(R_2 \mid B_1) = \frac{3}{7}$
+  
+    $$P(R_2) = \left(\frac{3}{8} \times \frac{2}{7}\right) + \left(\frac{5}{8} \times \frac{3}{7}\right)$$
+    
+    $$P(R_2) = \frac{6}{56} + \frac{15}{56} = \frac{21}{56} = \frac{3}{8}$$
+    
+    Conclusion: The probability of drawing a red chip on the second draw is $\frac{3}{8}$ (or $0.375$).
+
+### The Birthday Problem
+
+*What is the probability that, in a group of n people, two of them share the same birthday?*
+
+*How many people would need to be in a room for there to be a 50 percent chance that at least two of them share the same birthday?*
+
+
+
+- **Person 1:** Enters an empty room with 365 out of 365 days available. 
+
+- **Person 2:** Given Person 1 claimed a day, they only have 364 safe days left to avoid a match ($P = \frac{364}{365}$).
+
+- **Person 3:** Strictly dependent on the first two outcomes, they only have 363 days left ($P = \frac{363}{365}$).
+
+- **Person 25:** Strictly dependent on the first 24 outcomes, they only have 341 safe days left ($P = \frac{341}{365}$).
+
+- To find the probability of at least one shared birthday, we multiply the conditional probabilities of *avoiding* a match, then use the rule of complements.
+
+$$P(\text{Match}) = 1 - \left(\frac{365}{365} \times \frac{364}{365} \times \dots \times \frac{341}{365}\right)$$
+$$P(\text{Match}) = 1 - 0.4313 = 0.5687$$
+
+- With **23 people**, the probability crosses 50.7%.
+
+- With **70 people**, the probability hits 99.9%.
+
+### Interactive Game: The Impossible Bet
+- **The Setup:** Offer a crowd of 30+ people a $10 bet that a shared birthday exists in the room.
+- **The Execution:** Call out months one by one. Have people born in that month stand up and state their day.
+- **The Reveal:** The audience falls for the intuitive trap, but the math is heavily in your favor. Statistically, two people standing will call out the same number well before you reach December.
+
+## Conditional Probability: Example 
+
+1. When Netflix or Amazon recommends something to you, they are rarely looking at items in a vacuum. They are calculating conditional probabilities based on user behavior.
+
+    E.g.: "What is the probability this user will watch Stranger Things ($Event\ A$), given that they already watched The Umbrella Academy ($Event\ B$)?"
+
+2. A Markov Model is a system that transitions from one state to another, where the probability of the next state depends only on the current state.
+
+    E.g.: "Given that the current word is 'New' ($Event\ B$), what is the probability that the next word is 'York' ($Event\ A$) versus 'shoes'?"
+
+### Conditional Probability: Exercise
+
+A velvet bag contains 15 marbles in three different colors (three possible events per draw):
+
+  - 6 Red marbles
+
+  - 5 Blue marbles
+
+  - 4 Green marbles
+
+You draw 4 marbles in a row without putting any back (four dependent steps).
+
+What is the exact probability of drawing a Red, then a Blue, then a Green, and finally another Red marble?
+
+
+```{r probability-tree-exercise, echo=FALSE, message=FALSE, warning=FALSE}
+library(DiagrammeR)
+grViz("
+digraph probability_tree {
+  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.8]
+  
+  node [fontname = Helvetica, shape = rectangle, style = 'filled,rounded', fillcolor = '#F7FAFC', fontsize = 10]
+  edge [fontname = Helvetica, fontsize = 9]
+
+  # Root Node
+  Start [label = 'Start\n(15 Marbles:\n6R, 5B, 4G)', shape = ellipse, fillcolor = '#EDF2F7']
+
+  # 1st Draw Branches
+  R1 [label = '1st: Red\n(14 Left)', fillcolor = '#FED7D7', style = 'filled,bold', color = '#E53E3E']
+  B1 [label = '1st: Blue\n(14 Left)']
+  G1 [label = '1st: Green\n(14 Left)']
+
+  # 2nd Draw Branches (from R1)
+  R1_R2 [label = '2nd: Red\n(13 Left)']
+  R1_B2 [label = '2nd: Blue\n(13 Left)', fillcolor = '#BEE3F8', style = 'filled,bold', color = '#3182CE']
+  R1_G2 [label = '2nd: Green\n(13 Left)']
+
+  # 3rd Draw Branches (from R1 -> B2)
+  R1_B2_R3 [label = '3rd: Red\n(12 Left)']
+  R1_B2_B3 [label = '3rd: Blue\n(12 Left)']
+  R1_B2_G3 [label = '3rd: Green\n(12 Left)', fillcolor = '#C6F6D5', style = 'filled,bold', color = '#38A169']
+
+  # 4th Draw Branches (from R1 -> B2 -> G3)
+  R1_B2_G3_R4 [label = '4th: Red\n★ TARGET ★', fillcolor = '#FED7D7', style = 'filled,bold', color = '#E53E3E']
+  R1_B2_G3_B4 [label = '4th: Blue']
+  R1_B2_G3_G4 [label = '4th: Green']
+
+  # Connections for Draw 1
+  Start -> R1 [label = ' 6/15', color = '#E53E3E', penwidth = 2.5]
+  Start -> B1 [label = ' 5/15']
+  Start -> G1 [label = ' 4/15']
+
+  # Connections for Draw 2
+  R1 -> R1_R2 [label = ' 5/14']
+  R1 -> R1_B2 [label = ' 5/14', color = '#3182CE', penwidth = 2.5]
+  R1 -> R1_G2 [label = ' 4/14']
+
+  # Connections for Draw 3
+  R1_B2 -> R1_B2_R3 [label = ' 5/13']
+  R1_B2 -> R1_B2_B3 [label = ' 4/13']
+  R1_B2 -> R1_B2_G3 [label = ' 4/13', color = '#38A169', penwidth = 2.5]
+
+  # Connections for Draw 4
+  R1_B2_G3 -> R1_B2_G3_R4 [label = ' 5/12', color = '#E53E3E', penwidth = 2.5]
+  R1_B2_G3 -> R1_B2_G3_B4 [label = ' 4/12']
+  R1_B2_G3 -> R1_B2_G3_G4 [label = ' 3/12']
+}
+")
+```
+
+To find the probability of drawing Red ($R_1$), then Blue ($B_2$), then Green ($G_3$), and finally Red ($R_4$) without replacement, we use the General Multiplication Rule for dependent events:
+$$P(R_1 \cap B_2 \cap G_3 \cap R_4) = P(R_1) \cdot P(B_2 \mid R_1) \cdot P(G_3 \mid R_1 \cap B_2) \cdot P(R_4 \mid R_1 \cap B_2 \cap G_3)$$
+
+- Step 1: First Draw — Red ($R_1$)
+
+  - Bag contents: 6 Red, 5 Blue, 4 Green (15 total)
+  
+  $$P(R_1) = \frac{6}{15} = \frac{2}{5}$$
+- Step 2: Second Draw — Blue ($B_2$)Bag contents after $R_1$: 5 Red, 5 Blue, 4 Green (14 total)
+
+  $$P(B_2 \mid R_1) = \frac{5}{14}$$
+- Step 3: Third Draw — Green ($G_3$)Bag contents after $R_1, B_2$: 5 Red, 4 Blue, 4 Green (13 total)$$P(G_3 \mid R_1 \cap B_2) = \frac{4}{13}$$
+- Step 4: Fourth Draw — Red ($R_4$)Bag contents after $R_1, B_2, G_3$: 5 Red, 4 Blue, 3 Green (12 total)
+$$P(R_4 \mid R_1 \cap B_2 \cap G_3) = \frac{5}{12}$$
+
+- Final Calculation
+
+  - Multiply all individual conditional probabilities together:
+$$P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{6}{15} \times \frac{5}{14} \times \frac{4}{13} \times \frac{5}{12}$$
+$$P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{6 \times 5 \times 4 \times 5}{15 \times 14 \times 13 \times 12} = \frac{600}{32,760}$$
+  - Simplifying the fraction by dividing numerator and denominator by 120:
+
+$$\mathbf{P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{5}{273}} \approx 0.018315 \quad (\text{or } 1.8315\%)$$
+
+### Conditional Probability: Exercise
+
+An IT specialist is analysing traffic on a highly secure corporate email server. Because the security is very tight, spam is quite rare.
+
+Only 5% of all incoming emails are actually Spam. The other 95% are Legitimate internal emails. You are looking at how often the word "URGENT" is used in these emails. Spammers love this word. If an email is Spam, there is a 40% chance it contains the word "URGENT". Normal employees rarely use it. If an email is Legitimate, there is only a 2% chance it contains the word "URGENT".
+
+An alert pops up: A new email has just arrived, and it contains the word "URGENT". Based on conditional probability, what is the approximate percentage chance that this specific email is actually Spam?
+
+**Solution:**
+
+Let 
+
+- S: Incoming emails that are actually spam 
+
+- S': Incoming emaila that are legitimate 
+
+- U: Emails with URGENT
+
+- U': Emails with no URGENT 
+
+Then,
+
+- $P(S)$ = 0.05
+
+- $P(S')$ = 0.95 
+
+- $P(U|S) = 0.40$
+
+- $P(U|S') = 0.02$
+
+To find the probability that the email is Spam given that there is URGENT in it
+
+\begin{align}
+P(S|U) =& \frac{P(U \cap S)}{P(U)} \\
+=& \frac{P(U | S)P(S)}{P(U)} \\
+=& \frac{0.4 \times  0.05}{P(U)}
+\end{align}
+
+where 
+
+\begin{align}
+P(U) =& P(U|S)P(S) + P(U|S')P(S') \\
+=& 0.4 \times 0.05 + 0.02 \times 0.95 = 0.039
+\end{align}
+
+Hence, 
+
+\begin{align}
+P(S|U) =& \frac{0.4 \times  0.05}{0.039} =  0.0513
+\end{align}
+
+Therefore, the approximate percentage that this specific email is Spam is 5.13%. 
+
+
+### Bayes' Theorem
+
+* Let $B_1, B_2, \dots, B_m$ constitute a partition of the sample space $S$. 
+* This means that $S = B_1 \cup B_2 \cup \dots \cup B_m$ and $B_i \cap B_j = \emptyset$ for $i \neq j$.
+* Then for any event $A$ that is a subset of $S$, Bayes' Theorem is given by:
+
+  $$P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}$$
+
+```{r draw-bayes-theorem, echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+# Load the required library
+library(ggplot2)
+
+# Generate coordinates for an ellipse to represent Event A
+t <- seq(0, 2 * pi, length.out = 100)
+ellipse_data <- data.frame(
+  x = 4 + 3 * cos(t),
+  y = 2 + 1.5 * sin(t)
+)
+
+# Define the coordinates for the partitions (B1, B2, B3, Bm)
+partitions <- data.frame(
+  xmin = c(0, 2, 4, 6),
+  xmax = c(2, 4, 6, 8),
+  ymin = c(0, 0, 0, 0),
+  ymax = c(4, 4, 4, 4),
+  # We highlight the target partition Bk in light blue
+  fill_color = c("white", "lightblue", "white", "white") 
+)
+
+ggplot() +
+  # 1. Draw the partitions of Sample Space S
+  geom_rect(data = partitions, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+            fill = partitions$fill_color, color = "black", linewidth = 1) +
+  
+  # 2. Draw Event A overlapping the partitions
+  geom_polygon(data = ellipse_data, aes(x = x, y = y), 
+               fill = "coral", alpha = 0.4, color = "darkred", linewidth = 1.2) +
+  
+  # 3. Add Labels for the partitions
+  geom_text(aes(x = 1, y = 3.6, label = "B[1]"), parse = TRUE, size = 6) +
+  geom_text(aes(x = 3, y = 3.6, label = "B[k]"), parse = TRUE, size = 6, fontface = "bold") +
+  geom_text(aes(x = 5, y = 3.6, label = "..."), parse = TRUE, size = 6) +
+  geom_text(aes(x = 7, y = 3.6, label = "B[m]"), parse = TRUE, size = 6) +
+  
+  # 4. Add Label for the entire Sample Space S
+  geom_text(aes(x = -0.3, y = 3.8, label = "S"), size = 7, fontface = "italic") +
+  
+  # 5. Add Labels for Event A and the specific intersection
+  geom_text(aes(x = 5, y = 2), label = "Event A", size = 5, color = "darkred", fontface = "bold") +
+  geom_text(aes(x = 3, y = 2.2, label = "A %*% B[k]"), parse = TRUE, size = 4, fontface = "bold") +
+  
+  # Clean up the theme
+  theme_void() +
+  coord_fixed(ratio = 1, xlim = c(-0.5, 8.5), ylim = c(-0.2, 4.2)) +
+  
+  # Add Title
+  ggtitle("Visualizing Bayes' Theorem: Partitions and Intersections") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)))
+```
+
+Out of the entire area where Event A happens (the complete coral oval), what exact percentage of that area belongs to our target scenario $B_k$?
+
+- The numerator ($P(B_k)P(A\vert{}B_k)$) is just the area of the specific intersection chunk inside $B_k$.
+
+- The denominator ($\sum_{i=1}^{m} P(B_i)P(A\vert{}B_i)$) is just the total area of the coral oval, calculated by adding up all of its individual chunks across every partition.
+
+---
+
+### Bayes' Theorem: Proof
+
+By the definition of conditional probability, the probability of event $B_k$ given event $A$ is:
+
+$$P(B_k|A) = \frac{P(B_k \cap A)}{P(A)}$$
+
+Using the multiplication rule of probability, we can express the intersection in the numerator as:
+
+$$P(B_k \cap A) = P(B_k)P(A|B_k)$$
+
+Next, because $B_1, B_2, \dots, B_m$ form a partition of the sample space $S$, we can apply the Law of Total Probability to expand the denominator $P(A)$. The event $A$ can occur in conjunction with any of the mutually exclusive events $B_i$:
+
+$$P(A) = \sum_{i=1}^{m} P(B_i \cap A)$$
+
+Applying the multiplication rule to each term in the sum gives:
+
+$$P(A) = \sum_{i=1}^{m} P(B_i)P(A|B_i)$$
+
+Finally, substituting the expanded numerator and the expanded denominator back into the original conditional probability formula yields Bayes' Theorem:
+
+$$P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}$$
+
+### Bayes Rule: Example 1
+
+- Sample Space ($S$): The entire population being tested.
+
+- The Partitions ($B_1$ and $B_2$):
+
+    - $B_1$ (Has Disease): $1\%$ of the population actually has the disease.
+    
+    - $B_2$ (Healthy): $99\%$ of the population does not have the disease.
+    
+- Event $A$ (Positive Test Result): The test comes back Positive.
+
+    - If a patient has the disease ($B_1$), the test is $90\%$ accurate.
+    
+    - If a patient is healthy ($B_2$), the test has a $5\%$ false positive rate
+
+---
+
+### Bayes Rule: Example 2 (Heart Disease (Medical Screening))
+
+- Sample Space ($S$): All patients walking into a clinic.
+
+- Partitions ($B_1$ and $B_2$):
+
+  - $B_1$: Patients who actually have Heart Disease.
+  
+  - $B_2$: Patients who are Healthy (No Heart Disease).
+    
+- Event $A$ (Chest Pain): A patient presents with chest pain.
+
+  - $A \cap B_1$ (True Positive Indicator): Patients who have heart disease and experience chest pain.
+  
+  - $A \cap B_2$ (False Alarm): Healthy patients who experience chest pain due to harmless causes (like acid reflux or muscle strain).
+  
+- How it works:When a doctor sees a patient with chest pain ($A$), they need to determine if it is caused by heart disease ($B_1$). Even though chest pain is common in heart disease, acid reflux is so widespread in the general healthy population ($B_2$) that chest pain alone doesn't instantly mean a heart attack—it depends on the relative sizes of both groups.
+
+---
+
+### Bayes' Theorem Application: Example
+
+At a hospital's emergency room, patients are classified: 
+
+- 20% of them are critical, 
+
+- 30% are serious, and 
+
+- 50% are stable. 
+
+Of the critical ones, 30% die; of the serious, 10% die; and of the stable, 1% die. Given that a patient dies, what is the conditional probability that the patient was classified as critical?
+
+```{r visualize-hospital-bayes, echo=FALSE, fig.width=8, fig.height=5, fig.align='center'}
+library(ggplot2)
+
+# Define the coordinates for the patient categories (Width = percentage of patients)
+patients <- data.frame(
+  State = c("Critical", "Serious", "Stable"),
+  xmin = c(0, 0.20, 0.50),
+  xmax = c(0.20, 0.50, 1.00),
+  ymin = c(0, 0, 0),
+  ymax = c(1, 1, 1)
+)
+
+# Define the coordinates for the deaths (Height = death rate per category)
+deaths <- data.frame(
+  State = c("Critical", "Serious", "Stable"),
+  xmin = c(0, 0.20, 0.50),
+  xmax = c(0.20, 0.50, 1.00),
+  ymin = c(0, 0, 0),
+  ymax = c(0.30, 0.10, 0.01)
+)
+
+ggplot() +
+  # Draw the total hospital population partitions (S)
+  geom_rect(data = patients, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
+            fill = "white", color = "black", linewidth = 1) +
+  
+  # Draw the death rates (Event A)
+  geom_rect(data = deaths, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
+            fill = "coral", color = "black", linewidth = 1) +
+  
+  # Column labels (Partition sizes)
+  geom_text(aes(x = 0.10, y = 0.9, label = "Critical\n(20% of total)"), size = 4) +
+  geom_text(aes(x = 0.35, y = 0.9, label = "Serious\n(30% of total)"), size = 4) +
+  geom_text(aes(x = 0.75, y = 0.9, label = "Stable\n(50% of total)"), size = 4) +
+  
+  # Area labels (Intersection sizes)
+  geom_text(aes(x = 0.10, y = 0.15, label = "Area: 0.06"), size = 4, fontface = "bold") +
+  geom_text(aes(x = 0.35, y = 0.05, label = "Area: 0.03"), size = 4, fontface = "bold") +
+  # Stable death area is very thin, so label goes just above it
+  geom_text(aes(x = 0.75, y = 0.05, label = "Area: 0.005"), size = 4, fontface = "bold") +
+  
+  theme_void() +
+  ggtitle("Hospital Emergency Room: Total Deaths (The Denominator)") +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold", margin = margin(b = 15)))
+```
+
+a. This diagram illustrates the Law of Total Probability applied to hospital emergency room patient outcomes
+
+b. The partitions are the vertical columns that divide the entire patient population into three mutually exclusive groups based on their initial condition upon arrival:   
+
+  - $B_1$ = Critical Patients: Make up $20\%$ ($0.20$) of all incoming patients.   
+
+  - $B_2$ = Serious Patients: Make up $30\%$ ($0.30$) of all incoming patients.   
+
+  - $B_3$ = Stable Patients: Make up $50\%$ ($0.50$) of all incoming patients.   
+
+  - (Notice that $20\% + 30\% + 50\% = 100\%$, meaning these three categories cover every single patient arriving at the ER).
+
+c. $0.06$ (or $6\%$) represents the joint probability that a patient both arrives in Critical condition AND dies.   
+
+  - Mathematically, it is the area of that specific shaded box:
+  
+  - $$P(\text{Critical} \cap \text{Death}) = P(\text{Critical}) \times P(\text{Death} \mid \text{Critical}) = 0.06$$
+  
+  - Since $20\%$ ($0.20$) of patients are Critical, a shaded area of $0.06$ means that $30\%$ of Critical patients end up dying ($0.20 \times 0.30 = 0.06$).
+
+**Solution:**
+
+To find the probability that a patient who died was classified as critical, we apply **Bayes' Theorem**.
+
+1. Define the Events and Given Probabilities
+
+* **Classification probabilities:**
+* $P(C) = 0.20$ (Critical)
+* $P(S) = 0.30$ (Serious)
+* $P(St) = 0.50$ (Stable)
+
+
+* **Conditional probabilities of death ($D$):**
+* $P(D \mid C) = 0.30$
+* $P(D \mid S) = 0.10$
+* $P(D \mid St) = 0.01$
+
+2. Find the Total Probability of Death $P(D)$
+
+Using the Law of Total Probability:
+
+$$P(D) = P(C) \cdot P(D \mid C) + P(S) \cdot P(D \mid S) + P(St) \cdot P(D \mid St)$$
+
+$$P(D) = (0.20 \times 0.30) + (0.30 \times 0.10) + (0.50 \times 0.01)$$
+
+$$P(D) = 0.060 + 0.030 + 0.005 = 0.095$$
+
+3. Calculate $P(C \mid D)$ using Bayes' Theorem
+
+$$P(C \mid D) = \frac{P(C) \cdot P(D \mid C)}{P(D)}$$
+
+$$P(C \mid D) = \frac{0.20 \times 0.30}{0.095} = \frac{0.060}{0.095} = \frac{12}{19}$$
+
+$$\mathbf{P(C \mid D) = \frac{12}{19} \approx 0.6316 \quad (\text{or } 63.16\%)}$$
+
+### Bayes' Theorem Application: Example
+
+You are building a model to detect spam emails. Your historical data shows that exactly 5% of all login attempts on your platform are fraudulent. Consequently, 95% are legitimate.Your model evaluates logins based on three distinct features:
+
+i. $F_1$ (Late Night): The login occurs between 2 AM and 5 AM.
+
+ii. $F_2$ (VPN Used): The login IP is routed through a known commercial VPN.
+
+iii. $F_3$ (Crypto Purchase): The first action after login is attempting to buy cryptocurrency.
+
+Based on your training data, you have the following conditional probabilities likelihoods) for how often these features appear in both classes:
+
+If a login is Fraudulent:
+  
+  - $P(\text{Late Night} \vert{} \text{Fraud}) = 60\%$
+  
+  - $P(\text{VPN} \vert{} \text{Fraud}) = 80\%$
+  
+  - $P(\text{Crypto} \vert{} \text{Fraud}) = 50\%$
+  
+If a login is Legitimate:
+
+  - $P(\text{Late Night} \vert{} \text{Legitimate}) = 10\%$
+  
+  - $P(\text{VPN} \vert{} \text{Legitimate}) = 10\%$
+  
+  - $P(\text{Crypto} \vert{} \text{Legitimate}) = 20\%$
+
+What is the posterior probability that a login is Fraudulent given that all three features ($F_1$: Late Night, $F_2$: VPN, $F_3$: Crypto Purchase) are present?
+
+**Solution:**
+
+**Bayes' Rule Formal Definition**
+
+Bayes' Rule states that for any two events $A$ and $B$, the conditional probability of $A$ given $B$ is:
+
+$$P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}$$
+
+**Application to Fraud Detection**
+
+Replacing $A$ with $\text{Fraud}$ and $B$ with the observed evidence $E = (F_1 \cap F_2 \cap F_3)$:
+
+$$P(\text{Fraud} \mid E) = \frac{P(E \mid \text{Fraud}) \cdot P(\text{Fraud})}{P(E)}$$
+
+
+1. Likelihood Expansion (Naïve Bayes Assumption)
+
+Assuming features $F_1$, $F_2$, and $F_3$ are conditionally independent given the class:
+
+$$P(E \mid \text{Fraud}) = P(F_1 \mid \text{Fraud}) \cdot P(F_2 \mid \text{Fraud}) \cdot P(F_3 \mid \text{Fraud}) = 0.60 \cdot 0.80 \cdot 0.50 = 0.24$$
+
+$$P(E \mid \text{Legitimate}) = P(F_1 \mid \text{Legitimate}) \cdot P(F_2 \mid \text{Legitimate}) \cdot P(F_3 \mid \text{Legitimate}) = 0.10 \cdot 0.10 \cdot 0.20 = 0.002$$
+
+2. Evidence Expansion (Law of Total Probability)
+
+$$P(E) = P(E \mid \text{Fraud}) \cdot P(\text{Fraud}) + P(E \mid \text{Legitimate}) \cdot P(\text{Legitimate})$$
+
+$$P(E) = (0.24 \cdot 0.05) + (0.002 \cdot 0.95) = 0.012 + 0.0019 = 0.0139$$
+
+---
+
+3. Full Expanded Formula with Numbers
+
+Combining all components into a single Bayes' Rule expression with values substituted:
+
+$$P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.60 \cdot 0.80 \cdot 0.50 \cdot 0.05}{(0.60 \cdot 0.80 \cdot 0.50 \cdot 0.05) + (0.10 \cdot 0.10 \cdot 0.20 \cdot 0.95)}$$
+
+$$P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.012}{0.012 + 0.0019} = \frac{0.012}{0.0139} \approx 0.8633 \quad (86.33\%)$$
+
+### Bayes' Theorem Application: Exercise
+
+An influencer marketing agency is analyzing a client's Instagram account. Based on historical data, the client chooses to post either a **Story** or a **Reel**. 
+
+* The probability that the client posts a Story is 70% (0.7), and the probability they post a Reel is 30% (0.3). 
+* If they post a Story, the probability it goes "Viral" (gets over 10,000 views) is 20% (0.2). 
+* If they post a Reel, the probability it goes "Viral" is 60% (0.6).
+
+a. **Draw a tree diagram** to represent this scenario. Be sure to label all branches with their respective events and probabilities.
+
+b. Calculate the probability that a randomly selected post goes Viral.
+
+c. **Evaluate:** If you observe that a post has gone Viral, what is the conditional probability that it was a Reel? 
+
+**Solution:**
+
+a. Tree Diagram
+```{r tree-diagram, echo=FALSE, message=FALSE, warning=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph probability_tree {
+  graph [rankdir = LR, nodesep = 0.3, ranksep = 1.0]
+  
+  node [fontname = Helvetica, shape = rectangle, style = 'filled,rounded', fillcolor = '#F7FAFC', fontsize = 10]
+  edge [fontname = Helvetica, fontsize = 9]
+
+  # Root
+  Start [label = 'Post Type', shape = ellipse, fillcolor = '#EDF2F7']
+
+  # Level 1: Post Type
+  Story [label = 'Story\nP(Story) = 0.7', fillcolor = '#EBF8FF']
+  Reel  [label = 'Reel\nP(Reel) = 0.3', fillcolor = '#FEEBC8']
+
+  # Level 2: Story Outcomes
+  Story_Viral [label = 'Viral\n0.7 × 0.2 = 0.14', fillcolor = '#C6F6D5']
+  Story_Not   [label = 'Not Viral\n0.7 × 0.8 = 0.56', fillcolor = '#FED7D7']
+
+  # Level 2: Reel Outcomes
+  Reel_Viral  [label = 'Viral\n0.3 × 0.6 = 0.18', fillcolor = '#C6F6D5']
+  Reel_Not    [label = 'Not Viral\n0.3 × 0.4 = 0.12', fillcolor = '#FED7D7']
+
+  # Branches
+  Start -> Story [label = ' 0.7']
+  Start -> Reel  [label = ' 0.3']
+
+  Story -> Story_Viral [label = ' P(Viral|Story) = 0.2']
+  Story -> Story_Not   [label = ' P(Not Viral|Story) = 0.8']
+
+  Reel  -> Reel_Viral  [label = ' P(Viral|Reel) = 0.6']
+  Reel  -> Reel_Not    [label = ' P(Not Viral|Reel) = 0.4']
+}
+")
+```
+
+b. Probability that a randomly selected post goes ViralUsing the Law of Total Probability:
+
+$$P(\text{Viral}) = P(\text{Story} \cap \text{Viral}) + P(\text{Reel} \cap \text{Viral})$$
+
+$$P(\text{Viral}) = P(\text{Story}) \cdot P(\text{Viral} \mid \text{Story}) + P(\text{Reel}) \cdot P(\text{Viral} \mid \text{Reel})$$
+
+$$P(\text{Viral}) = (0.7 \times 0.2) + (0.3 \times 0.6)$$
+
+$$P(\text{Viral}) = 0.14 + 0.18 = 0.32$$
+
+Answer: The probability that a post goes Viral is $0.32$ (or $32\%$).
+
+c. Conditional Probability that a Viral post was a ReelUsing Bayes' Theorem:
+
+$$P(\text{Reel} \mid \text{Viral}) = \frac{P(\text{Reel} \cap \text{Viral})}{P(\text{Viral})}$$
+
+$$P(\text{Reel} \mid \text{Viral}) = \frac{P(\text{Reel}) \cdot P(\text{Viral} \mid \text{Reel})}{P(\text{Viral})}$$
+
+$$P(\text{Reel} \mid \text{Viral}) = \frac{0.3 \times 0.6}{0.32} = \frac{0.18}{0.32} = \frac{18}{32} = \frac{9}{16} = 0.5625$$
+
+Given that a post has gone Viral, the conditional probability that it was a Reel is $\frac{9}{16} = 0.5625$ (or $56.25\%$).
+
+
+## Tutorials 
+
+1. Given $P(A) = 0.4$, $P(B) = 0.5$, and $P(A \cap B) = 0.3$. CALCULATE the following: 
+ 
+    a. $P(A \cup B)$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    b. $P(A \cap B')$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    c. $P(A' \cup B')$ <span style="float:right;">[2 mark]</span>
+<br>
+
+<br>
+
+2. Let $S:= \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$, $A := \{1, 3, 5, 7, 9\}$, $B := \{1, 2, 4, 6, 7, 9\}$ and $C := \{s \in S : 2s \in B \}$. DETERMINE 
+
+    a. $A \cup B$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    b. $(A \cup B)^{c}$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    c.  $C \notin A$ <span style="float:right;">[2 mark]</span>
+<br>
+
+3. Roll a fair six-sided die three times. Let 
+    
+    * $A_1 = \{1 \text{ or } 2 \text{ on the first roll}\}$
+    
+    * $A_2 = \{3 \text{ or } 4 \text{ on the second roll}\}$ 
+    
+    * $A_3 = \{5 \text{ or } 6 \text{ on the third roll}\}$. 
+    
+    It is given that
+    * $P(A_i) = 1/3$ for $i = 1,2,3$; 
+    
+    * $P(A_i \cap A_j) = (1/3)^2$ for $i \neq j$; 
+    
+    * $P(A_1 \cap A_2 \cap A_3) = (1/3)^3$.
+
+    a. Find $P(A_1 \cup A_2 \cup A_3)$.<span style="float:right;">[2 mark]</span>
+<br>
+
+    b. Show that $P(A_1 \cup A_2 \cup A_3) = 1 - \left(1 - \frac{1}{3}\right)^3$. <span style="float:right;">[3 mark]</span> 
+
+        (Hint: You need to **show** how to get the RHS from teh LHS)
+<br>
+
+4. How many four-letter code words are possible using the letters in IOWA if:
+
+a. The letters may not be repeated?
+b. The letters may be repeated?
+
+5. Suppose that Novak Djokovic and Roger Federer are playing a tennis match in which the first player to win three sets wins the match. Using D and F for the winning player of a set, in how many ways could this tennis match end?
+
+6. A student uses Gemini to write a block of R code for their statistics assignment. The probability that the generated code runs perfectly without any errors on the first try is $0.82$. 
+What is the probability that the code produces at least one error on the first try? <span style="float:right;">[2 mark]</span>
+
+7. A user prompts Gemini to generate a meal plan. The response will feature exactly one primary protein source. The probability it features chicken ($C$) is $0.45$, and the probability it features tofu ($T$) is $0.20$. Since a single response cannot feature both as the primary source, these events are mutually exclusive.
+Calculate $P(C \cup T)$, the probability that the meal plan features either chicken or tofu. <span style="float:right;">[2 mark]</span>
+
+8. A researcher asks Gemini to analyze a dataset. Let $A$ be the event that Gemini successfully reads the uploaded data, and let $B$ be the event that Gemini generates a correct visualization. 
+The probability that Gemini reads the data is $P(A) = 0.90$. Given that it reads the data, the conditional probability that it generates a correct visualization is $P(B|A) = 0.70$. 
+Find the probability that Gemini successfully reads the data **and** generates a correct visualization. <span style="float:right;">[3 marks]</span>
+
+
+9. Two fair dice are rolled. **Calculate** the conditional probability that at least one die lands on 5 given that the other die lands on different numbers? <span style="float:right;">[3 mark]</span>
+<br>
+
+
+10. Let $n \in \mathbb{N}$, and $r = 0, 1, 2, \dots, n$. Show that 
+
+$${n \choose r} = {n \choose n-r}$$
+
+11. Two fair dice are rolled. **Calculate** the conditional probability that at least one die lands on 5 given that the other die lands on different numbers? <span style="float:right;">[3 mark]</span>
+<br>
+
+12. From historical data, 97% babies survive during delivery. 15% are from cesarean section. When a C-section is performed, the baby survives 96% of the time. If a randomly chosen pregnant woman does not have a section,  whar is the probability the baby survive? <span style="float:right;">[3 mark]</span>
+<br>
+
+13. Forty-eight percent (48%) of the students of a certain university are males. Five percent (5%)  of the students of this university are majoring in Mathematics. Five percent (5%) of the male students are majoring in Mathematics. If a student is selected at random, calculate the conditional probability that 
+
+    a. this student is male, given that the student is majoring in Mathematics
+
+    b. this student is majoring in Mathematics, given the student is a male
+
+14. An influencer marketing agency is analyzing a client's Instagram account. Based on historical data, the client chooses to post either a **Story** or a **Reel**. (Level 4)
+
+* The probability that the client posts a Story is 70% (0.7), and the probability they post a Reel is 30% (0.3). 
+* If they post a Story, the probability it goes "Viral" (gets over 10,000 views) is 20% (0.2). 
+* If they post a Reel, the probability it goes "Viral" is 60% (0.6).
+
+    a. **Draw a tree diagram** to represent this scenario. Be sure to label all branches with their respective events and probabilities.
+    
+    b. Calculate the probability that a randomly selected post goes Viral.
+
+    c. **Evaluate:** If you observe that a post has gone Viral, what is the conditional probability that it was a Reel? 
+
+15. A university tracks how students use Gemini for their Probability and Statistics assignments. They find that 60% of students use Gemini primarily for coding help in R ($C$), while 40% use it primarily for conceptual explanations ($E$).  (Level 5)
+
+    At the end of the semester, 80% of the students who used it for coding achieved an 'A' grade ($A$), whereas 90% of those who used it for conceptual explanations achieved an 'A' grade.
+
+    a. Draw a tree diagram to represent this scenario. <span style="float:right;">[2 marks]</span>
+
+    b. Calculate the total probability that a randomly selected student achieves an 'A' grade. <span style="float:right;">[2 marks]</span>
+
+    c. If a randomly selected student achieved an 'A' grade, use Bayes' Theorem to find the probability that they used Gemini primarily for coding help. <span style="float:right;">[3 marks]</span>
+
+16. You are looking at the relationship between heavy vaping and a specific, rare throat mutation that is a known precursor to cancer.Because the clinic sees a general population of young adults, the mutation is still relatively rare overall:
+
+    - Only 2% of all patients who walk through the doors actually have this mutation. 
+    
+    - The other 98% of patients have completely healthy throat tissue. 
+    
+    You then look at the vaping habits of these patients:Vaping is heavily linked to the mutation. 
+    
+    - If a patient has the mutation, there is a 90% chance they are a heavy vaper. 
+    
+    - However, vaping is also just a common habit. If a patient is perfectly healthy, there is still a 20% chance they are a heavy vaper. 
+
+    A nurse hands you the intake file for a brand new patient in the waiting room. You haven't seen their test results, but you see one checked box: The patient is a heavy vaper. Based on conditional probability, **calculate** is the exact percentage chance that this specific patient has the throat mutation?
+
+17. You are a contestant on a game show. The host stands in front of three closed doors: Door 1, Door 2, and Door 3. Behind one of the doors is a brand new sports car. Behind the other two doors are goats. The host asks you to pick a door. You choose Door 1.
+
+    The host knows exactly what is behind every door. After you make your pick, the host must open one of the two remaining doors that you did not pick, and he must always reveal a goat.
+
+    The host walks over and opens Door 3. A goat is sitting behind it. He then turns to you and asks: "Do you want to stick with your original choice (Door 1), or do you want to switch to the other closed door (Door 2)?"
+
+    Based on conditional probability, what are your exact percentage chances of winning the car if you stick with Door 1, versus if you switch to Door 2?

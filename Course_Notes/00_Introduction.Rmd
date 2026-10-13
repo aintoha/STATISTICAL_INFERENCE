@@ -1,0 +1,42 @@
+# Statistical Inference
+Welcome to Inferential Statistics. This 14-week module explores probability theory, random variables, distribution functions, point estimation, confidence intervals, and hypothesis testing. We will use R to simulate and calculate statistical concepts.
+
+## Course Learning Outcomes (CLOs)
+By the end of this course, students will be able to:
+
+CLO 1: APPLY the concept of probability in relation to the concept of sampling error. (C3)
+
+CLO 2: EXPLAIN the concept of point and confidence interval estimation for given parameters. (C2, A4)
+
+CLO 3: DESIGN appropriate hypothesis testing based on given statistical problems. (C5, P7)
+
+## Assessments
+
+|Assessments | Percentage |
+|:-----------|:-----------|
+|Quiz 1      | 10%       |
+|Midterm     | 20%       |
+|Quiz 2      | 10%       |
+|Assignmnet  | 20%       |
+|Final       | 40%       |
+|Total       | 100%       |
+
+## Course Structure
+
+| Week | Topic | Assessment (Formative / Summative) |
+| :--- | :-------------- |:------------|
+| **Week 1** | Chapter 1: Probability Basics (Part 1)| Tutorial 1 |
+|**Week 2** | Chapter 1: Probability Basics (Part 2)| Tutorial 2| 
+| **Week 3** | Chapter 2: Expectation, Variance, and MGF | Tutorial 3 and **Quiz 1**|
+| **Week 4** | Chapter 3: Expectation, Variance, and MGF | Tutorial  4|
+| **Week 5** | Chapter 3: Known Distributions (Discrete & Continuous) | Tutorial  5|
+| **Week 6** | Chapter 3: Known Distributions (Discrete & Continuous) |Tutorial  6|
+| **Week 7** | Chapter 4: Distribution of Function of Random Variables | Tutorial  7 and **Midterm**|
+| **Midterm** | **Break** |
+| **Week 8** | Chapter 4: CLT & Approximations |Tutorial  8|
+| **Week 9** | Chapter 5: Point Estimation (MLE & Method of Moments) |Tutorial  9|
+| **Week 10** | Chapter 5: Point Estimation (MLE & Method of Moments) |Tutorial  10 and **Quiz 2**|
+| **Week 11** | Chapter 6: Confidence Intervals |Tutorial  11|
+| **Week 12** | Chapter 6: Confidence Intervals |Tutorial  12|
+| **Week 13** | Chapter 7: Test of Statistical Hypotheses |Tutorial  11|
+| **Week 14** | Presentation of Assignment |Past Year Paper Discussion|

@@ -1,0 +1,33 @@
+---
+title: "Tutorial 3: Probability Distributions"
+author: "NAT"
+date: "Semester I, 20256/2027"
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+
+1. A discrete random variable $X$ has range $N$ and distribution function
+
+    \begin{align}
+    F(x) = \frac{x}{x + 1} \qquad \text{for} \ x = 1, 2, 3, \ldots
+    \end{align}
+
+    Find the corresponding probability function $f(x)$ and the probability $P(8 \le X \le 15)$.
+
+
+2. A continuous random variable $X has range $\mathbb{R}^{+} $and distribution function
+
+    \begin{align}
+    F(x) = 
+    \begin{cases}
+    0 \ \text{for}  \ x \le 0  \\
+    \frac{x}{x + 1} \ \text{for}  \ x \ge 0  \\
+    \end{cases}
+    \end{align}
+
+    Find the corresponding probability density function $f(x)$ and the probability $P(8 \le X \le 15)$.

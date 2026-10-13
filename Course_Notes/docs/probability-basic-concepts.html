@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Probability (Basic Concepts) | Inferential Statistics Module</title>
+  <meta name="description" content="A 14-week course module for Inferential Statistics." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Probability (Basic Concepts) | Inferential Statistics Module" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Probability (Basic Concepts) | Inferential Statistics Module" />
+  
+  <meta name="twitter:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+<meta name="author" content="NAT" />
+
+
+<meta name="date" content="2026-10-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistical-inference.html"/>
+<link rel="next" href="chapter-2-random-variables-expectation-and-moments.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.12/grViz.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#course-learning-outcomes-clos"><i class="fa fa-check"></i><b>1.1</b> Course Learning Outcomes (CLOs)</a></li>
+<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#assessments"><i class="fa fa-check"></i><b>1.2</b> Assessments</a></li>
+<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#course-structure"><i class="fa fa-check"></i><b>1.3</b> Course Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Probability (Basic Concepts)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#basic-concepts-of-statistics-random-experiments"><i class="fa fa-check"></i><b>2.1</b> Basic Concepts of Statistics &amp; Random Experiments</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-of-a-set-membership"><i class="fa fa-check"></i><b>2.2</b> Definition of a Set &amp; Membership</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#specifying-sets"><i class="fa fa-check"></i><b>2.3</b> Specifying sets</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#standard-sets"><i class="fa fa-check"></i><b>2.4</b> Standard sets</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-and-properties-of-probability"><i class="fa fa-check"></i><b>2.5</b> Definition and Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#examples-of-random-experiments"><i class="fa fa-check"></i><b>2.5.1</b> Examples of Random Experiments</a></li>
+<li class="chapter" data-level="2.5.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#applied-real-life-examples"><i class="fa fa-check"></i><b>2.5.2</b> Applied Real-Life Examples</a></li>
+<li class="chapter" data-level="2.5.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability"><i class="fa fa-check"></i><b>2.5.3</b> Properties of Probability</a></li>
+<li class="chapter" data-level="2.5.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability-examples"><i class="fa fa-check"></i><b>2.5.4</b> Properties of Probability: Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#review-of-set-algebra"><i class="fa fa-check"></i><b>2.6</b> Review of Set Algebra</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-set-operations"><i class="fa fa-check"></i><b>2.6.1</b> Properties of Set Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#additional-properties-of-probability"><i class="fa fa-check"></i><b>2.7</b> Additional Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#axioms-of-probabilities"><i class="fa fa-check"></i><b>2.7.1</b> Axioms of probabilities</a></li>
+<li class="chapter" data-level="2.7.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example"><i class="fa fa-check"></i><b>2.7.2</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example-1"><i class="fa fa-check"></i><b>2.7.3</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-in-class-exercise-a-practice-to-your-quiz"><i class="fa fa-check"></i><b>2.7.4</b> Probability Calculation: In-class exercise (A practice to your quiz)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#method-of-enumeration-multiplication-principle"><i class="fa fa-check"></i><b>2.8</b> Method of Enumeration &amp; Multiplication Principle</a></li>
+<li class="chapter" data-level="2.9" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-distribution"><i class="fa fa-check"></i><b>2.9</b> Probability Distribution</a></li>
+<li class="chapter" data-level="2.10" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutations-and-combinations-sampling"><i class="fa fa-check"></i><b>2.10</b> Permutations and Combinations (Sampling)</a></li>
+<li class="chapter" data-level="2.11" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutation-calculation-example"><i class="fa fa-check"></i><b>2.11</b> Permutation Calculation Example</a></li>
+<li class="chapter" data-level="2.12" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#intervals"><i class="fa fa-check"></i><b>2.12</b> Intervals</a></li>
+<li class="chapter" data-level="2.13" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability"><i class="fa fa-check"></i><b>2.13</b> Probability</a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event"><i class="fa fa-check"></i><b>2.13.1</b> Probability of an event</a></li>
+<li class="chapter" data-level="2.13.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-equally-likely-outcomes"><i class="fa fa-check"></i><b>2.13.2</b> Probability of an event: Equally likely outcomes</a></li>
+<li class="chapter" data-level="2.13.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-frequency-interpretation-of-probability"><i class="fa fa-check"></i><b>2.13.3</b> Probability of an event: Frequency interpretation of probability</a></li>
+<li class="chapter" data-level="2.13.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example"><i class="fa fa-check"></i><b>2.13.4</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example-1"><i class="fa fa-check"></i><b>2.13.5</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures"><i class="fa fa-check"></i><b>2.13.6</b> Probability of an event: Classical vs Uniform Measures</a></li>
+<li class="chapter" data-level="2.13.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example"><i class="fa fa-check"></i><b>2.13.7</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+<li class="chapter" data-level="2.13.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example-1"><i class="fa fa-check"></i><b>2.13.8</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-vs.-dependent-events"><i class="fa fa-check"></i><b>2.14</b> Independent vs. Dependent Events</a>
+<ul>
+<li class="chapter" data-level="2.14.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example"><i class="fa fa-check"></i><b>2.14.1</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example-1"><i class="fa fa-check"></i><b>2.14.2</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise"><i class="fa fa-check"></i><b>2.14.3</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise-1"><i class="fa fa-check"></i><b>2.14.4</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-vs.-dependent-events-examples"><i class="fa fa-check"></i><b>2.14.5</b> Independent Events vs. Dependent Events: Examples</a></li>
+<li class="chapter" data-level="2.14.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-tree-diagram"><i class="fa fa-check"></i><b>2.14.6</b> Probability Tree Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>2.15</b> Conditional Probability</a>
+<ul>
+<li class="chapter" data-level="2.15.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-independent-events"><i class="fa fa-check"></i><b>2.15.1</b> Properties of Independent Events</a></li>
+<li class="chapter" data-level="2.15.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example"><i class="fa fa-check"></i><b>2.15.2</b> Conditional Probability: Example</a></li>
+<li class="chapter" data-level="2.15.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-birthday-problem"><i class="fa fa-check"></i><b>2.15.3</b> The Birthday Problem</a></li>
+<li class="chapter" data-level="2.15.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#interactive-game-the-impossible-bet"><i class="fa fa-check"></i><b>2.15.4</b> Interactive Game: The Impossible Bet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.16" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example-1"><i class="fa fa-check"></i><b>2.16</b> Conditional Probability: Example</a>
+<ul>
+<li class="chapter" data-level="2.16.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise"><i class="fa fa-check"></i><b>2.16.1</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise-1"><i class="fa fa-check"></i><b>2.16.2</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem"><i class="fa fa-check"></i><b>2.16.3</b> Bayes’ Theorem</a></li>
+<li class="chapter" data-level="2.16.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-proof"><i class="fa fa-check"></i><b>2.16.4</b> Bayes’ Theorem: Proof</a></li>
+<li class="chapter" data-level="2.16.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example"><i class="fa fa-check"></i><b>2.16.5</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example-1"><i class="fa fa-check"></i><b>2.16.6</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-exercise"><i class="fa fa-check"></i><b>2.16.7</b> Bayes’ Theorem Application: Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.17" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#tutorials"><i class="fa fa-check"></i><b>2.17</b> Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html"><i class="fa fa-check"></i><b>3</b> Chapter 2: Random Variables, Expectation, and Moments</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#random-variables"><i class="fa fa-check"></i><b>3.1</b> Random Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#rv-and-distribution-function"><i class="fa fa-check"></i><b>3.2</b> RV and Distribution Function</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#discrete-random-variable"><i class="fa fa-check"></i><b>3.3</b> Discrete Random Variable</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#continuous-random-variable"><i class="fa fa-check"></i><b>3.4</b> Continuous Random Variable</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-continuous-random-variable"><i class="fa fa-check"></i><b>3.4.1</b> Properties of continuous Random Variable</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#cumulative-distributive-function-cdf"><i class="fa fa-check"></i><b>3.4.2</b> Cumulative Distributive Function (CDF)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#relationship-between-cdf-fx-and-p.m.f-or-p.d.f"><i class="fa fa-check"></i><b>3.4.3</b> Relationship between CDF, <span class="math inline">\(F(x)\)</span> and p.m.f or p.d.f</a></li>
+<li class="chapter" data-level="3.4.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-cdf"><i class="fa fa-check"></i><b>3.4.4</b> Properties of CDF</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-and-expected-function"><i class="fa fa-check"></i><b>3.5</b> Expected Values and Expected Function</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.5.1</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="3.5.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-of-function"><i class="fa fa-check"></i><b>3.5.2</b> Expectation of function</a></li>
+<li class="chapter" data-level="3.5.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-properties"><i class="fa fa-check"></i><b>3.5.3</b> Expectation Properties</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#moments-and-moment-generating-function"><i class="fa fa-check"></i><b>3.6</b> Moments and Moment generating function</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#finding-probability-distribution-from-mgf"><i class="fa fa-check"></i><b>3.6.1</b> Finding probability distribution from mgf</a></li>
+<li class="chapter" data-level="3.6.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-mgf"><i class="fa fa-check"></i><b>3.6.2</b> Properties of mgf</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#tutorials-1"><i class="fa fa-check"></i><b>3.7</b> Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>4</b> Random Variables and Distributions</a></li>
+<li class="chapter" data-level="5" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>5</b> Overview</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inferential Statistics Module</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probability-basic-concepts" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Probability (Basic Concepts)<a href="probability-basic-concepts.html#probability-basic-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="basic-concepts-of-statistics-random-experiments" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Basic Concepts of Statistics &amp; Random Experiments<a href="probability-basic-concepts.html#basic-concepts-of-statistics-random-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Statistics involves collecting, classifying, summarizing, organizing, analyzing, and interpreting data</li>
+<li>A random experiment is an experiment where the outcome cannot be predicted with certainty.</li>
+<li><strong>Defining Characteristics of a Random Experiment:</strong>
+<ol style="list-style-type: lower-alpha">
+<li>All possible outcomes of the experiment are known in advance.</li>
+<li>Any single performance of the experiment results in an outcome that is not known in advance.</li>
+<li>The experiment can be repeated under identical conditions.</li>
+</ol></li>
+</ul>
+</div>
+<div id="definition-of-a-set-membership" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Definition of a Set &amp; Membership<a href="probability-basic-concepts.html#definition-of-a-set-membership" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Definition</strong> A set is simply a collection of objects, these objects being called elements or members of the set.</li>
+<li>Examples include the set of all real numbers and the set of all UPNM students</li>
+<li>Membership of a set <span class="math inline">\(X\)</span> by an object <span class="math inline">\(x\)</span> is denoted by a special symbol <span class="math inline">\(\in\)</span>, read as “belongs to”</li>
+<li>The statement <span class="math inline">\(x \in X\)</span> means that <span class="math inline">\(x\)</span> is an element of, or belongs to, <span class="math inline">\(X\)</span> .</li>
+<li>There is also an opposite statement <span class="math inline">\(x \notin X\)</span> which means that <span class="math inline">\(x\)</span> is not an element of, or does not belong to, <span class="math inline">\(X\)</span> .</li>
+<li><strong>Example:</strong> For example, with <span class="math inline">\(S\)</span> being the set of all students registered for TPQ3783,
+<br><br>
+<input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"> <span class="math inline">\(\in S\)</span> (enter your name)</li>
+</ul>
+</div>
+<div id="specifying-sets" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Specifying sets<a href="probability-basic-concepts.html#specifying-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Example of a set</p>
+<p><span class="math display">\[\begin{align}
+S:= \{1, 2, 3, 4, 5, 6\}
+\end{align}\]</span></p>
+<ul>
+<li>The notation “:= ” means “is defined to be equal to</li>
+<li><span class="math inline">\(S\)</span> is a set that contains exactly six numbers listed</li>
+<li>The order of the elements does not matter. Its membership/ existance in the set is important</li>
+<li>If the set is large (multiple/ many members/ elements) <strong>and</strong> have a clear pattern, <span class="math inline">\(\ldots\)</span> is typically used. E.g.: <span class="math inline">\(S:= \{1, \ldots, 20\}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="standard-sets" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Standard sets<a href="probability-basic-concepts.html#standard-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="definition-and-properties-of-probability" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Definition and Properties of Probability<a href="probability-basic-concepts.html#definition-and-properties-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Probability is a real-valued set function <span class="math inline">\(P\)</span> that assigns a number <span class="math inline">\(P(A)\)</span> to each event <span class="math inline">\(A\)</span> in the sample space <span class="math inline">\(S\)</span>.</li>
+<li><span class="math inline">\(P(A) \ge 0\)</span></li>
+<li><span class="math inline">\(P(S) = 1\)</span></li>
+<li>If <span class="math inline">\(A_1, A_2, \dots\)</span> are mutually exclusive events (<span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i \neq j\)</span>), then <span class="math inline">\(P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots\)</span></li>
+<li><span class="math inline">\(P(\emptyset) = 0\)</span> and <span class="math inline">\(0 \le P(A) \le 1\)</span></li>
+<li><span class="math inline">\(P(A&#39;) = 1 - P(A)\)</span></li>
+<li><span class="math inline">\(P(B \cap A&#39;) = P(B) - P(B \cap A)\)</span></li>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></li>
+<li>If <span class="math inline">\(A \subset B\)</span>, then <span class="math inline">\(P(A) \le P(B)\)</span></li>
+</ul>
+<div id="examples-of-random-experiments" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Examples of Random Experiments<a href="probability-basic-concepts.html#examples-of-random-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>The experiment of tossing a coin:</strong>
+<ul>
+<li>There are two possible outcomes: getting a Head (H) or getting a Tail (T).</li>
+<li>Even though we know both <strong>possible outcomes</strong>, we cannot definitively predict that we will get a tail if we throw the coin in a particular manner.</li>
+</ul></li>
+<li><strong>The experiment of rolling a die:</strong>
+<ul>
+<li>There are six possible outcomes: the die showing up 1, 2, 3, 4, 5, or 6.</li>
+<li>We cannot for sure predict that we can make a particular number appear on the face of the dice when it is rolled.</li>
+</ul></li>
+</ul>
+</div>
+<div id="applied-real-life-examples" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Applied Real-Life Examples<a href="probability-basic-concepts.html#applied-real-life-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Quality Control &amp; Manufacturing:</strong>
+<ul>
+<li>Testing the length of life of a 60-watt light bulb until it burns out.
+<ul>
+<li>There infinitely number of possible of outcomes. (Why?)</li>
+</ul></li>
+</ul></li>
+<li><strong>Environmental Testing:</strong>
+<ul>
+<li>Counting the number of bacteria colonies in a 100-milliliter water sample taken from a specific lake basin.</li>
+</ul></li>
+<li><strong>Technology Reliability:</strong>
+<ul>
+<li>Measuring the continuous amount of time in hours that a computer functions before breaking down.</li>
+</ul></li>
+<li><strong>Queueing &amp; Logistics:</strong>
+<ul>
+<li>Measuring the waiting time in minutes until the first customer or patient arrives at a facility.</li>
+</ul></li>
+</ul>
+</div>
+<div id="properties-of-probability" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Properties of Probability<a href="probability-basic-concepts.html#properties-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Sample Space, <span class="math inline">\(S\)</span></li>
+<li>The event set, <span class="math inline">\(E\)</span></li>
+<li>The probability measure, <span class="math inline">\(p\)</span></li>
+</ul>
+</div>
+<div id="properties-of-probability-examples" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Properties of Probability: Examples<a href="probability-basic-concepts.html#properties-of-probability-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>The experiment of tossing a coin:</strong>
+<ul>
+<li>Sample Space, <span class="math inline">\(S:= \{H, T \}\)</span></li>
+<li>Event set of getting a Head, <span class="math inline">\(E:= \{H \}\)</span></li>
+<li>Probability measure of <span class="math inline">\(E\)</span>: <span class="math inline">\(p = \frac{1}{2}\)</span></li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Probability measure</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P(A) \ge 0\)</span></td>
+<td>Probabibility of an event <span class="math inline">\(A\)</span> is <span class="math inline">\(0\)</span> or greater</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(S) = 1\)</span></td>
+<td>Probability of space <span class="math inline">\(S\)</span> is 1</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0 \le P(A) \le 1\)</span></td>
+<td>Probability is always between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="review-of-set-algebra" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Review of Set Algebra<a href="probability-basic-concepts.html#review-of-set-algebra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbols</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\emptyset\)</span></td>
+<td>The null set or empty set.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A \subset B\)</span></td>
+<td><span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(B\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(A \cup B\)</span></td>
+<td>the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, representing elements in either set.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A \cap B\)</span></td>
+<td>The intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, representing elements shared by both sets.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(A&#39;\)</span></td>
+<td>The complement of <span class="math inline">\(A\)</span>, representing everything outside of <span class="math inline">\(A\)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Mutually Exclusive:</strong></td>
+<td>Events <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> are mutually exclusive if <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i \neq j\)</span>; they are disjoint sets.</td>
+</tr>
+<tr class="odd">
+<td><strong>Exhaustive Events:</strong></td>
+<td>Events <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> are exhaustive if their union forms the entire sample space, <span class="math inline">\(A_1 \cup A_2 \cup \dots \cup A_k = S\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>So if <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> are mutually exclusive and exhaustive events, we know that <span class="math inline">\(A_1 \cap A_2=\emptyset\)</span>, for <span class="math inline">\(i \ne j\)</span> and <span class="math inline">\(A_1 \cup A_2 \cup \dots \cup A_k = S\)</span></li>
+</ul>
+<div id="properties-of-set-operations" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Properties of Set Operations<a href="probability-basic-concepts.html#properties-of-set-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Commutative Laws:</strong>
+<ul>
+<li><span class="math inline">\(A \cup B = B \cup A\)</span>.</li>
+<li><span class="math inline">\(A \cap B = B \cap A\)</span>.</li>
+</ul></li>
+<li><strong>Associative Laws:</strong>
+<ul>
+<li><span class="math inline">\(A \cup B \cup C = A \cup (B \cup C)\)</span>.</li>
+<li><span class="math inline">\(A \cap B \cap C = A \cap (B \cap C)\)</span>.</li>
+</ul></li>
+<li><strong>Distributive Laws:</strong>
+<ul>
+<li><span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span>.</li>
+<li><span class="math inline">\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</span>.</li>
+</ul></li>
+<li><strong>De Morgan’s Laws:</strong>
+<ul>
+<li><span class="math inline">\((A \cup B)&#39; = A&#39; \cap B&#39;\)</span>. (First Law)</li>
+<li><span class="math inline">\((A \cap B)&#39; = A&#39; \cup B&#39;\)</span>. (Second Law)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="additional-properties-of-probability" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Additional Properties of Probability<a href="probability-basic-concepts.html#additional-properties-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Probability is a real-valued set function <span class="math inline">\(P\)</span> that assigns a number <span class="math inline">\(P(A)\)</span> to each event <span class="math inline">\(A\)</span> in the sample space <span class="math inline">\(S\)</span>.</li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Properties of probability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P(A) \ge 0\)</span></td>
+<td>Probabibility of an event <span class="math inline">\(A\)</span> is <span class="math inline">\(0\)</span> or greater.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(S) = 1\)</span></td>
+<td>Probability of space <span class="math inline">\(S\)</span> is 1.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(\emptyset) = 0\)</span></td>
+<td>Probability of an empty set <span class="math inline">\(\emptyset\)</span> is <span class="math inline">\(0\)</span>.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0 \le P(A) \le 1\)</span></td>
+<td>Probability is always between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(A&#39;) = 1 - P(A)\)</span></td>
+<td>Given event <span class="math inline">\(A\)</span>. The probability of the complement of event <span class="math inline">\(A\)</span>, i.e. <span class="math inline">\(A^{c}\)</span> or <span class="math inline">\(A\)</span>’ is <span class="math inline">\(1 - P(A)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(A) = \sum_{i = 1}^{\infty} P(A \cap B_{i})\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(A) \le P(B)\)</span></td>
+<td>If <span class="math inline">\(A \subset B\)</span>, then <span class="math inline">\(P(A) \le P(B)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(B \cap A)\)</span></td>
+<td>Probability that elements exists in both events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="odd">
+<td>* <span class="math inline">\(P(B \cap A&#39;) = P(B) - P(B \cap A)\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots\)</span></td>
+<td>If <span class="math inline">\(A_1, A_2, \dots\)</span> are mutually exclusive events (<span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i \neq j\)</span>), then <span class="math inline">\(P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<div id="axioms-of-probabilities" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Axioms of probabilities<a href="probability-basic-concepts.html#axioms-of-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li></li>
+<li>If <span class="math inline">\(P\)</span> is a probability function and <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are any sets in <span class="math inline">\(\mathbfcal{B}\)</span>, then</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P(A \cap A^{c}) = P(B) - P(A \cap B)\)</span></p>
+<p>Proof:</p></li>
+</ol>
+<p><span class="math display">\[\begin{align}
+  B  =&amp; (B \cap A) \cup (B \cap A^{c}) \\
+  P(B) =&amp; P(B \cap A) + P(B \cap A^{c}) \\
+  P(B \cap A^{c}) =&amp; P(B) -P(B \cap A)
+\end{align}\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(A \cup A^{c}) = P(A) + P(B) - P(A \cap B)\)</span></li>
+</ol>
+<p>Proof:</p>
+<p><span class="math display">\[\begin{align}
+  A \cup B  =&amp; A \cup (B \cap A^{c}) \\
+  P(A \cup B)  =&amp; P(A) + P(B \cap A^{c}) \\
+  P(A \cup B)  =&amp; P(A) + P(B) -P(B \cap A) \\
+\end{align}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+</div>
+<div id="probability-calculation-example" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Probability Calculation Example<a href="probability-basic-concepts.html#probability-calculation-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Experiment:</strong> Tossing a coin twice.</p></li>
+<li><p><strong>Sample Space:</strong> <span class="math inline">\(S := \{HH, HT, TH, TT\}\)</span>, where each outcome is equally likely with a probability of <span class="math inline">\(1/4\)</span>.
+(Hint: <em>equally likely</em>: each elements in the set of equal chance of being selected hence each element has the probability of 1/4)</p>
+<ul>
+<li>Let <span class="math inline">\(E := \{HH, HT\}\)</span> be the event that the first toss is a head.</li>
+<li>Let <span class="math inline">\(F := \{HH, TH\}\)</span> be the event that the second toss is a head.</li>
+</ul>
+<p>Find the probability of the union <span class="math inline">\(P(E \cup F)\)</span>:</p>
+<p><strong>Answer</strong> (step-by-step):</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(P(E \cup F) = P(E) + P(F) - P(E \cap F)\)</span>.</li>
+<li><span class="math inline">\(P(E \cup F) = 1/2 + 1/2 - P(\{HH\})\)</span>.</li>
+<li><span class="math inline">\(P(E \cup F) = 1 - 1/4 = 3/4\)</span>.</li>
+<li>Alternatively, <span class="math inline">\(P(E \cup F) = P(\{HH, HT, TH\}) = 3/4\)</span>.</li>
+</ol></li>
+</ul>
+</div>
+<div id="probability-calculation-example-1" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Probability Calculation Example<a href="probability-basic-concepts.html#probability-calculation-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Experiment:</strong> Tossing a fair dice.</p></li>
+<li><p><strong>Sample Space:</strong> <span class="math inline">\(S := \{1, 2, 3, 4, 5, 6\}\)</span> where each outcome is equally likely</p>
+<ul>
+<li>Let <span class="math inline">\(E\)</span> be the event that consist of event numbers</li>
+<li>Let <span class="math inline">\(F\)</span> be the event that consist of numbers greater than 3</li>
+</ul>
+<p>Find the probability of the union <span class="math inline">\(P(E \cup F)\)</span>:</p>
+<p><strong>Answer</strong> (step-by-step):</p>
+<ol style="list-style-type: decimal">
+<li>Probability for each element is <span class="math inline">\(\frac{1}{2}\)</span></li>
+<li><span class="math inline">\(E := \{2, 4, 6\}\)</span>, hence <span class="math inline">\(P(E) = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\(E := \{4, 5, 6\}\)</span>, hence <span class="math inline">\(P(F) = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\((E \cap F) := \{4,  6 \}\)</span>, hence <span class="math inline">\(P(E \cap F) = \frac{1}{3}\)</span></li>
+<li><span class="math inline">\(P(E \cup F) = P(E) + P(F) - P(E \cap F)\)</span>.</li>
+<li><span class="math inline">\(P(E \cup F) = 1 - 1/3 = \frac{2}{3}\)</span>.</li>
+<li>Alternatively, <span class="math inline">\(P(E \cup F) = P(\{H2, 4, 5, 6\}) = \frac{4}{6} = \frac{2}{3}\)</span>.</li>
+</ol></li>
+</ul>
+</div>
+<div id="probability-calculation-in-class-exercise-a-practice-to-your-quiz" class="section level3 hasAnchor" number="2.7.4">
+<h3><span class="header-section-number">2.7.4</span> Probability Calculation: In-class exercise (A practice to your quiz)<a href="probability-basic-concepts.html#probability-calculation-in-class-exercise-a-practice-to-your-quiz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>** Task:** To answer the following questions, you will need to pair up with a friend.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>You are given 10 minutes. Try to answer the following questions.</p></li>
+<li><p>After 10 minutes, switch your answer with your friend. 5 minutes, review your friends work and add any missing steps/ fix the calculation if needed.</p></li>
+</ol>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(P(A) = 0.4\)</span>, <span class="math inline">\(P(B) = 0.5\)</span> and <span class="math inline">\(P(A \cap B)  = 0.3\)</span>, calculate the following:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P(A \cup B)\)</span></p></li>
+<li><p><span class="math inline">\(P(A \cap B&#39;)\)</span></p></li>
+<li><p><span class="math inline">\(P(A&#39; \cup B)\)</span></p></li>
+</ol>
+<p><span style="float:right;">[6 mark]</span>
+<br>
+2. A fair die is rolled three times. Let <span class="math inline">\(A_{1} := {\text{Outcome is 1 or 2 on the first rolle}}\)</span>, <span class="math inline">\(A_{2} := {\text{Outcome is 3 or 4 on the first rolle}}\)</span>, and <span class="math inline">\(A_{3} := {\text{Outcome is 5 or 6 on the first rolle}}\)</span>. Given that</p>
+<ul>
+<li><p><span class="math inline">\(P(A_{i}) = \frac{1}{3}\)</span> for <span class="math inline">\(i = 1, 2, 3\)</span></p></li>
+<li><p><span class="math inline">\(P(A_{i} \cap A_{j}) = \left(\frac{1}{3}\right)^{2}\)</span> for <span class="math inline">\(i \ne j\)</span> and <span class="math inline">\(P(A_{1} \cap A_{2} \cap A_{3})  = \left(\frac{1}{3}\right)^{3}\)</span>.</p></li>
+</ul>
+<p>Find <span class="math inline">\(P(A_1 \cup A_2 \cup A_3)\)</span>.</p>
+<p><span style="float:right;">[4 mark]</span>
+<br></p>
+</div>
+</div>
+<div id="method-of-enumeration-multiplication-principle" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Method of Enumeration &amp; Multiplication Principle<a href="probability-basic-concepts.html#method-of-enumeration-multiplication-principle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The method of enumeration is used to determine the <strong>number of outcomes associated with the events of certain random experiments</strong>.</li>
+<li><strong>Multiplication Principle:</strong> If an experiment <span class="math inline">\(E_1\)</span> has <span class="math inline">\(n_1\)</span> outcomes and for each possible outcome, a second experiment <span class="math inline">\(E_2\)</span> has <span class="math inline">\(n_2\)</span> possible outcomes, the composite experiment <span class="math inline">\(E_1 E_2\)</span> has <span class="math inline">\(n_1 n_2\)</span> possible outcomes.</li>
+<li><strong>Example:</strong> Tossing a coin (<span class="math inline">\(E_1\)</span> with 2 outcomes) and rolling a die (<span class="math inline">\(E_2\)</span> with 6 outcomes).
+<ul>
+<li>The total number of outcomes is <span class="math inline">\(2 \times 6 = 12\)</span>.</li>
+<li>The sample space represented in ordered pairs: <span class="math inline">\(S = \{(H,1), (H,2), (H,3), (H,4), (H,5), (H,6), (T,1), (T,2), (T,3), (T,4), (T,5), (T,6)\}\)</span>.</li>
+</ul></li>
+<li>If an experiment is repeated multiple times, such as tossing a coin ten times, the number of outcomes in the sample space is <span class="math inline">\(2 \times 2 \times \dots \times 2 = 2^{10}\)</span>.</li>
+</ul>
+</div>
+<div id="probability-distribution" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Probability Distribution<a href="probability-basic-concepts.html#probability-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Experiment involves arrangement, selection and replacement.</p></li>
+<li><p>Suppose that we have 4 letter a,b,c and d, the number of possible four-letter code easily can be calculated if each letter can be repeated which is <span class="math inline">\(4^4=256\)</span></p></li>
+<li><p>If consider without repetition, then the number of possible four-letter code is the number of permutation of 4 letter which is <span class="math inline">\(4!=24.\)</span></p></li>
+</ul>
+</div>
+<div id="permutations-and-combinations-sampling" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Permutations and Combinations (Sampling)<a href="probability-basic-concepts.html#permutations-and-combinations-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Arrangement and Replacement Example:</strong> Given 4 letters a, b, c, and d. 
+<ul>
+<li>With repetition: The number of possible four-letter codes is <span class="math inline">\(4^4 = 256\)</span>.</li>
+<li>Without repetition: The number of possible four-letter codes is a permutation of 4 letters, which is <span class="math inline">\(4! = 24\)</span>.</li>
+</ul></li>
+<li><strong>Case 1 (Replacement, Ordered):</strong> Sampling with replacement of an ordered sample of size <span class="math inline">\(r\)</span> yields <span class="math inline">\(n^r\)</span> arrangements, i.e. <span class="math inline">\(r = n^r\)</span>.</li>
+<li><strong>Case 2 (No Replacement, Ordered - Permutation):</strong> Sampling without replacement of <span class="math inline">\(r\)</span> ordered items from <span class="math inline">\(n\)</span> objects.
+<ul>
+<li><span class="math inline">\(_nP_r = \frac{n!}{(n-r)!}\)</span>. It must be true that <span class="math inline">\(r \le n\)</span>.</li>
+</ul></li>
+<li><strong>Case 3 (No Replacement, Unordered - Combination):</strong> Sampling without replacement of <span class="math inline">\(r\)</span> selected objects from <span class="math inline">\(n\)</span> objects with unordered subsets.
+<ul>
+<li><span class="math inline">\(_nC_r = \frac{n!}{r!(n-r)!}\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="permutation-calculation-example" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Permutation Calculation Example<a href="probability-basic-concepts.html#permutation-calculation-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>How many four-letter code words are possiblle using the letters in <strong>IOWA</strong> if</p>
+<ol style="list-style-type: lower-alpha">
+<li>The letters may not be repeated</li>
+</ol>
+<ul>
+<li><p>There are 4 letters.</p></li>
+<li><p>Each time a letter is placed, the number available reduced by 1</p></li>
+<li><p><span class="math display">\[4 \times 3 \times 2 \times 1 = 24\]</span></p></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>The letters may be repeated</li>
+</ol></li>
+<li><p>Suppose that two tennis players A and B are playing in a match. The first player that wins three sets will win the match. How many ways could this tennis match ends?</p></li>
+</ol>
+</div>
+<div id="intervals" class="section level2 hasAnchor" number="2.12">
+<h2><span class="header-section-number">2.12</span> Intervals<a href="probability-basic-concepts.html#intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Consider two numbers, <span class="math inline">\(a, b \in \mathbb{R}\)</span></p></li>
+<li><p>The open interval is: <span class="math inline">\((a, b):= \{x \in \mathbb{R}: a &lt; x &lt; b \}\)</span></p></li>
+<li><p>The close interval is: <span class="math inline">\([a, b]:= \{x \in \mathbb{R}: a \le x \le b \}\)</span></p></li>
+<li><p>The open and close interval: <span class="math inline">\((a, b]:= \{x \in \mathbb{R}: a &lt; x \le b \}\)</span></p></li>
+<li><p>The close and open interval: <span class="math inline">\([a, b):= \{x \in \mathbb{R}: a \le x &lt; b \}\)</span></p></li>
+<li><p>Unbounded intervals: <span class="math inline">\([a, \infty):= \{x \in \mathbb{R}: a \le x \}\)</span></p></li>
+<li><p>Unbounded intervals: <span class="math inline">\((-\infty, b]:= \{x \in \mathbb{R}: x \le b \}\)</span></p></li>
+</ul>
+</div>
+<div id="probability" class="section level2 hasAnchor" number="2.13">
+<h2><span class="header-section-number">2.13</span> Probability<a href="probability-basic-concepts.html#probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="probability-of-an-event" class="section level3 hasAnchor" number="2.13.1">
+<h3><span class="header-section-number">2.13.1</span> Probability of an event<a href="probability-basic-concepts.html#probability-of-an-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Probability of any event, <span class="math inline">\(A\)</span>, as the proportion of the possible outcomes which give rise to that event</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of possible outcomes which give rise to event}}{\text{total no. of possible outcomes}}
+\end{align}\]</span></p>
+</div>
+<div id="probability-of-an-event-equally-likely-outcomes" class="section level3 hasAnchor" number="2.13.2">
+<h3><span class="header-section-number">2.13.2</span> Probability of an event: Equally likely outcomes<a href="probability-basic-concepts.html#probability-of-an-event-equally-likely-outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>The Leibniz-Galileo Problem</strong></p>
+<p>In a game of tossing three fair dice, Leibniz thought that probability of getting a total is 10 and the probability that the total is 9 are equals. However, Galileo
+thought that these two probabilities are in the ratio 27:25.</p>
+<p><img src="Inferential_Statistics_files/figure-html/draw-dice-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Inferential_Statistics_files/figure-html/draw-dice-nine-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="probability-of-an-event-frequency-interpretation-of-probability" class="section level3 hasAnchor" number="2.13.3">
+<h3><span class="header-section-number">2.13.3</span> Probability of an event: Frequency interpretation of probability<a href="probability-basic-concepts.html#probability-of-an-event-frequency-interpretation-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If an ``experiment” can be repeated indefinitely, then the relative frequency of any event
+at any stage is defined as</p>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of occurrences of event so far}}{\text{total no. of repetitions of experiment so far}}
+\end{align}\]</span></p>
+<ul>
+<li><p>This relative frequency will obviously fluctuate randomly as the number of repetitions increases, but the expectation is that it will in the long run settle down to a limiting value which is the probability of the event.</p></li>
+<li><p>This method is to find the probabilities to events in cases where there is no symmetry</p></li>
+</ul>
+</div>
+<div id="probability-of-an-event-example" class="section level3 hasAnchor" number="2.13.4">
+<h3><span class="header-section-number">2.13.4</span> Probability of an event: Example<a href="probability-basic-concepts.html#probability-of-an-event-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that 2 are defective?</p>
+<p><strong>Answer (Step-by-step)</strong></p>
+<ol style="list-style-type: decimal">
+<li>Total no.of possible outcomes is how many ways that 5 defective items is chosen.</li>
+</ol>
+<p><span class="math inline">\({15 \choose 5} = 3003\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>No. of possible outcomes which give rise to event</li>
+</ol>
+<p><span class="math inline">\({6 \choose 2} = 15\)</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Probability of event <span class="math inline">\(A\)</span>: $P(A) = </li>
+</ol>
+</div>
+<div id="probability-of-an-event-example-1" class="section level3 hasAnchor" number="2.13.5">
+<h3><span class="header-section-number">2.13.5</span> Probability of an event: Example<a href="probability-basic-concepts.html#probability-of-an-event-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that <strong>at least</strong> 2 are defective?</p>
+<p><strong>Answer (Step-by-step)</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>If at least two are defective, we use OR (2 OR 3 OR 4 OR 5)</p>
+<table>
+<thead>
+<tr class="header">
+<th>Defective</th>
+<th>Non-defective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>No. of possible outcomes of choosing 5 items is</p></li>
+</ol>
+<p><span class="math display">\[{15 \choose 6} = 5005\]</span>
+3. The probability is</p>
+<p><span class="math display">\[\frac{{6 \choose 2}{9 \choose 3} + {6 \choose 3}{9 \choose 2} + {6 \choose 4}{9 \choose 1} + {6 \choose 5}{9 \choose 30}}{5005} = \frac{2115}{5005} = 0.42258\]</span></p>
+</div>
+<div id="probability-of-an-event-classical-vs-uniform-measures" class="section level3 hasAnchor" number="2.13.6">
+<h3><span class="header-section-number">2.13.6</span> Probability of an event: Classical vs Uniform Measures<a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Recall the clasical measure:</p></li>
+<li><p>E.g.: Let <span class="math inline">\(S:= \{s_1, s_2, \ldots, s_k\}\)</span>. For any events <span class="math inline">\(A \subset S\)</span>,</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of possible outcomes in $A$}}{\text{total no. of possible outcomes in $S$}}
+\end{align}\]</span></p>
+<pre><code>- If $A:= \{s_i\}$, then $P(A) =$  &lt;input type=&quot;text&quot; placeholder=&quot;  &quot; style=&quot;width: 150px; border: 1px solid black; padding: 2px;&quot;&gt;</code></pre>
+<ul>
+<li><p>For constinuous <span class="math inline">\(S\)</span>, we use <strong>uniform</strong> measure</p>
+<ul>
+<li>if <span class="math inline">\(S\)</span> is two-dimensional and of finite area then we define
+<span class="math display">\[P(A) = \frac{\text{area of $A$}}{{\text{area of $S$}}}\]</span></li>
+</ul></li>
+<li><p>Note:</p>
+<ul>
+<li><p>When an outcome is chosen at random from a sample space <span class="math inline">\(S\)</span>: classical probability measure is used</p></li>
+<li><p>When <span class="math inline">\(S\)</span> is discrete, and the uniform measure if <span class="math inline">\(S\)</span> is continuous.</p></li>
+<li><p>For continuous probability measures, events of probability <span class="math inline">\(0\)</span> are NOT impossible and events of probability <span class="math inline">\(1\)</span> are NOT certain.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="probability-of-an-event-classical-vs-uniform-measures-example" class="section level3 hasAnchor" number="2.13.7">
+<h3><span class="header-section-number">2.13.7</span> Probability of an event: Classical vs Uniform Measures: Example<a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The diagram below shows a rectangle with a length of 8 and a width of 4. It is divided into four triangular regions by drawing the two diagonal lines from corner to corner. The regions are numbered from 1 to 4:</p>
+<ul>
+<li><p>Region 1 is the top triangle,</p></li>
+<li><p>Region 2 is the right triangle,</p></li>
+<li><p>Region 3 is the bottom triangle, and</p></li>
+<li><p>Region 4 is the left triangle.</p></li>
+</ul>
+<p>The perimeter is divided into 4 edges numbered in accordance with the regions (Edge 1 is the top edge, Edge 2 is the right edge, etc.).</p>
+<ol style="list-style-type: lower-roman">
+<li><p>A <strong>point</strong> is chosen at random from the <strong>rectangle</strong>. What is the probability that it is <strong>in</strong> region 1? What is the probability that it is <strong>in</strong> region 2?</p></li>
+<li><p>A <strong>point</strong> is chosen at random from the <strong>perimeter of the rectangle</strong>. What is the probability that it is <strong>on</strong> edge 1? What is the probability that it is <strong>on</strong> edge 2?</p></li>
+</ol>
+<p><img src="Inferential_Statistics_files/figure-html/draw-rectangle-diagram-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Solution</strong></p>
+<ol style="list-style-type: lower-roman">
+<li>To find the probability of a point landing in a specific region, we divide the area of that region by the total area of the shape.</li>
+</ol>
+<ul>
+<li><p>Total Area: The rectangle has a length of 8 and a width of 4.</p>
+<p>Total Area = <span class="math inline">\(8 \times 4 = 32\)</span>.</p></li>
+<li><p>Region 1 (Top Triangle): The base of this triangle is the top edge of the rectangle (length 8). Because the diagonals meet exactly in the center, the perpendicular height of this triangle is half of the rectangle’s width (<span class="math inline">\(4 \div 2 = 2\)</span>).</p>
+<p>Area of Region 1 = <span class="math inline">\(\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 8 \times 2 = 8\)</span>.</p></li>
+<li><p>Region 2 (Right Triangle): The base of this triangle is the right edge of the rectangle (width 4). The perpendicular height from the center to this edge is half of the rectangle’s length (<span class="math inline">\(8 \div 2 = 4\)</span>).</p>
+<p>Area of Region 2 = <span class="math inline">\(\frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times 4 \times 4 = 8\)</span>.</p></li>
+<li><p>Note: The diagonals of any rectangle divide it into four triangles of equal area, even though they have different perimeters</p></li>
+<li><p>Dividing the region areas by the total area gives the final probabilities:</p>
+<ul>
+<li><p>The probability that a random point is in Region 1 is
+<span class="math display">\[\frac{8}{32} = \frac{1}{4}  = 0.25\]</span></p></li>
+<li><p>The probability that a random point is in Region 2 is</p></li>
+</ul>
+<p><span class="math display">\[\frac{8}{32} = \frac{1}{4} = 0.25\]</span></p></li>
+</ul>
+<ol start="2" style="list-style-type: lower-roman">
+<li>To find the probability of a point landing on a specific edge, we divide the length of that edge by the total perimeter.</li>
+</ol>
+<ul>
+<li><p>Total Perimeter: The rectangle has two sides of length 8 and two sides of length 4.Total Perimeter = <span class="math inline">\(8 + 8 + 4 + 4 = 24\)</span>.</p>
+<ul>
+<li><p>Edge 1 (Top Edge): This edge has a length of 8.</p></li>
+<li><p>Edge 2 (Right Edge): This edge has a length of 4.</p></li>
+</ul></li>
+<li><p>Dividing the edge lengths by the total perimeter gives the final probabilities:</p>
+<ul>
+<li><p>The probability that a random point on the perimeter is on Edge 1 is
+<span class="math display">\[\frac{8}{24} = \frac{1}{3}  = 0.333\]</span></p></li>
+<li><p>The probability that a random point on the perimeter is on Edge 2 is
+<span class="math display">\[\frac{4}{24} = \frac{1}{6} = 0.167\]</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="probability-of-an-event-classical-vs-uniform-measures-example-1" class="section level3 hasAnchor" number="2.13.8">
+<h3><span class="header-section-number">2.13.8</span> Probability of an event: Classical vs Uniform Measures: Example<a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Consider the experiment where one point is chosen at random from the interval <span class="math inline">\([0, 1]\)</span>. For <span class="math inline">\(a \in [0, 1]\)</span>, <span class="math inline">\(P(a) = 0\)</span>, that is, the event <span class="math inline">\(x = a\)</span> has probability <span class="math inline">\(0\)</span>, in the uniform probability measure.</p>
+<ul>
+<li><p>Points have zero length.</p></li>
+<li><p>But that does not mean that this event is impossible:</p></li>
+<li><p>if we choose a point at random from <span class="math inline">\([0, 1]\)</span> then any point could be chosen but the probability that a particular point is chosen is 0.</p></li>
+</ul></li>
+<li><p>To get a positive probability, we need an event:</p>
+<ul>
+<li>E.g.: <span class="math inline">\(\frac{1}{4} \le a \le \frac{3}{4}\)</span> where the probability is <span class="math inline">\(\frac{1}{2}\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="independent-vs.-dependent-events" class="section level2 hasAnchor" number="2.14">
+<h2><span class="header-section-number">2.14</span> Independent vs. Dependent Events<a href="probability-basic-concepts.html#independent-vs.-dependent-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Problem Context:</strong> Consider selecting 2 cards from a standard deck of 52 cards.
+<ul>
+<li><em>With replacement:</em> The probability of obtaining two kings involves <strong>independent events</strong>.</li>
+<li><em>Without replacement:</em> The probability of obtaining two kings involves <strong>dependent events</strong>.</li>
+</ul></li>
+<li><strong>Independent Events:</strong> Two events are independent if the occurrence of one of the events does not affect the probability of the occurrence of the other event.</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+P(A \cap B) = P(A) P(B)
+\end{align}\]</span></p>
+<ul>
+<li>For more then two finite events, a set of <em>mutually exclusive</em> events are</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+P(A_1 \cap A_2 \cap \ldots A_k) = P(A_1) P(A_2) \ldots P(A_k)
+\end{align}\]</span></p>
+<ul>
+<li><p><strong>Dependent Events:</strong> Two events are dependent if the occurrence of one of the events affects the probability of the occurrence of the other event.</p></li>
+<li><p>Problems with dependent events can often be solved using conditional probability, also known as the multiplication rule.</p></li>
+<li><p>Events that are not independent are dependent.</p></li>
+<li><p>Event <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent</strong> iff <span class="math inline">\(P(A \cap B) = P(A \cap B) = P(A) P(B)\)</span>. Otherwise, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>dependent</strong></p></li>
+<li><p>Dependent events can be solved using tree diagaram</p></li>
+</ul>
+<div id="independent-events-example" class="section level3 hasAnchor" number="2.14.1">
+<h3><span class="header-section-number">2.14.1</span> Independent Events: Example<a href="probability-basic-concepts.html#independent-events-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be independent events with <span class="math inline">\(P(A) = 0.7\)</span> and <span class="math inline">\(P(B) = 0.2\)</span>. Compute</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(A \cap B)\)</span></li>
+</ol>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent,
+<span class="math display">\[\begin{align}
+P(A \cap B)  = P(A) P(B) = 0.7 \times 0.2 = 0.14
+\end{align}\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(A \cup B)\)</span></li>
+</ol>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then using the</p>
+<p><span class="math display">\[\begin{align}
+P(A \cup B)  = P(A) + P(B) - P(A \cap B) = 0.7 + 0.2 -0.14 = 0.76
+\end{align}\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(A&#39; \cup B&#39;)\)</span></li>
+</ol>
+<p>Using De Morgan’s second law,</p>
+<p><span class="math display">\[\begin{align}
+P(A&#39; \cup B&#39;)  = 1 - P(A \cap B)&#39;  = 1 - 0.76 = 0.24
+\end{align}\]</span></p>
+</div>
+<div id="independent-events-example-1" class="section level3 hasAnchor" number="2.14.2">
+<h3><span class="header-section-number">2.14.2</span> Independent Events: Example<a href="probability-basic-concepts.html#independent-events-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Toss a fair coin twice. Let <span class="math inline">\(A\)</span> be the event “head on first toss”, <span class="math inline">\(B\)</span> be the event “head on second toss” and <span class="math inline">\(C\)</span> be the event “same face on both tosses”. Show that these three events are pairwise independent but not mutually independent.</p>
+<p><strong>Solution</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Toss a fair coin twice lead to a sample space</li>
+</ol>
+<p><span class="math display">\[S := \{HH, HT, TH, TT\} \]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The sets of event <span class="math inline">\(A, B\)</span> and <span class="math inline">\(C\)</span> are</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+A:= &amp;  \{HH, HT\} \\
+B:= &amp;  \{HH, TH\} \\
+C:= &amp;  \{HH, TT\} \\
+\end{align}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The probability of each events are</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+P(A) =&amp; \frac{1}{2} \\
+P(B) =&amp; \frac{1}{2} \\
+P(C) =&amp; \frac{1}{2}
+\end{align}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>The intersection of the events are</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+A \cap B:= &amp;  \{HH\} \\
+A \cap C:= &amp;  \{HH\} \\
+B \cap C:= &amp;  \{HH\} \\
+\end{align}\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>To show pariwise independent, we need to show that</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+P(A \cap B) =&amp; P(A)P(B) \\
+P(A \cap C) =&amp; P(A)P(C) \\
+P(B \cap C) =&amp; P(B)P(C)
+\end{align}\]</span></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Hence,</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+P(A \cap B) =&amp; \frac{1}{4} \rightarrow P(A)P(B) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}\\
+P(A \cap C) =&amp; \frac{1}{4} \rightarrow P(A)P(C) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}\\
+P(B \cap C) =&amp; \frac{1}{4} \rightarrow P(B)P(C) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}
+\end{align}\]</span></p>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Therefore, the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are pairwise independent.</p></li>
+<li><p>Three events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are mutually independent if they are pairwise independent and satisfy</p></li>
+</ol>
+<p><span class="math display">\[P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)\]</span></p>
+<ol start="9" style="list-style-type: decimal">
+<li>The intersection of events are</li>
+</ol>
+<p><span class="math display">\[A \cap B \cap C:= \{HH\} \]</span>
+so the probabilty is</p>
+<p><span class="math display">\[P(A \cap B \cap C)  = \frac{1}{4}\]</span>
+10. The product of probability is</p>
+<p><span class="math display">\[P(A) \cdot P(B) \cdot P(C) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}\]</span></p>
+<p>Since <span class="math inline">\(P(A \cap B \cap C) \neq P(A) \cdot P(B) \cdot P(C)\)</span> (<span class="math inline">\(\frac{1}{4} \neq \frac{1}{8}\)</span>), the events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are not mutually independent.</p>
+</div>
+<div id="independent-events-exercise" class="section level3 hasAnchor" number="2.14.3">
+<h3><span class="header-section-number">2.14.3</span> Independent Events: Exercise<a href="probability-basic-concepts.html#independent-events-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(P(A) = 0.8\)</span>, <span class="math inline">\(P(B) = 0.5\)</span>, and <span class="math inline">\(P(A \cup B) = 0.9\)</span>, are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent events? Show your answer.
+<br></p>
+<p><strong>Solution:</strong></p>
+<p>To show <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, we need to show <span class="math inline">\(P(A)P(B) = P(A \cap B)\)</span></p>
+<p><span class="math display">\[\begin{align}
+P(A \cup B) =&amp; P(A) + P(B) - P(A \cap B) \\
+P(A \cap B) =&amp; P(A) + P(B) -  P(A \cup B) = 0.8 + 0.5 - 0.9 = 0.4\\
+P(A)P(B) =&amp; (0.8)(0.5) = 0.4 = P(A \cap B)
+\end{align}\]</span></p>
+<p>Since <span class="math inline">\(P(A \cap B) = 0.4\)</span> and <span class="math inline">\(P(A) \cdot P(B) = 0.4\)</span>, the condition <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B)\)</span> is satisfied.</p>
+</div>
+<div id="independent-events-exercise-1" class="section level3 hasAnchor" number="2.14.4">
+<h3><span class="header-section-number">2.14.4</span> Independent Events: Exercise<a href="probability-basic-concepts.html#independent-events-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(A\)</span> be the event that the sum of the two numbers shown is <span class="math inline">\(7\)</span>, let <span class="math inline">\(B\)</span> be the event that the sum of the two numbers shown is 8 and <span class="math inline">\(C\)</span> be the event that the first number shown is even.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the probabilities of the events <span class="math inline">\(A, B, C\)</span>, <span class="math inline">\(A \cap C\)</span> and <span class="math inline">\(B \cap C\)</span>.</p></li>
+<li><p>Are <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> independent? Are <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> independent?</p></li>
+<li><p>Justify your answers.</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">(1, 1)</td>
+<td align="center">(1, 2)</td>
+<td align="center">(1, 3)</td>
+<td align="center">(1, 4)</td>
+<td align="center">(1, 5)</td>
+<td align="center">(1, 6)</td>
+</tr>
+<tr class="even">
+<td align="center">(2, 1)</td>
+<td align="center">(2, 2)</td>
+<td align="center">(2, 3)</td>
+<td align="center">(2, 4)</td>
+<td align="center">(2, 5)</td>
+<td align="center">(2, 6)</td>
+</tr>
+<tr class="odd">
+<td align="center">(3, 1)</td>
+<td align="center">(3, 2)</td>
+<td align="center">(3, 3)</td>
+<td align="center">(3, 4)</td>
+<td align="center">(3, 5)</td>
+<td align="center">(3, 6)</td>
+</tr>
+<tr class="even">
+<td align="center">(4, 1)</td>
+<td align="center">(4, 2)</td>
+<td align="center">(4, 3)</td>
+<td align="center">(4, 4)</td>
+<td align="center">(4, 5)</td>
+<td align="center">(4, 6)</td>
+</tr>
+<tr class="odd">
+<td align="center">(5, 1)</td>
+<td align="center">(5, 2)</td>
+<td align="center">(5, 3)</td>
+<td align="center">(5, 4)</td>
+<td align="center">(5, 5)</td>
+<td align="center">(5, 6)</td>
+</tr>
+<tr class="even">
+<td align="center">(6, 1)</td>
+<td align="center">(6, 2)</td>
+<td align="center">(6, 3)</td>
+<td align="center">(6, 4)</td>
+<td align="center">(6, 5)</td>
+<td align="center">(6, 6)</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li>Probabilities of EventsEvent</li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(A\)</span> (Sum is 7):</p>
+<ul>
+<li><p><span class="math inline">\(A = \{(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\}\)</span></p></li>
+<li><p>Number of outcomes <span class="math inline">\(n(A) = 6\)</span></p></li>
+<li><p><span class="math inline">\(P(A) = \frac{6}{36} = \frac{1}{6}\)</span></p></li>
+</ul></li>
+<li><p>Event <span class="math inline">\(B\)</span> (Sum is 8):$</p>
+<ul>
+<li><p>B = {(2,6), (3,5), (4,4), (5,3), (6,2)}$</p></li>
+<li><p>Number of outcomes <span class="math inline">\(n(B) = 5\)</span></p></li>
+<li><p><span class="math inline">\(P(B) = \frac{5}{36}\)</span></p></li>
+</ul></li>
+<li><p>Event <span class="math inline">\(C\)</span> (First number shown is even):</p>
+<ul>
+<li><p><span class="math inline">\(C = \{(2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (4,1), (4,2), (4,3), (4,4), (4,5), (4,6), (6,1), (6,2), (6,3), (6,4), (6,5), (6,6)\}\)</span></p></li>
+<li><p>Number of outcomes <span class="math inline">\(n(C) = 18\)</span></p></li>
+<li><p><span class="math inline">\(P(C) = \frac{18}{36} = \frac{1}{2}\)</span></p></li>
+</ul></li>
+<li><p>Event <span class="math inline">\(A \cap C\)</span> (Sum is 7 AND first number is even):</p>
+<ul>
+<li><p><span class="math inline">\(A \cap C = \{(2,5), (4,3), (6,1)\}\)</span></p></li>
+<li><p>Number of outcomes <span class="math inline">\(n(A \cap C) = 3\)</span></p></li>
+<li><p><span class="math inline">\(P(A \cap C) = \frac{3}{36} = \frac{1}{12}\)</span></p></li>
+<li><p>Event <span class="math inline">\(B \cap C\)</span> (Sum is 8 AND first number is even):</p>
+<ul>
+<li><p><span class="math inline">\(B \cap C = \{(2,6), (4,4), (6,2)\}\)</span></p></li>
+<li><p>Number of outcomes <span class="math inline">\(n(B \cap C) = 3\)</span></p></li>
+<li><p><span class="math inline">\(P(B \cap C) = \frac{3}{36} = \frac{1}{12}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Independence Results<span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> are independent.<span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are NOT independent.</p></li>
+<li><p>Justification</p></li>
+</ol>
+<ul>
+<li><p>Two events <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if <span class="math inline">\(P(X \cap Y) = P(X) \cdot P(Y)\)</span>.</p></li>
+<li><p>For <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(P(A \cap C) = \frac{1}{12}\)</span></p></li>
+<li><p><span class="math inline">\(P(A) \cdot P(C) = \frac{1}{6} \times \frac{1}{2} = \frac{1}{12}\)</span></p></li>
+<li><p>Since <span class="math inline">\(P(A \cap C) = P(A) \cdot P(C)\)</span>, events <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> are independent.</p></li>
+</ul></li>
+<li><p>For <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(P(B \cap C) = \frac{3}{36} = \frac{1}{12}\)</span></p></li>
+<li><p><span class="math inline">\(P(B) \cdot P(C) = \frac{5}{36} \times \frac{1}{2} = \frac{5}{72}\)</span></p></li>
+<li><p>Since <span class="math inline">\(P(B \cap C) \neq P(B) \cdot P(C)\)</span> (<span class="math inline">\(\frac{6}{72} \neq \frac{5}{72}\)</span>), events <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are not independent.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="independent-events-vs.-dependent-events-examples" class="section level3 hasAnchor" number="2.14.5">
+<h3><span class="header-section-number">2.14.5</span> Independent Events vs. Dependent Events: Examples<a href="probability-basic-concepts.html#independent-events-vs.-dependent-events-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Independent Events</strong></p>
+<ul>
+<li><p>Flipping a coin and rolling a die: Getting “Heads” on the coin doesn’t change your 1-in-6 chance of rolling a “4” on the die.</p></li>
+<li><p>Buying a lottery ticket and getting a flat tire: Winning (or losing) the lottery has no influence on the probability of your tire popping on the way home.</p></li>
+<li><p>Having a boy, then having another boy: The biological odds of having a boy are roughly 50%. Having a boy first does not magically make the odds of having a girl next time 100%. The odds reset to 50% for the second child.</p></li>
+<li><p>When training a model to recognize tumors in MRI scans, Patient A’s scan is completely independent of Patient B’s scan. The outcome of one does not change the probability of the other. If you shuffle the order of the images during training, the model learns exactly the same way.</p></li>
+<li><p>This classification algorithm (often used for spam filtering) calculates probabilities by making a “naive” assumption: it treats every feature as an independent event. It assumes the presence of the word “urgent” in an email is completely independent of the presence of the word “money,” multiplying their individual probabilities together to guess if the email is spam.</p></li>
+</ul>
+<p><strong>Dependent Events</strong></p>
+<ul>
+<li><p>If you draw an Ace from a standard 52-card deck and keep it in your hand, the odds of drawing another Ace change. There are now only 3 Aces left in a 51-card deck.</p></li>
+<li><p>If you have 10 black socks and 10 white socks, the odds of pulling a black sock are 50%. If you pull out a black sock and put it on your foot, there are now only 9 black socks left out of 19. The odds for your second pull have changed.</p></li>
+<li><p>If there is a major accident on your route to work (Event A), the probability that you will be late to work (Event B) drastically increases. (Traffic data)</p></li>
+<li><p>Text generation relies entirely on dependent probability. If an LLM is generating a sentence and has already output “The quick brown”, the probability of the next word being “fox” is massively higher than it would have been if the previous words were “I ate a”. The next prediction depends directly on the sequence of previous predictions. (Large Language Models (NLP))</p></li>
+<li><p>The probability that it will rain on Tuesday is highly dependent on the barometric pressure and weather conditions from Monday. Models like ARIMA or Recurrent Neural Networks (RNNs) are specifically designed to handle this dependency. (Time Series Forecasting)</p></li>
+</ul>
+</div>
+<div id="probability-tree-diagram" class="section level3 hasAnchor" number="2.14.6">
+<h3><span class="header-section-number">2.14.6</span> Probability Tree Diagram<a href="probability-basic-concepts.html#probability-tree-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Tree diagrams can be used to determine the value of the probability for dependent events.</li>
+</ul>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-650629b4adf35d5e38cb" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-650629b4adf35d5e38cb">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="conditional-probability" class="section level2 hasAnchor" number="2.15">
+<h2><span class="header-section-number">2.15</span> Conditional Probability<a href="probability-basic-concepts.html#conditional-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Definition 1.3-1:</strong> The conditional probability of an event <span class="math inline">\(A\)</span>, given that event <span class="math inline">\(B\)</span> has occurred, is defined mathematically.</p></li>
+<li><p>The formula for conditional probability is:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]</span></p>
+<p>provided that <span class="math inline">\(P(B) &gt; 0\)</span>.</p></li>
+</ul>
+<div id="properties-of-independent-events" class="section level3 hasAnchor" number="2.15.1">
+<h3><span class="header-section-number">2.15.1</span> Properties of Independent Events<a href="probability-basic-concepts.html#properties-of-independent-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Definition:</strong> Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(P(A \cap B) = P(A)P(B)\)</span>. Otherwise, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called dependent events.</li>
+<li><strong>Properties of Independent Events:</strong>
+<ul>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then <span class="math inline">\(P(A|B) = P(A)\)</span> if <span class="math inline">\(P(B) &gt; 0\)</span>, and <span class="math inline">\(P(B|A) = P(B)\)</span> if <span class="math inline">\(P(A) &gt; 0\)</span>.</li>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, so are <span class="math inline">\(A\)</span> and <span class="math inline">\(B&#39;\)</span>, <span class="math inline">\(A&#39;\)</span> and <span class="math inline">\(B\)</span>, and <span class="math inline">\(A&#39;\)</span> and <span class="math inline">\(B&#39;\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="conditional-probability-example" class="section level3 hasAnchor" number="2.15.2">
+<h3><span class="header-section-number">2.15.2</span> Conditional Probability: Example<a href="probability-basic-concepts.html#conditional-probability-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A bowl contains 8 chips, where 3 of the chips are red and the remaining five are blue. Two chips are to be drawn successively, at random and without replacement. We use conditional probability to find the probability that the first draw results in a red chip (<span class="math inline">\(C_1\)</span>) and that the second draw results in a blue chip (<span class="math inline">\(C_2\)</span>).</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-33e155d57648771b0b45" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-33e155d57648771b0b45">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red  \"]\n  B1 [label = \"Blue \"]\n  R2a [label = \"Red \"]\n  B2a [label = \"Blue  \"]\n  R2b [label = \"Red \"]\n  B2b [label = \"Blue \"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calculate the conditional probability that a red chip was drawn in the second step given that the a blue chip was drawn previously.</p></li>
+<li><p>What is the probability of drawing a red chips in the second time?</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>When a blue chip is drawn on the first try (without replacement):</li>
+</ol>
+<ul>
+<li><p>The total remaining chips in the bowl becomes <span class="math inline">\(8 - 1 = 7\)</span>.</p></li>
+<li><p>The remaining number of red chips is still 3.</p></li>
+<li><p>Therefore, the conditional probability is:
+<span class="math display">\[P(R_2 \mid B_1) = \frac{3}{7}\]</span></p></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Probability of drawing a red chip on the 2nd draw: <span class="math inline">\(P(R_2)\)</span></li>
+</ol>
+<ul>
+<li><p>Using the Law of Total Probability, drawing a red chip on the second draw can happen under two mutually exclusive scenarios depending on the outcome of the first draw:</p></li>
+<li><p>First draw is Red, second draw is Red (<span class="math inline">\(R_1 \cap R_2\)</span>)</p></li>
+<li><p>First draw is Blue, second draw is Red (<span class="math inline">\(B_1 \cap R_2\)</span>)<span class="math display">\[P(R_2) = P(R_1 \cap R_2) + P(B_1 \cap R_2)\]</span>
+<span class="math display">\[P(R_2) = P(R_1) \cdot P(R_2 \mid R_1) + P(B_1) \cdot P(R_2 \mid B_1)\]</span></p></li>
+<li><p>Substitute the probabilities:</p>
+<ul>
+<li><p><span class="math inline">\(P(R_1) = \frac{3}{8}\)</span></p></li>
+<li><p><span class="math inline">\(P(R_2 \mid R_1) = \frac{2}{7}\)</span> (if a red is drawn first, 2 red chips remain out of 7)</p></li>
+<li><p><span class="math inline">\(P(B_1) = \frac{5}{8}\)</span></p></li>
+<li><p><span class="math inline">\(P(R_2 \mid B_1) = \frac{3}{7}\)</span></p>
+<p><span class="math display">\[P(R_2) = \left(\frac{3}{8} \times \frac{2}{7}\right) + \left(\frac{5}{8} \times \frac{3}{7}\right)\]</span></p>
+<p><span class="math display">\[P(R_2) = \frac{6}{56} + \frac{15}{56} = \frac{21}{56} = \frac{3}{8}\]</span></p>
+<p>Conclusion: The probability of drawing a red chip on the second draw is <span class="math inline">\(\frac{3}{8}\)</span> (or <span class="math inline">\(0.375\)</span>).</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="the-birthday-problem" class="section level3 hasAnchor" number="2.15.3">
+<h3><span class="header-section-number">2.15.3</span> The Birthday Problem<a href="probability-basic-concepts.html#the-birthday-problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>What is the probability that, in a group of n people, two of them share the same birthday?</em></p>
+<p><em>How many people would need to be in a room for there to be a 50 percent chance that at least two of them share the same birthday?</em></p>
+<ul>
+<li><p><strong>Person 1:</strong> Enters an empty room with 365 out of 365 days available.</p></li>
+<li><p><strong>Person 2:</strong> Given Person 1 claimed a day, they only have 364 safe days left to avoid a match (<span class="math inline">\(P = \frac{364}{365}\)</span>).</p></li>
+<li><p><strong>Person 3:</strong> Strictly dependent on the first two outcomes, they only have 363 days left (<span class="math inline">\(P = \frac{363}{365}\)</span>).</p></li>
+<li><p><strong>Person 25:</strong> Strictly dependent on the first 24 outcomes, they only have 341 safe days left (<span class="math inline">\(P = \frac{341}{365}\)</span>).</p></li>
+<li><p>To find the probability of at least one shared birthday, we multiply the conditional probabilities of <em>avoiding</em> a match, then use the rule of complements.</p></li>
+</ul>
+<p><span class="math display">\[P(\text{Match}) = 1 - \left(\frac{365}{365} \times \frac{364}{365} \times \dots \times \frac{341}{365}\right)\]</span>
+<span class="math display">\[P(\text{Match}) = 1 - 0.4313 = 0.5687\]</span></p>
+<ul>
+<li><p>With <strong>23 people</strong>, the probability crosses 50.7%.</p></li>
+<li><p>With <strong>70 people</strong>, the probability hits 99.9%.</p></li>
+</ul>
+</div>
+<div id="interactive-game-the-impossible-bet" class="section level3 hasAnchor" number="2.15.4">
+<h3><span class="header-section-number">2.15.4</span> Interactive Game: The Impossible Bet<a href="probability-basic-concepts.html#interactive-game-the-impossible-bet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>The Setup:</strong> Offer a crowd of 30+ people a $10 bet that a shared birthday exists in the room.</li>
+<li><strong>The Execution:</strong> Call out months one by one. Have people born in that month stand up and state their day.</li>
+<li><strong>The Reveal:</strong> The audience falls for the intuitive trap, but the math is heavily in your favor. Statistically, two people standing will call out the same number well before you reach December.</li>
+</ul>
+</div>
+</div>
+<div id="conditional-probability-example-1" class="section level2 hasAnchor" number="2.16">
+<h2><span class="header-section-number">2.16</span> Conditional Probability: Example<a href="probability-basic-concepts.html#conditional-probability-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>When Netflix or Amazon recommends something to you, they are rarely looking at items in a vacuum. They are calculating conditional probabilities based on user behavior.</p>
+<p>E.g.: “What is the probability this user will watch Stranger Things (<span class="math inline">\(Event\ A\)</span>), given that they already watched The Umbrella Academy (<span class="math inline">\(Event\ B\)</span>)?”</p></li>
+<li><p>A Markov Model is a system that transitions from one state to another, where the probability of the next state depends only on the current state.</p>
+<p>E.g.: “Given that the current word is ‘New’ (<span class="math inline">\(Event\ B\)</span>), what is the probability that the next word is ‘York’ (<span class="math inline">\(Event\ A\)</span>) versus ‘shoes’?”</p></li>
+</ol>
+<div id="conditional-probability-exercise" class="section level3 hasAnchor" number="2.16.1">
+<h3><span class="header-section-number">2.16.1</span> Conditional Probability: Exercise<a href="probability-basic-concepts.html#conditional-probability-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A velvet bag contains 15 marbles in three different colors (three possible events per draw):</p>
+<ul>
+<li><p>6 Red marbles</p></li>
+<li><p>5 Blue marbles</p></li>
+<li><p>4 Green marbles</p></li>
+</ul>
+<p>You draw 4 marbles in a row without putting any back (four dependent steps).</p>
+<p>What is the exact probability of drawing a Red, then a Blue, then a Green, and finally another Red marble?</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-f9e8075a8655bbd68794" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f9e8075a8655bbd68794">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.8]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root Node\n  Start [label = \"Start\n(15 Marbles:\n6R, 5B, 4G)\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # 1st Draw Branches\n  R1 [label = \"1st: Red\n(14 Left)\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  B1 [label = \"1st: Blue\n(14 Left)\"]\n  G1 [label = \"1st: Green\n(14 Left)\"]\n\n  # 2nd Draw Branches (from R1)\n  R1_R2 [label = \"2nd: Red\n(13 Left)\"]\n  R1_B2 [label = \"2nd: Blue\n(13 Left)\", fillcolor = \"#BEE3F8\", style = \"filled,bold\", color = \"#3182CE\"]\n  R1_G2 [label = \"2nd: Green\n(13 Left)\"]\n\n  # 3rd Draw Branches (from R1 -> B2)\n  R1_B2_R3 [label = \"3rd: Red\n(12 Left)\"]\n  R1_B2_B3 [label = \"3rd: Blue\n(12 Left)\"]\n  R1_B2_G3 [label = \"3rd: Green\n(12 Left)\", fillcolor = \"#C6F6D5\", style = \"filled,bold\", color = \"#38A169\"]\n\n  # 4th Draw Branches (from R1 -> B2 -> G3)\n  R1_B2_G3_R4 [label = \"4th: Red\n★ TARGET ★\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  R1_B2_G3_B4 [label = \"4th: Blue\"]\n  R1_B2_G3_G4 [label = \"4th: Green\"]\n\n  # Connections for Draw 1\n  Start -> R1 [label = \" 6/15\", color = \"#E53E3E\", penwidth = 2.5]\n  Start -> B1 [label = \" 5/15\"]\n  Start -> G1 [label = \" 4/15\"]\n\n  # Connections for Draw 2\n  R1 -> R1_R2 [label = \" 5/14\"]\n  R1 -> R1_B2 [label = \" 5/14\", color = \"#3182CE\", penwidth = 2.5]\n  R1 -> R1_G2 [label = \" 4/14\"]\n\n  # Connections for Draw 3\n  R1_B2 -> R1_B2_R3 [label = \" 5/13\"]\n  R1_B2 -> R1_B2_B3 [label = \" 4/13\"]\n  R1_B2 -> R1_B2_G3 [label = \" 4/13\", color = \"#38A169\", penwidth = 2.5]\n\n  # Connections for Draw 4\n  R1_B2_G3 -> R1_B2_G3_R4 [label = \" 5/12\", color = \"#E53E3E\", penwidth = 2.5]\n  R1_B2_G3 -> R1_B2_G3_B4 [label = \" 4/12\"]\n  R1_B2_G3 -> R1_B2_G3_G4 [label = \" 3/12\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>To find the probability of drawing Red (<span class="math inline">\(R_1\)</span>), then Blue (<span class="math inline">\(B_2\)</span>), then Green (<span class="math inline">\(G_3\)</span>), and finally Red (<span class="math inline">\(R_4\)</span>) without replacement, we use the General Multiplication Rule for dependent events:
+<span class="math display">\[P(R_1 \cap B_2 \cap G_3 \cap R_4) = P(R_1) \cdot P(B_2 \mid R_1) \cdot P(G_3 \mid R_1 \cap B_2) \cdot P(R_4 \mid R_1 \cap B_2 \cap G_3)\]</span></p>
+<ul>
+<li><p>Step 1: First Draw — Red (<span class="math inline">\(R_1\)</span>)</p>
+<ul>
+<li>Bag contents: 6 Red, 5 Blue, 4 Green (15 total)</li>
+</ul>
+<p><span class="math display">\[P(R_1) = \frac{6}{15} = \frac{2}{5}\]</span></p></li>
+<li><p>Step 2: Second Draw — Blue (<span class="math inline">\(B_2\)</span>)Bag contents after <span class="math inline">\(R_1\)</span>: 5 Red, 5 Blue, 4 Green (14 total)</p>
+<p><span class="math display">\[P(B_2 \mid R_1) = \frac{5}{14}\]</span></p></li>
+<li><p>Step 3: Third Draw — Green (<span class="math inline">\(G_3\)</span>)Bag contents after <span class="math inline">\(R_1, B_2\)</span>: 5 Red, 4 Blue, 4 Green (13 total)<span class="math display">\[P(G_3 \mid R_1 \cap B_2) = \frac{4}{13}\]</span></p></li>
+<li><p>Step 4: Fourth Draw — Red (<span class="math inline">\(R_4\)</span>)Bag contents after <span class="math inline">\(R_1, B_2, G_3\)</span>: 5 Red, 4 Blue, 3 Green (12 total)
+<span class="math display">\[P(R_4 \mid R_1 \cap B_2 \cap G_3) = \frac{5}{12}\]</span></p></li>
+<li><p>Final Calculation</p>
+<ul>
+<li>Multiply all individual conditional probabilities together:
+<span class="math display">\[P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{6}{15} \times \frac{5}{14} \times \frac{4}{13} \times \frac{5}{12}\]</span>
+<span class="math display">\[P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{6 \times 5 \times 4 \times 5}{15 \times 14 \times 13 \times 12} = \frac{600}{32,760}\]</span></li>
+<li>Simplifying the fraction by dividing numerator and denominator by 120:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\mathbf{P(R_1 \cap B_2 \cap G_3 \cap R_4) = \frac{5}{273}} \approx 0.018315 \quad (\text{or } 1.8315\%)\]</span></p>
+</div>
+<div id="conditional-probability-exercise-1" class="section level3 hasAnchor" number="2.16.2">
+<h3><span class="header-section-number">2.16.2</span> Conditional Probability: Exercise<a href="probability-basic-concepts.html#conditional-probability-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An IT specialist is analysing traffic on a highly secure corporate email server. Because the security is very tight, spam is quite rare.</p>
+<p>Only 5% of all incoming emails are actually Spam. The other 95% are Legitimate internal emails. You are looking at how often the word “URGENT” is used in these emails.Spammers love this word. If an email is Spam, there is a 40% chance it contains the word “URGENT”. Normal employees rarely use it. If an email is Legitimate, there is only a 2% chance it contains the word “URGENT”.</p>
+<p>An alert pops up: A new email has just arrived, and it contains the word “URGENT”.</p>
+<p>Based on conditional probability, what is the exact percentage chance that this specific email is actually Spam?</p>
+</div>
+<div id="bayes-theorem" class="section level3 hasAnchor" number="2.16.3">
+<h3><span class="header-section-number">2.16.3</span> Bayes’ Theorem<a href="probability-basic-concepts.html#bayes-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Let <span class="math inline">\(B_1, B_2, \dots, B_m\)</span> constitute a partition of the sample space <span class="math inline">\(S\)</span>.</p></li>
+<li><p>This means that <span class="math inline">\(S = B_1 \cup B_2 \cup \dots \cup B_m\)</span> and <span class="math inline">\(B_i \cap B_j = \emptyset\)</span> for <span class="math inline">\(i \neq j\)</span>.</p></li>
+<li><p>Then for any event <span class="math inline">\(A\)</span> that is a subset of <span class="math inline">\(S\)</span>, Bayes’ Theorem is given by:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}\]</span></p></li>
+</ul>
+<p><img src="Inferential_Statistics_files/figure-html/draw-bayes-theorem-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<p>Out of the entire area where Event A happens (the complete coral oval), what exact percentage of that area belongs to our target scenario <span class="math inline">\(B_k\)</span>?</p>
+<ul>
+<li><p>The numerator (<span class="math inline">\(P(B_k)P(A\vert{}B_k)\)</span>) is just the area of the specific intersection chunk inside <span class="math inline">\(B_k\)</span>.</p></li>
+<li><p>The denominator (<span class="math inline">\(\sum_{i=1}^{m} P(B_i)P(A\vert{}B_i)\)</span>) is just the total area of the coral oval, calculated by adding up all of its individual chunks across every partition.</p></li>
+</ul>
+</div>
+<div id="bayes-theorem-proof" class="section level3 hasAnchor" number="2.16.4">
+<h3><span class="header-section-number">2.16.4</span> Bayes’ Theorem: Proof<a href="probability-basic-concepts.html#bayes-theorem-proof" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By the definition of conditional probability, the probability of event <span class="math inline">\(B_k\)</span> given event <span class="math inline">\(A\)</span> is:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k \cap A)}{P(A)}\]</span></p>
+<p>Using the multiplication rule of probability, we can express the intersection in the numerator as:</p>
+<p><span class="math display">\[P(B_k \cap A) = P(B_k)P(A|B_k)\]</span></p>
+<p>Next, because <span class="math inline">\(B_1, B_2, \dots, B_m\)</span> form a partition of the sample space <span class="math inline">\(S\)</span>, we can apply the Law of Total Probability to expand the denominator <span class="math inline">\(P(A)\)</span>. The event <span class="math inline">\(A\)</span> can occur in conjunction with any of the mutually exclusive events <span class="math inline">\(B_i\)</span>:</p>
+<p><span class="math display">\[P(A) = \sum_{i=1}^{m} P(B_i \cap A)\]</span></p>
+<p>Applying the multiplication rule to each term in the sum gives:</p>
+<p><span class="math display">\[P(A) = \sum_{i=1}^{m} P(B_i)P(A|B_i)\]</span></p>
+<p>Finally, substituting the expanded numerator and the expanded denominator back into the original conditional probability formula yields Bayes’ Theorem:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}\]</span></p>
+</div>
+<div id="bayes-theorem-application-example" class="section level3 hasAnchor" number="2.16.5">
+<h3><span class="header-section-number">2.16.5</span> Bayes’ Theorem Application: Example<a href="probability-basic-concepts.html#bayes-theorem-application-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At a hospital’s emergency room, patients are classified:</p>
+<ul>
+<li><p>20% of them are critical,</p></li>
+<li><p>30% are serious, and</p></li>
+<li><p>50% are stable.</p></li>
+</ul>
+<p>Of the critical ones, 30% die; of the serious, 10% die; and of the stable, 1% die. Given that a patient dies, what is the conditional probability that the patient was classified as critical?</p>
+<p><img src="Inferential_Statistics_files/figure-html/visualize-hospital-bayes-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Solution:</strong></p>
+<p>To find the probability that a patient who died was classified as critical, we apply <strong>Bayes’ Theorem</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Define the Events and Given Probabilities</li>
+</ol>
+<ul>
+<li><p><strong>Classification probabilities:</strong></p></li>
+<li><p><span class="math inline">\(P(C) = 0.20\)</span> (Critical)</p></li>
+<li><p><span class="math inline">\(P(S) = 0.30\)</span> (Serious)</p></li>
+<li><p><span class="math inline">\(P(St) = 0.50\)</span> (Stable)</p></li>
+<li><p><strong>Conditional probabilities of death (<span class="math inline">\(D\)</span>):</strong></p></li>
+<li><p><span class="math inline">\(P(D \mid C) = 0.30\)</span></p></li>
+<li><p><span class="math inline">\(P(D \mid S) = 0.10\)</span></p></li>
+<li><p><span class="math inline">\(P(D \mid St) = 0.01\)</span></p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Find the Total Probability of Death <span class="math inline">\(P(D)\)</span></li>
+</ol>
+<p>Using the Law of Total Probability:</p>
+<p><span class="math display">\[P(D) = P(C) \cdot P(D \mid C) + P(S) \cdot P(D \mid S) + P(St) \cdot P(D \mid St)\]</span></p>
+<p><span class="math display">\[P(D) = (0.20 \times 0.30) + (0.30 \times 0.10) + (0.50 \times 0.01)\]</span></p>
+<p><span class="math display">\[P(D) = 0.060 + 0.030 + 0.005 = 0.095\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Calculate <span class="math inline">\(P(C \mid D)\)</span> using Bayes’ Theorem</li>
+</ol>
+<p><span class="math display">\[P(C \mid D) = \frac{P(C) \cdot P(D \mid C)}{P(D)}\]</span></p>
+<p><span class="math display">\[P(C \mid D) = \frac{0.20 \times 0.30}{0.095} = \frac{0.060}{0.095} = \frac{12}{19}\]</span></p>
+<p><span class="math display">\[\mathbf{P(C \mid D) = \frac{12}{19} \approx 0.6316 \quad (\text{or } 63.16\%)}\]</span></p>
+</div>
+<div id="bayes-theorem-application-example-1" class="section level3 hasAnchor" number="2.16.6">
+<h3><span class="header-section-number">2.16.6</span> Bayes’ Theorem Application: Example<a href="probability-basic-concepts.html#bayes-theorem-application-example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You are building a model to detect spam emails. Your historical data shows that exactly 5% of all login attempts on your platform are fraudulent. Consequently, 95% are legitimate.Your model evaluates logins based on three distinct features:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(F_1\)</span> (Late Night): The login occurs between 2 AM and 5 AM.</p></li>
+<li><p><span class="math inline">\(F_2\)</span> (VPN Used): The login IP is routed through a known commercial VPN.</p></li>
+<li><p><span class="math inline">\(F_3\)</span> (Crypto Purchase): The first action after login is attempting to buy cryptocurrency.</p></li>
+</ol>
+<p>Based on your training data, you have the following conditional probabilities likelihoods) for how often these features appear in both classes:</p>
+<p>If a login is Fraudulent:</p>
+<ul>
+<li><p><span class="math inline">\(P(\text{Late Night} \vert{} \text{Fraud}) = 60\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{VPN} \vert{} \text{Fraud}) = 80\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Crypto} \vert{} \text{Fraud}) = 50\%\)</span></p></li>
+</ul>
+<p>If a login is Legitimate:</p>
+<ul>
+<li><p><span class="math inline">\(P(\text{Late Night} \vert{} \text{Legitimate}) = 10\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{VPN} \vert{} \text{Legitimate}) = 10\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Crypto} \vert{} \text{Legitimate}) = 20\%\)</span></p></li>
+</ul>
+<p>What is the posterior probability that a login is Fraudulent given that all three features (<span class="math inline">\(F_1\)</span>: Late Night, <span class="math inline">\(F_2\)</span>: VPN, <span class="math inline">\(F_3\)</span>: Crypto Purchase) are present?</p>
+<p><strong>Solution:</strong></p>
+<p>We calculate the posterior probability <span class="math inline">\(P(\text{Fraud} \mid F_1, F_2, F_3)\)</span> by multiplying the prior probability by the likelihood of each feature given the class, then normalizing.</p>
+<p>Step 1: Prior Probabilities</p>
+<ul>
+<li><p><span class="math inline">\(P(\text{Fraud}) = 0.05\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Legitimate}) = 0.95\)</span></p></li>
+</ul>
+<p>Step 2: Likelihoods (Given Conditional Independence)</p>
+<ul>
+<li><p>Assuming features <span class="math inline">\(F_1, F_2, F_3\)</span> are conditionally independent:</p></li>
+<li><p>For Fraudulent logins:</p></li>
+</ul>
+<p><span class="math display">\[P(F_1, F_2, F_3 \mid \text{Fraud}) = P(F_1 \mid \text{Fraud}) \cdot P(F_2 \mid \text{Fraud}) \cdot P(F_3 \mid \text{Fraud})\]</span></p>
+<p><span class="math display">\[P(F_1, F_2, F_3 \mid \text{Fraud}) = 0.60 \times 0.80 \times 0.50 = 0.24\]</span>
+- For Legitimate logins:</p>
+<p><span class="math display">\[P(F_1, F_2, F_3 \mid \text{Legitimate}) = P(F_1 \mid \text{Legitimate}) \cdot P(F_2 \mid \text{Legitimate}) \cdot P(F_3 \mid \text{Legitimate})\]</span></p>
+<p><span class="math display">\[P(F_1, F_2, F_3 \mid \text{Legitimate}) = 0.10 \times 0.10 \times 0.20 = 0.002\]</span>
+Step 3: Unnormalized Numerators</p>
+<ul>
+<li>Fraud Numerator:</li>
+</ul>
+<p><span class="math display">\[P(F_1, F_2, F_3 \mid \text{Fraud}) \cdot P(\text{Fraud}) = 0.24 \times 0.05 = 0.012\]</span></p>
+<ul>
+<li>Legitimate Numerator:<span class="math display">\[P(F_1, F_2, F_3 \mid \text{Legitimate}) \cdot P(\text{Legitimate}) = 0.002 \times 0.95 = 0.0019\]</span></li>
+</ul>
+<p>Step 4: Total Probability of Evidence (Denominator)</p>
+<p><span class="math display">\[P(F_1, F_2, F_3) = 0.012 + 0.0019 = 0.0139\]</span></p>
+<p>Step 5: Posterior Probability Calculation</p>
+<p><span class="math display">\[P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{P(F_1, F_2, F_3 \mid \text{Fraud}) \cdot P(\text{Fraud})}{P(F_1, F_2, F_3)}\]</span></p>
+<p><span class="math display">\[P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.012}{0.0139} = \frac{120}{139} \approx 0.8633\]</span></p>
+<p>Answer:The posterior probability that a login is Fraudulent given that all three features are present is <span class="math inline">\(\frac{120}{139} \approx 86.33\%\)</span>.</p>
+</div>
+<div id="bayes-theorem-application-exercise" class="section level3 hasAnchor" number="2.16.7">
+<h3><span class="header-section-number">2.16.7</span> Bayes’ Theorem Application: Exercise<a href="probability-basic-concepts.html#bayes-theorem-application-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An influencer marketing agency is analyzing a client’s Instagram account. Based on historical data, the client chooses to post either a <strong>Story</strong> or a <strong>Reel</strong>.</p>
+<ul>
+<li>The probability that the client posts a Story is 70% (0.7), and the probability they post a Reel is 30% (0.3).</li>
+<li>If they post a Story, the probability it goes “Viral” (gets over 10,000 views) is 20% (0.2).</li>
+<li>If they post a Reel, the probability it goes “Viral” is 60% (0.6).</li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Draw a tree diagram</strong> to represent this scenario. Be sure to label all branches with their respective events and probabilities.</p></li>
+<li><p>Calculate the probability that a randomly selected post goes Viral.</p></li>
+<li><p><strong>Evaluate:</strong> If you observe that a post has gone Viral, what is the conditional probability that it was a Reel?</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Tree Diagram</li>
+</ol>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d6084a7a7214fa5e7767" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d6084a7a7214fa5e7767">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.3, ranksep = 1.0]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root\n  Start [label = \"Post Type\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # Level 1: Post Type\n  Story [label = \"Story\nP(Story) = 0.7\", fillcolor = \"#EBF8FF\"]\n  Reel  [label = \"Reel\nP(Reel) = 0.3\", fillcolor = \"#FEEBC8\"]\n\n  # Level 2: Story Outcomes\n  Story_Viral [label = \"Viral\n0.7 × 0.2 = 0.14\", fillcolor = \"#C6F6D5\"]\n  Story_Not   [label = \"Not Viral\n0.7 × 0.8 = 0.56\", fillcolor = \"#FED7D7\"]\n\n  # Level 2: Reel Outcomes\n  Reel_Viral  [label = \"Viral\n0.3 × 0.6 = 0.18\", fillcolor = \"#C6F6D5\"]\n  Reel_Not    [label = \"Not Viral\n0.3 × 0.4 = 0.12\", fillcolor = \"#FED7D7\"]\n\n  # Branches\n  Start -> Story [label = \" 0.7\"]\n  Start -> Reel  [label = \" 0.3\"]\n\n  Story -> Story_Viral [label = \" P(Viral|Story) = 0.2\"]\n  Story -> Story_Not   [label = \" P(Not Viral|Story) = 0.8\"]\n\n  Reel  -> Reel_Viral  [label = \" P(Viral|Reel) = 0.6\"]\n  Reel  -> Reel_Not    [label = \" P(Not Viral|Reel) = 0.4\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Probability that a randomly selected post goes ViralUsing the Law of Total Probability:</li>
+</ol>
+<p><span class="math display">\[P(\text{Viral}) = P(\text{Story} \cap \text{Viral}) + P(\text{Reel} \cap \text{Viral})\]</span></p>
+<p><span class="math display">\[P(\text{Viral}) = P(\text{Story}) \cdot P(\text{Viral} \mid \text{Story}) + P(\text{Reel}) \cdot P(\text{Viral} \mid \text{Reel})\]</span></p>
+<p><span class="math display">\[P(\text{Viral}) = (0.7 \times 0.2) + (0.3 \times 0.6)\]</span></p>
+<p><span class="math display">\[P(\text{Viral}) = 0.14 + 0.18 = 0.32\]</span></p>
+<p>Answer: The probability that a post goes Viral is <span class="math inline">\(0.32\)</span> (or <span class="math inline">\(32\%\)</span>).</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Conditional Probability that a Viral post was a ReelUsing Bayes’ Theorem:</li>
+</ol>
+<p><span class="math display">\[P(\text{Reel} \mid \text{Viral}) = \frac{P(\text{Reel} \cap \text{Viral})}{P(\text{Viral})}\]</span></p>
+<p><span class="math display">\[P(\text{Reel} \mid \text{Viral}) = \frac{P(\text{Reel}) \cdot P(\text{Viral} \mid \text{Reel})}{P(\text{Viral})}\]</span></p>
+<p><span class="math display">\[P(\text{Reel} \mid \text{Viral}) = \frac{0.3 \times 0.6}{0.32} = \frac{0.18}{0.32} = \frac{18}{32} = \frac{9}{16} = 0.5625\]</span></p>
+<p>Given that a post has gone Viral, the conditional probability that it was a Reel is <span class="math inline">\(\frac{9}{16} = 0.5625\)</span> (or <span class="math inline">\(56.25\%\)</span>).</p>
+</div>
+</div>
+<div id="tutorials" class="section level2 hasAnchor" number="2.17">
+<h2><span class="header-section-number">2.17</span> Tutorials<a href="probability-basic-concepts.html#tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Given <span class="math inline">\(P(A) = 0.4\)</span>, <span class="math inline">\(P(B) = 0.5\)</span>, and <span class="math inline">\(P(A \cap B) = 0.3\)</span>. CALCULATE the following:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P(A \cup B)\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+<li><p><span class="math inline">\(P(A \cap B&#39;)\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+<li><p><span class="math inline">\(P(A&#39; \cup B&#39;)\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+</ol></li>
+</ol>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(S:= \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>, <span class="math inline">\(A := \{1, 3, 5, 7, 9\}\)</span>, <span class="math inline">\(B := \{1, 2, 4, 6, 7, 9\}\)</span> and <span class="math inline">\(C := \{s \in S : 2s \in B \}\)</span>. DETERMINE</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A \cup B\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+<li><p><span class="math inline">\((A \cup B)^{c}\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+<li><p><span class="math inline">\(C \notin A\)</span> <span style="float:right;">[2 mark]</span>
+<br></p></li>
+</ol></li>
+<li><p>Roll a fair six-sided die three times. Let</p>
+<ul>
+<li><p><span class="math inline">\(A_1 = \{1 \text{ or } 2 \text{ on the first roll}\}\)</span></p></li>
+<li><p><span class="math inline">\(A_2 = \{3 \text{ or } 4 \text{ on the second roll}\}\)</span></p></li>
+<li><p><span class="math inline">\(A_3 = \{5 \text{ or } 6 \text{ on the third roll}\}\)</span>.</p></li>
+</ul>
+<p>It is given that</p>
+<ul>
+<li><p><span class="math inline">\(P(A_i) = 1/3\)</span> for <span class="math inline">\(i = 1,2,3\)</span>;</p></li>
+<li><p><span class="math inline">\(P(A_i \cap A_j) = (1/3)^2\)</span> for <span class="math inline">\(i \neq j\)</span>;</p></li>
+<li><p><span class="math inline">\(P(A_1 \cap A_2 \cap A_3) = (1/3)^3\)</span>.</p></li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find <span class="math inline">\(P(A_1 \cup A_2 \cup A_3)\)</span>.<span style="float:right;">[2 mark]</span>
+<br></p></li>
+<li><p>Show that <span class="math inline">\(P(A_1 \cup A_2 \cup A_3) = 1 - \left(1 - \frac{1}{3}\right)^3\)</span>. <span style="float:right;">[3 mark]</span></p>
+<p>(Hint: You need to <strong>show</strong> how to get the RHS from teh LHS)
+<br></p></li>
+</ol></li>
+<li><p>How many four-letter code words are possible using the letters in IOWA if:</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The letters may not be repeated?</li>
+<li>The letters may be repeated?</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Suppose that Novak Djokovic and Roger Federer are playing a tennis match in which the first player to win three sets wins the match. Using D and F for the winning player of a set, in how many ways could this tennis match end?</p></li>
+<li><p>A student uses Gemini to write a block of R code for their statistics assignment. The probability that the generated code runs perfectly without any errors on the first try is <span class="math inline">\(0.82\)</span>.
+What is the probability that the code produces at least one error on the first try? <span style="float:right;">[2 mark]</span></p></li>
+<li><p>A user prompts Gemini to generate a meal plan. The response will feature exactly one primary protein source. The probability it features chicken (<span class="math inline">\(C\)</span>) is <span class="math inline">\(0.45\)</span>, and the probability it features tofu (<span class="math inline">\(T\)</span>) is <span class="math inline">\(0.20\)</span>. Since a single response cannot feature both as the primary source, these events are mutually exclusive.
+Calculate <span class="math inline">\(P(C \cup T)\)</span>, the probability that the meal plan features either chicken or tofu. <span style="float:right;">[2 mark]</span></p></li>
+<li><p>A researcher asks Gemini to analyze a dataset. Let <span class="math inline">\(A\)</span> be the event that Gemini successfully reads the uploaded data, and let <span class="math inline">\(B\)</span> be the event that Gemini generates a correct visualization.
+The probability that Gemini reads the data is <span class="math inline">\(P(A) = 0.90\)</span>. Given that it reads the data, the conditional probability that it generates a correct visualization is <span class="math inline">\(P(B|A) = 0.70\)</span>.
+Find the probability that Gemini successfully reads the data <strong>and</strong> generates a correct visualization. <span style="float:right;">[3 marks]</span></p></li>
+<li><p>Two fair dice are rolled. <strong>Calculate</strong> the conditional probability that at least one die lands on 5 given that the other die lands on different numbers? <span style="float:right;">[3 mark]</span>
+<br></p></li>
+<li><p>Let <span class="math inline">\(n \in \mathbb{N}\)</span>, and <span class="math inline">\(r = 0, 1, 2, \dots, n\)</span>. Show that</p></li>
+</ol>
+<p><span class="math display">\[{n \choose r} = {n \choose n-r}\]</span></p>
+<ol start="11" style="list-style-type: decimal">
+<li><p>Two fair dice are rolled. <strong>Calculate</strong> the conditional probability that at least one die lands on 5 given that the other die lands on different numbers? <span style="float:right;">[3 mark]</span>
+<br></p></li>
+<li><p>From historical data, 97% babies survive during delivery. 15% are from cesarean section. When a C-section is performed, the baby survives 96% of the time. If a randomly chosen pregnant woman does not have a section, whar is the probability the baby survive? <span style="float:right;">[3 mark]</span>
+<br></p></li>
+<li><p>Forty-eight percent (48%) of the students of a certain university are males. Five percent (5%) of the students of this university are majoring in Mathematics. Five percent (5%) of the male students are majoring in Mathematics. If a student is selected at random, calculate the conditional probability that</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>this student is male, given that the student is majoring in Mathematics</p></li>
+<li><p>this student is majoring in Mathematics, given the student is a male</p></li>
+</ol></li>
+<li><p>An influencer marketing agency is analyzing a client’s Instagram account. Based on historical data, the client chooses to post either a <strong>Story</strong> or a <strong>Reel</strong>. (Level 4)</p></li>
+</ol>
+<ul>
+<li><p>The probability that the client posts a Story is 70% (0.7), and the probability they post a Reel is 30% (0.3).</p></li>
+<li><p>If they post a Story, the probability it goes “Viral” (gets over 10,000 views) is 20% (0.2).</p></li>
+<li><p>If they post a Reel, the probability it goes “Viral” is 60% (0.6).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Draw a tree diagram</strong> to represent this scenario. Be sure to label all branches with their respective events and probabilities.</p></li>
+<li><p>Calculate the probability that a randomly selected post goes Viral.</p></li>
+<li><p><strong>Evaluate:</strong> If you observe that a post has gone Viral, what is the conditional probability that it was a Reel?</p></li>
+</ol></li>
+</ul>
+<ol start="15" style="list-style-type: decimal">
+<li><p>A university tracks how students use Gemini for their Probability and Statistics assignments. They find that 60% of students use Gemini primarily for coding help in R (<span class="math inline">\(C\)</span>), while 40% use it primarily for conceptual explanations (<span class="math inline">\(E\)</span>). (Level 5)</p>
+<p>At the end of the semester, 80% of the students who used it for coding achieved an ‘A’ grade (<span class="math inline">\(A\)</span>), whereas 90% of those who used it for conceptual explanations achieved an ‘A’ grade.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Draw a tree diagram to represent this scenario. <span style="float:right;">[2 marks]</span></p></li>
+<li><p>Calculate the total probability that a randomly selected student achieves an ‘A’ grade. <span style="float:right;">[2 marks]</span></p></li>
+<li><p>If a randomly selected student achieved an ‘A’ grade, use Bayes’ Theorem to find the probability that they used Gemini primarily for coding help. <span style="float:right;">[3 marks]</span></p></li>
+</ol></li>
+<li><p>You are looking at the relationship between heavy vaping and a specific, rare throat mutation that is a known precursor to cancer.Because the clinic sees a general population of young adults, the mutation is still relatively rare overall:</p>
+<ul>
+<li><p>Only 2% of all patients who walk through the doors actually have this mutation.</p></li>
+<li><p>The other 98% of patients have completely healthy throat tissue.</p></li>
+</ul>
+<p>You then look at the vaping habits of these patients:Vaping is heavily linked to the mutation.</p>
+<ul>
+<li><p>If a patient has the mutation, there is a 90% chance they are a heavy vaper.</p></li>
+<li><p>However, vaping is also just a common habit. If a patient is perfectly healthy, there is still a 20% chance they are a heavy vaper.</p></li>
+</ul>
+<p>A nurse hands you the intake file for a brand new patient in the waiting room. You haven’t seen their test results, but you see one checked box: The patient is a heavy vaper. Based on conditional probability, <strong>calculate</strong> is the exact percentage chance that this specific patient has the throat mutation?</p></li>
+<li><p>You are a contestant on a game show. The host stands in front of three closed doors: Door 1, Door 2, and Door 3. Behind one of the doors is a brand new sports car. Behind the other two doors are goats. The host asks you to pick a door. You choose Door 1.</p>
+<p>The host knows exactly what is behind every door. After you make your pick, the host must open one of the two remaining doors that you did not pick, and he must always reveal a goat.</p>
+<p>The host walks over and opens Door 3. A goat is sitting behind it. He then turns to you and asks: “Do you want to stick with your original choice (Door 1), or do you want to switch to the other closed door (Door 2)?”</p>
+<p>Based on conditional probability, what are your exact percentage chances of winning the car if you stick with Door 1, versus if you switch to Door 2?</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter-2-random-variables-expectation-and-moments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Inferential_Statistics.pdf", "Inferential_Statistics.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+book_filename: "Inferential_Statistics"
+output_dir: "docs"
+delete_merged_file: true

@@ -1,0 +1,13 @@
+---
+title: "Inferential Statistics Module"
+author: "NAT"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+description: "A 14-week course module for Inferential Statistics."
+---
+
+# Overview 
+
+This is a continuous notes
