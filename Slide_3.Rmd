@@ -119,6 +119,7 @@ b.  Graph the pmf as a line graph.
 A tech company manufactures high-end smartphones. Before shipping, an automated inspector checks batches of 4 phones for screen defects. Let $X$ be the discrete random variable representing the number of defective phones found in a randomly selected batch of 4.Based on historical data, the probability mass function (PMF) $P(X = x)$ is given as follows:
 
 |$x$  (Defects) | 0  | 1 |2 |3 |4 |
+|---------------|----|---|--|--|--|
 |P(X=x)$ | 0.70 |0.18 |0.08 |k |0.01 |
 
 1. Find the value of $k$ to complete the PMF.
@@ -132,7 +133,7 @@ A tech company manufactures high-end smartphones. Before shipping, an automated 
 A ride-hailing driver operates in a busy downtown district. Let $Y$ be the discrete random variable representing the number of passenger ride requests the driver receives during a 15-minute period.
 
 The PMF of $Y$ is estimated as:$$P(Y = y) = \begin{cases}  0.15 & \text{if } y = 0 \\ 0.40 & \text{if } y = 1 \\ 0.30 & \text{if } y = 2 \\ 0.15 & \text{if } y = 3 \\ 0 & \text{otherwise} \end{cases}$$
-1. Verify that this function satisfies the two fundamental properties of a valid PMF.
+Verify that this function satisfies the two fundamental properties of a valid PMF.
 
 - Non-negativity: All probabilities for each values that $Y$ can take are all greater than 0
 

@@ -93,7 +93,9 @@ window.Quarto = {
 <li><p>These are quantitiesa are <strong>Random Variable</strong></p></li>
 </ul>
 <div class="cell" name="Random Variable">
-<pre class="definition cell-code"><code>Given a random experiment with an outcome space $S$, a function $X$ that assigns one and only one real number $X(s) = x$ to each element $s$ in $S$ is called a **random variable**. The **space** of $X$ is the set of real numbers $\{x: X(s) = x, s \in S\}$, where $s \in S$ means that the element $s$ belongs to the set $S$.</code></pre>
+<pre class="definition cell-code"><code>Given a random experiment with an outcome space $S$, a function $X$ that assigns one and only one real number $X(s) = x$ to each element $s$ in $S$ is called a **random variable**. 
+
+The **space** of $X$ is the set of real numbers $\{x: X(s) = x, s \in S\}$, where $s \in S$ means that the element $s$ belongs to the set $S$.</code></pre>
 </div>
 <ul>
 <li><p>A random variable, usually written <span class="math inline">\(X\)</span>, is a variable whose possible values are numerical outcomes of a random phenomenon.</p></li>
@@ -135,8 +137,8 @@ window.Quarto = {
 |Experiment | Possible Outcomes, $S$ | Function $X$ | Space of $X$|
 |:----------|:-----------------------|:-------------|:------------|
 |Toss two dice | (1, 1), (1, 2)  ... (6, 6) | $X$: Sum of the two dice | | 
-|Toss a coin 5 times | (TTTTT), (TTTTH), ...., (HHHHH) | $X$: Number of Tail | 
-|Apply different amount of fertilizer to palm trees in 2 acres | Weight of fertilizers |  $X$: Weight of palm fruits / 2 acres | | 
+|Toss a coin 5 times | (TTTTT), (TTTTH), ...., (HHHHH) | $X$: Number of Tail | |
+|Apply different amount of fertilizer to palm trees in 2 acres | Weight of fertilizers |  $X$: Weight of palm fruits / 2 acres |  | 
 </code></pre>
 </div>
 <div class="cell">
@@ -198,7 +200,66 @@ We can plot the p.m.f in graphical format
 
 a. Find the pmf of $X$.
 
+|$x$ | 1 | 5 | 10 |
+|----|---|---|----|
+|$P(X = x)$ | $\frac{3}{5}$ | $\frac{1}{10}$ | $\frac{3}{10}$ |
+
 b. Graph the pmf as a line graph.</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_CHAPTER_02_files/figure-html/plot-pmf-rv-exercise-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>A tech company manufactures high-end smartphones. Before shipping, an automated inspector checks batches of 4 phones for screen defects. Let $X$ be the discrete random variable representing the number of defective phones found in a randomly selected batch of 4.Based on historical data, the probability mass function (PMF) $P(X = x)$ is given as follows:
+
+|$x$  (Defects) | 0  | 1 |2 |3 |4 |
+|---------------|----|---|--|--|--|
+|P(X=x)$ | 0.70 |0.18 |0.08 |k |0.01 |
+
+1. Find the value of $k$ to complete the PMF.
+
+Let $X$ be the number of defect
+
+\begin{align}
+\sum_{i=0}^{4} P(x_{i}) &amp;= 1 \\
+1 - (0.7 + 0.18 + 0.08 + 0.01) = 0.03
+\end{align}
+
+2. What is the probability that a batch has at least 2 defective phones?
+
+\begin{align}
+P(X \ge 2) &amp;= P(X = 2) + P(X = 3) + P(X = 4) \\
+=&amp; 0.08 + 0.03 + 0.01 = 0.12
+\end{align}
+
+3. What is the probability that a batch has fewer than 3 defective phones?
+
+\begin{align}
+P(X &lt; 3) &amp;= 1 - P(X = 3) - P(X = 4) \\
+=&amp; 1 - 0.03 - 0.01 = 0.96
+\end{align}</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>A ride-hailing driver operates in a busy downtown district. Let $Y$ be the discrete random variable representing the number of passenger ride requests the driver receives during a 15-minute period.
+
+The PMF of $Y$ is estimated as:
+
+$$P(Y = y) = \begin{cases}  0.15 &amp; \text{if } y = 0 \\ 0.40 &amp; \text{if } y = 1 \\ 0.30 &amp; \text{if } y = 2 \\ 0.15 &amp; \text{if } y = 3 \\ 0 &amp; \text{otherwise} \end{cases}$$
+
+Verify that this function satisfies the two fundamental properties of a valid PMF.
+
+- Non-negativity: All probabilities for each values that $Y$ can take are all greater than 0
+
+- Sum of the probabiility is equal to 1
+
+$$0.15 + 0.40 + 0.30 + 0.15 + 0 = 1$$
+</code></pre>
 </div>
 </section>
 <section id="continuous-random-variable" class="level2">
@@ -207,11 +268,13 @@ b. Graph the pmf as a line graph.</code></pre>
 <p>Probability distribution for a continuous random variable: <span class="math inline">\(f(x)\)</span> is approximately equal to the relative frequency of the interval <span class="math inline">\(\{x: a &lt; x &lt; b\}\)</span> and hence can be thought of as an estimate of the probability that the RV <span class="math inline">\(X\)</span> falls into the interval <span class="math inline">\((a, b)\)</span>. This probability is often written as <span class="math inline">\(P(a &lt; x &lt; b) = \int_{a}^{b} f(x)dx\)</span>. It is often called the <strong>probability density function (pdf)</strong> for the continuous random variable <span class="math inline">\(X\)</span>.</p>
 <section id="properties-of-continuous-random-variable" class="level3">
 <h3 class="anchored" data-anchor-id="properties-of-continuous-random-variable">Properties of continuous Random Variable</h3>
-<p>Pdf of <span class="math inline">\(f(x)\)</span> satisfying the conditions:</p>
-<ol type="1">
-<li><p><span class="math inline">\(f(x) &gt; 0, x \in S\)</span></p></li>
-<li><p><span class="math inline">\(P(X \in (-\infty, \infty)) = \int_{-\infty}^{\infty} f(x)dx = \int_S f(x)dx = 1\)</span></p></li>
-</ol>
+<p>The p.d.f. <span class="math inline">\(f(x)\)</span> satisfies:</p>
+<ul>
+<li><p><span class="math inline">\(f(x) &gt; 0\)</span> for <span class="math inline">\(x \in S\)</span> .</p></li>
+<li><p><span class="math inline">\(\int_{-\infty}^{\infty} f(x) dx = 1\)</span> .</p></li>
+<li><p><span class="math inline">\(P(a &lt; x &lt; b) = \int_a^b f(x) dx\)</span> .</p></li>
+<li><p>Note: If <span class="math inline">\(a=b\)</span>, then <span class="math inline">\(P(x=a) = \int_a^a f(x) dx = 0\)</span>.</p></li>
+</ul>
 <p>If <span class="math inline">\(a, b \subseteq S\)</span>, then the probability of the event <span class="math inline">\(\{a &lt; x &lt; b\}\)</span> is <span class="math inline">\(P(a &lt; x &lt; b) = \int_{a}^{b} f(x)dx\)</span>.</p>
 <p><em>Remarks:</em> if <span class="math inline">\(a=b\)</span>, then <span class="math inline">\(P(x=a) = \int_{a}^{a} f(x)dx = 0\)</span>.</p>
 <div class="cell">
