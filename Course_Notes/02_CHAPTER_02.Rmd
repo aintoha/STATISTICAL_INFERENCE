@@ -571,15 +571,16 @@ $$M(t) = E[e^{tx}] = \begin{cases} \sum e^{tx} p(x) & \text{if } X \text{ is dis
 Let the p.m.f. of $X$ be defined by $f(x) = x/6$, where $x=1,2,3$. Find the mgf of RV of $X$.
 ```
 
-```{example, rv-example-12, name = "Example 11 (Cntinuous  case)"}
+```{example, rv-example-12, name = "Example 11 (Continuous  case)"}
+
  $X$ is Random variable with probability density function of $X$ is 
 
- \begin{align}
- f(x) = 
- \begin{cases}
- 1/6$ if $1 \le x \le 7$ \\ 
- $0$ if $x$ is otherwise.
- \end_{cases}
+\begin{align}
+   f(x) = 
+   \begin{cases}
+   1/6 & \text{if $1 \le x \le 7$} \\ 
+   0 & \text{if $x$ is otherwise}.
+   \end_{cases}
  \end{align}
 
  Find the mgf of $X$.
