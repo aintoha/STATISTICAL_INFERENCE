@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="NAT">
+<meta name="dcterms.date" content="2026-10-12">
+
+<title>Probability Basics: Independence and Conditional Probability</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Slide_2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Slide_2_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Slide_2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Slide_2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Slide_2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Slide_2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Slide_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Slide_2_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Slide_2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Slide_2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Slide_2_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Slide_2_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="Slide_2_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="Slide_2_files/libs/viz-1.8.2/viz.js"></script>
+
+<link href="Slide_2_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+
+<script src="Slide_2_files/libs/grViz-binding-1.0.12/grViz.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Probability Basics: Independence and Conditional Probability</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>NAT </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 12, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="clo" class="level2">
+<h2 class="anchored" data-anchor-id="clo">CLO</h2>
+<ol type="1">
+<li><p>CLO 1: APPLY the concept of probability in relation to the concept of sampling error. (C3)</p></li>
+<li><p>CLO 2: EXPLAIN the concept of point and confidence interval estimation for given parameters. (C2, A4)</p></li>
+<li><p>CLO 3: DESIGN appropriate hypothesis testing based on given statistical problems. (C5, P7)</p></li>
+</ol>
+</section>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<ol type="1">
+<li><p>Recall sets and intervals</p></li>
+<li><p>Calculate probability of events</p></li>
+<li><p>Calculate probability of intersection and conditional probability</p></li>
+<li><p>Introduction to Bayes’s rule</p></li>
+</ol>
+</section>
+<section id="recall" class="level2">
+<h2 class="anchored" data-anchor-id="recall">Recall:</h2>
+<ul>
+<li><p>A set is simply a collection of objects, these objects being called elements or members of the set.</p></li>
+<li><p><span class="math inline">\(A \subseteq B\)</span>: If every element of <span class="math inline">\(A\)</span> is also an element of <span class="math inline">\(B\)</span> (<span class="math inline">\(A\)</span> included in <span class="math inline">\(B\)</span>)</p></li>
+<li><p><span class="math inline">\(A \subset B\)</span> (<span class="math inline">\(A \subset B\)</span>): <span class="math inline">\(A\)</span> is a proper subset of <span class="math inline">\(B\)</span> if it is a subset of <span class="math inline">\(B\)</span> and there is at least one element of <span class="math inline">\(B\)</span> that is not in <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Standard sets of numbers: <span class="math inline">\(\mathbb{N}, \mathbb{Z}, \mathbb{N}_{0}, \mathbb{Q}, \mathbb{R}, \mathbb{C}\)</span></p></li>
+</ul>
+<p><span class="math display">\[\mathbb{N} \subseteq \mathbb{N}_{0} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C}\]</span> - Sets are mathematical objects and we can have set of sets:</p>
+<p><span class="math display">\[S:= \{1, 2\}\]</span> The set is: <span class="math inline">\(\{\emptyset, \{1\}, \{2\}, \{1,2\}\}\)</span></p>
+</section>
+<section id="intervals" class="level2">
+<h2 class="anchored" data-anchor-id="intervals">Intervals</h2>
+<ul>
+<li><p>Consider two numbers, <span class="math inline">\(a, b \in \mathbb{R}\)</span></p></li>
+<li><p>The open interval is: <span class="math inline">\((a, b):= \{x \in \mathbb{R}: a &lt; x &lt; b \}\)</span></p></li>
+<li><p>The close interval is: <span class="math inline">\([a, b]:= \{x \in \mathbb{R}: a \le x \le b \}\)</span></p></li>
+<li><p>The open and close interval: <span class="math inline">\((a, b]:= \{x \in \mathbb{R}: a &lt; x \le b \}\)</span></p></li>
+<li><p>The close and open interval: <span class="math inline">\([a, b):= \{x \in \mathbb{R}: a \le x &lt; b \}\)</span></p></li>
+<li><p>Unbounded intervals: <span class="math inline">\([a, \infty):= \{x \in \mathbb{R}: a \le x \}\)</span></p></li>
+<li><p>Unbounded intervals: <span class="math inline">\((-\infty, b]:= \{x \in \mathbb{R}: x \le b \}\)</span></p></li>
+</ul>
+</section>
+<section id="probability-of-an-event" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event">Probability of an event</h2>
+<ul>
+<li>Probability of any event, <span class="math inline">\(A\)</span>, as the proportion of the possible outcomes which give rise to that event</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of possible outcomes which give rise to event}}{\text{total no. of possible outcomes}}
+\end{align}\]</span></p>
+</section>
+<section id="probability-of-an-event-equally-likely-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-equally-likely-outcomes">Probability of an event: Equally likely outcomes</h2>
+<p><strong>The Leibniz-Galileo Problem</strong></p>
+<p>In a game of tossing three fair dice, Leibniz thought that probability of getting a total is 10 and the probability that the total is 9 are equals. However, Galileo thought that these two probabilities are in the ratio 27:25.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slide_2_files/figure-html/draw-dice-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slide_2_files/figure-html/draw-dice-nine-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-of-an-event-frequency-interpretation-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-frequency-interpretation-of-probability">Probability of an event: Frequency interpretation of probability</h2>
+<p>If an ``experiment” can be repeated indefinitely, then the relative frequency of any event at any stage is defined as</p>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of occurrences of event so far}}{\text{total no. of repetitions of experiment so far}}
+\end{align}\]</span></p>
+<ul>
+<li><p>This relative frequency will obviously fluctuate randomly as the number of repetitions increases, but the expectation is that it will in the long run settle down to a limiting value which is the probability of the event.</p></li>
+<li><p>This method is to find the probabilities to events in cases where there is no symmetry</p></li>
+</ul>
+</section>
+<section id="probability-of-an-event-example" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-example">Probability of an event: Example</h2>
+<p>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that 2 are defective?</p>
+<p><strong>Answer (Step-by-step)</strong></p>
+<ol type="1">
+<li>Total no.of possible outcomes is how many ways that 5 defective items is chosen.</li>
+</ol>
+<p><span class="math inline">\({15 \choose 5} =\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></p>
+<ol start="2" type="1">
+<li>No.&nbsp;of possible outcomes which give rise to event</li>
+</ol>
+<p><span class="math inline">\({6 \choose 2}=\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></p>
+<ol start="3" type="1">
+<li>Probability of event <span class="math inline">\(A\)</span>: <span class="math inline">\(P(A)\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></li>
+</ol>
+</section>
+<section id="probability-of-an-event-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-example-1">Probability of an event: Example</h2>
+<p>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. What is the probability that <strong>at least</strong> 2 are defective?</p>
+<p><strong>Answer (Step-by-step)</strong></p>
+<ol type="1">
+<li>Total no.of possible outcomes is how many ways that 5 defective items is chosen.</li>
+</ol>
+<p><span class="math inline">\({15 \choose 5} =\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></p>
+<ol start="2" type="1">
+<li>No.&nbsp;of possible outcomes which give rise to event</li>
+</ol>
+<p><span class="math inline">\({6 \choose 2}=\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></p>
+<ol start="3" type="1">
+<li>Probability of event <span class="math inline">\(A\)</span>: <span class="math inline">\(P(A) =  \frac{15}{3003} =\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></li>
+</ol>
+</section>
+<section id="probability-of-an-event-classical-vs-uniform-measures" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-classical-vs-uniform-measures">Probability of an event: Classical vs Uniform Measures</h2>
+<ul>
+<li><p>Recall the clasical measure:</p></li>
+<li><p>E.g.: Let <span class="math inline">\(S:= \{s_1, s_2, \ldots, s_k\}\)</span>. For any events <span class="math inline">\(A \subset S\)</span>,</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\frac{\text{no. of possible outcomes in $A$}}{\text{total no. of possible outcomes in $S$}}
+\end{align}\]</span></p>
+<ul>
+<li><p>If <span class="math inline">\(A:= \{s_i\}\)</span>, then <span class="math inline">\(P(A) =\)</span> <input type="text" placeholder="  " style="width: 150px; border: 1px solid black; padding: 2px;"></p></li>
+<li><p>For constinuous <span class="math inline">\(S\)</span>, we use <strong>uniform</strong> measure</p>
+<ul>
+<li>if <span class="math inline">\(S\)</span> is two-dimensional and of finite area then we define <span class="math display">\[P(A) = \frac{\text{area of $A$}}{{\text{area of $S$}}}\]</span></li>
+</ul></li>
+<li><p>Note:</p>
+<ul>
+<li><p>When an outcome is chosen at random from a sample space <span class="math inline">\(S\)</span>: classical probability measure is used</p></li>
+<li><p>When <span class="math inline">\(S\)</span> is discrete, and the uniform measure if <span class="math inline">\(S\)</span> is continuous.</p></li>
+<li><p>For continuous probability measures, events of probability <span class="math inline">\(0\)</span> are NOT impossible and events of probability <span class="math inline">\(1\)</span> are NOT certain.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="probability-of-an-event-classical-vs-uniform-measures-example" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-classical-vs-uniform-measures-example">Probability of an event: Classical vs Uniform Measures: Example</h2>
+<p>The diagram below shows a rectangle with a length of 8 and a width of 4. It is divided into four triangular regions by drawing the two diagonal lines from corner to corner. The regions are numbered from 1 to 4:</p>
+<ul>
+<li><p>Region 1 is the top triangle,</p></li>
+<li><p>Region 2 is the right triangle,</p></li>
+<li><p>Region 3 is the bottom triangle, and</p></li>
+<li><p>Region 4 is the left triangle.</p></li>
+</ul>
+</section>
+<section id="probability-of-an-event-classical-vs-uniform-measures-example-continue" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-classical-vs-uniform-measures-example-continue">Probability of an event: Classical vs Uniform Measures: Example (continue)</h2>
+<p>The perimeter is divided into 4 edges numbered in accordance with the regions (Edge 1 is the top edge, Edge 2 is the right edge, etc.).</p>
+<ol type="i">
+<li><p>A <strong>point</strong> is chosen at random from the <strong>rectangle</strong>. What is the probability that it is <strong>in</strong> region 1? What is the probability that it is <strong>in</strong> region 2?</p></li>
+<li><p>A <strong>point</strong> is chosen at random from the <strong>perimeter of the rectangle</strong>. What is the probability that it is <strong>on</strong> edge 1? What is the probability that it is <strong>on</strong> edge 2?</p></li>
+</ol>
+</section>
+<section id="probability-of-an-event-classical-vs-uniform-measures-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-classical-vs-uniform-measures-example-1">Probability of an event: Classical vs Uniform Measures: Example</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slide_2_files/figure-html/draw-rectangle-diagram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-of-an-event-classical-vs-uniform-measures-example-2" class="level2">
+<h2 class="anchored" data-anchor-id="probability-of-an-event-classical-vs-uniform-measures-example-2">Probability of an event: Classical vs Uniform Measures: Example</h2>
+<ul>
+<li><p>Consider the experiment where one point is chosen at random from the interval <span class="math inline">\([0, 1]\)</span>. For <span class="math inline">\(a \in [0, 1]\)</span>, <span class="math inline">\(P(a) = 0\)</span>, that is, the event <span class="math inline">\(x = a\)</span> has probability <span class="math inline">\(0\)</span>, in the uniform probability measure.</p>
+<ul>
+<li><p>Points have zero length.</p></li>
+<li><p>But that does not mean that this event is impossible:</p></li>
+<li><p>if we choose a point at random from <span class="math inline">\([0, 1]\)</span> then any point could be chosen but the probability that a particular point is chosen is 0.</p></li>
+</ul></li>
+<li><p>To get a positive probability, we need an event:</p>
+<ul>
+<li>E.g.: <span class="math inline">\(\frac{1}{4} \le a \le \frac{3}{4}\)</span> where the probability is <span class="math inline">\(\frac{1}{2}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="independent-vs.-dependent-events" class="level2">
+<h2 class="anchored" data-anchor-id="independent-vs.-dependent-events">Independent vs.&nbsp;Dependent Events</h2>
+<ul>
+<li><strong>Problem Context:</strong> Consider selecting 2 cards from a standard deck of 52 cards.
+<ul>
+<li><em>With replacement:</em> The probability of obtaining two kings involves <strong>independent events</strong>.</li>
+<li><em>Without replacement:</em> The probability of obtaining two kings involves <strong>dependent events</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="independent-vs.-dependent-events-1" class="level2">
+<h2 class="anchored" data-anchor-id="independent-vs.-dependent-events-1">Independent vs.&nbsp;Dependent Events</h2>
+<ul>
+<li><strong>Independent Events:</strong> Two events are independent if the occurrence of one of the events does not affect the probability of the occurrence of the other event.</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+P(A \cap B) = P(A) P(B)
+\end{align}\]</span></p>
+<ul>
+<li>For more then two finite events, a set of <em>mutually exclusive</em> events are</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+P(A_1 \cap A_2 \cap \ldots A_k) = P(A_1) P(A_2) \ldots P(A_k)
+\end{align}\]</span></p>
+</section>
+<section id="independent-vs.-dependent-events-2" class="level2">
+<h2 class="anchored" data-anchor-id="independent-vs.-dependent-events-2">Independent vs.&nbsp;Dependent Events</h2>
+<ul>
+<li><p><strong>Dependent Events:</strong> Two events are dependent if the occurrence of one of the events affects the probability of the occurrence of the other event.</p></li>
+<li><p>Problems with dependent events can often be solved using conditional probability, also known as the multiplication rule.</p></li>
+<li><p>Events that are not independent are dependent.</p></li>
+<li><p>Event <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent</strong> iff <span class="math inline">\(P(A \cap B) = P(A \cap B) = P(A) P(B)\)</span>. Otherwise, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>dependent</strong></p></li>
+<li><p>Dependent events can be solved using tree diagaram</p></li>
+</ul>
+</section>
+<section id="independent-events-example" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-example">Independent Events: Example</h2>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be independent events with <span class="math inline">\(P(A) = 0.7\)</span> and <span class="math inline">\(P(B) = 0.2\)</span>. Compute</p>
+<ol type="a">
+<li><span class="math inline">\(P(A \cap B)\)</span></li>
+</ol>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, <span class="math display">\[\begin{align}
+P(A \cap B)  = P(A) P(B) = 0.7 \times 0.2 = 0.14
+\end{align}\]</span></p>
+<ol start="2" type="a">
+<li><span class="math inline">\(P(A \cup B)\)</span></li>
+</ol>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then using the</p>
+<p><span class="math display">\[\begin{align}
+P(A \cup B)  = P(A) + P(B) - P(A \cap B) = 0.7 + 0.2 -0.14 = 0.76
+\end{align}\]</span></p>
+<ol start="3" type="a">
+<li><span class="math inline">\(P(A' \cup B')\)</span></li>
+</ol>
+<p>Using De Morgan’s second law,</p>
+<p><span class="math display">\[\begin{align}
+P(A' \cup B')  = 1 - P(A \cap B)'  = 1 - 0.76 = 0.24
+\end{align}\]</span></p>
+</section>
+<section id="independent-events-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-example-1">Independent Events: Example</h2>
+<p>Toss a fair coin twice. Let <span class="math inline">\(A\)</span> be the event “head on first toss”, <span class="math inline">\(B\)</span> be the event “head on second toss” and <span class="math inline">\(C\)</span> be the event “same face on both tosses”. Show that these three events are pairwise independent but not mutually independent.</p>
+<p>Solution:</p>
+</section>
+<section id="independence-example" class="level2">
+<h2 class="anchored" data-anchor-id="independence-example">Independence: Example</h2>
+<p>Toss a fair coin twice. Let</p>
+<ul>
+<li><span class="math inline">\(A\)</span> be the event head on first toss,</li>
+<li><span class="math inline">\(B\)</span> be the event head on second toss</li>
+<li><span class="math inline">\(C\)</span> be the event “same face on both tosses”.</li>
+</ul>
+<p>Show that these three events are pairwise independent but not mutually independent.</p>
+</section>
+<section id="independent-events-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-exercise">Independent Events: Exercise</h2>
+<p>If <span class="math inline">\(P(A) = 0.8\)</span>, <span class="math inline">\(P(B) = 0.5\)</span>, and <span class="math inline">\(P(A \cup B) = 0.9\)</span>, are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent events? Show your answer. <br></p>
+</section>
+<section id="independent-events-exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-exercise-1">Independent Events: Exercise</h2>
+<p>Let <span class="math inline">\(A\)</span> be the event that the sum of the two numbers shown is <span class="math inline">\(7\)</span>, let <span class="math inline">\(B\)</span> be the event that the sum of the two numbers shown is 8 and <span class="math inline">\(C\)</span> be the event that the first number shown is even.</p>
+<ol type="a">
+<li><p>Find the probabilities of the events <span class="math inline">\(A, B, C\)</span>, <span class="math inline">\(A \cap C\)</span> and <span class="math inline">\(B \cap C\)</span>.</p></li>
+<li><p>Are <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> independent? Are <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> independent?</p></li>
+<li><p>Justify your answers.</p></li>
+</ol>
+</section>
+<section id="independent-events-vs.-dependent-events-examples" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-vs.-dependent-events-examples">Independent Events vs.&nbsp;Dependent Events: Examples</h2>
+<p><strong>Independent Events</strong></p>
+<ul>
+<li><p>Flipping a coin and rolling a die: Getting “Heads” on the coin doesn’t change your 1-in-6 chance of rolling a “4” on the die.</p></li>
+<li><p>Buying a lottery ticket and getting a flat tire: Winning (or losing) the lottery has no influence on the probability of your tire popping on the way home.</p></li>
+<li><p>Having a boy, then having another boy: The biological odds of having a boy are roughly 50%. Having a boy first does not magically make the odds of having a girl next time 100%. The odds reset to 50% for the second child.</p></li>
+<li><p>When training a model to recognize tumors in MRI scans, Patient A’s scan is completely independent of Patient B’s scan. The outcome of one does not change the probability of the other. If you shuffle the order of the images during training, the model learns exactly the same way.</p></li>
+<li><p>This classification algorithm (often used for spam filtering) calculates probabilities by making a “naive” assumption: it treats every feature as an independent event. It assumes the presence of the word “urgent” in an email is completely independent of the presence of the word “money,” multiplying their individual probabilities together to guess if the email is spam.</p></li>
+</ul>
+</section>
+<section id="independent-events-vs.-dependent-events-examples-1" class="level2">
+<h2 class="anchored" data-anchor-id="independent-events-vs.-dependent-events-examples-1">Independent Events vs.&nbsp;Dependent Events: Examples</h2>
+<p><strong>Dependent Events</strong></p>
+<ul>
+<li><p>If you draw an Ace from a standard 52-card deck and keep it in your hand, the odds of drawing another Ace change. There are now only 3 Aces left in a 51-card deck.</p></li>
+<li><p>If you have 10 black socks and 10 white socks, the odds of pulling a black sock are 50%. If you pull out a black sock and put it on your foot, there are now only 9 black socks left out of 19. The odds for your second pull have changed.</p></li>
+<li><p>If there is a major accident on your route to work (Event A), the probability that you will be late to work (Event B) drastically increases. (Traffic data)</p></li>
+<li><p>Text generation relies entirely on dependent probability. If an LLM is generating a sentence and has already output “The quick brown”, the probability of the next word being “fox” is massively higher than it would have been if the previous words were “I ate a”. The next prediction depends directly on the sequence of previous predictions. (Large Language Models (NLP))</p></li>
+<li><p>The probability that it will rain on Tuesday is highly dependent on the barometric pressure and weather conditions from Monday. Models like ARIMA or Recurrent Neural Networks (RNNs) are specifically designed to handle this dependency. (Time Series Forecasting)</p></li>
+</ul>
+</section>
+<section id="probability-tree-diagram" class="level2">
+<h2 class="anchored" data-anchor-id="probability-tree-diagram">Probability Tree Diagram</h2>
+<ul>
+<li>Tree diagrams can be used to determine the value of the probability for dependent events.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-fdb47bd4ba957f263ead" style="width:30%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fdb47bd4ba957f263ead">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="conditional-probability" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability">Conditional Probability</h2>
+<ul>
+<li><p><strong>Definition 1.3-1:</strong> The conditional probability of an event <span class="math inline">\(A\)</span>, given that event <span class="math inline">\(B\)</span> has occurred, is defined mathematically.</p></li>
+<li><p>The formula for conditional probability is:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]</span></p>
+<p>provided that <span class="math inline">\(P(B) &gt; 0\)</span>.</p></li>
+</ul>
+</section>
+<section id="properties-of-independent-events" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-independent-events">Properties of Independent Events</h2>
+<ul>
+<li><strong>Definition:</strong> Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(P(A \cap B) = P(A)P(B)\)</span>. Otherwise, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called dependent events.</li>
+<li><strong>Properties of Independent Events:</strong>
+<ul>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then <span class="math inline">\(P(A|B) = P(A)\)</span> if <span class="math inline">\(P(B) &gt; 0\)</span>, and <span class="math inline">\(P(B|A) = P(B)\)</span> if <span class="math inline">\(P(A) &gt; 0\)</span>.</li>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, so are <span class="math inline">\(A\)</span> and <span class="math inline">\(B'\)</span>, <span class="math inline">\(A'\)</span> and <span class="math inline">\(B\)</span>, and <span class="math inline">\(A'\)</span> and <span class="math inline">\(B'\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="conditional-probability-example" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-example">Conditional Probability: Example</h2>
+<p>A bowl contains 8 chips, where 3 of the chips are red and the remaining five are blue. Two chips are to be drawn successively, at random and without replacement. We use conditional probability to find the probability that the first draw results in a red chip (<span class="math inline">\(C_1\)</span>) and that the second draw results in a blue chip (<span class="math inline">\(C_2\)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-4a2dbec2ed2b837728d5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4a2dbec2ed2b837728d5">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red\"]\n  B1 [label = \"Blue\"]\n  R2a [label = \"Red\"]\n  B2a [label = \"Blue\"]\n  R2b [label = \"Red\"]\n  B2b [label = \"Blue\"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ol type="1">
+<li><p>Calculate the conditional probability that a red chip was drawn in the second step given that the a blue chip was drawn previously.</p></li>
+<li><p>What is the probability of drawing a red chips in the second time?</p></li>
+</ol>
+</section>
+<section id="the-birthday-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-birthday-problem">The Birthday Problem</h2>
+<p><em>What is the probability that, in a group of n people, two of them share the same birthday?</em></p>
+<p><em>How many people would need to be in a room for there to be a 50 percent chance that at least two of them share the same birthday?</em></p>
+<ul>
+<li><p><strong>Person 1:</strong> Enters an empty room with 365 out of 365 days available.</p></li>
+<li><p><strong>Person 2:</strong> Given Person 1 claimed a day, they only have 364 safe days left to avoid a match (<span class="math inline">\(P = \frac{364}{365}\)</span>).</p></li>
+<li><p><strong>Person 3:</strong> Strictly dependent on the first two outcomes, they only have 363 days left (<span class="math inline">\(P = \frac{363}{365}\)</span>).</p></li>
+<li><p><strong>Person 25:</strong> Strictly dependent on the first 24 outcomes, they only have 341 safe days left (<span class="math inline">\(P = \frac{341}{365}\)</span>).</p></li>
+<li><p>To find the probability of at least one shared birthday, we multiply the conditional probabilities of <em>avoiding</em> a match, then use the rule of complements.</p></li>
+</ul>
+<p><span class="math display">\[P(\text{Match}) = 1 - \left(\frac{365}{365} \times \frac{364}{365} \times \dots \times \frac{341}{365}\right)\]</span> <span class="math display">\[P(\text{Match}) = 1 - 0.4313 = 0.5687\]</span></p>
+<ul>
+<li><p>With <strong>23 people</strong>, the probability crosses 50.7%.</p></li>
+<li><p>With <strong>70 people</strong>, the probability hits 99.9%.</p></li>
+</ul>
+</section>
+<section id="interactive-game-the-impossible-bet" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-game-the-impossible-bet">Interactive Game: The Impossible Bet</h2>
+<ul>
+<li><strong>The Setup:</strong> Offer a crowd of 30+ people a $10 bet that a shared birthday exists in the room.</li>
+<li><strong>The Execution:</strong> Call out months one by one. Have people born in that month stand up and state their day.</li>
+<li><strong>The Reveal:</strong> The audience falls for the intuitive trap, but the math is heavily in your favor. Statistically, two people standing will call out the same number well before you reach December.</li>
+</ul>
+</section>
+<section id="conditional-probability-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-example-1">Conditional Probability: Example</h2>
+<ol type="1">
+<li><p>When Netflix or Amazon recommends something to you, they are rarely looking at items in a vacuum. They are calculating conditional probabilities based on user behavior.</p>
+<p>E.g.: “What is the probability this user will watch Stranger Things (<span class="math inline">\(Event\ A\)</span>), given that they already watched The Umbrella Academy (<span class="math inline">\(Event\ B\)</span>)?”</p></li>
+<li><p>A Markov Model is a system that transitions from one state to another, where the probability of the next state depends only on the current state.</p>
+<p>E.g.: “Given that the current word is ‘New’ (<span class="math inline">\(Event\ B\)</span>), what is the probability that the next word is ‘York’ (<span class="math inline">\(Event\ A\)</span>) versus ‘shoes’?”</p></li>
+</ol>
+</section>
+<section id="conditional-probability-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-exercise">Conditional Probability: Exercise</h2>
+<p>A velvet bag contains 15 marbles in three different colors (three possible events per draw):</p>
+<ul>
+<li><p>6 Red marbles</p></li>
+<li><p>5 Blue marbles</p></li>
+<li><p>4 Green marbles</p></li>
+</ul>
+<p>You draw 4 marbles in a row without putting any back (four dependent steps).</p>
+<p>What is the exact probability of drawing a Red, then a Blue, then a Green, and finally another Red marble?</p>
+</section>
+<section id="conditional-probability-exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability-exercise-1">Conditional Probability: Exercise</h2>
+<p>An IT specialist is analysing traffic on a highly secure corporate email server. Because the security is very tight, spam is quite rare.</p>
+<p>Only 5% of all incoming emails are actually Spam. The other 95% are Legitimate internal emails. You are looking at how often the word “URGENT” is used in these emails.Spammers love this word. If an email is Spam, there is a 40% chance it contains the word “URGENT”. Normal employees rarely use it. If an email is Legitimate, there is only a 2% chance it contains the word “URGENT”.</p>
+<p>An alert pops up: A new email has just arrived, and it contains the word “URGENT”.</p>
+<p>Based on conditional probability, what is the exact percentage chance that this specific email is actually Spam?</p>
+</section>
+<section id="bayes-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem">Bayes’ Theorem</h2>
+<ul>
+<li><p>Let <span class="math inline">\(B_1, B_2, \dots, B_m\)</span> constitute a partition of the sample space <span class="math inline">\(S\)</span>.</p></li>
+<li><p>This means that <span class="math inline">\(S = B_1 \cup B_2 \cup \dots \cup B_m\)</span> and <span class="math inline">\(B_i \cap B_j = \emptyset\)</span> for <span class="math inline">\(i \neq j\)</span>.</p></li>
+<li><p>Then for any event <span class="math inline">\(A\)</span> that is a subset of <span class="math inline">\(S\)</span>, Bayes’ Theorem is given by:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}\]</span></p></li>
+</ul>
+</section>
+<section id="bayes-theorem-1" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-1">Bayes’ Theorem:</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slide_2_files/figure-html/draw-bayes-theorem-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Out of the entire area where Event A happens (the complete coral oval), what exact percentage of that area belongs to our target scenario <span class="math inline">\(B_k\)</span>?</p>
+<ul>
+<li><p>The numerator (<span class="math inline">\(P(B_k)P(A\vert{}B_k)\)</span>) is just the area of the specific intersection chunk inside <span class="math inline">\(B_k\)</span>.</p></li>
+<li><p>The denominator (<span class="math inline">\(\sum_{i=1}^{m} P(B_i)P(A\vert{}B_i)\)</span>) is just the total area of the coral oval, calculated by adding up all of its individual chunks across every partition.</p></li>
+</ul>
+</section>
+<section id="bayes-theorem-proof" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-proof">Bayes’ Theorem: Proof</h2>
+<p>By the definition of conditional probability, the probability of event <span class="math inline">\(B_k\)</span> given event <span class="math inline">\(A\)</span> is:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k \cap A)}{P(A)}\]</span></p>
+<p>Using the multiplication rule of probability, we can express the intersection in the numerator as:</p>
+<p><span class="math display">\[P(B_k \cap A) = P(B_k)P(A|B_k)\]</span></p>
+<p>Next, because <span class="math inline">\(B_1, B_2, \dots, B_m\)</span> form a partition of the sample space <span class="math inline">\(S\)</span>, we can apply the Law of Total Probability to expand the denominator <span class="math inline">\(P(A)\)</span>. The event <span class="math inline">\(A\)</span> can occur in conjunction with any of the mutually exclusive events <span class="math inline">\(B_i\)</span>:</p>
+<p><span class="math display">\[P(A) = \sum_{i=1}^{m} P(B_i \cap A)\]</span></p>
+<p>Applying the multiplication rule to each term in the sum gives:</p>
+<p><span class="math display">\[P(A) = \sum_{i=1}^{m} P(B_i)P(A|B_i)\]</span></p>
+<p>Finally, substituting the expanded numerator and the expanded denominator back into the original conditional probability formula yields Bayes’ Theorem:</p>
+<p><span class="math display">\[P(B_k|A) = \frac{P(B_k)P(A|B_k)}{\sum_{i=1}^{m} P(B_i)P(A|B_i)}\]</span></p>
+</section>
+<section id="bayes-rule-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-rule-example-1">Bayes Rule: Example 1</h2>
+<ul>
+<li><p>Sample Space (<span class="math inline">\(S\)</span>): The entire population being tested.</p></li>
+<li><p>The Partitions (<span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>):</p>
+<ul>
+<li><p><span class="math inline">\(B_1\)</span> (Has Disease): <span class="math inline">\(1\%\)</span> of the population actually has the disease.</p></li>
+<li><p><span class="math inline">\(B_2\)</span> (Healthy): <span class="math inline">\(99\%\)</span> of the population does not have the disease.</p></li>
+</ul></li>
+<li><p>Event <span class="math inline">\(A\)</span> (Positive Test Result): The test comes back Positive.</p>
+<ul>
+<li><p>If a patient has the disease (<span class="math inline">\(B_1\)</span>), the test is <span class="math inline">\(90\%\)</span> accurate.</p></li>
+<li><p>If a patient is healthy (<span class="math inline">\(B_2\)</span>), the test has a <span class="math inline">\(5\%\)</span> false positive rate</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="bayes-rule-example-2-heart-disease-medical-screening" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-rule-example-2-heart-disease-medical-screening">Bayes Rule: Example 2 (Heart Disease (Medical Screening))</h2>
+<ul>
+<li><p>Sample Space (<span class="math inline">\(S\)</span>): All patients walking into a clinic.</p></li>
+<li><p>Partitions (<span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>):</p>
+<ul>
+<li><p><span class="math inline">\(B_1\)</span>: Patients who actually have Heart Disease.</p></li>
+<li><p><span class="math inline">\(B_2\)</span>: Patients who are Healthy (No Heart Disease).</p></li>
+</ul></li>
+<li><p>Event <span class="math inline">\(A\)</span> (Chest Pain): A patient presents with chest pain.</p>
+<ul>
+<li><p><span class="math inline">\(A \cap B_1\)</span> (True Positive Indicator): Patients who have heart disease and experience chest pain.</p></li>
+<li><p><span class="math inline">\(A \cap B_2\)</span> (False Alarm): Healthy patients who experience chest pain due to harmless causes (like acid reflux or muscle strain).</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="bayes-theorem-application-example" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-application-example">Bayes’ Theorem Application: Example</h2>
+<p>At a hospital’s emergency room, patients are classified and 20% of them are critical, 30% are serious, and 50% are stable.</p>
+<ul>
+<li><p>Of the critical ones, 30% die; of the serious, 10% die; and of the stable, 1% die.</p></li>
+<li><p>Given that a patient dies, what is the conditional probability that the patient was classified as critical?</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slide_2_files/figure-html/visualize-hospital-bayes-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bayes-theorem-application-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-application-example-1">Bayes’ Theorem Application: Example</h2>
+<p>You are building a model to detect spam emails. Your historical data shows that exactly 5% of all login attempts on your platform are fraudulent. Consequently, 95% are legitimate.Your model evaluates logins based on three distinct features:</p>
+<ol type="i">
+<li><p><span class="math inline">\(F_1\)</span> (Late Night): The login occurs between 2 AM and 5 AM.</p></li>
+<li><p><span class="math inline">\(F_2\)</span> (VPN Used): The login IP is routed through a known commercial VPN.</p></li>
+<li><p><span class="math inline">\(F_3\)</span> (Crypto Purchase): The first action after login is attempting to buy cryptocurrency.</p></li>
+</ol>
+</section>
+<section id="bayes-theorem-application-example-continue" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-application-example-continue">Bayes’ Theorem Application: Example (continue)</h2>
+<p>Based on your training data, you have the following conditional probabilities likelihoods) for how often these features appear in both classes:</p>
+<p>If a login is Fraudulent:</p>
+<ul>
+<li><p><span class="math inline">\(P(\text{Late Night} \vert{} \text{Fraud}) = 60\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{VPN} \vert{} \text{Fraud}) = 80\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Crypto} \vert{} \text{Fraud}) = 50\%\)</span></p></li>
+</ul>
+</section>
+<section id="bayes-theorem-application-example-continue-1" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem-application-example-continue-1">Bayes’ Theorem Application: Example (continue)</h2>
+<p>If a login is Legitimate:</p>
+<ul>
+<li><p><span class="math inline">\(P(\text{Late Night} \vert{} \text{Legitimate}) = 10\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{VPN} \vert{} \text{Legitimate}) = 10\%\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Crypto} \vert{} \text{Legitimate}) = 20\%\)</span></p></li>
+</ul>
+<p>What is the posterior probability that a login is Fraudulent given that all three features (<span class="math inline">\(F_1\)</span>: Late Night, <span class="math inline">\(F_2\)</span>: VPN, <span class="math inline">\(F_3\)</span>: Crypto Purchase) are present?</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

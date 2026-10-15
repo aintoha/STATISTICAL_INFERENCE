@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Inferential Statistics Module</title>
+  <meta name="description" content="A 14-week course module for Inferential Statistics." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Inferential Statistics Module" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Inferential Statistics Module" />
+  
+  <meta name="twitter:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+<meta name="author" content="NAT" />
+
+
+<meta name="date" content="2026-10-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="probability-basic-concepts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.12/grViz.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#course-learning-outcomes-clos"><i class="fa fa-check"></i><b>1.1</b> Course Learning Outcomes (CLOs)</a></li>
+<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#assessments"><i class="fa fa-check"></i><b>1.2</b> Assessments</a></li>
+<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#course-structure"><i class="fa fa-check"></i><b>1.3</b> Course Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Probability (Basic Concepts)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#basic-concepts-of-statistics-random-experiments"><i class="fa fa-check"></i><b>2.1</b> Basic Concepts of Statistics &amp; Random Experiments</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-of-a-set-membership"><i class="fa fa-check"></i><b>2.2</b> Definition of a Set &amp; Membership</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#specifying-sets"><i class="fa fa-check"></i><b>2.3</b> Specifying sets</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#standard-sets"><i class="fa fa-check"></i><b>2.4</b> Standard sets</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-and-properties-of-probability"><i class="fa fa-check"></i><b>2.5</b> Definition and Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#examples-of-random-experiments"><i class="fa fa-check"></i><b>2.5.1</b> Examples of Random Experiments</a></li>
+<li class="chapter" data-level="2.5.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#applied-real-life-examples"><i class="fa fa-check"></i><b>2.5.2</b> Applied Real-Life Examples</a></li>
+<li class="chapter" data-level="2.5.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability"><i class="fa fa-check"></i><b>2.5.3</b> Properties of Probability</a></li>
+<li class="chapter" data-level="2.5.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability-examples"><i class="fa fa-check"></i><b>2.5.4</b> Properties of Probability: Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#review-of-set-algebra"><i class="fa fa-check"></i><b>2.6</b> Review of Set Algebra</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-set-operations"><i class="fa fa-check"></i><b>2.6.1</b> Properties of Set Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#additional-properties-of-probability"><i class="fa fa-check"></i><b>2.7</b> Additional Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#axioms-of-probabilities"><i class="fa fa-check"></i><b>2.7.1</b> Axioms of probabilities</a></li>
+<li class="chapter" data-level="2.7.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example"><i class="fa fa-check"></i><b>2.7.2</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example-1"><i class="fa fa-check"></i><b>2.7.3</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-in-class-exercise-a-practice-to-your-quiz"><i class="fa fa-check"></i><b>2.7.4</b> Probability Calculation: In-class exercise (A practice to your quiz)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#method-of-enumeration-multiplication-principle"><i class="fa fa-check"></i><b>2.8</b> Method of Enumeration &amp; Multiplication Principle</a></li>
+<li class="chapter" data-level="2.9" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-distribution"><i class="fa fa-check"></i><b>2.9</b> Probability Distribution</a></li>
+<li class="chapter" data-level="2.10" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutations-and-combinations-sampling"><i class="fa fa-check"></i><b>2.10</b> Permutations and Combinations (Sampling)</a></li>
+<li class="chapter" data-level="2.11" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutation-calculation-example"><i class="fa fa-check"></i><b>2.11</b> Permutation Calculation Example</a></li>
+<li class="chapter" data-level="2.12" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#intervals"><i class="fa fa-check"></i><b>2.12</b> Intervals</a></li>
+<li class="chapter" data-level="2.13" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability"><i class="fa fa-check"></i><b>2.13</b> Probability</a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event"><i class="fa fa-check"></i><b>2.13.1</b> Probability of an event</a></li>
+<li class="chapter" data-level="2.13.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-equally-likely-outcomes"><i class="fa fa-check"></i><b>2.13.2</b> Probability of an event: Equally likely outcomes</a></li>
+<li class="chapter" data-level="2.13.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-frequency-interpretation-of-probability"><i class="fa fa-check"></i><b>2.13.3</b> Probability of an event: Frequency interpretation of probability</a></li>
+<li class="chapter" data-level="2.13.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example"><i class="fa fa-check"></i><b>2.13.4</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example-1"><i class="fa fa-check"></i><b>2.13.5</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures"><i class="fa fa-check"></i><b>2.13.6</b> Probability of an event: Classical vs Uniform Measures</a></li>
+<li class="chapter" data-level="2.13.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example"><i class="fa fa-check"></i><b>2.13.7</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+<li class="chapter" data-level="2.13.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example-1"><i class="fa fa-check"></i><b>2.13.8</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-vs.-dependent-events"><i class="fa fa-check"></i><b>2.14</b> Independent vs. Dependent Events</a>
+<ul>
+<li class="chapter" data-level="2.14.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example"><i class="fa fa-check"></i><b>2.14.1</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example-1"><i class="fa fa-check"></i><b>2.14.2</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise"><i class="fa fa-check"></i><b>2.14.3</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise-1"><i class="fa fa-check"></i><b>2.14.4</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-vs.-dependent-events-examples"><i class="fa fa-check"></i><b>2.14.5</b> Independent Events vs. Dependent Events: Examples</a></li>
+<li class="chapter" data-level="2.14.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-tree-diagram"><i class="fa fa-check"></i><b>2.14.6</b> Probability Tree Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>2.15</b> Conditional Probability</a>
+<ul>
+<li class="chapter" data-level="2.15.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-independent-events"><i class="fa fa-check"></i><b>2.15.1</b> Properties of Independent Events</a></li>
+<li class="chapter" data-level="2.15.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example"><i class="fa fa-check"></i><b>2.15.2</b> Conditional Probability: Example</a></li>
+<li class="chapter" data-level="2.15.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-birthday-problem"><i class="fa fa-check"></i><b>2.15.3</b> The Birthday Problem</a></li>
+<li class="chapter" data-level="2.15.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#interactive-game-the-impossible-bet"><i class="fa fa-check"></i><b>2.15.4</b> Interactive Game: The Impossible Bet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.16" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example-1"><i class="fa fa-check"></i><b>2.16</b> Conditional Probability: Example</a>
+<ul>
+<li class="chapter" data-level="2.16.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise"><i class="fa fa-check"></i><b>2.16.1</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise-1"><i class="fa fa-check"></i><b>2.16.2</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem"><i class="fa fa-check"></i><b>2.16.3</b> Bayes’ Theorem</a></li>
+<li class="chapter" data-level="2.16.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-proof"><i class="fa fa-check"></i><b>2.16.4</b> Bayes’ Theorem: Proof</a></li>
+<li class="chapter" data-level="2.16.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-rule-example-1"><i class="fa fa-check"></i><b>2.16.5</b> Bayes Rule: Example 1</a></li>
+<li class="chapter" data-level="2.16.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-rule-example-2-heart-disease-medical-screening"><i class="fa fa-check"></i><b>2.16.6</b> Bayes Rule: Example 2 (Heart Disease (Medical Screening))</a></li>
+<li class="chapter" data-level="2.16.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example"><i class="fa fa-check"></i><b>2.16.7</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example-1"><i class="fa fa-check"></i><b>2.16.8</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.9" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-exercise"><i class="fa fa-check"></i><b>2.16.9</b> Bayes’ Theorem Application: Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.17" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#tutorials"><i class="fa fa-check"></i><b>2.17</b> Tutorials</a></li>
+<li class="chapter" data-level="2.18" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#discussion-on-monty-hall-problem"><i class="fa fa-check"></i><b>2.18</b> Discussion on Monty Hall Problem</a>
+<ul>
+<li class="chapter" data-level="2.18.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-1990-math-meltdown"><i class="fa fa-check"></i><b>2.18.1</b> 🤯 The 1990 Math Meltdown</a></li>
+<li class="chapter" data-level="2.18.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-monty-hall-problem-to-switch-or-not-to-switch"><i class="fa fa-check"></i><b>2.18.2</b> 🐐 The Monty Hall Problem: To Switch or Not to Switch?</a></li>
+<li class="chapter" data-level="2.18.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#breaking-down-the-probabilities"><i class="fa fa-check"></i><b>2.18.3</b> 📊 Breaking Down the Probabilities</a></li>
+<li class="chapter" data-level="2.18.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#have-a-go-at-the-game"><i class="fa fa-check"></i><b>2.18.4</b> Have a go at the Game</a></li>
+<li class="chapter" data-level="2.18.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#using-tree-diagram"><i class="fa fa-check"></i><b>2.18.5</b> Using 🌳 Tree Diagram</a></li>
+<li class="chapter" data-level="2.18.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#prove-it-in-r"><i class="fa fa-check"></i><b>2.18.6</b> 💻 Prove it in R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html"><i class="fa fa-check"></i><b>3</b> Chapter 2: Random Variables, Expectation, and Moments</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#random-variables"><i class="fa fa-check"></i><b>3.1</b> Random Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#rv-and-distribution-function"><i class="fa fa-check"></i><b>3.2</b> RV and Distribution Function</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#discrete-random-variable"><i class="fa fa-check"></i><b>3.3</b> Discrete Random Variable</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#continuous-random-variable"><i class="fa fa-check"></i><b>3.4</b> Continuous Random Variable</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-continuous-random-variable"><i class="fa fa-check"></i><b>3.4.1</b> Properties of continuous Random Variable</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#cumulative-distributive-function-cdf"><i class="fa fa-check"></i><b>3.4.2</b> Cumulative Distributive Function (CDF)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#relationship-between-cdf-fx-and-p.m.f-or-p.d.f"><i class="fa fa-check"></i><b>3.4.3</b> Relationship between CDF, <span class="math inline">\(F(x)\)</span> and p.m.f or p.d.f</a></li>
+<li class="chapter" data-level="3.4.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-cdf"><i class="fa fa-check"></i><b>3.4.4</b> Properties of CDF</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#random-walk-for-discrete-random-variable"><i class="fa fa-check"></i><b>3.5</b> Random Walk for Discrete Random Variable</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#application-of-random-walk"><i class="fa fa-check"></i><b>3.5.1</b> Application of Random Walk</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-and-expected-function"><i class="fa fa-check"></i><b>3.6</b> Expected Values and Expected Function</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.6.1</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="3.6.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-of-function"><i class="fa fa-check"></i><b>3.6.2</b> Expectation of function</a></li>
+<li class="chapter" data-level="3.6.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-properties"><i class="fa fa-check"></i><b>3.6.3</b> Expectation Properties</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#moments-and-moment-generating-function"><i class="fa fa-check"></i><b>3.7</b> Moments and Moment generating function</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#finding-probability-distribution-from-mgf"><i class="fa fa-check"></i><b>3.7.1</b> Finding probability distribution from mgf</a></li>
+<li class="chapter" data-level="3.7.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-mgf"><i class="fa fa-check"></i><b>3.7.2</b> Properties of mgf</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#tutorials-1"><i class="fa fa-check"></i><b>3.8</b> Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="random-variables-and-distributions.html"><a href="random-variables-and-distributions.html"><i class="fa fa-check"></i><b>4</b> Random Variables and Distributions</a></li>
+<li class="chapter" data-level="5" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>5</b> Overview</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inferential Statistics Module</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Inferential Statistics Module</h1>
+<p class="author"><em>NAT</em></p>
+<p class="date"><em>2026-10-15</em></p>
+</div>
+<div id="statistical-inference" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Statistical Inference<a href="statistical-inference.html#statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Welcome to Inferential Statistics. This 14-week module explores probability theory, random variables, distribution functions, point estimation, confidence intervals, and hypothesis testing. We will use R to simulate and calculate statistical concepts.</p>
+<div id="course-learning-outcomes-clos" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Course Learning Outcomes (CLOs)<a href="statistical-inference.html#course-learning-outcomes-clos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By the end of this course, students will be able to:</p>
+<p>CLO 1: APPLY the concept of probability in relation to the concept of sampling error. (C3)</p>
+<p>CLO 2: EXPLAIN the concept of point and confidence interval estimation for given parameters. (C2, A4)</p>
+<p>CLO 3: DESIGN appropriate hypothesis testing based on given statistical problems. (C5, P7)</p>
+</div>
+<div id="assessments" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Assessments<a href="statistical-inference.html#assessments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Assessments</th>
+<th align="left">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Quiz 1</td>
+<td align="left">10%</td>
+</tr>
+<tr class="even">
+<td align="left">Midterm</td>
+<td align="left">20%</td>
+</tr>
+<tr class="odd">
+<td align="left">Quiz 2</td>
+<td align="left">10%</td>
+</tr>
+<tr class="even">
+<td align="left">Assignmnet</td>
+<td align="left">20%</td>
+</tr>
+<tr class="odd">
+<td align="left">Final</td>
+<td align="left">40%</td>
+</tr>
+<tr class="even">
+<td align="left">Total</td>
+<td align="left">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="course-structure" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Course Structure<a href="statistical-inference.html#course-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="46%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Week</th>
+<th align="left">Topic</th>
+<th align="left">Assessment (Formative / Summative)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Week 1</strong></td>
+<td align="left">Chapter 1: Probability Basics (Part 1)</td>
+<td align="left">Tutorial 1</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 2</strong></td>
+<td align="left">Chapter 1: Probability Basics (Part 2)</td>
+<td align="left">Tutorial 2</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 3</strong></td>
+<td align="left">Chapter 2: Expectation, Variance, and MGF</td>
+<td align="left">Tutorial 3 and <strong>Quiz 1</strong></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 4</strong></td>
+<td align="left">Chapter 3: Expectation, Variance, and MGF</td>
+<td align="left">Tutorial 4</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 5</strong></td>
+<td align="left">Chapter 3: Known Distributions (Discrete &amp; Continuous)</td>
+<td align="left">Tutorial 5</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 6</strong></td>
+<td align="left">Chapter 3: Known Distributions (Discrete &amp; Continuous)</td>
+<td align="left">Tutorial 6</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 7</strong></td>
+<td align="left">Chapter 4: Distribution of Function of Random Variables</td>
+<td align="left">Tutorial 7 and <strong>Midterm</strong></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Midterm</strong></td>
+<td align="left"><strong>Break</strong></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 8</strong></td>
+<td align="left">Chapter 4: CLT &amp; Approximations</td>
+<td align="left">Tutorial 8</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 9</strong></td>
+<td align="left">Chapter 5: Point Estimation (MLE &amp; Method of Moments)</td>
+<td align="left">Tutorial 9</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 10</strong></td>
+<td align="left">Chapter 5: Point Estimation (MLE &amp; Method of Moments)</td>
+<td align="left">Tutorial 10 and <strong>Quiz 2</strong></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 11</strong></td>
+<td align="left">Chapter 6: Confidence Intervals</td>
+<td align="left">Tutorial 11</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 12</strong></td>
+<td align="left">Chapter 6: Confidence Intervals</td>
+<td align="left">Tutorial 12</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Week 13</strong></td>
+<td align="left">Chapter 7: Test of Statistical Hypotheses</td>
+<td align="left">Tutorial 11</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Week 14</strong></td>
+<td align="left">Presentation of Assignment</td>
+<td align="left">Past Year Paper Discussion</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="probability-basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Inferential_Statistics.pdf", "Inferential_Statistics.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+---
+title: "Tutorial 1: Probability Basic Concepts"
+author: "NAT"
+date: "Semester I, 2025/2026"
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+1. Given $P(A) = 0.4$, $P(B) = 0.5$, and $P(A \cap B) = 0.3$. CALCULATE the following: 
+ 
+    a. $P(A \cup B)$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    b. $P(A \cap B')$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    c. $P(A' \cup B')$ <span style="float:right;">[2 mark]</span>
+<br>
+
+<hr>
+
+2. Let $S:= \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$, $A := \{1, 3, 5, 7, 9\}$, $B := \{1, 2, 4, 6, 7, 9\}$ and $C := \{s \in S : 2s \in B \}$. FIND the following: 
+
+    a. $A \cup B$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    b. $(A \cup B)^{c}$ <span style="float:right;">[2 mark]</span>
+<br>
+
+    c. $C \notin A$ <span style="float:right;">[2 mark]</span>
+
+<hr>
+
+3. Roll a fair six-sided die three times. Let 
+    
+    * $A_1 = \{1 \text{ or } 2 \text{ on the first roll}\}$
+    
+    * $A_2 = \{3 \text{ or } 4 \text{ on the second roll}\}$ 
+    
+    * $A_3 = \{5 \text{ or } 6 \text{ on the third roll}\}$. 
+    
+    It is given that
+    * $P(A_i) = 1/3$ for $i = 1,2,3$; 
+    
+    * $P(A_i \cap A_j) = (1/3)^2$ for $i \neq j$; 
+    
+    * $P(A_1 \cap A_2 \cap A_3) = (1/3)^3$.
+
+    a. Find $P(A_1 \cup A_2 \cup A_3)$.<span style="float:right;">[2 mark]</span>
+<br>
+
+    b. Show that $P(A_1 \cup A_2 \cup A_3) = 1 - \left(1 - \frac{1}{3}\right)^3$. <span style="float:right;">[3 mark]</span> 
+
+        (Hint: You need to **show** how to get the RHS from teh LHS)
+<hr>
+
+4. How many four-letter code words are possible using the letters in IOWA if:
+
+a. The letters may not be repeated?
+b. The letters may be repeated?
+
+<span style="float:right;">[2 mark]</span>
+
+<br>
+
+5. Suppose that Novak Djokovic and Roger Federer are playing a tennis match in which the first player to win three sets wins the match. Using D and F for the winning player of a set, in how many ways could this tennis match end?
+
+<hr>
+
+
+6. A student uses Gemini to write a block of R code for their statistics assignment. The probability that the generated code runs perfectly without any errors on the first try is $0.82$. 
+What is the probability that the code produces at least one error on the first try? <span style="float:right;">[2 mark]</span>
+
+<hr>
+
+7. A user prompts Gemini to generate a meal plan. The response will feature exactly one primary protein source. The probability it features chicken ($C$) is $0.45$, and the probability it features tofu ($T$) is $0.20$. Since a single response cannot feature both as the primary source, these events are mutually exclusive.
+Calculate $P(C \cup T)$, the probability that the meal plan features either chicken or tofu. <span style="float:right;">[1 mark]</span>
+
+<hr>
+
+8. A researcher asks Gemini to analyze a dataset. Let $A$ be the event that Gemini successfully reads the uploaded data, and let $B$ be the event that Gemini generates a correct visualization. 
+The probability that Gemini reads the data is $P(A) = 0.90$. Given that it reads the data, the conditional probability that it generates a correct visualization is $P(B|A) = 0.70$. 
+Find the probability that Gemini successfully reads the data **and** generates a correct visualization. <span style="float:right;">[2 marks]</span>
+
+<hr>
+
+9. According to Current Population Reports, published by the U.S. Census Bureau, 51.6% of U.S.
+adults are female, 10.4% of U.S. adults are doctors, and 6.0% od U.S adults are female doctors. For a U.S adult selected at random, let
+
+    - F = event the person is female 
+
+    - D = event the person is a doctor
+
+a. Obtain $P(F)$, $P(D)$ and $P(F \cap D)$ <span style="float:right;">[3 marks]</span>
+
+
+b. Determine (F or D)<span style="float:right;">[1 marks]</span>
+
+
+c. Find the probability that a randomly selected adult is male. <span style="float:right;">[2 marks]</span>
+
+10. There are three major GenAI website: ChatGPT, Gemini, and Claude. The national information indicates that 47.0% of the population subscribes to ChatGPT, 33.4% subscribes to Gemini, 34.6% subscribes to Claude, 11.9% subscribes to ChatGPT and Gemini, 15.1% subscribes to ChatGPT and Claude, 10.4% subscribes to Gemini and Claude, and 4.8% subscribes to all three. If a person is selected at random, determine the probability that it gets at least one of the three major GenAI. <span style="float:right;">[3 marks]</span>

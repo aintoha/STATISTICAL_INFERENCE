@@ -1,0 +1,405 @@
+---
+title: "Solution 1: Probability Basic Concepts"
+author: "NAT"
+date: "Semester I, 2026/2027"
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+### Solution
+
+1. By the formula of combination, 
+
+$${n \choose r} = \frac{n!}{r!(n-r)!}$$
+
+  We need to show that ${n \choose (n-r)} = \frac{n!}{r!(n-r)!}$. 
+
+\begin{align}
+{n \choose (n-r)} =& \frac{n!}{(n-r)! r!} \\
+=& \frac{n!}{(n-r)! (n-n( -r))!} \\
+=& \frac{n!}{(n-r)! r!}
+\end{align}
+
+  Since, multiplication is commutative, $$\frac{n!}{(n-r)!r!} = \frac{n!}{r!(n-r)!}$$
+$$\therefore {n \choose r} = \frac{n!}{r!(n-r)!} = {n \choose (n-r)}$$
+2. Let $S$: The combination of two numbers shown on the dice. 
+
+- Let $A$: One of the die is 5 ($10$)
+- Let $B$: Both dice cannot be the same number ($30$)
+
+```{r sample-space-table, results='asis', echo = FALSE}
+# Create 6x6 matrix of ordered pairs
+sample_space <- outer(1:6, 1:6, Vectorize(function(i, j) sprintf("(%d, %d)", i, j)))
+
+# Render clean markdown table without row/column headers
+knitr::kable(sample_space, col.names = rep("", 6), align = "c")
+```
+
+The probability of one of the die is 5 given that both dice cannot be the same number is 
+
+
+\begin{align}
+P(A \mid B) =& \frac{A \cap B}{B} \\
+=&\frac{10}{30} = \frac{1}{3}
+\end{align}
+
+3. Let 
+
+- $P(S)$: Overall probability of survival = 0.97
+
+- $P(C)$: Probability of a C-section = 0.15
+
+- $P(C')$: Probability of no C-section = 1 - 0.15 = 0.85
+
+- $P(S\vert{}C)$: Probability of survival given a C-section = 0.96
+
+- $P(S\vert{}C')$: Probability of survival given no C-section = ?
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph instagram_tree {
+  graph [rankdir = LR]
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]
+  
+  Start [label = 'Start', fillcolor = lightgrey]
+  Csection [label = 'C-section']
+  NonCsection [label = 'Non C-section']
+  SurviveU[label = 'Survive']
+  NotSurviveU [label = 'Not Survive']
+  SurviveD [label = 'Survive']
+  NotSurviveD  [label = 'Not Survive']
+  
+  Start -> Csection [label = ' 0.15']
+  Start -> NonCsection [label = ' 0.85']
+  
+  Csection -> SurviveU [label = '0.96']
+  Csection-> NotSurviveU [label = ' 0.04']
+  
+  NonCsection -> SurviveD [label = ' ']
+  NonCsection -> NotSurviveD [label = ' ']
+}
+")
+```
+
+\begin{align}
+P(S) =&  P(S\vert{}C)P(C) + P(S\vert{}C')P(C') \\
+0.97 =& (0.96 \times 0.15) + (P(S\vert{}C') \times 0.85) \\
+0.97 =& 0.144 + 0.85 \cdot P(S\vert{}C') \\
+P(S\vert{}C') =& \frac{0.826}{0.85} = 0.97176.
+\end{align}
+
+The probability that the baby survives is approximately 97.18%
+
+4. Let 
+
+- $P(F)$: Overall probability of female = 0.52
+
+- $P(F')$: Overall probability of male  = 0.48
+
+- $P(M \mid F')$: Probability of majoring in math given the student is Male = 0.05
+
+- $P(M \mid F)$: Probability of majoring in math given the student is Female = 0.95
+
+(assuming gender has only male and female)
+
+  a. The conditional probability that the student is male (i.e. Female), given that the student is majoring in Mathematics, $P(F' \mid  M)$
+
+  \begin{align}
+  P(F' \mid  M) =&  \frac{P(F' \cap M)}{P(M)} 
+  \end{align}
+
+  The probability  joint probability of Male (F') and Mathematics is
+
+  \begin{align}
+  P(F' \cap M) =& P(M \mid F') P(F')  = 0.05 \times 0.48 = 0.24
+  \end{align}
+
+  \begin{align}
+  P(F' \mid  M) =&  \frac{P(F' \cap M)}{P(M)}  \\
+  =& \frac{0.24}{0.05}  = 0.48
+  \end{align}
+
+  b. The conditional probability that the student is majoring in Mathematics given that the student is male, $P(M \mid  F')$
+
+  \begin{align}
+  P(M \mid  F') =&  0.05
+  \end{align}
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph instagram_tree {
+  graph [rankdir = LR]
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]
+  
+  Start [label = 'Start', fillcolor = lightgrey]
+  NonMale [label = 'Non-Male']
+  Male [label = 'Male']
+  MathU [label = 'Math']
+  NonMathU [label = 'Others']
+  MathD [label = 'Math']
+  NonMathD [label = 'Others']
+  
+  Start -> NonMale [label = '0.52']
+  Start -> Male [label = '0.48']
+  
+  NonMale -> MathU [label = '']
+  NonMale-> NonMathU [label = '']
+  
+  Male -> MathD [label = '0.05']
+  Male -> NonMathD [label = '0.95']
+}
+")
+```
+
+
+5. Let 
+
+- $P(S)$: The probability that the client posts a Story = 0.7
+
+- $P(R)$: The probability that the client posts a Reel = 0.3
+
+- $P(V \mid S)$: The probability that the client posts is viral given that the post is a Story = 0.2
+
+- $P(V \mid R)$: The probability that the client posts is viral given that the post is a Reel = 0.6
+
+a.  Students should draw a tree with first branches $Story (0.7)$ and $Reel (0.3)$. The Story branch splits into $Viral (0.2)$ and $Not Viral (0.8)$. The Reel branch splits into $Viral (0.6)$ and $Not Viral (0.4)$
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph instagram_tree {
+  graph [rankdir = LR]
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]
+  
+  Start [label = 'New Post', fillcolor = lightgrey]
+  Story [label = 'Story']
+  Reel [label = 'Reel']
+  ViralS [label = 'Viral']
+  NotViralS [label = 'Not Viral']
+  ViralR [label = 'Viral']
+  NotViralR [label = 'Not Viral']
+  
+  Start -> Story [label = ' 0.70']
+  Start -> Reel [label = ' 0.30']
+  
+  Story -> ViralS [label = ' 0.20']
+  Story -> NotViralS [label = ' 0.80']
+  
+  Reel -> ViralR [label = ' 0.60']
+  Reel -> NotViralR [label = ' 0.40']
+}
+")
+```
+
+b. Using the Law of Total Probability:
+$$
+\begin{align}
+P(V) &= P(S)P(V|S) + P(R)P(V|R) \\
+P(V) &= (0.2 \times 0.7) + (0.6 \times 0.3) \\
+P(V) &= 0.32 \ (2 \text{dp})
+\end{align}
+$$
+
+c. To find the conditional probability that it was a Reel given that it goes Viral 
+
+We need $P(R|V)$:
+\begin{align}
+P(R|V) &= \frac{P(R \cap V)}{P(V)} \\
+P(R|V) &= \frac{P(R)P(V|R)}{0.32} \\
+&= \frac{0.3 \times 0.6}{0.32} \\
+P(R|V) &= 0.5625 \ (\text{3 dp})
+\end{align}
+
+6. Let 
+
+- D: Drawing a diamond 
+
+- H: Drawing a heart 
+
+- S: Drawing a spade 
+
+- C: Drawing a club
+
+\begin{align}
+P(C \cap D \cap S \cap H) =& P(C) P(D \mid C) P(S \mid  (D \cap C)) P(H \mid (C \cap D \cap S)) \\
+=& \frac{13}{52} \frac{13}{51} \frac{13}{50} \frac{13}{49} = \frac{2197}{499800} = 0.0044 (\text{4 dp})
+
+\end{align}
+
+
+7. Let 
+
+- $P(C)$: The probability that student uses Gemini for coding = 0.6
+
+- $P(E)$: The probability that student uses Gemini for explanation = 0.4
+
+- $P(A \mid C)$: The probability that the student achived A when using for Coding = 0.8
+
+- $P(A \mid E)$: The probability that the student achived A when using for Explanation = 0.9
+
+a. The tree diagram 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph instagram_tree {
+  graph [rankdir = LR]
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]
+  
+  Start [label = 'Start', fillcolor = lightgrey]
+  Coding [label = 'Coding (C)']
+  Explanation [label = 'Explanation (E)']
+  AUp [label = 'A']
+  NotAUp [label = 'Not A']
+  ADown [label = 'A']
+  NotADown [label = 'Not A']
+  
+  Start -> Coding [label = ' 0.6']
+  Start -> Explanation [label = ' 0.40']
+  
+  Coding -> AUp [label = ' 0.8']
+  Coding -> NotAUp [label = ' 0.2']
+  
+  Explanation -> ADown [label = ' 0.9']
+  Explanation -> NotADown [label = ' 0.1']
+}
+")
+```
+
+b. The total probability that a randomly selected student achieves an ‘A’ grade.
+
+\begin{align}
+P(A) =& P(A \mid C)P(C) + P(A \mid E)P(E)  \\
+P(A) =& (0.80 \times 0.60) + (0.90 \times 0.40) \\
+P(A) =& 0.48 + 0.36 = 0.84
+\end{align}
+
+c. To be discussed in next lecture
+
+8. Let
+
+- $P(M)$: Probability a patient has the mutation = 0.02
+
+- $P(H)$: Probability a patient is completely healthy = 0.98
+
+- $P(V \mid M)$: Probability a patient is a heavy vaper, given they have the mutation = 0.90
+
+- $P(V \mid H)$: Probability a patient is a heavy vaper, given they are healthy = 0.20
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph instagram_tree {
+  graph [rankdir = LR]
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]
+  
+  Start [label = 'Start', fillcolor = lightgrey]
+  Mutation [label = 'Mutation (M)']
+  Healthy [label = 'Healthy (H)']
+  VaperUp [label = 'Heavy Vaper (V)']
+  NotVaperUp [label = 'Not Heavy Vaper (~V)']
+  VaperDown [label = 'Heavy Vaper (V)']
+  NotVaperDown [label = 'Not Heavy Vaper (~V)']
+  
+  Start -> Mutation [label = '0.02']
+  Start -> Healthy [label = '0.98']
+  
+  Mutation -> VaperUp [label = '0.9']
+  Mutation -> NotVaperUp [label = '0.1']
+  
+  Healthy -> VaperDown [label = '0.2']
+  Healthy -> NotVaperDown [label = '0.8']
+}
+")
+```
+
+To calculate the probability of a patient having throat mutation 
+
+\begin{align}
+P(M \mid V) =& \frac{P(V \cap M)}{P(V) }\\ 
+=& \frac{P(V \mid M) P(M)}{P(V)} \\
+=& \frac{0.9 \times 0.02}{P(V)} \\
+=& \frac{0.018}{P(V)} 
+\end{align}
+
+To find the probability of a patient having heavy vaper, $P(V)$
+
+\begin{align}
+P(V) =& \frac{P(V \mid M) P(M) + P(V \mid H) P(H)}{P(V)} \\
+=& 0.9 \times 0.02 + 0.98 \times 0.2  = 0.214
+\end{align}
+
+Hence, the probability of a patient having throat mutation
+
+\begin{align}
+P(M \mid V) =& \frac{P(V \cap M)}{P(V) }\\ 
+=& \frac{P(V \mid M) P(M)}{P(V)} \\
+=& \frac{0.018}{0.214}
+=& 0.084 \ \text{3 dp}
+\end{align}
+
+The exact percentage chance that this specific patient has the throat mutation is  8.41%.
+
+9. Let $C_{i}$ represent the door where the car is hidden, and $H_{j}$ represent the door that the host opens. You have already chosen Door 1.
+
+- Initially, the car is equally likely to be behind any of the three doors:
+
+$$P(C_{1})=P(C_{2})=P(C_{3})=\frac{1}{3}$$
+
+- The host must open a door that you did not choose, and it must reveal a goat.
+
+  - Case A: If the car is behind Door 1 $C_{1}$
+
+  -  The host can open either Door 2 or Door 3 with equal probability:
+
+$$P(H_{3}\mid C_{1})=\frac{1}{2}$$
+
+  - Case B: If the car is behind Door 2, $C_{2}$
+
+  -  The host cannot open Door 1 (your choice) and cannot open Door 2 (the car). He is forced to open Door 3:
+
+$$P(H_{3}\mid C_{2})=1$$
+
+  - Case C: If the car is behind Door 3, $C_{3}$
+
+  -  The host cannot open Door 3 because the car is there. Therefore, the probability he opens Door 3 is zero:
+
+$$P(H_{3}\mid C_{3})=0$$
+
+ Total Probability of the Host Opening Door 3
+
+We calculate the overall probability that the host opens Door 3 (\(P(H_3)\)) by summing all possible scenarios:
+
+\begin{align}
+P(H_{3})=&[P(H_{3}\mid C_{1})\cdot P(C_{1})]+[P(H_{3}\mid C_{2})\cdot P(C_{2})]+[P(H_{3}\mid C_{3})\cdot P(C_{3})] \\
+P(H_{3})=&\left(\frac{1}{2}\cdot \frac{1}{3}\right)+\left(1\cdot \frac{1}{3}\right)+\left(0\cdot \frac{1}{3}\right) \\
+P(H_{3})=&\frac{1}{6}+\frac{1}{3}+0=\frac{3}{6}=\frac{1}{2}
+\end{align}
+
+
+Applying Bayes' Theorem (The Posterior Probabilities)
+
+Now we update our probabilities given the condition that the host has opened Door 3.
+
+- Chance of winning if you Stick (Door 1):
+
+\begin{align}
+P(C_{1}\mid H_{3})=\frac{P(H_{3}\mid C_{1})\cdot P(C_{1})}{P(H_{3})}=\frac{\frac{1}{2}\cdot \frac{1}{3}}{\frac{1}{2}}=\frac{1}{3}\approx \mathbf{33.33\%}
+\end{align}
+
+- Chance of winning if you Switch (Door 2):
+
+\begin{align}
+P(C_{2}\mid H_{3})=\frac{P(H_{3}\mid C_{2})\cdot P(C_{2})}{P(H_{3})}=\frac{1\cdot \frac{1}{3}}{\frac{1}{2}}=\frac{2}{3}\approx \mathbf{66.67\%}
+\end{align}

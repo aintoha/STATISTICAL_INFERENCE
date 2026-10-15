@@ -2573,8 +2573,8 @@ to handle this dependency. (Time Series Forecasting)</p></li>
 <li>Tree diagrams can be used to determine the value of the probability
 for dependent events.</li>
 </ul>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-cd0584da25f908a7fa8c" style="width:30%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-cd0584da25f908a7fa8c">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-1e11c746d80333e3a204" style="width:30%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1e11c746d80333e3a204">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="conditional-probability" class="section level2">
 <h2>Conditional Probability</h2>
@@ -2607,8 +2607,8 @@ remaining five are blue. Two chips are to be drawn successively, at
 random and without replacement. We use conditional probability to find
 the probability that the first draw results in a red chip (<span class="math inline">\(C_1\)</span>) and that the second draw results in
 a blue chip (<span class="math inline">\(C_2\)</span>).</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-9bd3d67113fc4d2692bf" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9bd3d67113fc4d2692bf">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red\"]\n  B1 [label = \"Blue\"]\n  R2a [label = \"Red\"]\n  B2a [label = \"Blue\"]\n  R2b [label = \"Red\"]\n  B2b [label = \"Blue\"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-0b515f9eceefd617e284" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0b515f9eceefd617e284">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red\"]\n  B1 [label = \"Blue\"]\n  R2a [label = \"Red\"]\n  B2a [label = \"Blue\"]\n  R2b [label = \"Red\"]\n  B2b [label = \"Blue\"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <ol style="list-style-type: decimal">
 <li><p>Calculate the conditional probability that a red chip was drawn
 in the second step given that the a blue chip was drawn
@@ -3124,8 +3124,11 @@ given by</p>
 <p><span class="math display">\[f(x) = \begin{cases} \lambda e^{-x/100}
 &amp; x \ge 0 \\ 0 &amp; x &lt; 0 \end{cases}\]</span></p>
 <p>What is the probability that</p>
-<p>A computer will function between 50 and 150 hours before breaking
-down? It will function for fewer than 100 hours.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>A computer will function between 50 and 150 hours before breaking
+down?</p></li>
+<li><p>It will function for fewer than 100 hours.</p></li>
+</ol>
 </div>
 </div>
 <div id="cumulative-distribution-function-cdf" class="section level2">
@@ -3646,8 +3649,8 @@ survival given a C-section = 0.96</p></li>
 <li><p><span class="math inline">\(P(S\vert{}C&#39;)\)</span>:
 Probability of survival given no C-section = ?</p></li>
 </ul>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d4fafe695daebc846352" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-d4fafe695daebc846352">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Csection [label = \"C-section\"]\n  NonCsection [label = \"Non C-section\"]\n  SurviveU[label = \"Survive\"]\n  NotSurviveU [label = \"Not Survive\"]\n  SurviveD [label = \"Survive\"]\n  NotSurviveD  [label = \"Not Survive\"]\n  \n  Start -> Csection [label = \" 0.15\"]\n  Start -> NonCsection [label = \" 0.85\"]\n  \n  Csection -> SurviveU [label = \"0.96\"]\n  Csection-> NotSurviveU [label = \" 0.04\"]\n  \n  NonCsection -> SurviveD [label = \" \"]\n  NonCsection -> NotSurviveD [label = \" \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-9962c6363ab191fce9a2" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9962c6363ab191fce9a2">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Csection [label = \"C-section\"]\n  NonCsection [label = \"Non C-section\"]\n  SurviveU[label = \"Survive\"]\n  NotSurviveU [label = \"Not Survive\"]\n  SurviveD [label = \"Survive\"]\n  NotSurviveD  [label = \"Not Survive\"]\n  \n  Start -> Csection [label = \" 0.15\"]\n  Start -> NonCsection [label = \" 0.85\"]\n  \n  Csection -> SurviveU [label = \"0.96\"]\n  Csection-> NotSurviveU [label = \" 0.04\"]\n  \n  NonCsection -> SurviveD [label = \" \"]\n  NonCsection -> NotSurviveD [label = \" \"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p><span class="math display">\[\begin{align}
 P(S) =&amp;  P(S\vert{}C)P(C) + P(S\vert{}C&#39;)P(C&#39;) \\
 0.97 =&amp; (0.96 \times 0.15) + (P(S\vert{}C&#39;) \times 0.85) \\
@@ -3693,8 +3696,8 @@ Mathematics given that the student is male, <span class="math inline">\(P(M \mid
 <p><span class="math display">\[\begin{align}
   P(M \mid  F&#39;) =&amp;  0.05
   \end{align}\]</span></p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-a1ede1ce5a9dba0b6572" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a1ede1ce5a9dba0b6572">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  NonMale [label = \"Non-Male\"]\n  Male [label = \"Male\"]\n  MathU [label = \"Math\"]\n  NonMathU [label = \"Others\"]\n  MathD [label = \"Math\"]\n  NonMathD [label = \"Others\"]\n  \n  Start -> NonMale [label = \"0.52\"]\n  Start -> Male [label = \"0.48\"]\n  \n  NonMale -> MathU [label = \"\"]\n  NonMale-> NonMathU [label = \"\"]\n  \n  Male -> MathD [label = \"0.05\"]\n  Male -> NonMathD [label = \"0.95\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-0f8c2e759a23af6e8d02" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0f8c2e759a23af6e8d02">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  NonMale [label = \"Non-Male\"]\n  Male [label = \"Male\"]\n  MathU [label = \"Math\"]\n  NonMathU [label = \"Others\"]\n  MathD [label = \"Math\"]\n  NonMathD [label = \"Others\"]\n  \n  Start -> NonMale [label = \"0.52\"]\n  Start -> Male [label = \"0.48\"]\n  \n  NonMale -> MathU [label = \"\"]\n  NonMale-> NonMathU [label = \"\"]\n  \n  Male -> MathD [label = \"0.05\"]\n  Male -> NonMathD [label = \"0.95\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <ol start="5" style="list-style-type: decimal">
 <li>Let</li>
 </ol>
@@ -3715,8 +3718,8 @@ that the client posts is viral given that the post is a Reel =
 <span class="math inline">\(Viral (0.2)\)</span> and <span class="math inline">\(Not Viral (0.8)\)</span>. The Reel branch splits
 into <span class="math inline">\(Viral (0.6)\)</span> and <span class="math inline">\(Not Viral (0.4)\)</span></li>
 </ol>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-119978082281a00c057d" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-119978082281a00c057d">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"New Post\", fillcolor = lightgrey]\n  Story [label = \"Story\"]\n  Reel [label = \"Reel\"]\n  ViralS [label = \"Viral\"]\n  NotViralS [label = \"Not Viral\"]\n  ViralR [label = \"Viral\"]\n  NotViralR [label = \"Not Viral\"]\n  \n  Start -> Story [label = \" 0.70\"]\n  Start -> Reel [label = \" 0.30\"]\n  \n  Story -> ViralS [label = \" 0.20\"]\n  Story -> NotViralS [label = \" 0.80\"]\n  \n  Reel -> ViralR [label = \" 0.60\"]\n  Reel -> NotViralR [label = \" 0.40\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-bc8109b4298ac308a82b" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bc8109b4298ac308a82b">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"New Post\", fillcolor = lightgrey]\n  Story [label = \"Story\"]\n  Reel [label = \"Reel\"]\n  ViralS [label = \"Viral\"]\n  NotViralS [label = \"Not Viral\"]\n  ViralR [label = \"Viral\"]\n  NotViralR [label = \"Not Viral\"]\n  \n  Start -> Story [label = \" 0.70\"]\n  Start -> Reel [label = \" 0.30\"]\n  \n  Story -> ViralS [label = \" 0.20\"]\n  Story -> NotViralS [label = \" 0.80\"]\n  \n  Reel -> ViralR [label = \" 0.60\"]\n  Reel -> NotViralR [label = \" 0.40\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Using the Law of Total Probability: <span class="math display">\[
 \begin{align}
@@ -3766,8 +3769,8 @@ that the student achived A when using for Explanation = 0.9</p></li>
 <ol style="list-style-type: lower-alpha">
 <li>The tree diagram</li>
 </ol>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-fb0c7051ef45765dbf41" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-fb0c7051ef45765dbf41">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Coding [label = \"Coding (C)\"]\n  Explanation [label = \"Explanation (E)\"]\n  AUp [label = \"A\"]\n  NotAUp [label = \"Not A\"]\n  ADown [label = \"A\"]\n  NotADown [label = \"Not A\"]\n  \n  Start -> Coding [label = \" 0.6\"]\n  Start -> Explanation [label = \" 0.40\"]\n  \n  Coding -> AUp [label = \" 0.8\"]\n  Coding -> NotAUp [label = \" 0.2\"]\n  \n  Explanation -> ADown [label = \" 0.9\"]\n  Explanation -> NotADown [label = \" 0.1\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-00516de640563b0f3a49" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-00516de640563b0f3a49">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Coding [label = \"Coding (C)\"]\n  Explanation [label = \"Explanation (E)\"]\n  AUp [label = \"A\"]\n  NotAUp [label = \"Not A\"]\n  ADown [label = \"A\"]\n  NotADown [label = \"Not A\"]\n  \n  Start -> Coding [label = \" 0.6\"]\n  Start -> Explanation [label = \" 0.40\"]\n  \n  Coding -> AUp [label = \" 0.8\"]\n  Coding -> NotAUp [label = \" 0.2\"]\n  \n  Explanation -> ADown [label = \" 0.9\"]\n  Explanation -> NotADown [label = \" 0.1\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The total probability that a randomly selected student achieves an
 ‘A’ grade.</li>
@@ -3793,8 +3796,8 @@ patient is a heavy vaper, given they have the mutation = 0.90</p></li>
 <li><p><span class="math inline">\(P(V \mid H)\)</span>: Probability a
 patient is a heavy vaper, given they are healthy = 0.20</p></li>
 </ul>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-7af938ee744dae41a124" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7af938ee744dae41a124">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Mutation [label = \"Mutation (M)\"]\n  Healthy [label = \"Healthy (H)\"]\n  VaperUp [label = \"Heavy Vaper (V)\"]\n  NotVaperUp [label = \"Not Heavy Vaper (~V)\"]\n  VaperDown [label = \"Heavy Vaper (V)\"]\n  NotVaperDown [label = \"Not Heavy Vaper (~V)\"]\n  \n  Start -> Mutation [label = \"0.02\"]\n  Start -> Healthy [label = \"0.98\"]\n  \n  Mutation -> VaperUp [label = \"0.9\"]\n  Mutation -> NotVaperUp [label = \"0.1\"]\n  \n  Healthy -> VaperDown [label = \"0.2\"]\n  Healthy -> NotVaperDown [label = \"0.8\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-4d6f62240e29e466d567" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4d6f62240e29e466d567">{"x":{"diagram":"\ndigraph instagram_tree {\n  graph [rankdir = LR]\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = lightblue, width = 1.2]\n  \n  Start [label = \"Start\", fillcolor = lightgrey]\n  Mutation [label = \"Mutation (M)\"]\n  Healthy [label = \"Healthy (H)\"]\n  VaperUp [label = \"Heavy Vaper (V)\"]\n  NotVaperUp [label = \"Not Heavy Vaper (~V)\"]\n  VaperDown [label = \"Heavy Vaper (V)\"]\n  NotVaperDown [label = \"Not Heavy Vaper (~V)\"]\n  \n  Start -> Mutation [label = \"0.02\"]\n  Start -> Healthy [label = \"0.98\"]\n  \n  Mutation -> VaperUp [label = \"0.9\"]\n  Mutation -> NotVaperUp [label = \"0.1\"]\n  \n  Healthy -> VaperDown [label = \"0.2\"]\n  Healthy -> NotVaperDown [label = \"0.8\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>To calculate the probability of a patient having throat mutation</p>
 <p><span class="math display">\[\begin{align}
 P(M \mid V) =&amp; \frac{P(V \cap M)}{P(V) }\\
