@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -404,12 +439,89 @@ Check: the derivative of $F(x)$ must equal to $f(x)$</code></pre>
 <section id="random-walk-for-discrete-random-variable" class="level2">
 <h2 class="anchored" data-anchor-id="random-walk-for-discrete-random-variable">Random Walk for Discrete Random Variable</h2>
 <p>The mathematical concept of the “drunken walk” - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.</p>
+<p>Go to this link: https://aintoha.github.io/DrawCards/ The simulator uses a deck of 52 playing cards (drawn with replacement) to determine the direction of each step. The rules are simple:</p>
+<ul>
+<li><p>Red Cards (Hearts / Diamonds): Take +1 step forward (Right)</p></li>
+<li><p>Black Cards (Spades / Clubs): Take -1 step backward (Left)</p></li>
+</ul>
+<p>Task: Set the ‘Maximum Draws’ to 5. Run the simulation 10 times and record your final landing positions. Bring these 10 results to class!</p>
+<p>Please answer the following questions on this sheet based on your experience with the simulator.</p>
+<ol type="1">
+<li><p>If you set the Maximum Draws to exactly 5, how many unique paths (combinations of Red and Black cards) are possible?</p></li>
+<li><p>In a 5-draw game, what is the exact probability of ending up at position +3? Write your answer as a fraction.</p></li>
+<li><p>In that same 5-draw game, what is the probability of ending at position +3? (Hint: List out the different ways you can draw two Red cards and one Black card).</p></li>
+<li><p>If you take exactly 5 draws, is it possible to land on position +1 or +3? Why or why not?</p></li>
+<li><p>Let the random variable X represent your final position after exactly 5 draws. Construct the PMF table of X.</p></li>
+<li><p>What is the probability that your final position X is strictly greater than 3?</p></li>
+<li><p>What is the probability that your final position X is less than or equal to 4?</p></li>
+<li><p>Suppose you peek at your very first card and see it is Red. Given this condition, what is the probability that your final position after all 5 draws will be exactly +2</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install DiagrammeR if not already installed:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("DiagrammeR")</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="st">digraph random_walk {</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.6]</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="st">  // Standard internal nodes</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="st">  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = LightBlue, fontcolor = Black]</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="st">  // Nodes per step</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="st">  S0 [label='0']</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="st">  S1_1 [label='+1']; S1_m1 [label='-1']</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="st">  S2_2 [label='+2']; S2_0 [label='0']; S2_m2 [label='-2']</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="st">  S3_3 [label='+3']; S3_1 [label='+1']; S3_m1 [label='-1']; S3_m3 [label='-3']</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_4 [label='+4']; S4_2 [label='+2']; S4_0 [label='0']; S4_m2 [label='-2']; S4_m4 [label='-4']</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="st">  // Terminal (End) Nodes styled in Black with White Text</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="st">  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = Black, fontcolor = White]</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_5 [label='+5</span><span class="sc">\n</span><span class="st">(1/32)']</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_3 [label='+3</span><span class="sc">\n</span><span class="st">(5/32)']</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_1 [label='+1</span><span class="sc">\n</span><span class="st">(10/32)']</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_m1 [label='-1</span><span class="sc">\n</span><span class="st">(10/32)']</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_m3 [label='-3</span><span class="sc">\n</span><span class="st">(5/32)']</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a><span class="st">  S5_m5 [label='-5</span><span class="sc">\n</span><span class="st">(1/32)']</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a><span class="st">  // Edges</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="st">  S0 -&gt; S1_1 [label='R']; S0 -&gt; S1_m1 [label='B']</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a><span class="st">  S1_1 -&gt; S2_2 [label='R']; S1_1 -&gt; S2_0 [label='B']</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a><span class="st">  S1_m1 -&gt; S2_0 [label='R']; S1_m1 -&gt; S2_m2 [label='B']</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a><span class="st">  S2_2 -&gt; S3_3 [label='R']; S2_2 -&gt; S3_1 [label='B']</span></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a><span class="st">  S2_0 -&gt; S3_1 [label='R']; S2_0 -&gt; S3_m1 [label='B']</span></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a><span class="st">  S2_m2 -&gt; S3_m1 [label='R']; S2_m2 -&gt; S3_m3 [label='B']</span></span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a><span class="st">  S3_3 -&gt; S4_4 [label='R']; S3_3 -&gt; S4_2 [label='B']</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a><span class="st">  S3_1 -&gt; S4_2 [label='R']; S3_1 -&gt; S4_0 [label='B']</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a><span class="st">  S3_m1 -&gt; S4_0 [label='R']; S3_m1 -&gt; S4_m2 [label='B']</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a><span class="st">  S3_m3 -&gt; S4_m2 [label='R']; S3_m3 -&gt; S4_m4 [label='B']</span></span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_4 -&gt; S5_5 [label='R']; S4_4 -&gt; S5_3 [label='B']</span></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_2 -&gt; S5_3 [label='R']; S4_2 -&gt; S5_1 [label='B']</span></span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_0 -&gt; S5_1 [label='R']; S4_0 -&gt; S5_m1 [label='B']</span></span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_m2 -&gt; S5_m1 [label='R']; S4_m2 -&gt; S5_m3 [label='B']</span></span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a><span class="st">  S4_m4 -&gt; S5_m3 [label='R']; S4_m4 -&gt; S5_m5 [label='B']</span></span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-464deec638a83b1557c5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-464deec638a83b1557c5">{"x":{"diagram":"\ndigraph random_walk {\n  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.6]\n  \n  // Standard internal nodes\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = LightBlue, fontcolor = Black]\n  \n  // Nodes per step\n  S0 [label=\"0\"]\n  \n  S1_1 [label=\"+1\"]; S1_m1 [label=\"-1\"]\n  \n  S2_2 [label=\"+2\"]; S2_0 [label=\"0\"]; S2_m2 [label=\"-2\"]\n  \n  S3_3 [label=\"+3\"]; S3_1 [label=\"+1\"]; S3_m1 [label=\"-1\"]; S3_m3 [label=\"-3\"]\n  \n  S4_4 [label=\"+4\"]; S4_2 [label=\"+2\"]; S4_0 [label=\"0\"]; S4_m2 [label=\"-2\"]; S4_m4 [label=\"-4\"]\n  \n  // Terminal (End) Nodes styled in Black with White Text\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = Black, fontcolor = White]\n  S5_5 [label=\"+5\n(1/32)\"]\n  S5_3 [label=\"+3\n(5/32)\"]\n  S5_1 [label=\"+1\n(10/32)\"]\n  S5_m1 [label=\"-1\n(10/32)\"]\n  S5_m3 [label=\"-3\n(5/32)\"]\n  S5_m5 [label=\"-5\n(1/32)\"]\n  \n  // Edges\n  S0 -> S1_1 [label=\"R\"]; S0 -> S1_m1 [label=\"B\"]\n  \n  S1_1 -> S2_2 [label=\"R\"]; S1_1 -> S2_0 [label=\"B\"]\n  S1_m1 -> S2_0 [label=\"R\"]; S1_m1 -> S2_m2 [label=\"B\"]\n  \n  S2_2 -> S3_3 [label=\"R\"]; S2_2 -> S3_1 [label=\"B\"]\n  S2_0 -> S3_1 [label=\"R\"]; S2_0 -> S3_m1 [label=\"B\"]\n  S2_m2 -> S3_m1 [label=\"R\"]; S2_m2 -> S3_m3 [label=\"B\"]\n  \n  S3_3 -> S4_4 [label=\"R\"]; S3_3 -> S4_2 [label=\"B\"]\n  S3_1 -> S4_2 [label=\"R\"]; S3_1 -> S4_0 [label=\"B\"]\n  S3_m1 -> S4_0 [label=\"R\"]; S3_m1 -> S4_m2 [label=\"B\"]\n  S3_m3 -> S4_m2 [label=\"R\"]; S3_m3 -> S4_m4 [label=\"B\"]\n  \n  S4_4 -> S5_5 [label=\"R\"]; S4_4 -> S5_3 [label=\"B\"]\n  S4_2 -> S5_3 [label=\"R\"]; S4_2 -> S5_1 [label=\"B\"]\n  S4_0 -> S5_1 [label=\"R\"]; S4_0 -> S5_m1 [label=\"B\"]\n  S4_m2 -> S5_m1 [label=\"R\"]; S4_m2 -> S5_m3 [label=\"B\"]\n  S4_m4 -> S5_m3 [label=\"R\"]; S4_m4 -> S5_m5 [label=\"B\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 <section id="application-of-random-walk" class="level3">
 <h3 class="anchored" data-anchor-id="application-of-random-walk">Application of Random Walk</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d13971fb44142750aa5d" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d13971fb44142750aa5d">{"x":{"diagram":"\ndigraph random_walk {\n  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right\n  \n  # Base Node Styling\n  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n  \n  # Step 0\n  Start [label = \"Start\n$10\"]\n  \n  # Step 1 Nodes\n  node [fillcolor = White]\n  D1_R [label = \"\n$11\"]\n  D1_B [label = \"\n$9\"]\n  \n  # Step 2 Nodes\n  D2_RR [label = \"\n$12\"]\n  D2_RB [label = \"\n$10\"]\n  D2_BR [label = \"\n$10\"]\n  D2_BB [label = \"\n$8\"]\n  \n  # Step 3 Nodes (Final Outcomes)\n  node [style = filled, fillcolor = \"#90EE90\", fontcolor = \"black\"]\n  D3_RRR [label = \"End: $13\n(U-U-U)\"]\n  D3_RRB [label = \"End: $11\n(U-U-D)\"]\n  D3_RBR [label = \"End: $11\n(U-D-U)\"]\n  D3_RBB [label = \"End: $9\n(U-D-D)\"]\n  D3_BRR [label = \"End: $11\n(D-U-U)\"]\n  D3_BRB [label = \"End: $9\n(D-U-D)\"]\n  D3_BBR [label = \"End: $9\n(D-D-U)\"]\n  D3_BBB [label = \"End: $7\n(D-D-D)\"]\n  \n  # Edges (Connecting the branches)\n  edge [fontname = Helvetica, fontsize = 10]\n  Start -> D1_R [label = \" UP (+1)\", color = red, fontcolor = red]\n  Start -> D1_B [label = \" DOWN (-1)\"]\n  \n  D1_R -> D2_RR [label = \" Red\", color = red]\n  D1_R -> D2_RB [label = \" Black\"]\n  \n  D1_B -> D2_BR [label = \" Red\", color = red]\n  D1_B -> D2_BB [label = \" Black\"]\n  \n  D2_RR -> D3_RRR [label = \" Red\", color = red]\n  D2_RR -> D3_RRB [label = \" Black\"]\n  \n  D2_RB -> D3_RBR [label = \" Red\", color = red]\n  D2_RB -> D3_RBB [label = \" Black\"]\n  \n  D2_BR -> D3_BRR [label = \" Red\", color = red]\n  D2_BR -> D3_BRB [label = \" Black\"]\n  \n  D2_BB -> D3_BBR [label = \" Red\", color = red]\n  D2_BB -> D3_BBB [label = \" Black\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-9215e89d08a6f23dd3e4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9215e89d08a6f23dd3e4">{"x":{"diagram":"\ndigraph random_walk {\n  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right\n  \n  # Base Node Styling\n  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n  \n  # Step 0\n  Start [label = \"Start\n$10\"]\n  \n  # Step 1 Nodes\n  node [fillcolor = White]\n  D1_R [label = \"\n$11\"]\n  D1_B [label = \"\n$9\"]\n  \n  # Step 2 Nodes\n  D2_RR [label = \"\n$12\"]\n  D2_RB [label = \"\n$10\"]\n  D2_BR [label = \"\n$10\"]\n  D2_BB [label = \"\n$8\"]\n  \n  # Step 3 Nodes (Final Outcomes)\n  node [style = filled, fillcolor = \"#90EE90\", fontcolor = \"black\"]\n  D3_RRR [label = \"End: $13\n(U-U-U)\"]\n  D3_RRB [label = \"End: $11\n(U-U-D)\"]\n  D3_RBR [label = \"End: $11\n(U-D-U)\"]\n  D3_RBB [label = \"End: $9\n(U-D-D)\"]\n  D3_BRR [label = \"End: $11\n(D-U-U)\"]\n  D3_BRB [label = \"End: $9\n(D-U-D)\"]\n  D3_BBR [label = \"End: $9\n(D-D-U)\"]\n  D3_BBB [label = \"End: $7\n(D-D-D)\"]\n  \n  # Edges (Connecting the branches)\n  edge [fontname = Helvetica, fontsize = 10]\n  Start -> D1_R [label = \" UP (+1)\", color = red, fontcolor = red]\n  Start -> D1_B [label = \" DOWN (-1)\"]\n  \n  D1_R -> D2_RR [label = \" UP\", color = red]\n  D1_R -> D2_RB [label = \" DOWN\"]\n  \n  D1_B -> D2_BR [label = \" UP\", color = red]\n  D1_B -> D2_BB [label = \" DOWN\"]\n  \n  D2_RR -> D3_RRR [label = \" UP\", color = red]\n  D2_RR -> D3_RRB [label = \" DOWN\"]\n  \n  D2_RB -> D3_RBR [label = \" UP\", color = red]\n  D2_RB -> D3_RBB [label = \" DOWN\"]\n  \n  D2_BR -> D3_BRR [label = \" UP\", color = red]\n  D2_BR -> D3_BRB [label = \" DOWN\"]\n  \n  D2_BB -> D3_BBR [label = \" UP\", color = red]\n  D2_BB -> D3_BBB [label = \" DOWN\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ul>

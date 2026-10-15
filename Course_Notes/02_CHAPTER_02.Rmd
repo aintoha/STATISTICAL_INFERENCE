@@ -371,6 +371,91 @@ Check: the derivative of $F(x)$ must equal to $f(x)$
 
 The mathematical concept of the "drunken walk" - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.
 
+Go to this link: https://aintoha.github.io/DrawCards/ 
+The simulator uses a deck of 52 playing cards (drawn with replacement) to determine the direction of each step. The rules are simple:
+
+- Red Cards (Hearts / Diamonds):  Take +1 step forward (Right)
+
+- Black Cards (Spades / Clubs):  Take -1 step backward (Left)
+
+Task: Set the 'Maximum Draws' to 5. Run the simulation 10 times and record your final landing positions. Bring these 10 results to class!
+
+Please answer the following questions on this sheet based on your experience with the simulator.
+
+1.	If you set the Maximum Draws to exactly 5, how many unique paths (combinations of Red and Black cards) are possible?
+
+2.	In a 5-draw game, what is the exact probability of ending up at position +3? Write your answer as a fraction.
+
+3.	In that same 5-draw game, what is the probability of ending at position +3?
+(Hint: List out the different ways you can draw two Red cards and one Black card).
+
+4.	If you take exactly 5 draws, is it possible to land on position +1 or +3? Why or why not?
+
+5.	Let the random variable X represent your final position after exactly 5 draws. Construct the PMF table of X. 
+
+6.	What is the probability that your final position X is strictly greater than 3?
+
+7.	What is the probability that your final position X is less than or equal to 4?
+
+8.	Suppose you peek at your very first card and see it is Red.  Given this condition, what is the probability that your final position after all 5 draws will be exactly +2
+
+
+```{r recombining-tree, echo=TRUE, message=FALSE, warning=FALSE}
+# Install DiagrammeR if not already installed:
+# install.packages("DiagrammeR")
+
+library(DiagrammeR)
+
+grViz("
+digraph random_walk {
+  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.6]
+  
+  // Standard internal nodes
+  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = LightBlue, fontcolor = Black]
+  
+  // Nodes per step
+  S0 [label='0']
+  
+  S1_1 [label='+1']; S1_m1 [label='-1']
+  
+  S2_2 [label='+2']; S2_0 [label='0']; S2_m2 [label='-2']
+  
+  S3_3 [label='+3']; S3_1 [label='+1']; S3_m1 [label='-1']; S3_m3 [label='-3']
+  
+  S4_4 [label='+4']; S4_2 [label='+2']; S4_0 [label='0']; S4_m2 [label='-2']; S4_m4 [label='-4']
+  
+  // Terminal (End) Nodes styled in Black with White Text
+  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = Black, fontcolor = White]
+  S5_5 [label='+5\n(1/32)']
+  S5_3 [label='+3\n(5/32)']
+  S5_1 [label='+1\n(10/32)']
+  S5_m1 [label='-1\n(10/32)']
+  S5_m3 [label='-3\n(5/32)']
+  S5_m5 [label='-5\n(1/32)']
+  
+  // Edges
+  S0 -> S1_1 [label='R']; S0 -> S1_m1 [label='B']
+  
+  S1_1 -> S2_2 [label='R']; S1_1 -> S2_0 [label='B']
+  S1_m1 -> S2_0 [label='R']; S1_m1 -> S2_m2 [label='B']
+  
+  S2_2 -> S3_3 [label='R']; S2_2 -> S3_1 [label='B']
+  S2_0 -> S3_1 [label='R']; S2_0 -> S3_m1 [label='B']
+  S2_m2 -> S3_m1 [label='R']; S2_m2 -> S3_m3 [label='B']
+  
+  S3_3 -> S4_4 [label='R']; S3_3 -> S4_2 [label='B']
+  S3_1 -> S4_2 [label='R']; S3_1 -> S4_0 [label='B']
+  S3_m1 -> S4_0 [label='R']; S3_m1 -> S4_m2 [label='B']
+  S3_m3 -> S4_m2 [label='R']; S3_m3 -> S4_m4 [label='B']
+  
+  S4_4 -> S5_5 [label='R']; S4_4 -> S5_3 [label='B']
+  S4_2 -> S5_3 [label='R']; S4_2 -> S5_1 [label='B']
+  S4_0 -> S5_1 [label='R']; S4_0 -> S5_m1 [label='B']
+  S4_m2 -> S5_m1 [label='R']; S4_m2 -> S5_m3 [label='B']
+  S4_m4 -> S5_m3 [label='R']; S4_m4 -> S5_m5 [label='B']
+}
+")
+```
 
 ### Application of Random Walk 
 
@@ -415,23 +500,23 @@ digraph random_walk {
   Start -> D1_R [label = ' UP (+1)', color = red, fontcolor = red]
   Start -> D1_B [label = ' DOWN (-1)']
   
-  D1_R -> D2_RR [label = ' Red', color = red]
-  D1_R -> D2_RB [label = ' Black']
+  D1_R -> D2_RR [label = ' UP', color = red]
+  D1_R -> D2_RB [label = ' DOWN']
   
-  D1_B -> D2_BR [label = ' Red', color = red]
-  D1_B -> D2_BB [label = ' Black']
+  D1_B -> D2_BR [label = ' UP', color = red]
+  D1_B -> D2_BB [label = ' DOWN']
   
-  D2_RR -> D3_RRR [label = ' Red', color = red]
-  D2_RR -> D3_RRB [label = ' Black']
+  D2_RR -> D3_RRR [label = ' UP', color = red]
+  D2_RR -> D3_RRB [label = ' DOWN']
   
-  D2_RB -> D3_RBR [label = ' Red', color = red]
-  D2_RB -> D3_RBB [label = ' Black']
+  D2_RB -> D3_RBR [label = ' UP', color = red]
+  D2_RB -> D3_RBB [label = ' DOWN']
   
-  D2_BR -> D3_BRR [label = ' Red', color = red]
-  D2_BR -> D3_BRB [label = ' Black']
+  D2_BR -> D3_BRR [label = ' UP', color = red]
+  D2_BR -> D3_BRB [label = ' DOWN']
   
-  D2_BB -> D3_BBR [label = ' Red', color = red]
-  D2_BB -> D3_BBB [label = ' Black']
+  D2_BB -> D3_BBR [label = ' UP', color = red]
+  D2_BB -> D3_BBB [label = ' DOWN']
 }
 ")
 ```
