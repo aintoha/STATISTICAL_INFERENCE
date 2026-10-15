@@ -250,9 +250,9 @@ Suppose that $X$ is a continuous random variable whose probability density funct
 
 \begin{align}
 f(x) = \begin{cases} 
-        C(4x - 2x^2) & 0 < x < 2 \\ 
-        0 & \text{otherwise} 
-        \end{cases}
+      C(4x - 2x^2) & 0 < x < 2 \\ 
+      0 & \text{otherwise} 
+      \end{cases}
 \end{align}
 
    a. What is the value of $C$?
@@ -339,6 +339,144 @@ b. $F(x)$ is non decreasing function of $x$
 c. $F(x)$ is right continuous
 
 ---
+
+```{example, rv-exercise-8}
+A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. Let $X$ be the number of defective items in the sample. Find the probability function and cumulative distribution function for $X$.
+```
+
+```{example, rv-exercise-9}
+Let $X \in \mathbb{R}$ with PDF as 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+0 & -\infty < x < 0 \\
+\frac{1}{20} \exp \left(-\frac{x}{20}\right) & 0 \le < \infty
+\end{cases}
+\end{align}
+
+**Derive** the CDF of $X$. 
+
+**Solution**
+\begin{align}
+F(x) &= \int_{-\infty}^{0} f(t) \ dt  \\
+&= \int_{0}^{x} \frac{1}{20} \exp \left(-\frac{x}{20}\right)  \ dt \\
+&= \left[-\frac{x}{20}\right]_{0}^{x} = 1  - \exp \left(-\frac{x}{2-}\right)
+\end{align}
+
+Check: the derivative of $F(x)$ must equal to $f(x)$
+```
+
+## Random Walk for Discrete Random Variable 
+
+The mathematical concept of the "drunken walk" - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.
+
+
+### Application of Random Walk 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# If you haven't installed it yet, run: install.packages("DiagrammeR")
+library(DiagrammeR)
+
+grViz("
+digraph random_walk {
+  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right
+  
+  # Base Node Styling
+  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]
+  
+  # Step 0
+  Start [label = 'Start\n$10']
+  
+  # Step 1 Nodes
+  node [fillcolor = White]
+  D1_R [label = '\n$11']
+  D1_B [label = '\n$9']
+  
+  # Step 2 Nodes
+  D2_RR [label = '\n$12']
+  D2_RB [label = '\n$10']
+  D2_BR [label = '\n$10']
+  D2_BB [label = '\n$8']
+  
+  # Step 3 Nodes (Final Outcomes)
+  node [style = filled, fillcolor = '#90EE90', fontcolor = 'black']
+  D3_RRR [label = 'End: $13\n(U-U-U)']
+  D3_RRB [label = 'End: $11\n(U-U-D)']
+  D3_RBR [label = 'End: $11\n(U-D-U)']
+  D3_RBB [label = 'End: $9\n(U-D-D)']
+  D3_BRR [label = 'End: $11\n(D-U-U)']
+  D3_BRB [label = 'End: $9\n(D-U-D)']
+  D3_BBR [label = 'End: $9\n(D-D-U)']
+  D3_BBB [label = 'End: $7\n(D-D-D)']
+  
+  # Edges (Connecting the branches)
+  edge [fontname = Helvetica, fontsize = 10]
+  Start -> D1_R [label = ' UP (+1)', color = red, fontcolor = red]
+  Start -> D1_B [label = ' DOWN (-1)']
+  
+  D1_R -> D2_RR [label = ' Red', color = red]
+  D1_R -> D2_RB [label = ' Black']
+  
+  D1_B -> D2_BR [label = ' Red', color = red]
+  D1_B -> D2_BB [label = ' Black']
+  
+  D2_RR -> D3_RRR [label = ' Red', color = red]
+  D2_RR -> D3_RRB [label = ' Black']
+  
+  D2_RB -> D3_RBR [label = ' Red', color = red]
+  D2_RB -> D3_RBB [label = ' Black']
+  
+  D2_BR -> D3_BRR [label = ' Red', color = red]
+  D2_BR -> D3_BRB [label = ' Black']
+  
+  D2_BB -> D3_BBR [label = ' Red', color = red]
+  D2_BB -> D3_BBB [label = ' Black']
+}
+")
+```
+
+- Drawing a random card from the deck is mathematically identical to clicking the "Take Step" button. Both trigger a single, independent 50/50 random event that dictates the next move.
+
+- The Red Card vs. The Green Upward Line
+
+   - Drawing a Red Card to gain $10 is the same as a positive market event. 
+   
+   - On the simulator's Tree Preview, this is represented by the green line moving diagonally upward, increasing the asset's value by whatever number you typed into the "Volatility Step" box.
+
+- The Black Card vs. The Red Downward Line
+
+   - Drawing a Black Card to lose $10 translates to a negative market shock. 
+   
+   - On the visual tree, this is the red line moving diagonally downward to a lower price node.
+
+- The 4 Draws vs. The Number of Weeks
+   
+   - Playing a game with 4 card draws is identical to setting the simulator's "Number of Weeks" to 4. 
+   
+   - Each vertical column of circles on the grid represents the exact state of the market after one draw.
+
+**Questions**
+
+1. If you set the Time Horizon to exactly 4 weeks, how many unique price paths (combinations of Up and Down weeks) are possible?
+
+2. In this 4-week market, what is the exact probability of the stock ending at exactly $12? Write your answer as a fraction.
+
+3. In this same 4-week market, what is the probability of ending exactly where you started, at $10? (Hint: List out the different path combinations where the market has exactly two Up weeks and two Down weeks).
+
+4. If you run the simulation for exactly 4 weeks, is it possible for the final stock price to land on exactly $11 or $13? Why or why not?
+
+5. Let the random variable $X$ represent the final stock price after exactly 4 weeks. Construct the complete Probability Mass Function (PMF) table for $X$.
+
+6. What is the probability that your final stock price $X$ is strictly greater than $10?
+
+7. What is the probability that your final stock price $X$ is less than or equal to $8?
+
+8. Suppose you watch the market in Week 1 and see the price go UP to $11. Given this new information, what is the exact probability that your final price after all 4 weeks will end up back at $10?
+
+9. The 4-week month is over, and you see that the final stock price is exactly $10. Given this final outcome, what is the exact probability that the market went UP during Week 1?
+
+10. Imagine instead that the month is over and the final stock price is exactly $12. Given this final outcome, what is the exact probability that the market went DOWN during Week 1? (Hint: Write out the specific paths that lead to a $12 final price, and look at how they start).
 
 ## Expected Values and Expected Function
 

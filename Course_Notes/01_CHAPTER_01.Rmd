@@ -1692,3 +1692,165 @@ $${n \choose r} = {n \choose n-r}$$
     The host walks over and opens Door 3. A goat is sitting behind it. He then turns to you and asks: "Do you want to stick with your original choice (Door 1), or do you want to switch to the other closed door (Door 2)?"
 
     Based on conditional probability, what are your exact percentage chances of winning the car if you stick with Door 1, versus if you switch to Door 2?
+
+## Discussion on Monty Hall Problem
+
+📺 The Origin Story: *Let's Make a Deal*
+
+Long before it became a staple of statistics classes, the Monty Hall problem was a genuine pop-culture phenomenon born from American daytime television. 
+
+The problem is named after **Monty Hall**, the charismatic original host of the game show ***Let's Make a Deal***, which premiered in 1963. The show was famous for its raucous studio audience—contestants dressed up in outrageous costumes (from giant bananas to medieval knights) just to get Monty's attention and a chance to play.
+
+The climax of the show often involved the "Big Deal of the Day." Monty would present a contestant with three numbered doors. Behind one was a spectacular prize (like a brand-new car or a dream vacation). Behind the other two were "Zonks"—gag prizes like a giant pile of mismatched shoes, a live farm animal, or, famously, a goat. 
+
+**The Man Who Knew Everything:** The mathematical twist of the game show relies on one crucial fact: *Monty Hall always knew what was behind the doors.* He never opened the winning door by accident. He deliberately built suspense by revealing a Zonk, forcing the contestant into a psychological showdown. 
+
+### 🤯 The 1990 Math Meltdown
+
+The game show scenario transitioned into mathematical infamy in September 1990. A reader submitted the door problem to **Marilyn vos Savant**—who held the Guinness World Record for the highest IQ—for her "Ask Marilyn" column in *Parade* magazine.
+
+Marilyn correctly answered that the contestant should always switch doors. 
+
+The public response was explosive. She received over 10,000 letters, including nearly 1,000 from PhDs and math professors, vehemently arguing that she was wrong and that the odds were obviously 50/50. 
+
+*“You blew it, and you blew it big!”* wrote one mathematician. *“May I suggest that you obtain and refer to a standard textbook on probability before you try to answer a question of this type again?”* wrote another.
+
+Marilyn stood her ground, ran mathematical simulations, and eventually proved the PhDs wrong. Today, the Monty Hall problem remains one of the most famous examples of how human intuition spectacularly fails at conditional probability.
+
+
+### 🐐 The Monty Hall Problem: To Switch or Not to Switch?
+
+Imagine you are on a game show, staring down three closed doors. 
+
+Behind one door is a brand-new car. Behind the other two? Goats. 
+
+* **Step 1:** You pick a door (let's say Door 1).
+* **Step 2:** The host, Monty Hall, who knows exactly what is behind every door, opens one of the other doors (let's say Door 3) to reveal a bleating goat.
+* **Step 3:** Monty turns to you and asks, *"Do you want to stick with Door 1, or switch to Door 2?"*
+
+What do you do? 
+
+> **The Human Intuition:** "There are two doors left. One has a car, one has a goat. It's a 50/50 chance, so it doesn't matter!"
+>
+> **The Mathematical Reality:** You should **always switch**. Switching doubles your chances of winning from 1/3 to 2/3.
+
+---
+
+### 📊 Breaking Down the Probabilities
+
+When you make your initial choice, there is a $1/3$ chance you picked the car, and a $2/3$ chance you picked a goat. Because Monty *must* reveal a goat, his action gives you new information.
+
+| If you originally picked... | Monty reveals... | Result if you STAY | Result if you SWITCH |
+|:---|:---|:---|:---|
+| **Goat 1** (1/3 chance) | Goat 2 | You get Goat 1 🐐 | **You get the Car! 🚗** |
+| **Goat 2** (1/3 chance) | Goat 1 | You get Goat 2 🐐 | **You get the Car! 🚗** |
+| **The Car** (1/3 chance) | A Goat | **You get the Car! 🚗**| You get a Goat 🐐 |
+
+Notice that in 2 out of the 3 possible scenarios, switching wins you the car!
+
+---
+
+### Have a go at the Game 
+
+### Using 🌳 Tree Diagram  
+
+To visualize why the odds shift, let's look at a probability tree. We will assume you start by picking **Door 1**. 
+
+Because Monty Hall's actions are restricted by the rules of the game (he *must* reveal a goat, and he *cannot* reveal your door), the tree branches unevenly.
+
+```{r monty-hall-expanded-tree, echo=FALSE, fig.width=10, fig.height=8}
+# Install DiagrammeR if needed: install.packages("DiagrammeR")
+library(DiagrammeR)
+
+grViz("
+digraph monty_expanded {
+  graph [layout = dot, rankdir = LR, nodesep=0.3, ranksep=0.6]
+  
+  # Node styling
+  node [shape = box, fontname = Helvetica, style = filled, fillcolor = '#f0f8ff', penwidth=1.5, color='#104e8b']
+  edge [fontname = Helvetica, fontsize = 10, color='#104e8b', penwidth=1.5]
+  
+  # Level 1: Initial Pick
+  Start [label = 'Player\\nPicks\\nDoor 1\\n(Probability\\n= 1/3 for\\neach actual\\nlocation)', shape = plain, fillcolor=none]
+  
+  # Level 2: Actual Car Location
+  Car1 [label = 'Car is\\nbehind\\nDoor 1\\n(P = 1/3)']
+  Car2 [label = 'Car is behind\\nDoor 2\\n(P = 1/3)']
+  Car3 [label = 'Car is behind\\nDoor 3\\n(P = 1/3)']
+  
+  # Level 3: Monty's Action
+  Monty1_2 [label = 'Monty opens\\nDoor 2\\n(Probability = 1/2)']
+  Monty1_3 [label = 'Monty opens\\nDoor 3\\n(Probability = 1/2)']
+  Monty2_3 [label = 'Monty must\\nopen Door 3\\n(Probability = 1)']
+  Monty3_2 [label = 'Monty must\\nopen Door 2\\n(Probability = 1)']
+  
+  # Level 4: Split Outcomes (STAY vs SWITCH)
+  # Pink boxes for STAY / SWITCH loses, Green for SWITCH wins
+  S1_Stay [label = 'STAY wins\\n(Door 1 is Car)\\nCombined Probability\\n= 1/6', fillcolor='#f8d7da']
+  S1_Switch [label = 'SWITCH loses\\n(Door 3 is Goat)\\nCombined Probability\\n= 1/6', fillcolor='#f8d7da']
+  
+  S2_Stay [label = 'STAY wins\\n(Door 1 is Car)\\nCombined Probability\\n= 1/6', fillcolor='#f8d7da']
+  S2_Switch [label = 'SWITCH loses\\n(Door 2 is Goat)\\nCombined Probability\\n= 1/6', fillcolor='#f8d7da']
+  
+  S3_Stay [label = 'STAY loses\\n(Door 1 is Goat)\\nCombined Probability\\n= 1/3', fillcolor='#f8d7da']
+  S3_Switch [label = 'SWITCH wins\\n(Door 2 is Car)\\nCombined Probability\\n= 1/3', fillcolor='#d4edda']
+  
+  S4_Stay [label = 'Outcome:\\nSTAY loses\\n(Door 1 is Goat)\\nCombined Probabil-\\nity = 1/3', fillcolor='#f8d7da']
+  S4_Switch [label = 'Outcome:\\nSWITCH wins\\n(Door 3 is Car)\\nCombined Probal-\\nbility = 1/3', fillcolor='#d4edda']
+  
+  # Edges
+  Start -> Car1
+  Start -> Car2
+  Start -> Car3
+  
+  Car1 -> Monty1_2
+  Car1 -> Monty1_3
+  
+  Car2 -> Monty2_3
+  
+  Car3 -> Monty3_2
+  
+  Monty1_2 -> S1_Stay
+  Monty1_2 -> S1_Switch
+  
+  Monty1_3 -> S2_Stay
+  Monty1_3 -> S2_Switch
+  
+  Monty2_3 -> S3_Stay
+  Monty2_3 -> S3_Switch
+  
+  Monty3_2 -> S4_Stay
+  Monty3_2 -> S4_Switch
+}
+")
+```
+
+### 💻 Prove it in R
+
+Don't believe the math? Let's simulate the game 10,000 times in R to see the Law of Large Numbers in action.
+
+```{r monty-hall-simulation}
+# Set seed for reproducibility
+set.seed(42)
+
+# Number of games to play
+n_games <- 10000
+
+# Simulate the winning doors and the player's initial picks
+winning_doors <- sample(1:3, n_games, replace = TRUE)
+player_picks <- sample(1:3, n_games, replace = TRUE)
+
+# If you STAY, you win only if your initial pick was the winning door
+win_by_staying <- sum(player_picks == winning_doors)
+
+# If you SWITCH, you win every time your initial pick was WRONG 
+# (because Monty removes the other wrong option)
+win_by_switching <- sum(player_picks != winning_doors)
+
+# Calculate win percentages
+pct_stay <- (win_by_staying / n_games) * 100
+pct_switch <- (win_by_switching / n_games) * 100
+
+cat(sprintf("Win rate by staying: %.1f%%\n", pct_stay))
+cat(sprintf("Win rate by switching: %.1f%%\n", pct_switch))
+```

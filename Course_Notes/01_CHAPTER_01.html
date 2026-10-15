@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -1058,8 +1093,8 @@ P(A)P(B) =&amp; (0.8)(0.5) = 0.4 = P(A \cap B)
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-eb13d03694ab6977e263" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-eb13d03694ab6977e263">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-026c960454c97ae25647" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-026c960454c97ae25647">{"x":{"diagram":"\ndigraph probability_tree {\n  \n  # Set graph orientation to Left-to-Right\n  graph [rankdir = LR]\n  \n  # Define node aesthetics\n  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = lightblue]\n  \n  # Define the nodes\n  Start [label = \"Start\", fillcolor = lightgrey]\n  A [label = \"Event A\"]\n  B [label = \"Event B\"]\n  C1 [label = \"Outcome C\"]\n  D1 [label = \"Outcome D\"]\n  C2 [label = \"Outcome C\"]\n  D2 [label = \"Outcome D\"]\n  \n  # Define the edges (branches) and their probability labels\n  Start -> A [label = \" P(A)\"]\n  Start -> B [label = \" P(B)\"]\n  \n  A -> C1 [label = \" P(C|A)\"]\n  A -> D1 [label = \" P(D|A)\"]\n  \n  B -> C2 [label = \" P(C|B)\"]\n  B -> D2 [label = \" P(D|B)\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -1088,8 +1123,8 @@ P(A)P(B) =&amp; (0.8)(0.5) = 0.4 = P(A \cap B)
 <p>A bowl contains 8 chips, where 3 of the chips are red and the remaining five are blue. Two chips are to be drawn successively, at random and without replacement. We use conditional probability to find the probability that the first draw results in a red chip (<span class="math inline">\(C_1\)</span>) and that the second draw results in a blue chip (<span class="math inline">\(C_2\)</span>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-7d8b8dbfcc641dc27a3f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7d8b8dbfcc641dc27a3f">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red  \"]\n  B1 [label = \"Blue \"]\n  R2a [label = \"Red \"]\n  B2a [label = \"Blue  \"]\n  R2b [label = \"Red \"]\n  B2b [label = \"Blue \"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-77732a668ed45ec367fe" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-77732a668ed45ec367fe">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR] // Left to Right layout\n  \n  // Define node styles\n  node [shape = plaintext, fontname = Helvetica, fontsize = 14]\n  edge [fontname = Helvetica, fontsize = 12, color = dimgrey]\n  \n  // Define the nodes\n  Start [label = \"Start\n(8 chips)\"]\n  R1 [label = \"Red  \"]\n  B1 [label = \"Blue \"]\n  R2a [label = \"Red \"]\n  B2a [label = \"Blue  \"]\n  R2b [label = \"Red \"]\n  B2b [label = \"Blue \"]\n  \n  // Define the edges and probabilities\n  Start -> R1 \n  Start -> B1 \n  \n  R1 -> R2a\n  R1 -> B2a  // This is the path C1 -> C2\n  \n  B1 -> R2b \n  B1 -> B2b \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ol type="a">
@@ -1170,8 +1205,8 @@ P(A)P(B) =&amp; (0.8)(0.5) = 0.4 = P(A \cap B)
 <p>What is the exact probability of drawing a Red, then a Blue, then a Green, and finally another Red marble?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-7e9eca228e99dafeff5f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7e9eca228e99dafeff5f">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.8]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root Node\n  Start [label = \"Start\n(15 Marbles:\n6R, 5B, 4G)\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # 1st Draw Branches\n  R1 [label = \"1st: Red\n(14 Left)\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  B1 [label = \"1st: Blue\n(14 Left)\"]\n  G1 [label = \"1st: Green\n(14 Left)\"]\n\n  # 2nd Draw Branches (from R1)\n  R1_R2 [label = \"2nd: Red\n(13 Left)\"]\n  R1_B2 [label = \"2nd: Blue\n(13 Left)\", fillcolor = \"#BEE3F8\", style = \"filled,bold\", color = \"#3182CE\"]\n  R1_G2 [label = \"2nd: Green\n(13 Left)\"]\n\n  # 3rd Draw Branches (from R1 -> B2)\n  R1_B2_R3 [label = \"3rd: Red\n(12 Left)\"]\n  R1_B2_B3 [label = \"3rd: Blue\n(12 Left)\"]\n  R1_B2_G3 [label = \"3rd: Green\n(12 Left)\", fillcolor = \"#C6F6D5\", style = \"filled,bold\", color = \"#38A169\"]\n\n  # 4th Draw Branches (from R1 -> B2 -> G3)\n  R1_B2_G3_R4 [label = \"4th: Red\n★ TARGET ★\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  R1_B2_G3_B4 [label = \"4th: Blue\"]\n  R1_B2_G3_G4 [label = \"4th: Green\"]\n\n  # Connections for Draw 1\n  Start -> R1 [label = \" 6/15\", color = \"#E53E3E\", penwidth = 2.5]\n  Start -> B1 [label = \" 5/15\"]\n  Start -> G1 [label = \" 4/15\"]\n\n  # Connections for Draw 2\n  R1 -> R1_R2 [label = \" 5/14\"]\n  R1 -> R1_B2 [label = \" 5/14\", color = \"#3182CE\", penwidth = 2.5]\n  R1 -> R1_G2 [label = \" 4/14\"]\n\n  # Connections for Draw 3\n  R1_B2 -> R1_B2_R3 [label = \" 5/13\"]\n  R1_B2 -> R1_B2_B3 [label = \" 4/13\"]\n  R1_B2 -> R1_B2_G3 [label = \" 4/13\", color = \"#38A169\", penwidth = 2.5]\n\n  # Connections for Draw 4\n  R1_B2_G3 -> R1_B2_G3_R4 [label = \" 5/12\", color = \"#E53E3E\", penwidth = 2.5]\n  R1_B2_G3 -> R1_B2_G3_B4 [label = \" 4/12\"]\n  R1_B2_G3 -> R1_B2_G3_G4 [label = \" 3/12\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-97467a685c0f01103713" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-97467a685c0f01103713">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.8]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root Node\n  Start [label = \"Start\n(15 Marbles:\n6R, 5B, 4G)\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # 1st Draw Branches\n  R1 [label = \"1st: Red\n(14 Left)\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  B1 [label = \"1st: Blue\n(14 Left)\"]\n  G1 [label = \"1st: Green\n(14 Left)\"]\n\n  # 2nd Draw Branches (from R1)\n  R1_R2 [label = \"2nd: Red\n(13 Left)\"]\n  R1_B2 [label = \"2nd: Blue\n(13 Left)\", fillcolor = \"#BEE3F8\", style = \"filled,bold\", color = \"#3182CE\"]\n  R1_G2 [label = \"2nd: Green\n(13 Left)\"]\n\n  # 3rd Draw Branches (from R1 -> B2)\n  R1_B2_R3 [label = \"3rd: Red\n(12 Left)\"]\n  R1_B2_B3 [label = \"3rd: Blue\n(12 Left)\"]\n  R1_B2_G3 [label = \"3rd: Green\n(12 Left)\", fillcolor = \"#C6F6D5\", style = \"filled,bold\", color = \"#38A169\"]\n\n  # 4th Draw Branches (from R1 -> B2 -> G3)\n  R1_B2_G3_R4 [label = \"4th: Red\n★ TARGET ★\", fillcolor = \"#FED7D7\", style = \"filled,bold\", color = \"#E53E3E\"]\n  R1_B2_G3_B4 [label = \"4th: Blue\"]\n  R1_B2_G3_G4 [label = \"4th: Green\"]\n\n  # Connections for Draw 1\n  Start -> R1 [label = \" 6/15\", color = \"#E53E3E\", penwidth = 2.5]\n  Start -> B1 [label = \" 5/15\"]\n  Start -> G1 [label = \" 4/15\"]\n\n  # Connections for Draw 2\n  R1 -> R1_R2 [label = \" 5/14\"]\n  R1 -> R1_B2 [label = \" 5/14\", color = \"#3182CE\", penwidth = 2.5]\n  R1 -> R1_G2 [label = \" 4/14\"]\n\n  # Connections for Draw 3\n  R1_B2 -> R1_B2_R3 [label = \" 5/13\"]\n  R1_B2 -> R1_B2_B3 [label = \" 4/13\"]\n  R1_B2 -> R1_B2_G3 [label = \" 4/13\", color = \"#38A169\", penwidth = 2.5]\n\n  # Connections for Draw 4\n  R1_B2_G3 -> R1_B2_G3_R4 [label = \" 5/12\", color = \"#E53E3E\", penwidth = 2.5]\n  R1_B2_G3 -> R1_B2_G3_B4 [label = \" 4/12\"]\n  R1_B2_G3 -> R1_B2_G3_G4 [label = \" 3/12\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>To find the probability of drawing Red (<span class="math inline">\(R_1\)</span>), then Blue (<span class="math inline">\(B_2\)</span>), then Green (<span class="math inline">\(G_3\)</span>), and finally Red (<span class="math inline">\(R_4\)</span>) without replacement, we use the General Multiplication Rule for dependent events: <span class="math display">\[P(R_1 \cap B_2 \cap G_3 \cap R_4) = P(R_1) \cdot P(B_2 \mid R_1) \cdot P(G_3 \mid R_1 \cap B_2) \cdot P(R_4 \mid R_1 \cap B_2 \cap G_3)\]</span></p>
@@ -1413,7 +1448,10 @@ P(S|U) =&amp; \frac{0.4 \times  0.05}{0.039} =  0.0513
 </ol>
 <p>Combining all components into a single Bayes’ Rule expression with values substituted:</p>
 <p><span class="math display">\[P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.60 \cdot 0.80 \cdot 0.50 \cdot 0.05}{(0.60 \cdot 0.80 \cdot 0.50 \cdot 0.05) + (0.10 \cdot 0.10 \cdot 0.20 \cdot 0.95)}\]</span></p>
-<p><span class="math display">\[P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.012}{0.012 + 0.0019} = \frac{0.012}{0.0139} \approx 0.8633 \quad (86.33\%)\]</span> ### Bayes’ Theorem Application: Exercise</p>
+<p><span class="math display">\[P(\text{Fraud} \mid F_1, F_2, F_3) = \frac{0.012}{0.012 + 0.0019} = \frac{0.012}{0.0139} \approx 0.8633 \quad (86.33\%)\]</span></p>
+</section>
+<section id="bayes-theorem-application-exercise" class="level3">
+<h3 class="anchored" data-anchor-id="bayes-theorem-application-exercise">Bayes’ Theorem Application: Exercise</h3>
 <p>An influencer marketing agency is analyzing a client’s Instagram account. Based on historical data, the client chooses to post either a <strong>Story</strong> or a <strong>Reel</strong>.</p>
 <ul>
 <li>The probability that the client posts a Story is 70% (0.7), and the probability they post a Reel is 30% (0.3).</li>
@@ -1431,8 +1469,8 @@ P(S|U) =&amp; \frac{0.4 \times  0.05}{0.039} =  0.0513
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d1b3ad0a5ea870a5fc74" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d1b3ad0a5ea870a5fc74">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.3, ranksep = 1.0]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root\n  Start [label = \"Post Type\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # Level 1: Post Type\n  Story [label = \"Story\nP(Story) = 0.7\", fillcolor = \"#EBF8FF\"]\n  Reel  [label = \"Reel\nP(Reel) = 0.3\", fillcolor = \"#FEEBC8\"]\n\n  # Level 2: Story Outcomes\n  Story_Viral [label = \"Viral\n0.7 × 0.2 = 0.14\", fillcolor = \"#C6F6D5\"]\n  Story_Not   [label = \"Not Viral\n0.7 × 0.8 = 0.56\", fillcolor = \"#FED7D7\"]\n\n  # Level 2: Reel Outcomes\n  Reel_Viral  [label = \"Viral\n0.3 × 0.6 = 0.18\", fillcolor = \"#C6F6D5\"]\n  Reel_Not    [label = \"Not Viral\n0.3 × 0.4 = 0.12\", fillcolor = \"#FED7D7\"]\n\n  # Branches\n  Start -> Story [label = \" 0.7\"]\n  Start -> Reel  [label = \" 0.3\"]\n\n  Story -> Story_Viral [label = \" P(Viral|Story) = 0.2\"]\n  Story -> Story_Not   [label = \" P(Not Viral|Story) = 0.8\"]\n\n  Reel  -> Reel_Viral  [label = \" P(Viral|Reel) = 0.6\"]\n  Reel  -> Reel_Not    [label = \" P(Not Viral|Reel) = 0.4\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-15ab743cdbfe8c1fdbb8" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-15ab743cdbfe8c1fdbb8">{"x":{"diagram":"\ndigraph probability_tree {\n  graph [rankdir = LR, nodesep = 0.3, ranksep = 1.0]\n  \n  node [fontname = Helvetica, shape = rectangle, style = \"filled,rounded\", fillcolor = \"#F7FAFC\", fontsize = 10]\n  edge [fontname = Helvetica, fontsize = 9]\n\n  # Root\n  Start [label = \"Post Type\", shape = ellipse, fillcolor = \"#EDF2F7\"]\n\n  # Level 1: Post Type\n  Story [label = \"Story\nP(Story) = 0.7\", fillcolor = \"#EBF8FF\"]\n  Reel  [label = \"Reel\nP(Reel) = 0.3\", fillcolor = \"#FEEBC8\"]\n\n  # Level 2: Story Outcomes\n  Story_Viral [label = \"Viral\n0.7 × 0.2 = 0.14\", fillcolor = \"#C6F6D5\"]\n  Story_Not   [label = \"Not Viral\n0.7 × 0.8 = 0.56\", fillcolor = \"#FED7D7\"]\n\n  # Level 2: Reel Outcomes\n  Reel_Viral  [label = \"Viral\n0.3 × 0.6 = 0.18\", fillcolor = \"#C6F6D5\"]\n  Reel_Not    [label = \"Not Viral\n0.3 × 0.4 = 0.12\", fillcolor = \"#FED7D7\"]\n\n  # Branches\n  Start -> Story [label = \" 0.7\"]\n  Start -> Reel  [label = \" 0.3\"]\n\n  Story -> Story_Viral [label = \" P(Viral|Story) = 0.2\"]\n  Story -> Story_Not   [label = \" P(Not Viral|Story) = 0.8\"]\n\n  Reel  -> Reel_Viral  [label = \" P(Viral|Reel) = 0.6\"]\n  Reel  -> Reel_Not    [label = \" P(Not Viral|Reel) = 0.4\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ol start="2" type="a">
@@ -1546,6 +1584,129 @@ P(S|U) =&amp; \frac{0.4 \times  0.05}{0.039} =  0.0513
 <p>The host walks over and opens Door 3. A goat is sitting behind it. He then turns to you and asks: “Do you want to stick with your original choice (Door 1), or do you want to switch to the other closed door (Door 2)?”</p>
 <p>Based on conditional probability, what are your exact percentage chances of winning the car if you stick with Door 1, versus if you switch to Door 2?</p></li>
 </ol>
+</section>
+<section id="discussion-on-monty-hall-problem" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-on-monty-hall-problem">Discussion on Monty Hall Problem</h2>
+<p>📺 The Origin Story: <em>Let’s Make a Deal</em></p>
+<p>Long before it became a staple of statistics classes, the Monty Hall problem was a genuine pop-culture phenomenon born from American daytime television.</p>
+<p>The problem is named after <strong>Monty Hall</strong>, the charismatic original host of the game show <strong><em>Let’s Make a Deal</em></strong>, which premiered in 1963. The show was famous for its raucous studio audience—contestants dressed up in outrageous costumes (from giant bananas to medieval knights) just to get Monty’s attention and a chance to play.</p>
+<p>The climax of the show often involved the “Big Deal of the Day.” Monty would present a contestant with three numbered doors. Behind one was a spectacular prize (like a brand-new car or a dream vacation). Behind the other two were “Zonks”—gag prizes like a giant pile of mismatched shoes, a live farm animal, or, famously, a goat.</p>
+<p><strong>The Man Who Knew Everything:</strong> The mathematical twist of the game show relies on one crucial fact: <em>Monty Hall always knew what was behind the doors.</em> He never opened the winning door by accident. He deliberately built suspense by revealing a Zonk, forcing the contestant into a psychological showdown.</p>
+<section id="the-1990-math-meltdown" class="level3">
+<h3 class="anchored" data-anchor-id="the-1990-math-meltdown">🤯 The 1990 Math Meltdown</h3>
+<p>The game show scenario transitioned into mathematical infamy in September 1990. A reader submitted the door problem to <strong>Marilyn vos Savant</strong>—who held the Guinness World Record for the highest IQ—for her “Ask Marilyn” column in <em>Parade</em> magazine.</p>
+<p>Marilyn correctly answered that the contestant should always switch doors.</p>
+<p>The public response was explosive. She received over 10,000 letters, including nearly 1,000 from PhDs and math professors, vehemently arguing that she was wrong and that the odds were obviously 50/50.</p>
+<p><em>“You blew it, and you blew it big!”</em> wrote one mathematician. <em>“May I suggest that you obtain and refer to a standard textbook on probability before you try to answer a question of this type again?”</em> wrote another.</p>
+<p>Marilyn stood her ground, ran mathematical simulations, and eventually proved the PhDs wrong. Today, the Monty Hall problem remains one of the most famous examples of how human intuition spectacularly fails at conditional probability.</p>
+</section>
+<section id="the-monty-hall-problem-to-switch-or-not-to-switch" class="level3">
+<h3 class="anchored" data-anchor-id="the-monty-hall-problem-to-switch-or-not-to-switch">🐐 The Monty Hall Problem: To Switch or Not to Switch?</h3>
+<p>Imagine you are on a game show, staring down three closed doors.</p>
+<p>Behind one door is a brand-new car. Behind the other two? Goats.</p>
+<ul>
+<li><strong>Step 1:</strong> You pick a door (let’s say Door 1).</li>
+<li><strong>Step 2:</strong> The host, Monty Hall, who knows exactly what is behind every door, opens one of the other doors (let’s say Door 3) to reveal a bleating goat.</li>
+<li><strong>Step 3:</strong> Monty turns to you and asks, <em>“Do you want to stick with Door 1, or switch to Door 2?”</em></li>
+</ul>
+<p>What do you do?</p>
+<blockquote class="blockquote">
+<p><strong>The Human Intuition:</strong> “There are two doors left. One has a car, one has a goat. It’s a 50/50 chance, so it doesn’t matter!”</p>
+<p><strong>The Mathematical Reality:</strong> You should <strong>always switch</strong>. Switching doubles your chances of winning from 1/3 to 2/3.</p>
+</blockquote>
+<hr>
+</section>
+<section id="breaking-down-the-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="breaking-down-the-probabilities">📊 Breaking Down the Probabilities</h3>
+<p>When you make your initial choice, there is a <span class="math inline">\(1/3\)</span> chance you picked the car, and a <span class="math inline">\(2/3\)</span> chance you picked a goat. Because Monty <em>must</em> reveal a goat, his action gives you new information.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">If you originally picked…</th>
+<th style="text-align: left;">Monty reveals…</th>
+<th style="text-align: left;">Result if you STAY</th>
+<th style="text-align: left;">Result if you SWITCH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Goat 1</strong> (1/3 chance)</td>
+<td style="text-align: left;">Goat 2</td>
+<td style="text-align: left;">You get Goat 1 🐐</td>
+<td style="text-align: left;"><strong>You get the Car! 🚗</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Goat 2</strong> (1/3 chance)</td>
+<td style="text-align: left;">Goat 1</td>
+<td style="text-align: left;">You get Goat 2 🐐</td>
+<td style="text-align: left;"><strong>You get the Car! 🚗</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>The Car</strong> (1/3 chance)</td>
+<td style="text-align: left;">A Goat</td>
+<td style="text-align: left;"><strong>You get the Car! 🚗</strong></td>
+<td style="text-align: left;">You get a Goat 🐐</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that in 2 out of the 3 possible scenarios, switching wins you the car!</p>
+<hr>
+</section>
+<section id="have-a-go-at-the-game" class="level3">
+<h3 class="anchored" data-anchor-id="have-a-go-at-the-game">Have a go at the Game</h3>
+</section>
+<section id="using-tree-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="using-tree-diagram">Using 🌳 Tree Diagram</h3>
+<p>To visualize why the odds shift, let’s look at a probability tree. We will assume you start by picking <strong>Door 1</strong>.</p>
+<p>Because Monty Hall’s actions are restricted by the rules of the game (he <em>must</em> reveal a goat, and he <em>cannot</em> reveal your door), the tree branches unevenly.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d44bf7debb942d2c388a" style="width:100%;height:520px;"></div>
+<script type="application/json" data-for="htmlwidget-d44bf7debb942d2c388a">{"x":{"diagram":"\ndigraph monty_expanded {\n  graph [layout = dot, rankdir = LR, nodesep=0.3, ranksep=0.6]\n  \n  # Node styling\n  node [shape = box, fontname = Helvetica, style = filled, fillcolor = \"#f0f8ff\", penwidth=1.5, color=\"#104e8b\"]\n  edge [fontname = Helvetica, fontsize = 10, color=\"#104e8b\", penwidth=1.5]\n  \n  # Level 1: Initial Pick\n  Start [label = \"Player\\nPicks\\nDoor 1\\n(Probability\\n= 1/3 for\\neach actual\\nlocation)\", shape = plain, fillcolor=none]\n  \n  # Level 2: Actual Car Location\n  Car1 [label = \"Car is\\nbehind\\nDoor 1\\n(P = 1/3)\"]\n  Car2 [label = \"Car is behind\\nDoor 2\\n(P = 1/3)\"]\n  Car3 [label = \"Car is behind\\nDoor 3\\n(P = 1/3)\"]\n  \n  # Level 3: Monty\"s Action\n  Monty1_2 [label = \"Monty opens\\nDoor 2\\n(Probability = 1/2)\"]\n  Monty1_3 [label = \"Monty opens\\nDoor 3\\n(Probability = 1/2)\"]\n  Monty2_3 [label = \"Monty must\\nopen Door 3\\n(Probability = 1)\"]\n  Monty3_2 [label = \"Monty must\\nopen Door 2\\n(Probability = 1)\"]\n  \n  # Level 4: Split Outcomes (STAY vs SWITCH)\n  # Pink boxes for STAY / SWITCH loses, Green for SWITCH wins\n  S1_Stay [label = \"STAY wins\\n(Door 1 is Car)\\nCombined Probability\\n= 1/6\", fillcolor=\"#f8d7da\"]\n  S1_Switch [label = \"SWITCH loses\\n(Door 3 is Goat)\\nCombined Probability\\n= 1/6\", fillcolor=\"#f8d7da\"]\n  \n  S2_Stay [label = \"STAY wins\\n(Door 1 is Car)\\nCombined Probability\\n= 1/6\", fillcolor=\"#f8d7da\"]\n  S2_Switch [label = \"SWITCH loses\\n(Door 2 is Goat)\\nCombined Probability\\n= 1/6\", fillcolor=\"#f8d7da\"]\n  \n  S3_Stay [label = \"STAY loses\\n(Door 1 is Goat)\\nCombined Probability\\n= 1/3\", fillcolor=\"#f8d7da\"]\n  S3_Switch [label = \"SWITCH wins\\n(Door 2 is Car)\\nCombined Probability\\n= 1/3\", fillcolor=\"#d4edda\"]\n  \n  S4_Stay [label = \"Outcome:\\nSTAY loses\\n(Door 1 is Goat)\\nCombined Probabil-\\nity = 1/3\", fillcolor=\"#f8d7da\"]\n  S4_Switch [label = \"Outcome:\\nSWITCH wins\\n(Door 3 is Car)\\nCombined Probal-\\nbility = 1/3\", fillcolor=\"#d4edda\"]\n  \n  # Edges\n  Start -> Car1\n  Start -> Car2\n  Start -> Car3\n  \n  Car1 -> Monty1_2\n  Car1 -> Monty1_3\n  \n  Car2 -> Monty2_3\n  \n  Car3 -> Monty3_2\n  \n  Monty1_2 -> S1_Stay\n  Monty1_2 -> S1_Switch\n  \n  Monty1_3 -> S2_Stay\n  Monty1_3 -> S2_Switch\n  \n  Monty2_3 -> S3_Stay\n  Monty2_3 -> S3_Switch\n  \n  Monty3_2 -> S4_Stay\n  Monty3_2 -> S4_Switch\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="prove-it-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="prove-it-in-r">💻 Prove it in R</h3>
+<p>Don’t believe the math? Let’s simulate the game 10,000 times in R to see the Law of Large Numbers in action.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of games to play</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_games <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate the winning doors and the player's initial picks</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>winning_doors <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, n_games, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>player_picks <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, n_games, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># If you STAY, you win only if your initial pick was the winning door</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>win_by_staying <span class="ot">&lt;-</span> <span class="fu">sum</span>(player_picks <span class="sc">==</span> winning_doors)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># If you SWITCH, you win every time your initial pick was WRONG </span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># (because Monty removes the other wrong option)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>win_by_switching <span class="ot">&lt;-</span> <span class="fu">sum</span>(player_picks <span class="sc">!=</span> winning_doors)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate win percentages</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pct_stay <span class="ot">&lt;-</span> (win_by_staying <span class="sc">/</span> n_games) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>pct_switch <span class="ot">&lt;-</span> (win_by_switching <span class="sc">/</span> n_games) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Win rate by staying: %.1f%%</span><span class="sc">\n</span><span class="st">"</span>, pct_stay))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Win rate by staying: 34.5%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Win rate by switching: %.1f%%</span><span class="sc">\n</span><span class="st">"</span>, pct_switch))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Win rate by switching: 65.5%</code></pre>
+</div>
+</div>
+</section>
 </section>
 </section>
 

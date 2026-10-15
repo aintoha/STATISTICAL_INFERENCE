@@ -177,9 +177,9 @@ C(4x - 2x^2) & 0 < x < 2 \\
 \end{cases}
 \end{align}
 
-    a. What is the value of $C$?
+a. What is the value of $C$?
 
-    b. Find $P(X>1)$
+b. Find $P(X>1)$
 
 ### Continuous Random Variables: Exercise
 
@@ -187,10 +187,13 @@ C(4x - 2x^2) & 0 < x < 2 \\
 
 The amount of time in hours that a computer functions before breaking down is a continuous random variable with probability density function given by
 
+$$f(x) = \begin{cases} \lambda e^{-x/100} & x \ge 0 \\ 0 & x < 0 \end{cases}$$
+
 What is the probability that 
 
-A computer will function between 50 and 150 hours before breaking down?
-It will function for fewer than 100 hours.
+a. A computer will function between 50 and 150 hours before breaking down?
+
+b. It will function for fewer than 100 hours.
 
 ## Cumulative Distribution Function (CDF)
 

@@ -10,7 +10,7 @@ Welcome to the course repository. Below you will find the links to the slide dec
 | Statistical Book | |
 | [Slide 1: Probability Basics (Part 1)](Slide_1.html) | [Tutorial 1](Tutorial_1.html) | [Solution 1](Solution_1.html)|
 | [Slide 2: Probability Basics (Part 2)](Slide_2.html) | [Tutorial 2](Tutorial_2.html) | [Solution 2](Solution_2.html)|
-| [Slide 3: Probability Distribution](Slide_3.html) | [Tutorial 3](Tutorial_3.html) | [Solution 3](Solution_3.html)|
+| [Slide 3: Random Variables, Expectation, and Moments](Slide_3.html) | [Tutorial 3](Tutorial_3.html) | [Solution 3](Solution_3.html)|
 | [Slide 4: Probability Basics](Slide_4.html) | [Tutorial 4](Tutorial_4.html) | [Solution 4](Solution_4.html)|
 | **Full Course Compilation** | | |
 
