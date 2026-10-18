@@ -695,6 +695,47 @@ f(x) =
 <p>For some positive constant <span class="math inline">\(k\)</span>. Find the value of <span class="math inline">\(k\)</span>, the distribution function <span class="math inline">\(F(x)\)</span> and the probabilities <span class="math inline">\(P(X \le 1)\)</span>, <span class="math inline">\(P(X &gt; 1)\)</span> and <span class="math inline">\(P(1 \le X \le 2)\)</span>.</p>
 </div>
 </div>
+<<<<<<< HEAD
+=======
+<div id="random-walk-for-discrete-random-variable" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Random Walk for Discrete Random Variable<a href="chapter-2-random-variables-expectation-and-moments.html#random-walk-for-discrete-random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The mathematical concept of the “drunken walk” - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.</p>
+<div id="application-of-random-walk" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Application of Random Walk<a href="chapter-2-random-variables-expectation-and-moments.html#application-of-random-walk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-428e5b383e2dea69fd31" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-428e5b383e2dea69fd31">{"x":{"diagram":"\ndigraph random_walk {\n  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right\n  \n  # Base Node Styling\n  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]\n  \n  # Step 0\n  Start [label = \"Start\n$10\"]\n  \n  # Step 1 Nodes\n  node [fillcolor = White]\n  D1_R [label = \"\n$11\"]\n  D1_B [label = \"\n$9\"]\n  \n  # Step 2 Nodes\n  D2_RR [label = \"\n$12\"]\n  D2_RB [label = \"\n$10\"]\n  D2_BR [label = \"\n$10\"]\n  D2_BB [label = \"\n$8\"]\n  \n  # Step 3 Nodes (Final Outcomes)\n  node [style = filled, fillcolor = \"#90EE90\", fontcolor = \"black\"]\n  D3_RRR [label = \"End: $13\n(U-U-U)\"]\n  D3_RRB [label = \"End: $11\n(U-U-D)\"]\n  D3_RBR [label = \"End: $11\n(U-D-U)\"]\n  D3_RBB [label = \"End: $9\n(U-D-D)\"]\n  D3_BRR [label = \"End: $11\n(D-U-U)\"]\n  D3_BRB [label = \"End: $9\n(D-U-D)\"]\n  D3_BBR [label = \"End: $9\n(D-D-U)\"]\n  D3_BBB [label = \"End: $7\n(D-D-D)\"]\n  \n  # Edges (Connecting the branches)\n  edge [fontname = Helvetica, fontsize = 10]\n  Start -> D1_R [label = \" UP (+1)\", color = red, fontcolor = red]\n  Start -> D1_B [label = \" DOWN (-1)\"]\n  \n  D1_R -> D2_RR [label = \" Red\", color = red]\n  D1_R -> D2_RB [label = \" Black\"]\n  \n  D1_B -> D2_BR [label = \" Red\", color = red]\n  D1_B -> D2_BB [label = \" Black\"]\n  \n  D2_RR -> D3_RRR [label = \" Red\", color = red]\n  D2_RR -> D3_RRB [label = \" Black\"]\n  \n  D2_RB -> D3_RBR [label = \" Red\", color = red]\n  D2_RB -> D3_RBB [label = \" Black\"]\n  \n  D2_BR -> D3_BRR [label = \" Red\", color = red]\n  D2_BR -> D3_BRB [label = \" Black\"]\n  \n  D2_BB -> D3_BBR [label = \" Red\", color = red]\n  D2_BB -> D3_BBB [label = \" Black\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li><p>Drawing a random card from the deck is mathematically identical to clicking the “Take Step” button. Both trigger a single, independent 50/50 random event that dictates the next move.</p></li>
+<li><p>The Red Card vs. The Green Upward Line</p>
+<ul>
+<li><p>Drawing a Red Card to gain $10 is the same as a positive market event.</p></li>
+<li><p>On the simulator’s Tree Preview, this is represented by the green line moving diagonally upward, increasing the asset’s value by whatever number you typed into the “Volatility Step” box.</p></li>
+</ul></li>
+<li><p>The Black Card vs. The Red Downward Line</p>
+<ul>
+<li><p>Drawing a Black Card to lose $10 translates to a negative market shock.</p></li>
+<li><p>On the visual tree, this is the red line moving diagonally downward to a lower price node.</p></li>
+</ul></li>
+<li><p>The 4 Draws vs. The Number of Weeks</p>
+<ul>
+<li><p>Playing a game with 4 card draws is identical to setting the simulator’s “Number of Weeks” to 4.</p></li>
+<li><p>Each vertical column of circles on the grid represents the exact state of the market after one draw.</p></li>
+</ul></li>
+</ul>
+<p><strong>Questions</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>If you set the Time Horizon to exactly 4 weeks, how many unique price paths (combinations of Up and Down weeks) are possible?</p></li>
+<li><p>In this 4-week market, what is the exact probability of the stock ending at exactly $12? Write your answer as a fraction.</p></li>
+<li><p>In this same 4-week market, what is the probability of ending exactly where you started, at $10? (Hint: List out the different path combinations where the market has exactly two Up weeks and two Down weeks).</p></li>
+<li><p>If you run the simulation for exactly 4 weeks, is it possible for the final stock price to land on exactly $11 or $13? Why or why not?</p></li>
+<li><p>Let the random variable <span class="math inline">\(X\)</span> represent the final stock price after exactly 4 weeks. Construct the complete Probability Mass Function (PMF) table for <span class="math inline">\(X\)</span>.</p></li>
+<li><p>What is the probability that your final stock price <span class="math inline">\(X\)</span> is strictly greater than $10?</p></li>
+<li><p>What is the probability that your final stock price <span class="math inline">\(X\)</span> is less than or equal to $8?</p></li>
+<li><p>Suppose you watch the market in Week 1 and see the price go UP to $11. Given this new information, what is the exact probability that your final price after all 4 weeks will end up back at $10?</p></li>
+<li><p>The 4-week month is over, and you see that the final stock price is exactly $10. Given this final outcome, what is the exact probability that the market went UP during Week 1?</p></li>
+<li><p>Imagine instead that the month is over and the final stock price is exactly $12. Given this final outcome, what is the exact probability that the market went DOWN during Week 1? (Hint: Write out the specific paths that lead to a $12 final price, and look at how they start).</p></li>
+</ol>
+>>>>>>> f83668537b39d6101c97e487979d5bd4977baec0
 </div>
 <div id="expected-values-and-expected-function" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Expected Values and Expected Function<a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-and-expected-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1057,6 +1098,7 @@ If <span class="math inline">\(E(X^n)\)</span> exists for some +ve integers <spa
 <p><span id="exm:rv-example-12" class="example"><strong>Example 3.20  (Example 12 (Discrete case)) </strong></span>Let the p.m.f. of <span class="math inline">\(X\)</span> be defined by <span class="math inline">\(f(x) = x/6\)</span>, where <span class="math inline">\(x=1,2,3\)</span>. Find the mgf of RV of <span class="math inline">\(X\)</span>.</p>
 </div>
 <div class="example">
+<<<<<<< HEAD
 <p><span id="exm:rv-example-21" class="example"><strong>Example 3.21  (Example 21 (Continuous case)) </strong></span><span class="math inline">\(X\)</span> is Random variable with probability density function of <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[\begin{align}
    f(x) =
@@ -1064,6 +1106,15 @@ If <span class="math inline">\(E(X^n)\)</span> exists for some +ve integers <spa
    1/6 &amp; \text{for } 1 \le x \le 7 \\
    0 &amp; \text{otherwise}
    \end{cases}
+=======
+<p><span id="exm:rv-example-12" class="example"><strong>Example 3.14  (Example 11 (Continuous case)) </strong></span><span class="math inline">\(X\)</span> is Random variable with probability density function of <span class="math inline">\(X\)</span> is</p>
+<p><span class="math display">\[\begin{align}
+   f(x) =
+   \begin{cases}
+   1/6 &amp; \text{if $1 \le x \le 7$} \\
+   0 &amp; \text{if $x$ is otherwise}.
+   \end_{cases}
+>>>>>>> f83668537b39d6101c97e487979d5bd4977baec0
 \end{align}\]</span></p>
 <p>Find the mgf of <span class="math inline">\(X\)</span>.</p>
 </div>
