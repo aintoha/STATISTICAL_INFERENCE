@@ -457,7 +457,67 @@ f(x) =
 \end{cases}
 \end{align}
 
-For some positive constant $k$. Find the value of $k$, the distribution function $F(x)$ and the probabilities $P(X \le 1)$, $P(X &gt; 1)$ and $P(1 \le X \le 2)$.</code></pre>
+For some positive constant $k$. Find the value of $k$, the distribution function $F(x)$ and the probabilities $P(X \le 1)$, $P(X &gt; 1)$ and $P(1 \le X \le 2)$.
+
+**Solution:**
+
+1. Find the value of $k$
+For $f(x)$ to be a valid probability density function, the total area under the curve must equal 1:
+\begin{align}
+\int_{-\infty}^{\infty} f(x) dx =&amp; 1 \\
+\int_{0}^{\infty} \frac{k}{(1 + x)^4} dx =&amp; 1
+\end{align}
+
+To integrate, we use the power rule. Let $u = 1 + x$, then $du = dx$:
+
+\begin{align}
+k \left[ \frac{(1 + x)^{-3}}{-3} \right]_{0}^{\infty} =&amp; 1 \\
+-\frac{k}{3} \left( \lim_{x \to \infty} \frac{1}{(1 + x)^3} - \frac{1}{(1 + 0)^3} \right) =&amp; 1 \\
+-\frac{k}{3} (0 - 1) =&amp; 1 \\
+\frac{k}{3} = 1 \implies k =&amp; 3 \\
+\end{align}
+
+Thus, the PDF is $f(x) = \frac{3}{(1 + x)^4}$ for $x \ge 0$.
+
+2. Find the cumulative distribution function, $F(x)$
+By definition, $F(x) = \int_{-\infty}^{x} f(t) dt$.
+
+For $x \ge 0$:
+\begin{align}
+F(x) =&amp; \int_{0}^{x} \frac{3}{(1 + t)^4} dt \\
+ =&amp; 3 \left[ \frac{(1 + t)^{-3}}{-3} \right]_{0}^{x}  \\
+ =&amp; -1 \left( \frac{1}{(1 + x)^3} - \frac{1}{(1 + 0)^3} \right)  \\
+=&amp; 1 - \frac{1}{(1 + x)^3}
+\end{align}
+
+The complete distribution function is:
+$$F(x) = \begin{cases} 0 &amp; \text{for } x &lt; 0 \\ 1 - \frac{1}{(1 + x)^3} &amp; \text{for } x \ge 0 \end{cases}$$
+
+3. Calculate the Probabilities
+Using the CDF $F(x)$ we just derived:
+
+**Find $P(X \le 1)$:**
+
+\begin{align}
+P(X \le 1) =&amp; F(1) = 1 - \frac{1}{(1 + 1)^3}  \\
+ =&amp; 1 - \frac{1}{8} = \frac{7}{8} = 0.875
+\end{align}
+
+**Find $P(X &gt; 1)$:**
+
+\begin{align}
+P(X &gt; 1) =&amp; 1 - P(X \le 1) \\
+ =&amp; 1 - \frac{7}{8} = \frac{1}{8} = 0.125
+\end{align}
+
+**Find $P(1 \le X \le 2)$:**
+
+\begin{align}
+P(1 \le X \le 2) =&amp; F(2) - F(1) \\
+F(2) =&amp; 1 - \frac{1}{(1 + 2)^3} = 1 - \frac{1}{27} = \frac{26}{27} \\
+P(1 \le X \le 2) =&amp; \frac{26}{27} - \frac{7}{8} = \frac{208}{216} - \frac{189}{216} = \frac{19}{216} \approx 0.08796$$
+\end{align}
+</code></pre>
 </div>
 </section>
 </section>
