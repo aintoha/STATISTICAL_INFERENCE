@@ -26,11 +26,15 @@ always_allow_html: true
 
 4. Moments and Moment Generating Functions 
 
+---
+
 ## Random Variables
 
 - Given a random experiment with an outcome space $S$, a function $X$ that assigns one and only one real number $X(s) = x$ to each element $s$ in $S$ is called a random variable. The space of $X$ is the set of real numbers $\{x: X(s) = x, s \in S\}$. 
 
 - A random variable, usually written X, is a variable whose possible values are numerical outcomes of a random phenomenon
+
+---
 
 ## Random Variables: Example 
 
@@ -51,6 +55,8 @@ always_allow_html: true
     P(Y=3) &= P(HHH) = 1/8
     \end{align}
 
+--- 
+
 ## Discrete vs. Continuous Random Variables
 
 ### Discrete Random Variables
@@ -69,6 +75,7 @@ always_allow_html: true
 
     - $P(X \in A) = \sum_{x \in A} P(x)$ for $A \subset S$ .
 
+---
 
 ### Discrete Random Variables: Example 
 
@@ -101,6 +108,8 @@ axis(1, at = c(0, 1, 2)) #[cite: 2]
 axis(2, at = c(0, 1/4, 1/2, 1), labels = c("0", "1/4", "1/2", "1"), las = 1) 
 ```
 
+---
+
 ### Discrete Random Variables: Example 
 
 Let a chip be taken at random from a bowl that contains six white chips, three red chips, and one blue chip. Let the random variable $X = 1$ if the outcome is a white chip, let $X = 5$ if the outcome is a red chip, and let $X = 10$ if the outcome is a blue chip.
@@ -113,6 +122,8 @@ b.  Graph the pmf as a line graph.
 |$x$ | 1 | 5 | 10|
 |----|---|---|---|
 |$P(x)$ | $\frac{3}{5}$ | $\frac{3}{10}$ | $\frac{1}{10}$ |
+
+---
 
 ### Discrete Random Variables: Exercise
 
@@ -128,6 +139,8 @@ A tech company manufactures high-end smartphones. Before shipping, an automated 
 
 3. What is the probability that a batch has fewer than 3 defective phones?
 
+---
+
 ### Discrete Random Variables: Exercise
 
 A ride-hailing driver operates in a busy downtown district. Let $Y$ be the discrete random variable representing the number of passenger ride requests the driver receives during a 15-minute period.
@@ -140,6 +153,7 @@ Verify that this function satisfies the two fundamental properties of a valid PM
 - Sum of the probabiility is equal to 1
 
 $$0.15 + 0.40 + 0.30 + 0.15 + 0 = 1$$
+---
 
 ### Continuous Random Variables
 
@@ -150,6 +164,8 @@ Recall: For observations such as lengths of time, weight of an object, height of
 - $X$ is called a continuous random variable. 
     
 - Here it is no longer appropriate to assign probabilities to individual values, because typically $P(X = x) = 0$.
+
+---
 
 ### Continuous Random Variables
 
@@ -164,6 +180,8 @@ The p.d.f. $f(x)$ satisfies:
 - $P(a < x < b) = \int_a^b f(x) dx$ .
 
 - Note: If $a=b$, then $P(x=a) = \int_a^a f(x) dx = 0$.
+
+---
 
 ### Continuous Random Variables: Example
 
@@ -181,6 +199,8 @@ a. What is the value of $C$?
 
 b. Find $P(X>1)$
 
+---
+
 ### Continuous Random Variables: Exercise
 
 **Probability distribution for a continuous random variable** 
@@ -194,6 +214,8 @@ What is the probability that
 a. A computer will function between 50 and 150 hours before breaking down?
 
 b. It will function for fewer than 100 hours.
+
+---
 
 ## Cumulative Distribution Function (CDF)
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="NAT">
-<meta name="dcterms.date" content="2026-10-17">
+<meta name="dcterms.date" content="2026-10-18">
 
 <title>Probability Distributions</title>
 <style>
@@ -100,7 +100,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 17, 2026</p>
+      <p class="date">October 18, 2026</p>
     </div>
   </div>
   
@@ -128,6 +128,7 @@ window.Quarto = {
 <li><p>Expected valus, variance and standard deviation of random variables</p></li>
 <li><p>Moments and Moment Generating Functions</p></li>
 </ol>
+<hr>
 </section>
 <section id="random-variables" class="level2">
 <h2 class="anchored" data-anchor-id="random-variables">Random Variables</h2>
@@ -135,6 +136,7 @@ window.Quarto = {
 <li><p>Given a random experiment with an outcome space <span class="math inline">\(S\)</span>, a function <span class="math inline">\(X\)</span> that assigns one and only one real number <span class="math inline">\(X(s) = x\)</span> to each element <span class="math inline">\(s\)</span> in <span class="math inline">\(S\)</span> is called a random variable. The space of <span class="math inline">\(X\)</span> is the set of real numbers <span class="math inline">\(\{x: X(s) = x, s \in S\}\)</span>.</p></li>
 <li><p>A random variable, usually written X, is a variable whose possible values are numerical outcomes of a random phenomenon</p></li>
 </ul>
+<hr>
 </section>
 <section id="random-variables-example" class="level2">
 <h2 class="anchored" data-anchor-id="random-variables-example">Random Variables: Example</h2>
@@ -155,6 +157,7 @@ P(Y=2) &amp;= P[(HHT,HTH,THH)] = 3/8 \\
 P(Y=3) &amp;= P(HHH) = 1/8
 \end{align}\]</span></p></li>
 </ol>
+<hr>
 </section>
 <section id="discrete-vs.-continuous-random-variables" class="level2">
 <h2 class="anchored" data-anchor-id="discrete-vs.-continuous-random-variables">Discrete vs.&nbsp;Continuous Random Variables</h2>
@@ -172,6 +175,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 <li><p><span class="math inline">\(P(X \in A) = \sum_{x \in A} P(x)\)</span> for <span class="math inline">\(A \subset S\)</span> .</p></li>
 </ul></li>
 </ul>
+<hr>
 </section>
 <section id="discrete-random-variables-example" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-random-variables-example">Discrete Random Variables: Example</h3>
@@ -203,6 +207,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 </div>
 </div>
 </div>
+<hr>
 </section>
 <section id="discrete-random-variables-example-1" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-random-variables-example-1">Discrete Random Variables: Example</h3>
@@ -229,6 +234,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
 <section id="discrete-random-variables-exercise" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-random-variables-exercise">Discrete Random Variables: Exercise</h3>
@@ -260,6 +266,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 <li><p>What is the probability that a batch has at least 2 defective phones?</p></li>
 <li><p>What is the probability that a batch has fewer than 3 defective phones?</p></li>
 </ol>
+<hr>
 </section>
 <section id="discrete-random-variables-exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-random-variables-exercise-1">Discrete Random Variables: Exercise</h3>
@@ -269,8 +276,10 @@ P(Y=3) &amp;= P(HHH) = 1/8
 <li><p>Non-negativity: All probabilities for each values that <span class="math inline">\(Y\)</span> can take are all greater than 0</p></li>
 <li><p>Sum of the probabiility is equal to 1</p></li>
 </ul>
-<p><span class="math display">\[0.15 + 0.40 + 0.30 + 0.15 + 0 = 1\]</span></p>
 </section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><span class="math display">\[0.15 + 0.40 + 0.30 + 0.15 + 0 = 1\]</span></h2>
 <section id="continuous-random-variables" class="level3">
 <h3 class="anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
 <p>Recall: For observations such as lengths of time, weight of an object, height of a person</p>
@@ -279,6 +288,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 <li><p><span class="math inline">\(X\)</span> is called a continuous random variable.</p></li>
 <li><p>Here it is no longer appropriate to assign probabilities to individual values, because typically <span class="math inline">\(P(X = x) = 0\)</span>.</p></li>
 </ul>
+<hr>
 </section>
 <section id="continuous-random-variables-1" class="level3">
 <h3 class="anchored" data-anchor-id="continuous-random-variables-1">Continuous Random Variables</h3>
@@ -290,6 +300,7 @@ P(Y=3) &amp;= P(HHH) = 1/8
 <li><p><span class="math inline">\(P(a &lt; x &lt; b) = \int_a^b f(x) dx\)</span> .</p></li>
 <li><p>Note: If <span class="math inline">\(a=b\)</span>, then <span class="math inline">\(P(x=a) = \int_a^a f(x) dx = 0\)</span>.</p></li>
 </ul>
+<hr>
 </section>
 <section id="continuous-random-variables-example" class="level3">
 <h3 class="anchored" data-anchor-id="continuous-random-variables-example">Continuous Random Variables: Example</h3>
@@ -305,6 +316,7 @@ C(4x - 2x^2) &amp; 0 &lt; x &lt; 2 \\
 <li><p>What is the value of <span class="math inline">\(C\)</span>?</p></li>
 <li><p>Find <span class="math inline">\(P(X&gt;1)\)</span></p></li>
 </ol>
+<hr>
 </section>
 <section id="continuous-random-variables-exercise" class="level3">
 <h3 class="anchored" data-anchor-id="continuous-random-variables-exercise">Continuous Random Variables: Exercise</h3>
@@ -316,6 +328,7 @@ C(4x - 2x^2) &amp; 0 &lt; x &lt; 2 \\
 <li><p>A computer will function between 50 and 150 hours before breaking down?</p></li>
 <li><p>It will function for fewer than 100 hours.</p></li>
 </ol>
+<hr>
 </section>
 </section>
 <section id="cumulative-distribution-function-cdf" class="level2">

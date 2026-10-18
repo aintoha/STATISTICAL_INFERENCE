@@ -686,6 +686,15 @@ Finally, compute the variance $\text{Var}(X)$ using the variance formula:
  &amp;= 2 - (1.2)^2 = 2 - 1.44 = 0.56
 \end{align}</code></pre>
 </div>
+<section id="property-of-variance" class="level3">
+<h3 class="anchored" data-anchor-id="property-of-variance">Property of Variance</h3>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variable and <span class="math inline">\(a, b \in \mathbb{R}\)</span>.</p>
+<ol type="a">
+<li><p><strong>Non-negative</strong>: <span class="math inline">\(Var[X] \ge 0\)</span></p></li>
+<li><p><strong>Constant has 0 variance</strong>: <span class="math inline">\(Var[a] = 0\)</span></p></li>
+<li><p><span class="math inline">\(Var[aX + b] = a^2 Var[X]\)</span></p></li>
+<li><p><span class="math inline">\(Var[aX + bY] = a^2 Var[X] + b^2 Var[Y]\)</span></p></li>
+</ol>
 <div class="cell" name="Example 18">
 <pre class="example cell-code"><code>Show that $Var[a + bX] = b^2 Var[X]$.
 
@@ -742,6 +751,7 @@ E[X] &amp;= \int x f(x) \\
 &amp;= \left[\frac{2}{3}x^{3}\right]_{0}^{1} = \frac{2}{3}\\
 \end{align}</code></pre>
 </div>
+</section>
 </section>
 <section id="functions-of-random-variable" class="level2">
 <h2 class="anchored" data-anchor-id="functions-of-random-variable">Functions of Random Variable</h2>

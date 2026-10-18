@@ -693,6 +693,19 @@ Finally, compute the variance $\text{Var}(X)$ using the variance formula:
 \end{align}
 ```
 
+### Property of Variance
+
+Let $X$ and $Y$ be random variable and $a, b \in \mathbb{R}$.
+
+a. **Non-negative**: $Var[X] \ge 0$
+
+b. **Constant has 0 variance**: $Var[a] = 0$
+
+c. $Var[aX + b] = a^2 Var[X]$
+
+d. $Var[aX + bY] = a^2 Var[X] + b^2 Var[Y]$
+
+
 ```{example, rv-example-18, name = "Example 18"}
 Show that $Var[a + bX] = b^2 Var[X]$.
 

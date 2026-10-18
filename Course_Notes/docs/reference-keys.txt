@@ -113,6 +113,7 @@ properties-of-cdf
 expected-values-and-expected-function
 expected-values-properties
 variance-and-standard-deviation
+property-of-variance
 functions-of-random-variable
 functions-of-random-variable-expected-values
 functions-of-random-variable-expected-values-properties

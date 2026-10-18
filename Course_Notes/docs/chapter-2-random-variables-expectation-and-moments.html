@@ -244,7 +244,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-properties"><i class="fa fa-check"></i><b>3.5.1</b> Expected Values: Properties</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.6</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="3.6" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.6</b> Variance and standard deviation</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#property-of-variance"><i class="fa fa-check"></i><b>3.6.1</b> Property of Variance</a></li>
+</ul></li>
 <li class="chapter" data-level="3.7" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#functions-of-random-variable"><i class="fa fa-check"></i><b>3.7</b> Functions of Random Variable</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#functions-of-random-variable-expected-values"><i class="fa fa-check"></i><b>3.7.1</b> Functions of Random Variable: Expected Values</a></li>
@@ -882,6 +885,15 @@ E[X^2] &amp;= \sum_{x=0}^{3} x^2 \cdot p(x) \\
 &amp;= 2 - (1.2)^2 = 2 - 1.44 = 0.56
 \end{align}\]</span></p>
 </div>
+<div id="property-of-variance" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Property of Variance<a href="chapter-2-random-variables-expectation-and-moments.html#property-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variable and <span class="math inline">\(a, b \in \mathbb{R}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Non-negative</strong>: <span class="math inline">\(Var[X] \ge 0\)</span></p></li>
+<li><p><strong>Constant has 0 variance</strong>: <span class="math inline">\(Var[a] = 0\)</span></p></li>
+<li><p><span class="math inline">\(Var[aX + b] = a^2 Var[X]\)</span></p></li>
+<li><p><span class="math inline">\(Var[aX + bY] = a^2 Var[X] + b^2 Var[Y]\)</span></p></li>
+</ol>
 <div class="example">
 <p><span id="exm:rv-example-18" class="example"><strong>Example 3.15  (Example 18) </strong></span>Show that <span class="math inline">\(Var[a + bX] = b^2 Var[X]\)</span>.</p>
 <p><strong>Solution:</strong></p>
@@ -921,6 +933,7 @@ E[X] &amp;= \int x f(x) \\
 &amp;= \int_{0}^{1} x (2x) = \int_{1}^{1} 2x^2\\
 &amp;= \left[\frac{2}{3}x^{3}\right]_{0}^{1} = \frac{2}{3}\\
 \end{align}\]</span></p>
+</div>
 </div>
 </div>
 <div id="functions-of-random-variable" class="section level2 hasAnchor" number="3.7">
