@@ -5,6 +5,5 @@ bookdown::gitbook:
       collapse: subsection
     download: ["pdf", "epub"]
 bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
+  always_allow_html: true
   latex_engine: xelatex

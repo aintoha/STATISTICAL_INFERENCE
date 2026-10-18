@@ -436,7 +436,7 @@ ${15 \choose 5} = 3003$
 
 ${6 \choose 2} = 15$ 
 
-3. Probability of event $A$: $P(A) =  \frac{15}{3003}
+3. Probability of event $A$: $P(A) =  \frac{15}{3003}$
 
 
 ### Probability of an event: Example

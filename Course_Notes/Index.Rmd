@@ -3,11 +3,15 @@ title: "Inferential Statistics Module"
 author: "NAT"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+always_allow_html: true
 output: bookdown::gitbook
 documentclass: book
 description: "A 14-week course module for Inferential Statistics."
 ---
 
 # Overview 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(crop = FALSE)
+```
 
 This is a continuous notes

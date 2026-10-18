@@ -506,7 +506,7 @@ P(X > 1) =& 1 - P(X \le 1) \\
 \begin{align}
 P(1 \le X \le 2) =& F(2) - F(1) \\
 F(2) =& 1 - \frac{1}{(1 + 2)^3} = 1 - \frac{1}{27} = \frac{26}{27} \\
-P(1 \le X \le 2) =& \frac{26}{27} - \frac{7}{8} = \frac{208}{216} - \frac{189}{216} = \frac{19}{216} \approx 0.08796$$
+P(1 \le X \le 2) =& \frac{26}{27} - \frac{7}{8} = \frac{208}{216} - \frac{189}{216} = \frac{19}{216} \approx 0.08796 \\
 \end{align}
 
 ```
