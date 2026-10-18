@@ -1,7 +1,7 @@
 ---
-title: "Solution 1: Probability Basic Concepts"
+title: "Solution 2: Probability Basic Concepts"
 author: "NAT"
-date: "Semester I, 2026/2027"
+date: today
 output: 
   html_document:
     theme: readable

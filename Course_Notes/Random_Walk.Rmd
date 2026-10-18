@@ -1,0 +1,196 @@
+
+# Random Walk for Discrete Random Variable 
+
+The mathematical concept of the "drunken walk" - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.
+
+Go to this link: https://aintoha.github.io/DrawCards/ 
+The simulator uses a deck of 52 playing cards (drawn with replacement) to determine the direction of each step. The rules are simple:
+
+- Red Cards (Hearts / Diamonds):  Take +1 step forward (Right)
+
+- Black Cards (Spades / Clubs):  Take -1 step backward (Left)
+
+Task: Set the 'Maximum Draws' to 5. Run the simulation 10 times and record your final landing positions. Bring these 10 results to class!
+
+Please answer the following questions on this sheet based on your experience with the simulator.
+
+1.	If you set the Maximum Draws to exactly 5, how many unique paths (combinations of Red and Black cards) are possible?
+
+2.	In a 5-draw game, what is the exact probability of ending up at position +3? Write your answer as a fraction.
+
+3.	In that same 5-draw game, what is the probability of ending at position +3?
+(Hint: List out the different ways you can draw two Red cards and one Black card).
+
+4.	If you take exactly 5 draws, is it possible to land on position +1 or +3? Why or why not?
+
+5.	Let the random variable X represent your final position after exactly 5 draws. Construct the PMF table of X. 
+
+6.	What is the probability that your final position X is strictly greater than 3?
+
+7.	What is the probability that your final position X is less than or equal to 4?
+
+8.	Suppose you peek at your very first card and see it is Red.  Given this condition, what is the probability that your final position after all 5 draws will be exactly +2
+
+
+```{r recombining-tree, echo=FALSE, message=FALSE, warning=FALSE}
+# Install DiagrammeR if not already installed:
+# install.packages("DiagrammeR")
+
+library(DiagrammeR)
+
+grViz("
+digraph random_walk {
+  graph [rankdir = LR, nodesep = 0.2, ranksep = 0.6]
+  
+  // Standard internal nodes
+  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = LightBlue, fontcolor = Black]
+  
+  // Nodes per step
+  S0 [label='0']
+  
+  S1_1 [label='+1']; S1_m1 [label='-1']
+  
+  S2_2 [label='+2']; S2_0 [label='0']; S2_m2 [label='-2']
+  
+  S3_3 [label='+3']; S3_1 [label='+1']; S3_m1 [label='-1']; S3_m3 [label='-3']
+  
+  S4_4 [label='+4']; S4_2 [label='+2']; S4_0 [label='0']; S4_m2 [label='-2']; S4_m4 [label='-4']
+  
+  // Terminal (End) Nodes styled in Black with White Text
+  node [shape = circle, fontname = Helvetica, style = filled, fillcolor = Black, fontcolor = White]
+  S5_5 [label='+5\n(1/32)']
+  S5_3 [label='+3\n(5/32)']
+  S5_1 [label='+1\n(10/32)']
+  S5_m1 [label='-1\n(10/32)']
+  S5_m3 [label='-3\n(5/32)']
+  S5_m5 [label='-5\n(1/32)']
+  
+  // Edges
+  S0 -> S1_1 [label='R']; S0 -> S1_m1 [label='B']
+  
+  S1_1 -> S2_2 [label='R']; S1_1 -> S2_0 [label='B']
+  S1_m1 -> S2_0 [label='R']; S1_m1 -> S2_m2 [label='B']
+  
+  S2_2 -> S3_3 [label='R']; S2_2 -> S3_1 [label='B']
+  S2_0 -> S3_1 [label='R']; S2_0 -> S3_m1 [label='B']
+  S2_m2 -> S3_m1 [label='R']; S2_m2 -> S3_m3 [label='B']
+  
+  S3_3 -> S4_4 [label='R']; S3_3 -> S4_2 [label='B']
+  S3_1 -> S4_2 [label='R']; S3_1 -> S4_0 [label='B']
+  S3_m1 -> S4_0 [label='R']; S3_m1 -> S4_m2 [label='B']
+  S3_m3 -> S4_m2 [label='R']; S3_m3 -> S4_m4 [label='B']
+  
+  S4_4 -> S5_5 [label='R']; S4_4 -> S5_3 [label='B']
+  S4_2 -> S5_3 [label='R']; S4_2 -> S5_1 [label='B']
+  S4_0 -> S5_1 [label='R']; S4_0 -> S5_m1 [label='B']
+  S4_m2 -> S5_m1 [label='R']; S4_m2 -> S5_m3 [label='B']
+  S4_m4 -> S5_m3 [label='R']; S4_m4 -> S5_m5 [label='B']
+}
+")
+```
+
+### Application of Random Walk 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# If you haven't installed it yet, run: install.packages("DiagrammeR")
+library(DiagrammeR)
+
+grViz("
+digraph random_walk {
+  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right
+  
+  # Base Node Styling
+  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]
+  
+  # Step 0
+  Start [label = 'Start\n$10']
+  
+  # Step 1 Nodes
+  node [fillcolor = White]
+  D1_R [label = '\n$11']
+  D1_B [label = '\n$9']
+  
+  # Step 2 Nodes
+  D2_RR [label = '\n$12']
+  D2_RB [label = '\n$10']
+  D2_BR [label = '\n$10']
+  D2_BB [label = '\n$8']
+  
+  # Step 3 Nodes (Final Outcomes)
+  node [style = filled, fillcolor = '#90EE90', fontcolor = 'black']
+  D3_RRR [label = 'End: $13\n(U-U-U)']
+  D3_RRB [label = 'End: $11\n(U-U-D)']
+  D3_RBR [label = 'End: $11\n(U-D-U)']
+  D3_RBB [label = 'End: $9\n(U-D-D)']
+  D3_BRR [label = 'End: $11\n(D-U-U)']
+  D3_BRB [label = 'End: $9\n(D-U-D)']
+  D3_BBR [label = 'End: $9\n(D-D-U)']
+  D3_BBB [label = 'End: $7\n(D-D-D)']
+  
+  # Edges (Connecting the branches)
+  edge [fontname = Helvetica, fontsize = 10]
+  Start -> D1_R [label = ' UP (+1)', color = red, fontcolor = red]
+  Start -> D1_B [label = ' DOWN (-1)']
+  
+  D1_R -> D2_RR [label = ' UP', color = red]
+  D1_R -> D2_RB [label = ' DOWN']
+  
+  D1_B -> D2_BR [label = ' UP', color = red]
+  D1_B -> D2_BB [label = ' DOWN']
+  
+  D2_RR -> D3_RRR [label = ' UP', color = red]
+  D2_RR -> D3_RRB [label = ' DOWN']
+  
+  D2_RB -> D3_RBR [label = ' UP', color = red]
+  D2_RB -> D3_RBB [label = ' DOWN']
+  
+  D2_BR -> D3_BRR [label = ' UP', color = red]
+  D2_BR -> D3_BRB [label = ' DOWN']
+  
+  D2_BB -> D3_BBR [label = ' UP', color = red]
+  D2_BB -> D3_BBB [label = ' DOWN']
+}
+")
+```
+
+- Drawing a random card from the deck is mathematically identical to clicking the "Take Step" button. Both trigger a single, independent 50/50 random event that dictates the next move.
+
+- The Red Card vs. The Green Upward Line
+
+   - Drawing a Red Card to gain $10 is the same as a positive market event. 
+   
+   - On the simulator's Tree Preview, this is represented by the green line moving diagonally upward, increasing the asset's value by whatever number you typed into the "Volatility Step" box.
+
+- The Black Card vs. The Red Downward Line
+
+   - Drawing a Black Card to lose $10 translates to a negative market shock. 
+   
+   - On the visual tree, this is the red line moving diagonally downward to a lower price node.
+
+- The 4 Draws vs. The Number of Weeks
+   
+   - Playing a game with 4 card draws is identical to setting the simulator's "Number of Weeks" to 4. 
+   
+   - Each vertical column of circles on the grid represents the exact state of the market after one draw.
+
+**Questions**
+
+1. If you set the Time Horizon to exactly 4 weeks, how many unique price paths (combinations of Up and Down weeks) are possible?
+
+2. In this 4-week market, what is the exact probability of the stock ending at exactly $12? Write your answer as a fraction.
+
+3. In this same 4-week market, what is the probability of ending exactly where you started, at $10? (Hint: List out the different path combinations where the market has exactly two Up weeks and two Down weeks).
+
+4. If you run the simulation for exactly 4 weeks, is it possible for the final stock price to land on exactly $11 or $13? Why or why not?
+
+5. Let the random variable $X$ represent the final stock price after exactly 4 weeks. Construct the complete Probability Mass Function (PMF) table for $X$.
+
+6. What is the probability that your final stock price $X$ is strictly greater than $10?
+
+7. What is the probability that your final stock price $X$ is less than or equal to $8?
+
+8. Suppose you watch the market in Week 1 and see the price go UP to $11. Given this new information, what is the exact probability that your final price after all 4 weeks will end up back at $10?
+
+9. The 4-week month is over, and you see that the final stock price is exactly $10. Given this final outcome, what is the exact probability that the market went UP during Week 1?
+
+10. Imagine instead that the month is over and the final stock price is exactly $12. Given this final outcome, what is the exact probability that the market went DOWN during Week 1? (Hint: Write out the specific paths that lead to a $12 final price, and look at how they start).

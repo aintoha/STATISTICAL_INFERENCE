@@ -15,6 +15,12 @@ Welcome to the course repository. Below you will find the links to the slide dec
 | **Full Course Compilation** | | |
 
 ### Complete Course Notes
-* [Open the Full Course Notes (Bookdown)](Course_Notes/docs/statistical-inference.html)
+* [Open the Full Course Notes](Course_Notes/docs/statistical-inference.html)
 
 *Note: Clicking a slide link will open the HTML presentation. To save the slides as a PDF, open the HTML presentation in your web browser and use the browser's "Print to PDF" function.*
+
+### Extra Materials
+
+1. [Random Walk](Course_Notes/Random_Walk.html)
+
+2. [Monty Hall](Course_Notes/docs/statistical-inference.html)

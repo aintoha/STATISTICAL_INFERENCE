@@ -1,0 +1,29 @@
+---
+title: "Tutorial 4: Probability Distributions"
+author: "NAT"
+date: today
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+1. On the North-South Expressway (PLUS) in Malaysia, the official speed limit for private cars is generally 110 km/h. Suppose a driver needs to travel a distance of 110 km along this expressway. Due to varying traffic conditions and occasional heavy vehicles (which have lower speed limits), the driver's continuous speed $X$ (in km/h) is modeled as a continuous uniform random variable ranging from 55 km/h to the maximum limit of 110 km/h. The total time $Y$ (in hours) it takes to complete this 110 km journey is a function of the vehicle's speed, given by:
+
+$$Y = \frac{10}{X}$$
+
+Solve for the following:
+
+a. State the Probability Density Function (PDF) of $Y$, $f_Y(y)$.
+
+b. Find the Cumulative Distribution Function (CDF) of $Y$, $F_Y(y)$.
+
+c. Construct the Probability Density Function (PDF) of $Y$, $f_Y(y)$.
+
+d. Calculate the expected travel time, $E[Y]$.
+
+e. Calculate the variance of the travel time, $\text{Var}(Y)$.
+
+f. A popular navigation app claims there is a greater than 50% chance the driver will arrive in under 1 hour and 20 minutes (1.33 hours). By calculating the exact probability $P(Y < 1.33)$, evaluate whether the app's claim is mathematically justified.

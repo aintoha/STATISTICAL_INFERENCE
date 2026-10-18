@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 3: Probability Distributions"
 author: "NAT"
-date: "Semester I, 20256/2027"
+date: today
 output: 
   html_document:
     theme: readable
@@ -20,7 +20,7 @@ output:
     Find the corresponding probability function $f(x)$ and the probability $P(8 \le X \le 15)$.
 
 
-2. A continuous random variable $X has range $\mathbb{R}^{+} $and distribution function
+2. A continuous random variable $X$ has range $\mathbb{R}^{+}$ and distribution function
 
     \begin{align}
     F(x) = 
@@ -31,3 +31,67 @@ output:
     \end{align}
 
     Find the corresponding probability density function $f(x)$ and the probability $P(8 \le X \le 15)$.
+
+3. The continuous random variable $X$ has probability density function
+
+\begin{align}
+    F(x) = 
+    \begin{cases}
+    kx\exp\left(-\frac{x^2}{2}\right) \ \text{for}  \ x \ge 0  \\
+    0 \ \text{for}  \ x \le 0  \\
+    \end{cases}
+\end{align}
+where $k$ is a positive constant.
+
+a. Find the value of $k$. 
+
+b. Find the distribution function (CDF) of $X$. 
+
+c. Evaluate $P(1 \le X \le 2)$. 
+
+d. Find the mean and variance of $X$. 
+
+e. Evaluate $E[\frac{1}{X}]$
+
+You may use the standard fact that
+
+$$\int_{0}^{\infty} \exp\left(-\frac{x^2}{2}\right) = \sqrt{\frac{\pi}{2}}$$
+
+4.  Let $\lambda$ be a fixed positive constant, and define the function $f(x)$ by $f(x) = \frac{1}{2}\lambda e^{-\lambda x}$ if $x \ge 0$ and $f(x) = \frac{1}{2}\lambda e^{\lambda x}$ if $x < 0$.
+
+a. Verify that $f(x)$ is a pdf.
+
+b.  If $X$ is a random variable with pdf given by $f(x)$, find $P(X < t)$ for all $t$. Evaluate all integrals.
+
+
+5. A local retail study at Central Market (Pasar Seni) in Kuala Lumpur found that the number of traditional Batik shirts, $X$, purchased by an international tourist in a single visit does not follow standard probability models like the Binomial or Poisson distributions.Instead, the behavior is modeled by a custom discrete probability mass function defined as:
+$$P(X = x) = \begin{cases} c(x^2 + 1) & \text{for } x = 0, 1, 2, 3 \\ 0 & \text{otherwise} \end{cases}$$
+a. Determine the value of the constant $c$ that makes this a valid probability distribution.
+
+b. Find the probability that a randomly selected tourist buys at least 2 Batik shirts.
+
+c. Calculate the expected number of Batik shirts a tourist will purchase, $E[X]$.
+
+d. Each Batik shirt costs RM 40, and the tourist also pays a fixed RM 5 fee for a premium reusable shopping bag. The total amount spent by a tourist, $Y$, is a function of the random variable $X$, given by $Y = 40X + 5$. Calculate the expected total amount spent, $E[Y]$, and the variance of the amount spent, $\text{Var}(Y)$.
+
+7. During the dry season, the Klang Valley in Malaysia often experiences transboundary haze. Environmental researchers model the daily Air Pollutant Index (API) during this severe period using a scaled continuous random variable $X$, where $X = \text{API} / 100$. The probability density function of $X$ is given by:
+
+$$f(x) = \begin{cases} \frac{1}{4}x & \text{for } 1 \le x \le 3 \\ 0 & \text{otherwise} \end{cases}$$
+(Note: $X=1$ corresponds to an API of 100, and $X=3$ corresponds to an API of 300).
+
+a. Verify that $f(x)$ is a valid probability density function.
+
+b.  The air quality is categorized as "Very Unhealthy" when the API exceeds 200. Calculate the probability that a randomly selected day during this season has a "Very Unhealthy" air quality level ($X > 2$).
+
+d. The daily economic cost, $Y$ (in tens of thousands of RM), due to medical treatments and reduced productivity is a function of the scaled API, given by the linear relationship $Y = 10X - 5$. Calculate the expected daily economic cost, $E[Y]$, and the variance of the cost, $\text{Var}(Y)$.
+
+6. During the lunch hour at a major bank branch in Kuala Lumpur, the number of customers, $X$, already waiting in the priority service queue when a new customer pulls a ticket does not follow standard queueing models. Instead, historical ticketing data shows that the number of waiting customers ($X \in \{0, 1, 2, 3, 4\}$) follows a custom discrete probability mass function heavily skewed towards longer queues:
+
+$$P(X = x) = \frac{x + 1}{15} \quad \text{for } x = 0, 1, 2, 3, 4$$
+a. Determine the Cumulative Distribution Function (CDF), $F(x)$, for all possible values of $X$.
+
+b.  Calculate the expected number of customers in the queue, $E[X]$, and the variance, $\text{Var}(X)$.
+
+c. Given that a newly arriving customer sees at least 2 people already in the queue, what is the probability that there are exactly 4 people waiting?
+
+d. A frustrated customer naively assumes that any queue length from 0 to 4 is equally likely. Using the naive definition of probability, what would this customer estimate for the probability of encountering exactly 4 people in the queue? Compare this estimate to the actual empirical probability.

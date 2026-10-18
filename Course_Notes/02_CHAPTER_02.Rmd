@@ -307,6 +307,33 @@ Consider the table below:
 $$F(x) = \begin{cases} 0 & x < 1 \\ 1/4 & 1 \le x < 2 \\ 3/4 & 2 \le x < 3 \\ 7/8 & 3 \le x < 4 \\ 1 & 4 \le x \end{cases}$$
 ```
 
+```{r cdf-plot, echo = FALSE}
+# Define the coordinates for the steps based on the image
+x_points <- c(0, 1, 2, 3, 4) #[cite: 3]
+y_points <- c(0, 1/4, 3/4, 7/8, 1) #[cite: 3]
+
+# Create an empty plot with appropriate limits and suppress default axes
+plot(0, 0, type = "n", 
+     xlim = c(0, 5), ylim = c(0, 1.1),
+     xaxt = "n", yaxt = "n", 
+     xlab = "CDF             x", ylab = "F(x)", 
+     bty = "l") #[cite: 3]
+
+# Add custom x and y axes
+axis(1, at = c(0, 1, 2, 3, 4)) #[cite: 3]
+axis(2, at = c(1/4, 1/2, 3/4, 7/8, 1), 
+     labels = c("1/4", "1/2", "3/4", "7/8", "1"), las = 1) #[cite: 3]
+
+# Add the horizontal line segments for the step function
+segments(x0 = 0, y0 = 0, x1 = 1, y1 = 0) #[cite: 3]
+segments(x0 = 1, y0 = 1/4, x1 = 2, y1 = 1/4) #[cite: 3]
+segments(x0 = 2, y0 = 3/4, x1 = 3, y1 = 3/4) #[cite: 3]
+segments(x0 = 3, y0 = 7/8, x1 = 4, y1 = 7/8) #[cite: 3]
+segments(x0 = 4, y0 = 1, x1 = 5, y1 = 1) #[cite: 3]
+
+# Add the solid points indicating right-continuity
+points(x_points, y_points, pch = 19, cex = 1.2)
+```
 
 ```{example, rv-example-7}
 Let $X$ has the p.d.f of $f(x) = \begin{cases} 0 & -\infty < x < 0 \\ \frac{1}{20}e^{-x/20} & 0 \le x < \infty \end{cases}$
@@ -329,6 +356,13 @@ p.m.f, p.d.f $\rightarrow F(x)$
 
 - If continuous, $F(x) = \int_{-\infty}^{x} f(x)dx$
 
+| Transformation | Variable Type | Formula |
+| :--- | :--- | :--- |
+| **F(x) $\rightarrow$ p.m.f, p.d.f** | If discrete | $P(x = a) = F(a) - F(a^-)$ |
+| | If continuous | $f(x) = \frac{dF(x)}{dx} = F'(x)$ |
+| **p.m.f, p.d.f $\rightarrow$ F(x)** | If discrete | $F(x) = \sum P(x)$ |
+| | If continuous | $F(x) = \int_{-\infty}^{x} f(x)dx$ |
+
 ### Properties of CDF
 $F(x)$ is CDF if and only if the following 3 conditions hold:
     
@@ -342,9 +376,13 @@ c. $F(x)$ is right continuous
 
 ```{example, rv-exercise-8}
 A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. Let $X$ be the number of defective items in the sample. Find the probability function and cumulative distribution function for $X$.
+
+**Solution**
+
+
 ```
 
-```{example, rv-exercise-9}
+```{exercise, rv-exercise-9}
 Let $X \in \mathbb{R}$ with PDF as 
 
 \begin{align}
@@ -367,116 +405,52 @@ F(x) &= \int_{-\infty}^{0} f(t) \ dt  \\
 Check: the derivative of $F(x)$ must equal to $f(x)$
 ```
 
-## Random Walk for Discrete Random Variable 
+```{r, echo = FALSE}
+# Define the sequence of x values (from -10 to 100 to show both conditions)
+x <- seq(-10, 100, length.out = 1000)
 
-The mathematical concept of the "drunken walk" - formally known as the random walk—was developed independently at the turn of the 20th century by thinkers across finance, biology, and physics attempting to model unpredictable behavior.
-
-
-### Application of Random Walk 
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# If you haven't installed it yet, run: install.packages("DiagrammeR")
-library(DiagrammeR)
-
-grViz("
-digraph random_walk {
-  graph [layout = dot, rankdir = LR] // LR makes it read Left to Right
-  
-  # Base Node Styling
-  node [shape = box, style = filled, fillcolor = LightBlue, fontname = Helvetica]
-  
-  # Step 0
-  Start [label = 'Start\n$10']
-  
-  # Step 1 Nodes
-  node [fillcolor = White]
-  D1_R [label = '\n$11']
-  D1_B [label = '\n$9']
-  
-  # Step 2 Nodes
-  D2_RR [label = '\n$12']
-  D2_RB [label = '\n$10']
-  D2_BR [label = '\n$10']
-  D2_BB [label = '\n$8']
-  
-  # Step 3 Nodes (Final Outcomes)
-  node [style = filled, fillcolor = '#90EE90', fontcolor = 'black']
-  D3_RRR [label = 'End: $13\n(U-U-U)']
-  D3_RRB [label = 'End: $11\n(U-U-D)']
-  D3_RBR [label = 'End: $11\n(U-D-U)']
-  D3_RBB [label = 'End: $9\n(U-D-D)']
-  D3_BRR [label = 'End: $11\n(D-U-U)']
-  D3_BRB [label = 'End: $9\n(D-U-D)']
-  D3_BBR [label = 'End: $9\n(D-D-U)']
-  D3_BBB [label = 'End: $7\n(D-D-D)']
-  
-  # Edges (Connecting the branches)
-  edge [fontname = Helvetica, fontsize = 10]
-  Start -> D1_R [label = ' UP (+1)', color = red, fontcolor = red]
-  Start -> D1_B [label = ' DOWN (-1)']
-  
-  D1_R -> D2_RR [label = ' Red', color = red]
-  D1_R -> D2_RB [label = ' Black']
-  
-  D1_B -> D2_BR [label = ' Red', color = red]
-  D1_B -> D2_BB [label = ' Black']
-  
-  D2_RR -> D3_RRR [label = ' Red', color = red]
-  D2_RR -> D3_RRB [label = ' Black']
-  
-  D2_RB -> D3_RBR [label = ' Red', color = red]
-  D2_RB -> D3_RBB [label = ' Black']
-  
-  D2_BR -> D3_BRR [label = ' Red', color = red]
-  D2_BR -> D3_BRB [label = ' Black']
-  
-  D2_BB -> D3_BBR [label = ' Red', color = red]
-  D2_BB -> D3_BBB [label = ' Black']
+# Define the PDF based on the piecewise function
+pdf_func <- function(x) {
+  ifelse(x < 0, 0, (1/20) * exp(-x/20))
 }
-")
+
+# Define the corresponding CDF (integral of the PDF)
+cdf_func <- function(x) {
+  ifelse(x < 0, 0, 1 - exp(-x/20))
+}
+
+# Calculate y values
+pdf_values <- pdf_func(x)
+cdf_values <- cdf_func(x)
+
+# Set up a 1x2 plotting grid
+par(mfrow = c(1, 2))
+
+# Plot the PDF
+plot(x, pdf_values, type = "l", col = "blue", lwd = 2,
+     main = "Probability Density Function (PDF)", 
+     ylab = "f(x)", xlab = "x")
+
+# Plot the CDF
+plot(x, cdf_values, type = "l", col = "red", lwd = 2,
+     main = "Cumulative Distribution Function (CDF)", 
+     ylab = "F(x)", xlab = "x")
 ```
 
-- Drawing a random card from the deck is mathematically identical to clicking the "Take Step" button. Both trigger a single, independent 50/50 random event that dictates the next move.
+```{exercise, rv-exercise-10}
+The random variable X has probability density function given by 
 
-- The Red Card vs. The Green Upward Line
+\begin{align}
+f(x) = 
+\begin{cases}
+\frac{k}{(1 + x)^{4}} & \text{for} \ x \ge 0 \\
+0 & \text{for} \ x \le 0
+\end{cases}
+\end{align}
 
-   - Drawing a Red Card to gain $10 is the same as a positive market event. 
-   
-   - On the simulator's Tree Preview, this is represented by the green line moving diagonally upward, increasing the asset's value by whatever number you typed into the "Volatility Step" box.
+For some positive constant $k$. Find the value of $k$, the distribution function $F(x)$ and the probabilities $P(X \le 1)$, $P(X > 1)$ and $P(1 \le X \le 2)$.
+```
 
-- The Black Card vs. The Red Downward Line
-
-   - Drawing a Black Card to lose $10 translates to a negative market shock. 
-   
-   - On the visual tree, this is the red line moving diagonally downward to a lower price node.
-
-- The 4 Draws vs. The Number of Weeks
-   
-   - Playing a game with 4 card draws is identical to setting the simulator's "Number of Weeks" to 4. 
-   
-   - Each vertical column of circles on the grid represents the exact state of the market after one draw.
-
-**Questions**
-
-1. If you set the Time Horizon to exactly 4 weeks, how many unique price paths (combinations of Up and Down weeks) are possible?
-
-2. In this 4-week market, what is the exact probability of the stock ending at exactly $12? Write your answer as a fraction.
-
-3. In this same 4-week market, what is the probability of ending exactly where you started, at $10? (Hint: List out the different path combinations where the market has exactly two Up weeks and two Down weeks).
-
-4. If you run the simulation for exactly 4 weeks, is it possible for the final stock price to land on exactly $11 or $13? Why or why not?
-
-5. Let the random variable $X$ represent the final stock price after exactly 4 weeks. Construct the complete Probability Mass Function (PMF) table for $X$.
-
-6. What is the probability that your final stock price $X$ is strictly greater than $10?
-
-7. What is the probability that your final stock price $X$ is less than or equal to $8?
-
-8. Suppose you watch the market in Week 1 and see the price go UP to $11. Given this new information, what is the exact probability that your final price after all 4 weeks will end up back at $10?
-
-9. The 4-week month is over, and you see that the final stock price is exactly $10. Given this final outcome, what is the exact probability that the market went UP during Week 1?
-
-10. Imagine instead that the month is over and the final stock price is exactly $12. Given this final outcome, what is the exact probability that the market went DOWN during Week 1? (Hint: Write out the specific paths that lead to a $12 final price, and look at how they start).
 
 ## Expected Values and Expected Function
 
@@ -488,44 +462,408 @@ $$\mu = E(X) = \begin{cases} \int_{-\infty}^{\infty} x f(x)dx & \text{if } X \te
 ```
 
 ```{example, rv-example-8, name = "Example 8"}
-Let $X$ equal number of spots on the side facing upwards after a six-sided die (one of pair of dice) is cast at random. If everything is fair about this experiment, a reasonable probability model is given by the p.m.f. $f(x) = P(X=x) = 1/6$, where $x=1,2,3,4,5,6$. Therefore, the expected value of this distribution is:
-$$\mu = E(X) = \sum_{x=1}^{6} x\left(\frac{1}{6}\right) = 1\left(\frac{1}{6}\right) + 2\left(\frac{1}{6}\right) + 3\left(\frac{1}{6}\right) + 4\left(\frac{1}{6}\right) + 5\left(\frac{1}{6}\right) + 6\left(\frac{1}{6}\right) = \frac{7}{2}$$
+Let $X$ equal number of spot on the side facing upwards after a six-sided die (one of pair of dice) is cast at a random. If everything is fair about this experiment, a reasonable probability model is given by the P.M.$F$.
+
+$$f(x) = P(X = x) = \frac{1}{6}$$
+where $x = 1, \ldots, 6$.
+
+**Find** the expected value of the distribution of $X$. 
+
+**Solution**
+
+$X$ is the number of spot on the side facing upwards after a six-sided die. To find the expected value, 
+
+\begin{align}
+E[X] &= \sum x f(x) = \sum_{1}^{6} x \frac{1}{6}\\
+&= \left(1 + 2 + 3 + 4 + 5 + 6 \right)\frac{1}{6} \\
+&= \frac{7}{2} = 3.5
+\end{align}
 ```
 
+```{example, rv-example-9, name = "Example 9"}
 From previous Example 8, Let $Y=X^2$, then $Y$ is also a random variable such that p.m.f of $Y$ is $g(y) = P(Y=y) = 1/6$, where $y=1,4,9,16,25,36$. Suppose we wanted to find the expected value of $Y$, $E(Y)$, and $Y=X^2$, then we can also compute:
 $$E(Y) = E(X^2) = \sum_{x=1}^{6} x^2 f(x) = \frac{1^2}{6} + \frac{2^2}{6} + \frac{3^2}{6} + \frac{4^2}{6} + \frac{5^2}{6} + \frac{6^2}{6} = \frac{91}{6}$$
 Note that, $E(X^2)$ also known as second moment about the origin with respect to variable $X$.
+```
 
-### Variance and standard deviation
+```{example, rv-example-10, name = "Example 10"}
+Given that $X$ is the number of spot on the side facing upwards after a six-sided die.
+
+Let $Y$ be the squared of number of spot on the side facing upwards after a six-sided die with the P.M.F of 
+
+\begin{align}
+g(y) = P(Y = y) = \frac{1}{6}
+\end{align}
+
+where $y = 1, 4, 9, 16, 25, 36$.  Find the expectation of $Y$. 
+
+**Solution**
+
+- In this question, $Y$ is a function of $X$ where $Y = X^2$
+
+- The value of $Y$ is no longer the value shown on the surface
+
+- To find the expectation of $Y$, we must change the formula 
+
+    \begin{align}
+    E[Y] &= \sum y f(y) = \sum_{1}^{6} y \frac{1}{6}\\
+    &= \left( 1 +  4 + 9 +  16 + 25 + 36 \right)\frac{1}{6} \\
+    &= \frac{91}{6} = 15.167  (3 \text{dp})
+    \end{align}
+
+- $E[Y]$ = $E[X^2]$ is the **second moment about the origin** with respect to variable $X$
+```
+
+```{exercise, rv-exercise-11}
+A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. Let $X$ be the number of defective items in the sample. 
+
+**Calculate** the expected value of the distribution of $X$. 
+```
+
+```{example, rv-example-11, name = "Example 11"}
+Let $X \in \mathbb{R}$ be a random variable with PDF of 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+2x & \text{when} \qquad 0 \le x \le 1 \\
+& \\ 
+0 & \text{otherwise}
+\end{cases}
+\end{align}
+
+**Calculate** the expected value of the distribution of $X$. 
+
+**Solution**
+
+\begin{align}
+E[X]  &= \int_{0}^{1} x f(x) \\ 
+&= \int_{0}^{1} 2x^2 \\ 
+&= \left[\frac{2x^3}{3}\right]_{0}^{1} \\
+&= \frac{2}{3}
+\end{align}
+```
+
+### Expected Values: Properties
+
+Let $a, c \in \mathbb{R}$ and $X$ and $Y$ be random variables with the same sample space.
+
+- Expectation of a constant is a constant: $E(c) = c$.
+
+- $E[aX] = aE[X]$.
+
+- Linearity: $E[X] + c = E[X] + c$.
+
+- Additivity: $E[X + Y ]= E[X] + E[Y]$.
+
+- $|E(X)| \leq E(|X|)$.
+
+## Variance and standard deviation
 Calculation for Variance and standard deviation can also be calculated using expectation. Where:
 $$Var(X) = E[(X-\mu)^2] = E(X^2) - \mu^2$$
 $$\sigma = \sqrt{Var(X)}$$
 
-```{example, rv-example-9, name = "Example 9"}
-Let the p.m.f. of $X$ be defined by $f(x) = x/6$, where $x = 1, 2, 3$. The mean of $X$ is $\mu = E(X) = 1(1/6) + 2(2/6) + 3(3/6) = 14/6 = 7/3$. Find the variance and standard deviation of $X$.
+The **variance**, denoted by $\sigma^{2}$.
+
+-  Continuous: $Var[X] = \int_{-\infty}^{\infty} x^{2} f(x) dx  - (\int_{-\infty}^{\infty} x f(x) \ dx)^{2}$
+
+-  Discrete: $Var[X] = \sum x^2 f(x) - (\sum x f(x))^{2}$
+
+    - provided that the integral or sum exists 
+
+- SD, $\sigma$, is just the square root of variance
+
+
+```{example, rv-example-16, name = "Example 16"}
+Let the P.M.F. of $X$ be defined by $f(x)=x/6$, where $x = 1, 2, 3$.The mean of $X$ is
+
+$$\mu = E[X] = 1 \left(\frac{1}{6}\right) + 2 \left(\frac{2}{6}\right) + 3 \left(\frac{3}{6}\right) = \frac{7}{3}$$
+**Find** the variance and standard deviation of $X$.
+
+**Solution:**
+Let $X = 1, 2, 3$ with the P.M.F of $f(x)=x/6$
+
+\begin{align}
+Var[X] =& E[(X-\mu)^2] = E[X^2] - \mu^2 \\
+=& E[X^2] - \frac{7}{3}
+\end{align}
+
+The second order moment of $X$ is $E[X^{2}]$ 
+
+\begin{align}
+E[X^{2}] = 2 \left(\frac{1}{6}\right) + 4 \left(\frac{2}{6}\right) + 9 \left(\frac{3}{6}\right) = \frac{37}{6} = 6.167 \ (3 \ \text{dp})
+\end{align}
 ```
 
 
-```{example, rv-example-10, name = "Example 10"}
+```{example, rv-example-17, name = "Example 17"}
+Compute the variance of the discrete distribution where 
+
+
+- $p(0) = 35/210$
+
+- $p(1) = 105/210$
+
+- $p(2) = 63/210$ and 
+
+- $p(3) = 7/210$.
+
+**Solution:**
+
+First, calculate the expected value $E[X]$:
+\begin{align}
+E[X] &= \sum_{x=0}^{3} x \cdot p(x) \\
+ &= (0)\left(\frac{35}{210}\right) + (1)\left(\frac{105}{210}\right) + (2)\left(\frac{63}{210}\right) + (3)\left(\frac{7}{210}\right)\\
+ &= 0 + \frac{105}{210} + \frac{126}{210} + \frac{21}{210} = \frac{252}{210} = 1.2
+\end{align}
+
+Next, calculate the second moment, $E[X^2]$:
+
+\begin{align}
+E[X^2] &= \sum_{x=0}^{3} x^2 \cdot p(x) \\
+ &= (0^2)\left(\frac{35}{210}\right) + (1^2)\left(\frac{105}{210}\right) + (2^2)\left(\frac{63}{210}\right) + (3^2)\left(\frac{7}{210}\right)\\
+&= 0 + \frac{105}{210} + \frac{252}{210} + \frac{63}{210} = \frac{420}{210} = 2
+\end{align}
+
+Finally, compute the variance $\text{Var}(X)$ using the variance formula:
+
+\begin{align}
+\text{Var}(X) &= E[X^2] - (E[X])^2 \\
+ &= 2 - (1.2)^2 = 2 - 1.44 = 0.56
+\end{align}
+```
+
+```{example, rv-example-18, name = "Example 18"}
+Show that $Var[a + bX] = b^2 Var[X]$.
+
+**Solution:**
+
+By the definition of variance, for any random variable $Y$, we have:
+
+$$\text{Var}(Y) = E[(Y - E[Y])^2]$$
+
+Let $Y = a + bX$. First, we determine the expected value of $Y$ by applying the linearity of expectation:
+
+$$E[a + bX] = a + bE[X]$$
+
+Next, we substitute $a + bX$ and its expected value into the variance formula:
+
+\begin{align}
+\text{Var}(a + bX) &= E[((a + bX) - E[a + bX])^2] \\
+&= E[((a + bX) - (a + bE[X]))^2] 
+\end{align}
+
+Simplify the terms inside the inner parentheses by canceling out the constant $a$:
+
+\begin{align}
+\text{Var}(a + bX) &= E[(bX - bE[X])^2] \\
+&= E[(b(X - E[X]))^2] \\
+&= E[b^2(X - E[X])^2]
+\end{align}
+
+Because $b^2$ is a constant, it can be factored out of the expectation:
+$$\text{Var}(a + bX) = b^2 E[(X - E[X])^2]$$
+
+Finally, by recognizing that $E[(X - E[X])^2]$ is the formal definition of $\text{Var}(X)$, we conclude the proof:
+
+$$\text{Var}(a + bX) = b^2 \text{Var}(X)$$
+```
+
+```{example, rv-example-19, name = "Example 19"}
+Let $X$ be a contious random variable with the P.D.F 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+2x \qquad for \quad 0 \le x \le 1 \\
+0 \qquad for \quad \text{otherwise} \\
+\end{cases}
+\end{align}
+
+**Find** the expected value, standard deviation of $X$. 
+
+**Solution**
+
+\begin{align}
+E[X] &= \int x f(x) \\
+&= \int_{0}^{1} x (2x) = \int_{1}^{1} 2x^2\\ 
+&= \left[\frac{2}{3}x^{3}\right]_{0}^{1} = \frac{2}{3}\\
+\end{align}
+```
+
+## Functions of Random Variable 
+
+If $X$ is a random variable with CDF $F_{X}(x)$, the function of $X$ (e.g. $g(X)$) is also a random variable. 
+
+- We can rewrite the $g(X)$ as $Y = g(X)$
+
+- Hence, $Y$ is a function of $X$
+
+### Functions of Random Variable: Expected Values
+
+If $X$ is a random variable and $g(X)$ is a function of $X$. The expected value of $E[g(X)]$ is 
+
+\begin{align}
+E[g(X)] = 
+\begin{cases}
+\int g(x)f_{X}(x) \ dx & \text{if $X$ is continuous} \\
+& \\ 
+\sum g(x)f_{X}(x) = \sum g(x)P(X = x) & \text{if $X$ is discrete} 
+\end{cases}
+\end{align}
+
+
+
+```{example, rv-example-13, name = "Example 13 (Continuous  case)"}
+Let $X$ be a continuous random variable representing the lifetime of a specific machine component (in years), with the P.D.F:
+
+\begin{align}
+f(x) = 
+\begin{cases}
+\frac{1}{2} \exp \left(-\frac{x}{2}\right) & \text{for } x \ge 0 \\
+0 & \text{otherwise}
+\end{cases}
+\end{align}
+
+Suppose the maintenance cost (in RM) over the component's lifetime is given by the function $g(X) = 50 + 10X^2$. 
+
+**Find** the expected maintenance cost, $E[g(X)]$.
+
+**Solution:**
+By the linearity of expectation, we know that:
+$$E[g(X)] = E[50 + 10X^2] = 50 + 10E[X^2]$$
+
+First, find the second moment, $E[X^2]$:
+\begin{align}
+E[X^2] &= \int_{-\infty}^{\infty} x^2 f(x) dx \\
+&= \int_{0}^{\infty} x^2 \left( \frac{1}{2} \exp \left(-\frac{x}{2}\right) \right) dx
+\end{align}
+
+Using integration by parts (or the Gamma function property $\int_0^\infty x^n e^{-ax} dx = \frac{n!}{a^{n+1}}$):
+\begin{align}
+E[X^2] &= \frac{1}{2} \left( \frac{2!}{(1/2)^3} \right) \\
+&= \frac{1}{2} (16) = 8
+\end{align}
+
+Now, substitute $E[X^2]$ back into the cost function:
+
+\begin{align}
+E[g(X)] &= 50 + 10(8) \\
+&= 50 + 80 = 130
+\end{align}
+
+The expected maintenance cost is **RM 130**.
+```
+
+### Functions of Random Variable: Expected Values Properties
+
+Let $X$ be a random variable and $a, b, c \in \mathbb{R}$. Then, for any functions $g_{1}(x)$ and $g_{2}(x)$ whose expectations exists: 
+
+a. $E[ag_1(x) + bg_2(x) + c] = aEg_1(x) + bE[g_2(x)] + c$
+
+b. If $g_1(x) \geq 0$ for all $x$, then $E[g_1(x)] \geq 0$
+
+c. If $g_1(x) \geq g_2(x)$ for all $x$, then $E[g_1(x)] \geq E[g_2(x)]$
+
+d. If $a \leq g_1(x) \leq b$ for all $x$, then $a \leq E[g_1(x)] \leq b$
+
+
+
+```{example, rv-example-14, name = "Example 14"}
+Suppose Grab charges a fixed fare of RM4 plus a mileage charge of RM2 per kilometer. Write the 
+
+
+If the journey length in kilometers is regarded as a random variable $X$, the linearity property 
+$$E[4 + 2X] = 4 + 2E[X]$$
+just says that the average journey fare is RM4 plus RM2 times the average journey length. This is true whatever the distribution of $X$ is: the fare depends linearly on the journey length.
+```
+
+```{example, rv-example-15, name = "Example 15"}
+Uber charges a fare in RM of $y(X) = 4\sqrt{1 + X}$ for a journey of length X kilometers. Suppose the probability density function for $X$ is $$f(x) = \frac{3}{(1 + x)^{4}}$$. 
+
+Find the mean fare. 
+
+**Solution:**
+
+To find the expected fare, we need to calculate the expected value of the fare function $y(X) = 4\sqrt{1 + X}$, given the continuous probability density function 
+$$f(x) = \frac{3}{(1 + x)^4}$$ for journey lengths $x \ge 0$
+
+Using the definition of expectation for a function of a continuous random variable, we integrate over the support of $X$:
+
+$$E[y(X)] = \int_{0}^{\infty} y(x) f(x) dx$$
+
+Substitute the given equations into the integral:
+
+$$E[y(X)] = \int_{0}^{\infty} \left(4\sqrt{1+x}\right) \left(\frac{3}{(1+x)^4}\right) dx$$
+
+Combine the terms by converting the square root to a fractional exponent:
+
+$$E[y(X)] = \int_{0}^{\infty} 12 (1+x)^{1/2} (1+x)^{-4} dx$$
+$$E[y(X)] = 12 \int_{0}^{\infty} (1+x)^{-7/2} dx$$
+
+Perform the integration:
+\begin{align}
+E[y(X)] &= 12 \left[ \frac{(1+x)^{-5/2}}{-5/2} \right]_{0}^{\infty} \\
+&= 12 \left( -\frac{2}{5} \right) \left[ (1+x)^{-5/2} \right]_{0}^{\infty} \\
+&= -\frac{24}{5} \left( \lim_{x \to \infty} \frac{1}{(1+x)^{5/2}} - \frac{1}{(1+0)^{5/2}} \right) \\
+&= -\frac{24}{5} (0 - 1) \\
+&= \frac{24}{5} \\
+&= 4.8
+\end{align}
+
+The expected fare for the journey is **RM 4.80**.
+```
+
+```{exercise, rv-exercise-19, name = "Example 19"}
 Find $E(X)$, $Var(X)$ and Standard deviation of $X$ when the density function of $X$ is $f(x) = 2x$ if $0 \le x \le 1$, and $0$ if $x$ is otherwise.
-```
 
+**Solution:**
+
+Given the continuous probability density function $f(x) = 2x$ for $0 \le x \le 1$[cite: 11].
+
+**1. Calculate the Expected Value, $E(X)$:**
+Use the formula for the continuous expected value:
+\begin{align}
+E[X] =& \int_{-\infty}^{\infty} x f(x) dx \\
+ =& \int_{0}^{1} x(2x) dx \\ 
+ =& \left[ \frac{2x^3}{3} \right]_{0}^{1} \\
+ =& \frac{2(1)^3}{3} - 0 = \frac{2}{3} \\
+ \end{align}
+
+**2. Calculate the Second Moment, $E[X^2]$:**
+
+\begin{align}
+E(X^2) =& \int_{0}^{1} x^2 f(x) dx \\
+ =& \int_{0}^{1} x^2(2x) dx \\
+ =& \int_{0}^{1} 2x^3 dx \\
+ =& \left[ \frac{2x^4}{4} \right]_{0}^{1} \\
+ =& \frac{2}{4} = \frac{1}{2}
+ \end{align}
+
+**3. Calculate the Variance, $Var(X)$:**
+
+\begin{align}
+Var(X) =& E(X^2) - (E(X))^2 \\
+ =& \frac{1}{2} - \left(\frac{2}{3}\right)^2 \\
+ =& \frac{1}{2} - \frac{4}{9} \\
+ =& \frac{9}{18} - \frac{8}{18} = \frac{1}{18} \\
+ \end{align}
+
+
+**4. Calculate the Standard Deviation:**
+
+\begin{align}
+\text{SD}[X] =& \sqrt{Var(X)} \\ 
+ =& \sqrt{\frac{1}{18}} = \frac{1}{\sqrt{18}} \\ \approx & 0.2357
+ \end{align}
+
+```
 
 ### Expectation of function
 * If $X$ is a discrete RV, with $x_i, i \ge 1$ with probabilities $p(x_i)$, then $E[g(X)] = \sum_i g(x_i)p(x_i)$.
 * Let $X$ be a random variable with density $f(x)$. The expected value of a function $g(\cdot)$ of the random variable, denoted $E(g(X))$, is defined to be $E(g(X)) = \int_{-\infty}^{\infty} g(x)f(x)dx$.
 
-### Expectation Properties
-
-- $E(x+c) = E(x) + c$
-
-- $E(c) = c$
-
-- $E(x+y) = E(x) + E(y)$
-
-- $E(ax) = aE(x)$
-
-- $|E(x)| \le E(|x|)$
+### Expectation of function Properties
 
 Let $X$ be a RV and $a, b$ and $c$ are constants. Then, for any functions $g_1(x)$ and $g_2(x)$ whose expectations exist:
 
@@ -537,19 +875,36 @@ c. If $g_1(x) \ge g_2(x)$ for all $x$, then $Eg_1(x) \ge Eg_2(x)$
 
 d. If $a \le g_1(x) \le b$ for all $x$, then $a \le Eg_1(x) \le b$
 
----
 
 ## Moments and Moment generating function
 
+
+### Moments
+
 ```{definition, rv-def-moments, name="Methods of Moments"}
 The moments of RV or of a distributions are the expectations of the powers of the RV which has the given distributions. If $X$ is a RV, the $r$th moment of $x$ is defined as $\mu_r' = E[X^r]$. Therefore, the $r$th moment about the origin of a random variable is the expected value of $X^r$:
-$$\mu_r' = E(X^r) = \begin{cases} \sum_x x^r f(x) \\ \int_{-\infty}^{\infty} x^r f(x)dx \end{cases}$$
+
+
+\begin{align}
+\mu_{r}^{'} =  E[X^r] = 
+\begin{cases}
+\sum_{x} x^r f(x) \\
+& \\
+\int x^r f(x) \\
+\end{cases}
+\end{align}
+
+- The first moment is the mean, i.e. $E[X]$
+
 ```
 
 The first moment is $E(X)$.
 
+### Central Moments
+
 ```{definition, rv-def-centrel-moments, name="Centrol Moments"}
 The $r$th moment about the mean of a random variable $X$, is the expected value of $(X - \mu_X)^r$, symbolically,
+
 $$\mu_r = E[(X - \mu_X)^r] = \begin{cases} \sum_x (x - \mu_X)^r f(x) \\ \int_{-\infty}^{\infty} (x - \mu_X)^r f(x)dx \end{cases}$$
 ```
 
@@ -562,25 +917,28 @@ Variance can be also written as $\sigma_X^2 = \mu_2' - \mu_X^2$.
 The first moment is mean of $E(X)$. The second central moment is the variance.
 If $E(X^n)$ exists for some +ve integers $n$, we call $E(X^n)$ the $n$th moment of $X$ about the origin. If $E|X^n| < \infty$ for some +ve real number $\alpha$, we call $E|X^n|$ the $\alpha$th absolute moment of $X$.
 
+### Moment Generating Function (MGF)
+
 ```{definition, rv-def-mgf, name="Moment Generating Function (MGF)"}
 Moment generating function $M(t)$ of the RV $X$ is defined for all real values of $t$ by:
 $$M(t) = E[e^{tx}] = \begin{cases} \sum e^{tx} p(x) & \text{if } X \text{ is discrete} \\ \int_{-\infty}^{\infty} e^{tx} \cdot f(x)dx & \text{if } X \text{ is continuous} \end{cases}$$
 ```
 
-```{example, rv-example-11, name = "Example 11 (Discrete case)"}
+```{example, rv-example-12, name = "Example 12 (Discrete case)"}
 Let the p.m.f. of $X$ be defined by $f(x) = x/6$, where $x=1,2,3$. Find the mgf of RV of $X$.
 ```
 
-```{example, rv-example-12, name = "Example 11 (Cntinuous  case)"}
+```{example, rv-example-21, name = "Example 21 (Continuous  case)"}
+
  $X$ is Random variable with probability density function of $X$ is 
 
- \begin{align}
- f(x) = 
- \begin{cases}
- 1/6$ if $1 \le x \le 7$ \\ 
- $0$ if $x$ is otherwise.
- \end_{cases}
- \end{align}
+\begin{align}
+   f(x) = 
+   \begin{cases}
+   1/6 & \text{for } 1 \le x \le 7 \\ 
+   0 & \text{otherwise}
+   \end{cases}
+\end{align}
 
  Find the mgf of $X$.
 ```
@@ -600,7 +958,7 @@ $$M''(0) = E(X^2)$$
 
 1. If $M_X(t)$ exists, then for any positive integer $k$, $\frac{d^k M_X(t)}{dt^k} \Big|_{t=0} = M_X^{(k)}(0) = E(X^k)$, i.e. we can find the $k$th mgf through the $k$th derivative of with respect to $t$ by setting $t=0$ (discrete case). We call $M_X(t)$ the mgf because all the moments of $X$ can be obtained by differentiating $M_X(t)$ and then evaluating the result at $t=0$.
 
-```{example, rv-example-14, name = "Example 11 (Cntinuous  case)"}
+```{example, rv-example-24, name = "Example 11 (Cntinuous  case)"}
 using the same problem in example 11, find mean and variance of $X$ using the mgf.
 ```
 

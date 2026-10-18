@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="NAT">
+<meta name="dcterms.date" content="2026-10-17">
 
 <title>Tutorial 3: Probability Distributions</title>
 <style>
@@ -99,7 +100,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">October 17, 2026</p>
     </div>
   </div>
   
@@ -117,7 +118,7 @@ window.Quarto = {
 F(x) = \frac{x}{x + 1} \qquad \text{for} \ x = 1, 2, 3, \ldots
 \end{align}\]</span></p>
 <p>Find the corresponding probability function <span class="math inline">\(f(x)\)</span> and the probability <span class="math inline">\(P(8 \le X \le 15)\)</span>.</p></li>
-<li><p>A continuous random variable $X has range $^{+} $and distribution function</p>
+<li><p>A continuous random variable <span class="math inline">\(X\)</span> has range <span class="math inline">\(\mathbb{R}^{+}\)</span> and distribution function</p>
 <p><span class="math display">\[\begin{align}
 F(x) =
 \begin{cases}
@@ -126,6 +127,57 @@ F(x) =
 \end{cases}
 \end{align}\]</span></p>
 <p>Find the corresponding probability density function <span class="math inline">\(f(x)\)</span> and the probability <span class="math inline">\(P(8 \le X \le 15)\)</span>.</p></li>
+<li><p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function</p></li>
+</ol>
+<p><span class="math display">\[\begin{align}
+    F(x) =
+    \begin{cases}
+    kx\exp\left(-\frac{x^2}{2}\right) \ \text{for}  \ x \ge 0  \\
+    0 \ \text{for}  \ x \le 0  \\
+    \end{cases}
+\end{align}\]</span> where <span class="math inline">\(k\)</span> is a positive constant.</p>
+<ol type="a">
+<li><p>Find the value of <span class="math inline">\(k\)</span>.</p></li>
+<li><p>Find the distribution function (CDF) of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Evaluate <span class="math inline">\(P(1 \le X \le 2)\)</span>.</p></li>
+<li><p>Find the mean and variance of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Evaluate <span class="math inline">\(E[\frac{1}{X}]\)</span></p></li>
+</ol>
+<p>You may use the standard fact that</p>
+<p><span class="math display">\[\int_{0}^{\infty} \exp\left(-\frac{x^2}{2}\right) = \sqrt{\frac{\pi}{2}}\]</span></p>
+<ol start="4" type="1">
+<li>Let <span class="math inline">\(\lambda\)</span> be a fixed positive constant, and define the function <span class="math inline">\(f(x)\)</span> by <span class="math inline">\(f(x) = \frac{1}{2}\lambda e^{-\lambda x}\)</span> if <span class="math inline">\(x \ge 0\)</span> and <span class="math inline">\(f(x) = \frac{1}{2}\lambda e^{\lambda x}\)</span> if <span class="math inline">\(x &lt; 0\)</span>.</li>
+</ol>
+<ol type="a">
+<li><p>Verify that <span class="math inline">\(f(x)\)</span> is a pdf.</p></li>
+<li><p>If <span class="math inline">\(X\)</span> is a random variable with pdf given by <span class="math inline">\(f(x)\)</span>, find <span class="math inline">\(P(X &lt; t)\)</span> for all <span class="math inline">\(t\)</span>. Evaluate all integrals.</p></li>
+</ol>
+<ol start="5" type="1">
+<li>A local retail study at Central Market (Pasar Seni) in Kuala Lumpur found that the number of traditional Batik shirts, <span class="math inline">\(X\)</span>, purchased by an international tourist in a single visit does not follow standard probability models like the Binomial or Poisson distributions.Instead, the behavior is modeled by a custom discrete probability mass function defined as: <span class="math display">\[P(X = x) = \begin{cases} c(x^2 + 1) &amp; \text{for } x = 0, 1, 2, 3 \\ 0 &amp; \text{otherwise} \end{cases}\]</span></li>
+</ol>
+<ol type="a">
+<li><p>Determine the value of the constant <span class="math inline">\(c\)</span> that makes this a valid probability distribution.</p></li>
+<li><p>Find the probability that a randomly selected tourist buys at least 2 Batik shirts.</p></li>
+<li><p>Calculate the expected number of Batik shirts a tourist will purchase, <span class="math inline">\(E[X]\)</span>.</p></li>
+<li><p>Each Batik shirt costs RM 40, and the tourist also pays a fixed RM 5 fee for a premium reusable shopping bag. The total amount spent by a tourist, <span class="math inline">\(Y\)</span>, is a function of the random variable <span class="math inline">\(X\)</span>, given by <span class="math inline">\(Y = 40X + 5\)</span>. Calculate the expected total amount spent, <span class="math inline">\(E[Y]\)</span>, and the variance of the amount spent, <span class="math inline">\(\text{Var}(Y)\)</span>.</p></li>
+</ol>
+<ol start="7" type="1">
+<li>During the dry season, the Klang Valley in Malaysia often experiences transboundary haze. Environmental researchers model the daily Air Pollutant Index (API) during this severe period using a scaled continuous random variable <span class="math inline">\(X\)</span>, where <span class="math inline">\(X = \text{API} / 100\)</span>. The probability density function of <span class="math inline">\(X\)</span> is given by:</li>
+</ol>
+<p><span class="math display">\[f(x) = \begin{cases} \frac{1}{4}x &amp; \text{for } 1 \le x \le 3 \\ 0 &amp; \text{otherwise} \end{cases}\]</span> (Note: <span class="math inline">\(X=1\)</span> corresponds to an API of 100, and <span class="math inline">\(X=3\)</span> corresponds to an API of 300).</p>
+<ol type="a">
+<li><p>Verify that <span class="math inline">\(f(x)\)</span> is a valid probability density function.</p></li>
+<li><p>The air quality is categorized as “Very Unhealthy” when the API exceeds 200. Calculate the probability that a randomly selected day during this season has a “Very Unhealthy” air quality level (<span class="math inline">\(X &gt; 2\)</span>).</p></li>
+<li><p>The daily economic cost, <span class="math inline">\(Y\)</span> (in tens of thousands of RM), due to medical treatments and reduced productivity is a function of the scaled API, given by the linear relationship <span class="math inline">\(Y = 10X - 5\)</span>. Calculate the expected daily economic cost, <span class="math inline">\(E[Y]\)</span>, and the variance of the cost, <span class="math inline">\(\text{Var}(Y)\)</span>.</p></li>
+</ol>
+<ol start="6" type="1">
+<li>During the lunch hour at a major bank branch in Kuala Lumpur, the number of customers, <span class="math inline">\(X\)</span>, already waiting in the priority service queue when a new customer pulls a ticket does not follow standard queueing models. Instead, historical ticketing data shows that the number of waiting customers (<span class="math inline">\(X \in \{0, 1, 2, 3, 4\}\)</span>) follows a custom discrete probability mass function heavily skewed towards longer queues:</li>
+</ol>
+<p><span class="math display">\[P(X = x) = \frac{x + 1}{15} \quad \text{for } x = 0, 1, 2, 3, 4\]</span> a. Determine the Cumulative Distribution Function (CDF), <span class="math inline">\(F(x)\)</span>, for all possible values of <span class="math inline">\(X\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Calculate the expected number of customers in the queue, <span class="math inline">\(E[X]\)</span>, and the variance, <span class="math inline">\(\text{Var}(X)\)</span>.</p></li>
+<li><p>Given that a newly arriving customer sees at least 2 people already in the queue, what is the probability that there are exactly 4 people waiting?</p></li>
+<li><p>A frustrated customer naively assumes that any queue length from 0 to 4 is equally likely. Using the naive definition of probability, what would this customer estimate for the probability of encountering exactly 4 people in the queue? Compare this estimate to the actual empirical probability.</p></li>
 </ol>
 
 </main>

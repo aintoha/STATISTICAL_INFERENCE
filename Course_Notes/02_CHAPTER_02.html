@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>chapter_02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="02_CHAPTER_02_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02_CHAPTER_02_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="02_CHAPTER_02_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="02_CHAPTER_02_files/libs/quarto-html/popper.min.js"></script>
+<script src="02_CHAPTER_02_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="02_CHAPTER_02_files/libs/quarto-html/anchor.min.js"></script>
+<link href="02_CHAPTER_02_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02_CHAPTER_02_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="02_CHAPTER_02_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="02_CHAPTER_02_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="02_CHAPTER_02_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="chapter-2-random-variables-expectation-and-moments" class="level1">
+<h1>Chapter 2: Random Variables, Expectation, and Moments</h1>
+<section id="random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="random-variables">Random Variables</h2>
+<ul>
+<li><p>When analysing the result of an experiment, it is easier to deal with the <em>function</em> of the possible outcomes rather than the outcome itself</p></li>
+<li><p>For example, in an experiment of tossing a coin twice and observing the number of Heads, the possible outcomes are: TT, TH, HT, HH</p>
+<p>The function is <strong>SUM</strong> of Heads which are 0, 1, and 2.</p></li>
+<li><p>These are quantitiesa are <strong>Random Variable</strong></p></li>
+</ul>
+<div class="cell" name="Random Variable">
+<pre class="definition cell-code"><code>Given a random experiment with an outcome space $S$, a function $X$ that assigns one and only one real number $X(s) = x$ to each element $s$ in $S$ is called a **random variable**. 
+
+The **space** of $X$ is the set of real numbers $\{x: X(s) = x, s \in S\}$, where $s \in S$ means that the element $s$ belongs to the set $S$.</code></pre>
+</div>
+<ul>
+<li><p>A random variable, usually written <span class="math inline">\(X\)</span>, is a variable whose possible values are numerical outcomes of a random phenomenon.</p></li>
+<li><p>A random variable assigns a numerical value to each outcome in a sample space.</p></li>
+<li><p>Looking it in mathematical function</p></li>
+</ul>
+<ol type="a">
+<li><p>Domain: TT, HT, TH, HH</p></li>
+<li><p>Function, <span class="math inline">\(X\)</span>: The rule you define (i.e.&nbsp;The number of Head)</p></li>
+<li><p>Space of <span class="math inline">\(X\)</span>, Range: 0, 1, 2</p></li>
+</ol>
+<div class="cell">
+<pre class="example cell-code"><code>A rat is selected at random from a cage and its sex is determined. 
+
+ - The set of possible outcomes is female and male. 
+
+ - The outcome space is $S = \{\text{female}, \text{male}\} = \{F, M\}$. 
+
+ - Let $X$ be a function defined on $S$ such that $X(F)= 0$ and $X(M)=1$. 
+
+ - $X$ is then a real-valued function that has the outcome space $S$ as its domain and the set of real numbers $\{x: x= 0, 1\}$ as its range. 
+
+ - We call $X$ a random variable and the space associated with $X$ is $\{x: x=0, 1\}$. 
+
+ - It may be possible that the set $S$ has elements that are themselves real numbers. 
+
+ -In such an instance, we could write $X(s) = s$ so that $X$ is the identity function, and the space of $X$ is also $S$.</code></pre>
+</div>
+<div class="cell">
+<pre class="example cell-code"><code>The experiment is tossing a die. Then the outcome space associated with this experiment is $S= \{1, 2, 3, 4, 5, 6\}$ with elements of $S$ indicating the number of spots on the side facing up. 
+
+- For each $s \in S$, let $X(s) = s$. 
+
+- The space of the random variable $X$ is then $\{1, 2, 3, 4, 5, 6\}$.</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>Complete the table with space of $X$
+
+|Experiment | Possible Outcomes, $S$ | Function $X$ | Space of $X$|
+|:----------|:-----------------------|:-------------|:------------|
+|Toss two dice | (1, 1), (1, 2)  ... (6, 6) | $X$: Sum of the two dice | | 
+|Toss a coin 5 times | (TTTTT), (TTTTH), ...., (HHHHH) | $X$: Number of Tail | |
+|Apply different amount of fertilizer to palm trees in 2 acres | Weight of fertilizers |  $X$: Weight of palm fruits / 2 acres |  | 
+</code></pre>
+</div>
+<div class="cell">
+<pre class="example cell-code"><code>Tossing 3 fair coins. $Y$ denoted the number of heads that appear. Then, $Y$ is a RV taking on one of the values 0, 1, 2 and 3 with respective probabilities:
+
+ - $P(Y=0) = P(TTT) = 1/8$
+
+ - $P(Y=1) = P[(HTT,THT,TTH)] = 3/8$
+    
+ - $P(Y=2) = P[(HHT,HTH,THH)] = 3/8$
+    
+ - $P(Y=3) = P(HHH) = 1/8$</code></pre>
+</div>
+</section>
+<section id="rv-and-distribution-function" class="level2">
+<h2 class="anchored" data-anchor-id="rv-and-distribution-function">RV and Distribution Function</h2>
+<p>Random variable can be divided into</p>
+<ul>
+<li><p>Discrete</p></li>
+<li><p>Continuous</p></li>
+</ul>
+</section>
+<section id="discrete-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-random-variable">Discrete Random Variable</h2>
+<p>It is a random variable (RV) that can take on at most countable number of possible values.</p>
+<p>Probability distribution for a discrete random variable:</p>
+<ul>
+<li><p>can be represented by a formula, a table, or a graph, which provides <span class="math inline">\(P(X) = P(X=x)\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
+<li><p>It assigns nonzero probabilities to only a countable number of distinct <span class="math inline">\(x\)</span> values.</p></li>
+<li><p>Any value <span class="math inline">\(x\)</span> not explicitly assigned a positive probability is understood to be such that <span class="math inline">\(P(X=x) = 0\)</span>.</p></li>
+<li><p>The function <span class="math inline">\(f(x) = p(x) = P(X=x)\)</span> for each <span class="math inline">\(x\)</span> within the range of <span class="math inline">\(X\)</span> is called the probability distribution of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>It is often called the <strong>probability mass function (p.m.f)</strong> for the discrete random variable <span class="math inline">\(X\)</span>.</p></li>
+<li><p>For the p.m.f, <span class="math inline">\(f(x)\)</span> is positive for at most a countable number of values of <span class="math inline">\(x\)</span> and satisfies the following properties:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f(x_i) \ge 0, x \in S\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{x \in S} f(x_i) = 1\)</span></p></li>
+<li><p><span class="math inline">\(P(x \in A) = \sum_{x \in A} P(x), A \subset S\)</span></p></li>
+</ol></li>
+</ul>
+<div class="cell">
+<pre class="example cell-code"><code>
+We can plot the p.m.f in graphical format
+
+| $x$ | $0$ | $1$ | $2$ |
+| :--- | :---: | :---: | :---: |
+| $P(x)$ | 1/4 | 1/2 | 1/4 |</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_CHAPTER_02_files/figure-html/plot-pmf-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>Let a chip be taken at random from a bowl that contains six white chips, three red chips, and one blue chip. Let the random variable $X = 1$ if the outcome is a white chip, let $X = 5$ if the outcome is a red chip, and let $X = 10$ if the outcome is a blue chip.
+
+a. Find the pmf of $X$.
+
+|$x$ | 1 | 5 | 10 |
+|----|---|---|----|
+|$P(X = x)$ | $\frac{3}{5}$ | $\frac{1}{10}$ | $\frac{3}{10}$ |
+
+b. Graph the pmf as a line graph.</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_CHAPTER_02_files/figure-html/plot-pmf-rv-exercise-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>A tech company manufactures high-end smartphones. Before shipping, an automated inspector checks batches of 4 phones for screen defects. Let $X$ be the discrete random variable representing the number of defective phones found in a randomly selected batch of 4.Based on historical data, the probability mass function (PMF) $P(X = x)$ is given as follows:
+
+|$x$  (Defects) | 0  | 1 |2 |3 |4 |
+|---------------|----|---|--|--|--|
+|P(X=x)$ | 0.70 |0.18 |0.08 |k |0.01 |
+
+1. Find the value of $k$ to complete the PMF.
+
+Let $X$ be the number of defect
+
+\begin{align}
+\sum_{i=0}^{4} P(x_{i}) &amp;= 1 \\
+1 - (0.7 + 0.18 + 0.08 + 0.01) = 0.03
+\end{align}
+
+2. What is the probability that a batch has at least 2 defective phones?
+
+\begin{align}
+P(X \ge 2) &amp;= P(X = 2) + P(X = 3) + P(X = 4) \\
+=&amp; 0.08 + 0.03 + 0.01 = 0.12
+\end{align}
+
+3. What is the probability that a batch has fewer than 3 defective phones?
+
+\begin{align}
+P(X &lt; 3) &amp;= 1 - P(X = 3) - P(X = 4) \\
+=&amp; 1 - 0.03 - 0.01 = 0.96
+\end{align}</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>A ride-hailing driver operates in a busy downtown district. Let $Y$ be the discrete random variable representing the number of passenger ride requests the driver receives during a 15-minute period.
+
+The PMF of $Y$ is estimated as:
+
+$$P(Y = y) = \begin{cases}  0.15 &amp; \text{if } y = 0 \\ 0.40 &amp; \text{if } y = 1 \\ 0.30 &amp; \text{if } y = 2 \\ 0.15 &amp; \text{if } y = 3 \\ 0 &amp; \text{otherwise} \end{cases}$$
+
+Verify that this function satisfies the two fundamental properties of a valid PMF.
+
+- Non-negativity: All probabilities for each values that $Y$ can take are all greater than 0
+
+- Sum of the probabiility is equal to 1
+
+$$0.15 + 0.40 + 0.30 + 0.15 + 0 = 1$$
+</code></pre>
+</div>
+</section>
+<section id="continuous-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-random-variable">Continuous Random Variable</h2>
+<p><span class="math inline">\(X\)</span> is a continuous RV if there exists a nonnegative function <span class="math inline">\(f(x)\)</span> defined for all real <span class="math inline">\(x \in (-\infty, \infty)\)</span>, having the property that for any set <span class="math inline">\(B\)</span> of real numbers, <span class="math inline">\(P(X \in B) = \int_B f(x)dx\)</span>.</p>
+<p>Probability distribution for a continuous random variable: <span class="math inline">\(f(x)\)</span> is approximately equal to the relative frequency of the interval <span class="math inline">\(\{x: a &lt; x &lt; b\}\)</span> and hence can be thought of as an estimate of the probability that the RV <span class="math inline">\(X\)</span> falls into the interval <span class="math inline">\((a, b)\)</span>. This probability is often written as <span class="math inline">\(P(a &lt; x &lt; b) = \int_{a}^{b} f(x)dx\)</span>. It is often called the <strong>probability density function (pdf)</strong> for the continuous random variable <span class="math inline">\(X\)</span>.</p>
+<section id="properties-of-continuous-random-variable" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-continuous-random-variable">Properties of continuous Random Variable</h3>
+<p>The p.d.f. <span class="math inline">\(f(x)\)</span> satisfies:</p>
+<ul>
+<li><p><span class="math inline">\(f(x) &gt; 0\)</span> for <span class="math inline">\(x \in S\)</span> .</p></li>
+<li><p><span class="math inline">\(\int_{-\infty}^{\infty} f(x) dx = 1\)</span> .</p></li>
+<li><p><span class="math inline">\(P(a &lt; x &lt; b) = \int_a^b f(x) dx\)</span> .</p></li>
+<li><p>Note: If <span class="math inline">\(a=b\)</span>, then <span class="math inline">\(P(x=a) = \int_a^a f(x) dx = 0\)</span>.</p></li>
+</ul>
+<p>If <span class="math inline">\(a, b \subseteq S\)</span>, then the probability of the event <span class="math inline">\(\{a &lt; x &lt; b\}\)</span> is <span class="math inline">\(P(a &lt; x &lt; b) = \int_{a}^{b} f(x)dx\)</span>.</p>
+<p><em>Remarks:</em> if <span class="math inline">\(a=b\)</span>, then <span class="math inline">\(P(x=a) = \int_{a}^{a} f(x)dx = 0\)</span>.</p>
+<div class="cell">
+<pre class="example cell-code"><code>Suppose that $X$ is a continuous random variable whose probability density function is given by: 
+
+\begin{align}
+f(x) = \begin{cases} 
+      C(4x - 2x^2) &amp; 0 &lt; x &lt; 2 \\ 
+      0 &amp; \text{otherwise} 
+      \end{cases}
+\end{align}
+
+   a. What is the value of $C$?
+
+   b. Find $P(X&gt;1)$.
+
+
+**Solution:**
+    
+a. Since $f$ is a probability density function, we must have 
+
+$$\int_{-\infty}^{\infty} f(x)dx = 1$$
+    
+\begin{align}
+C \int_{0}^{2} (4x - 2x^2)dx =&amp; 1 \\
+C \left[2x^2 - \frac{2x^3}{3} \right]_0^2 =&amp; 1 \\
+C =&amp; \frac{3}{8}
+\end{align}
+
+b. Hence, $P(X&gt;1) = \frac{3}{8} \int_{1}^{2} (4x - 2x^2)dx = \frac{1}{2}$.</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>The amount of time in hours that a computer functions before breaking down is a continuous random variable with probability density function given by 
+$$f(x) = \begin{cases} \lambda e^{-x/100} &amp; x \ge 0 \\ 0 &amp; x &lt; 0 \end{cases}$$
+
+What is the probability that:
+
+a. A computer will function between 50 and 150 hours before breaking down?
+
+b. It will function for fewer than 100 hours?</code></pre>
+</div>
+</section>
+<section id="cumulative-distributive-function-cdf" class="level3">
+<h3 class="anchored" data-anchor-id="cumulative-distributive-function-cdf">Cumulative Distributive Function (CDF)</h3>
+<div class="cell" name="Cumulative Distributive Function (CDF)">
+<pre class="definition cell-code"><code>The cumulative distribution function or CDF of a RV $X$, denoted by $F(x)$ is defined by 
+$$F(x) = P(X \le x), \text{ for all } x.$$
+$$F(x) = \begin{cases} \sum_{X \le x} P(x) &amp; \text{discrete R.V} \\ \int_{-\infty}^{x} f(t)dt &amp; \text{continuous R.V} \end{cases}$$</code></pre>
+</div>
+<div class="cell">
+<pre class="example cell-code"><code>Consider the table below: 
+
+| $x$ | $1$ | $2$ | $3$ | $4$ |
+| :--- | :---: | :---: | :---: | :---: |
+| $P(x)$ | $1/4$ | $1/2$ | $1/8$ | $1/8$ |
+
+
+$$F(x) = \begin{cases} 0 &amp; x &lt; 1 \\ 1/4 &amp; 1 \le x &lt; 2 \\ 3/4 &amp; 2 \le x &lt; 3 \\ 7/8 &amp; 3 \le x &lt; 4 \\ 1 &amp; 4 \le x \end{cases}$$</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_CHAPTER_02_files/figure-html/cdf-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<pre class="example cell-code"><code>Let $X$ has the p.d.f of $f(x) = \begin{cases} 0 &amp; -\infty &lt; x &lt; 0 \\ \frac{1}{20}e^{-x/20} &amp; 0 \le x &lt; \infty \end{cases}$
+
+To obtain C.D.F, 
+$$F(x) = \int_{-\infty}^{x} f(t)dt = \int_{0}^{x} \frac{1}{20} e^{-t/20} dt = \left[ -e^{-t/20} \right]_0^x = 1 - e^{-x/20}$$
+Also, $F'(x) = f(x)$.</code></pre>
+</div>
+</section>
+<section id="relationship-between-cdf-fx-and-p.m.f-or-p.d.f" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-between-cdf-fx-and-p.m.f-or-p.d.f">Relationship between CDF, <span class="math inline">\(F(x)\)</span> and p.m.f or p.d.f</h3>
+<p><span class="math inline">\(F(x) \rightarrow\)</span> p.m.f , p.d.f</p>
+<ul>
+<li><p>If discrete, <span class="math inline">\(P(x = a) = F(a) - F(a^-)\)</span></p></li>
+<li><p>If continuous, <span class="math inline">\(f(x) = \frac{dF(x)}{dx} = F'(x)\)</span></p></li>
+</ul>
+<p>p.m.f, p.d.f <span class="math inline">\(\rightarrow F(x)\)</span></p>
+<ul>
+<li><p>If discrete, <span class="math inline">\(F(x) = \sum P(x)\)</span></p></li>
+<li><p>If continuous, <span class="math inline">\(F(x) = \int_{-\infty}^{x} f(x)dx\)</span></p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Transformation</th>
+<th style="text-align: left;">Variable Type</th>
+<th style="text-align: left;">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>F(x) <span class="math inline">\(\rightarrow\)</span> p.m.f, p.d.f</strong></td>
+<td style="text-align: left;">If discrete</td>
+<td style="text-align: left;"><span class="math inline">\(P(x = a) = F(a) - F(a^-)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">If continuous</td>
+<td style="text-align: left;"><span class="math inline">\(f(x) = \frac{dF(x)}{dx} = F'(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>p.m.f, p.d.f <span class="math inline">\(\rightarrow\)</span> F(x)</strong></td>
+<td style="text-align: left;">If discrete</td>
+<td style="text-align: left;"><span class="math inline">\(F(x) = \sum P(x)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">If continuous</td>
+<td style="text-align: left;"><span class="math inline">\(F(x) = \int_{-\infty}^{x} f(x)dx\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="properties-of-cdf" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-cdf">Properties of CDF</h3>
+<p><span class="math inline">\(F(x)\)</span> is CDF if and only if the following 3 conditions hold:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\lim_{x \to -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim_{x \to \infty} F(x) = 1\)</span></p></li>
+<li><p><span class="math inline">\(F(x)\)</span> is non decreasing function of <span class="math inline">\(x\)</span></p></li>
+<li><p><span class="math inline">\(F(x)\)</span> is right continuous</p></li>
+</ol>
+<hr>
+<div class="cell">
+<pre class="example cell-code"><code>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. Let $X$ be the number of defective items in the sample. Find the probability function and cumulative distribution function for $X$.
+
+**Solution**
+</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>Let $X \in \mathbb{R}$ with PDF as 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+0 &amp; -\infty &lt; x &lt; 0 \\
+\frac{1}{20} \exp \left(-\frac{x}{20}\right) &amp; 0 \le &lt; \infty
+\end{cases}
+\end{align}
+
+**Derive** the CDF of $X$. 
+
+**Solution**
+\begin{align}
+F(x) &amp;= \int_{-\infty}^{0} f(t) \ dt  \\
+&amp;= \int_{0}^{x} \frac{1}{20} \exp \left(-\frac{x}{20}\right)  \ dt \\
+&amp;= \left[-\frac{x}{20}\right]_{0}^{x} = 1  - \exp \left(-\frac{x}{2-}\right)
+\end{align}
+
+Check: the derivative of $F(x)$ must equal to $f(x)$</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_CHAPTER_02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>The random variable X has probability density function given by 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+\frac{k}{(1 + x)^{4}} &amp; \text{for} \ x \ge 0 \\
+0 &amp; \text{for} \ x \le 0
+\end{cases}
+\end{align}
+
+For some positive constant $k$. Find the value of $k$, the distribution function $F(x)$ and the probabilities $P(X \le 1)$, $P(X &gt; 1)$ and $P(1 \le X \le 2)$.</code></pre>
+</div>
+</section>
+</section>
+<section id="expected-values-and-expected-function" class="level2">
+<h2 class="anchored" data-anchor-id="expected-values-and-expected-function">Expected Values and Expected Function</h2>
+<p>It is a value that were expected to emerge when performing some random experiment. So basically, it is average or mean of the outcomes.</p>
+<div class="cell" name="Expected Values and Expected Function">
+<pre class="definition cell-code"><code>The expected value or mean of a random variable $X$, denoted by $E(X)$ is:
+$$\mu = E(X) = \begin{cases} \int_{-\infty}^{\infty} x f(x)dx &amp; \text{if } X \text{ is continuous} \\ \sum x f(x) = \sum g(x)P(X=x) &amp; \text{if } X \text{ is discrete} \end{cases}$$</code></pre>
+</div>
+<div class="cell" name="Example 8">
+<pre class="example cell-code"><code>Let $X$ equal number of spot on the side facing upwards after a six-sided die (one of pair of dice) is cast at a random. If everything is fair about this experiment, a reasonable probability model is given by the P.M.$F$.
+
+$$f(x) = P(X = x) = \frac{1}{6}$$
+where $x = 1, \ldots, 6$.
+
+**Find** the expected value of the distribution of $X$. 
+
+**Solution**
+
+$X$ is the number of spot on the side facing upwards after a six-sided die. To find the expected value, 
+
+\begin{align}
+E[X] &amp;= \sum x f(x) = \sum_{1}^{6} x \frac{1}{6}\\
+&amp;= \left(1 + 2 + 3 + 4 + 5 + 6 \right)\frac{1}{6} \\
+&amp;= \frac{7}{2} = 3.5
+\end{align}</code></pre>
+</div>
+<div class="cell" name="Example 9">
+<pre class="example cell-code"><code>From previous Example 8, Let $Y=X^2$, then $Y$ is also a random variable such that p.m.f of $Y$ is $g(y) = P(Y=y) = 1/6$, where $y=1,4,9,16,25,36$. Suppose we wanted to find the expected value of $Y$, $E(Y)$, and $Y=X^2$, then we can also compute:
+$$E(Y) = E(X^2) = \sum_{x=1}^{6} x^2 f(x) = \frac{1^2}{6} + \frac{2^2}{6} + \frac{3^2}{6} + \frac{4^2}{6} + \frac{5^2}{6} + \frac{6^2}{6} = \frac{91}{6}$$
+Note that, $E(X^2)$ also known as second moment about the origin with respect to variable $X$.</code></pre>
+</div>
+<div class="cell" name="Example 10">
+<pre class="example cell-code"><code>Given that $X$ is the number of spot on the side facing upwards after a six-sided die.
+
+Let $Y$ be the squared of number of spot on the side facing upwards after a six-sided die with the P.M.F of 
+
+\begin{align}
+g(y) = P(Y = y) = \frac{1}{6}
+\end{align}
+
+where $y = 1, 4, 9, 16, 25, 36$.  Find the expectation of $Y$. 
+
+**Solution**
+
+- In this question, $Y$ is a function of $X$ where $Y = X^2$
+
+- The value of $Y$ is no longer the value shown on the surface
+
+- To find the expectation of $Y$, we must change the formula 
+
+    \begin{align}
+    E[Y] &amp;= \sum y f(y) = \sum_{1}^{6} y \frac{1}{6}\\
+    &amp;= \left( 1 +  4 + 9 +  16 + 25 + 36 \right)\frac{1}{6} \\
+    &amp;= \frac{91}{6} = 15.167  (3 \text{dp})
+    \end{align}
+
+- $E[Y]$ = $E[X^2]$ is the **second moment about the origin** with respect to variable $X$</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>A batch of 15 items contains 6 defective ones. A random sample of 5 is chosen. Let $X$ be the number of defective items in the sample. 
+
+**Calculate** the expected value of the distribution of $X$. </code></pre>
+</div>
+<div class="cell" name="Example 11">
+<pre class="example cell-code"><code>Let $X \in \mathbb{R}$ be a random variable with PDF of 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+2x &amp; \text{when} \qquad 0 \le x \le 1 \\
+&amp; \\ 
+0 &amp; \text{otherwise}
+\end{cases}
+\end{align}
+
+**Calculate** the expected value of the distribution of $X$. 
+
+**Solution**
+
+\begin{align}
+E[X]  &amp;= \int_{0}^{1} x f(x) \\ 
+&amp;= \int_{0}^{1} 2x^2 \\ 
+&amp;= \left[\frac{2x^3}{3}\right]_{0}^{1} \\
+&amp;= \frac{2}{3}
+\end{align}</code></pre>
+</div>
+<section id="expected-values-properties" class="level3">
+<h3 class="anchored" data-anchor-id="expected-values-properties">Expected Values: Properties</h3>
+<p>Let <span class="math inline">\(a, c \in \mathbb{R}\)</span> and <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables with the same sample space.</p>
+<ul>
+<li><p>Expectation of a constant is a constant: <span class="math inline">\(E(c) = c\)</span>.</p></li>
+<li><p><span class="math inline">\(E[aX] = aE[X]\)</span>.</p></li>
+<li><p>Linearity: <span class="math inline">\(E[X] + c = E[X] + c\)</span>.</p></li>
+<li><p>Additivity: <span class="math inline">\(E[X + Y ]= E[X] + E[Y]\)</span>.</p></li>
+<li><p><span class="math inline">\(|E(X)| \leq E(|X|)\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="variance-and-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h2>
+<p>Calculation for Variance and standard deviation can also be calculated using expectation. Where: <span class="math display">\[Var(X) = E[(X-\mu)^2] = E(X^2) - \mu^2\]</span> <span class="math display">\[\sigma = \sqrt{Var(X)}\]</span></p>
+<p>The <strong>variance</strong>, denoted by <span class="math inline">\(\sigma^{2}\)</span>.</p>
+<ul>
+<li><p>Continuous: <span class="math inline">\(Var[X] = \int_{-\infty}^{\infty} x^{2} f(x) dx  - (\int_{-\infty}^{\infty} x f(x) \ dx)^{2}\)</span></p></li>
+<li><p>Discrete: <span class="math inline">\(Var[X] = \sum x^2 f(x) - (\sum x f(x))^{2}\)</span></p>
+<ul>
+<li>provided that the integral or sum exists</li>
+</ul></li>
+<li><p>SD, <span class="math inline">\(\sigma\)</span>, is just the square root of variance</p></li>
+</ul>
+<div class="cell" name="Example 16">
+<pre class="example cell-code"><code>Let the P.M.F. of $X$ be defined by $f(x)=x/6$, where $x = 1, 2, 3$.The mean of $X$ is
+
+$$\mu = E[X] = 1 \left(\frac{1}{6}\right) + 2 \left(\frac{2}{6}\right) + 3 \left(\frac{3}{6}\right) = \frac{7}{3}$$
+**Find** the variance and standard deviation of $X$.
+
+**Solution:**
+Let $X = 1, 2, 3$ with the P.M.F of $f(x)=x/6$
+
+\begin{align}
+Var[X] =&amp; E[(X-\mu)^2] = E[X^2] - \mu^2 \\
+=&amp; E[X^2] - \frac{7}{3}
+\end{align}
+
+The second order moment of $X$ is $E[X^{2}]$ 
+
+\begin{align}
+E[X^{2}] = 2 \left(\frac{1}{6}\right) + 4 \left(\frac{2}{6}\right) + 9 \left(\frac{3}{6}\right) = \frac{37}{6} = 6.167 \ (3 \ \text{dp})
+\end{align}</code></pre>
+</div>
+<div class="cell" name="Example 17">
+<pre class="example cell-code"><code>Compute the variance of the discrete distribution where 
+
+
+- $p(0) = 35/210$
+
+- $p(1) = 105/210$
+
+- $p(2) = 63/210$ and 
+
+- $p(3) = 7/210$.
+
+**Solution:**
+
+First, calculate the expected value $E[X]$:
+\begin{align}
+E[X] &amp;= \sum_{x=0}^{3} x \cdot p(x) \\
+ &amp;= (0)\left(\frac{35}{210}\right) + (1)\left(\frac{105}{210}\right) + (2)\left(\frac{63}{210}\right) + (3)\left(\frac{7}{210}\right)\\
+ &amp;= 0 + \frac{105}{210} + \frac{126}{210} + \frac{21}{210} = \frac{252}{210} = 1.2
+\end{align}
+
+Next, calculate the second moment, $E[X^2]$:
+
+\begin{align}
+E[X^2] &amp;= \sum_{x=0}^{3} x^2 \cdot p(x) \\
+ &amp;= (0^2)\left(\frac{35}{210}\right) + (1^2)\left(\frac{105}{210}\right) + (2^2)\left(\frac{63}{210}\right) + (3^2)\left(\frac{7}{210}\right)\\
+&amp;= 0 + \frac{105}{210} + \frac{252}{210} + \frac{63}{210} = \frac{420}{210} = 2
+\end{align}
+
+Finally, compute the variance $\text{Var}(X)$ using the variance formula:
+
+\begin{align}
+\text{Var}(X) &amp;= E[X^2] - (E[X])^2 \\
+ &amp;= 2 - (1.2)^2 = 2 - 1.44 = 0.56
+\end{align}</code></pre>
+</div>
+<div class="cell" name="Example 18">
+<pre class="example cell-code"><code>Show that $Var[a + bX] = b^2 Var[X]$.
+
+**Solution:**
+
+By the definition of variance, for any random variable $Y$, we have:
+
+$$\text{Var}(Y) = E[(Y - E[Y])^2]$$
+
+Let $Y = a + bX$. First, we determine the expected value of $Y$ by applying the linearity of expectation:
+
+$$E[a + bX] = a + bE[X]$$
+
+Next, we substitute $a + bX$ and its expected value into the variance formula:
+
+\begin{align}
+\text{Var}(a + bX) &amp;= E[((a + bX) - E[a + bX])^2] \\
+&amp;= E[((a + bX) - (a + bE[X]))^2] 
+\end{align}
+
+Simplify the terms inside the inner parentheses by canceling out the constant $a$:
+
+\begin{align}
+\text{Var}(a + bX) &amp;= E[(bX - bE[X])^2] \\
+&amp;= E[(b(X - E[X]))^2] \\
+&amp;= E[b^2(X - E[X])^2]
+\end{align}
+
+Because $b^2$ is a constant, it can be factored out of the expectation:
+$$\text{Var}(a + bX) = b^2 E[(X - E[X])^2]$$
+
+Finally, by recognizing that $E[(X - E[X])^2]$ is the formal definition of $\text{Var}(X)$, we conclude the proof:
+
+$$\text{Var}(a + bX) = b^2 \text{Var}(X)$$</code></pre>
+</div>
+<div class="cell" name="Example 19">
+<pre class="example cell-code"><code>Let $X$ be a contious random variable with the P.D.F 
+
+\begin{align}
+f(x) = 
+\begin{cases}
+2x \qquad for \quad 0 \le x \le 1 \\
+0 \qquad for \quad \text{otherwise} \\
+\end{cases}
+\end{align}
+
+**Find** the expected value, standard deviation of $X$. 
+
+**Solution**
+
+\begin{align}
+E[X] &amp;= \int x f(x) \\
+&amp;= \int_{0}^{1} x (2x) = \int_{1}^{1} 2x^2\\ 
+&amp;= \left[\frac{2}{3}x^{3}\right]_{0}^{1} = \frac{2}{3}\\
+\end{align}</code></pre>
+</div>
+</section>
+<section id="functions-of-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="functions-of-random-variable">Functions of Random Variable</h2>
+<p>If <span class="math inline">\(X\)</span> is a random variable with CDF <span class="math inline">\(F_{X}(x)\)</span>, the function of <span class="math inline">\(X\)</span> (e.g.&nbsp;<span class="math inline">\(g(X)\)</span>) is also a random variable.</p>
+<ul>
+<li><p>We can rewrite the <span class="math inline">\(g(X)\)</span> as <span class="math inline">\(Y = g(X)\)</span></p></li>
+<li><p>Hence, <span class="math inline">\(Y\)</span> is a function of <span class="math inline">\(X\)</span></p></li>
+</ul>
+<section id="functions-of-random-variable-expected-values" class="level3">
+<h3 class="anchored" data-anchor-id="functions-of-random-variable-expected-values">Functions of Random Variable: Expected Values</h3>
+<p>If <span class="math inline">\(X\)</span> is a random variable and <span class="math inline">\(g(X)\)</span> is a function of <span class="math inline">\(X\)</span>. The expected value of <span class="math inline">\(E[g(X)]\)</span> is</p>
+<p><span class="math display">\[\begin{align}
+E[g(X)] =
+\begin{cases}
+\int g(x)f_{X}(x) \ dx &amp; \text{if $X$ is continuous} \\
+&amp; \\
+\sum g(x)f_{X}(x) = \sum g(x)P(X = x) &amp; \text{if $X$ is discrete}
+\end{cases}
+\end{align}\]</span></p>
+<div class="cell" name="Example 13 (Continuous  case)">
+<pre class="example cell-code"><code>Let $X$ be a continuous random variable representing the lifetime of a specific machine component (in years), with the P.D.F:
+
+\begin{align}
+f(x) = 
+\begin{cases}
+\frac{1}{2} \exp \left(-\frac{x}{2}\right) &amp; \text{for } x \ge 0 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{align}
+
+Suppose the maintenance cost (in RM) over the component's lifetime is given by the function $g(X) = 50 + 10X^2$. 
+
+**Find** the expected maintenance cost, $E[g(X)]$.
+
+**Solution:**
+By the linearity of expectation, we know that:
+$$E[g(X)] = E[50 + 10X^2] = 50 + 10E[X^2]$$
+
+First, find the second moment, $E[X^2]$:
+\begin{align}
+E[X^2] &amp;= \int_{-\infty}^{\infty} x^2 f(x) dx \\
+&amp;= \int_{0}^{\infty} x^2 \left( \frac{1}{2} \exp \left(-\frac{x}{2}\right) \right) dx
+\end{align}
+
+Using integration by parts (or the Gamma function property $\int_0^\infty x^n e^{-ax} dx = \frac{n!}{a^{n+1}}$):
+\begin{align}
+E[X^2] &amp;= \frac{1}{2} \left( \frac{2!}{(1/2)^3} \right) \\
+&amp;= \frac{1}{2} (16) = 8
+\end{align}
+
+Now, substitute $E[X^2]$ back into the cost function:
+
+\begin{align}
+E[g(X)] &amp;= 50 + 10(8) \\
+&amp;= 50 + 80 = 130
+\end{align}
+
+The expected maintenance cost is **RM 130**.</code></pre>
+</div>
+</section>
+<section id="functions-of-random-variable-expected-values-properties" class="level3">
+<h3 class="anchored" data-anchor-id="functions-of-random-variable-expected-values-properties">Functions of Random Variable: Expected Values Properties</h3>
+<p>Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(a, b, c \in \mathbb{R}\)</span>. Then, for any functions <span class="math inline">\(g_{1}(x)\)</span> and <span class="math inline">\(g_{2}(x)\)</span> whose expectations exists:</p>
+<ol type="a">
+<li><p><span class="math inline">\(E[ag_1(x) + bg_2(x) + c] = aEg_1(x) + bE[g_2(x)] + c\)</span></p></li>
+<li><p>If <span class="math inline">\(g_1(x) \geq 0\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(E[g_1(x)] \geq 0\)</span></p></li>
+<li><p>If <span class="math inline">\(g_1(x) \geq g_2(x)\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(E[g_1(x)] \geq E[g_2(x)]\)</span></p></li>
+<li><p>If <span class="math inline">\(a \leq g_1(x) \leq b\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(a \leq E[g_1(x)] \leq b\)</span></p></li>
+</ol>
+<div class="cell" name="Example 14">
+<pre class="example cell-code"><code>Suppose Grab charges a fixed fare of RM4 plus a mileage charge of RM2 per kilometer. Write the 
+
+
+If the journey length in kilometers is regarded as a random variable $X$, the linearity property 
+$$E[4 + 2X] = 4 + 2E[X]$$
+just says that the average journey fare is RM4 plus RM2 times the average journey length. This is true whatever the distribution of $X$ is: the fare depends linearly on the journey length.</code></pre>
+</div>
+<div class="cell" name="Example 15">
+<pre class="example cell-code"><code>Uber charges a fare in RM of $y(X) = 4\sqrt{1 + X}$ for a journey of length X kilometers. Suppose the probability density function for $X$ is $$f(x) = \frac{3}{(1 + x)^{4}}$$. 
+
+Find the mean fare. 
+
+**Solution:**
+
+To find the expected fare, we need to calculate the expected value of the fare function $y(X) = 4\sqrt{1 + X}$, given the continuous probability density function 
+$$f(x) = \frac{3}{(1 + x)^4}$$ for journey lengths $x \ge 0$
+
+Using the definition of expectation for a function of a continuous random variable, we integrate over the support of $X$:
+
+$$E[y(X)] = \int_{0}^{\infty} y(x) f(x) dx$$
+
+Substitute the given equations into the integral:
+
+$$E[y(X)] = \int_{0}^{\infty} \left(4\sqrt{1+x}\right) \left(\frac{3}{(1+x)^4}\right) dx$$
+
+Combine the terms by converting the square root to a fractional exponent:
+
+$$E[y(X)] = \int_{0}^{\infty} 12 (1+x)^{1/2} (1+x)^{-4} dx$$
+$$E[y(X)] = 12 \int_{0}^{\infty} (1+x)^{-7/2} dx$$
+
+Perform the integration:
+\begin{align}
+E[y(X)] &amp;= 12 \left[ \frac{(1+x)^{-5/2}}{-5/2} \right]_{0}^{\infty} \\
+&amp;= 12 \left( -\frac{2}{5} \right) \left[ (1+x)^{-5/2} \right]_{0}^{\infty} \\
+&amp;= -\frac{24}{5} \left( \lim_{x \to \infty} \frac{1}{(1+x)^{5/2}} - \frac{1}{(1+0)^{5/2}} \right) \\
+&amp;= -\frac{24}{5} (0 - 1) \\
+&amp;= \frac{24}{5} \\
+&amp;= 4.8
+\end{align}
+
+The expected fare for the journey is **RM 4.80**.</code></pre>
+</div>
+<div class="cell" name="Example 19">
+<pre class="exercise cell-code"><code>Find $E(X)$, $Var(X)$ and Standard deviation of $X$ when the density function of $X$ is $f(x) = 2x$ if $0 \le x \le 1$, and $0$ if $x$ is otherwise.
+
+**Solution:**
+
+Given the continuous probability density function $f(x) = 2x$ for $0 \le x \le 1$[cite: 11].
+
+**1. Calculate the Expected Value, $E(X)$:**
+Use the formula for the continuous expected value:
+\begin{align}
+E[X] =&amp; \int_{-\infty}^{\infty} x f(x) dx \\
+ =&amp; \int_{0}^{1} x(2x) dx \\ 
+ =&amp; \left[ \frac{2x^3}{3} \right]_{0}^{1} \\
+ =&amp; \frac{2(1)^3}{3} - 0 = \frac{2}{3} \\
+ \end{align}
+
+**2. Calculate the Second Moment, $E[X^2]$:**
+
+\begin{align}
+E(X^2) =&amp; \int_{0}^{1} x^2 f(x) dx \\
+ =&amp; \int_{0}^{1} x^2(2x) dx \\
+ =&amp; \int_{0}^{1} 2x^3 dx \\
+ =&amp; \left[ \frac{2x^4}{4} \right]_{0}^{1} \\
+ =&amp; \frac{2}{4} = \frac{1}{2}
+ \end{align}
+
+**3. Calculate the Variance, $Var(X)$:**
+
+\begin{align}
+Var(X) =&amp; E(X^2) - (E(X))^2 \\
+ =&amp; \frac{1}{2} - \left(\frac{2}{3}\right)^2 \\
+ =&amp; \frac{1}{2} - \frac{4}{9} \\
+ =&amp; \frac{9}{18} - \frac{8}{18} = \frac{1}{18} \\
+ \end{align}
+
+
+**4. Calculate the Standard Deviation:**
+
+\begin{align}
+\text{SD}[X] =&amp; \sqrt{Var(X)} \\ 
+ =&amp; \sqrt{\frac{1}{18}} = \frac{1}{\sqrt{18}} \\ \approx &amp; 0.2357
+ \end{align}
+</code></pre>
+</div>
+</section>
+<section id="expectation-of-function" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-of-function">Expectation of function</h3>
+<ul>
+<li>If <span class="math inline">\(X\)</span> is a discrete RV, with <span class="math inline">\(x_i, i \ge 1\)</span> with probabilities <span class="math inline">\(p(x_i)\)</span>, then <span class="math inline">\(E[g(X)] = \sum_i g(x_i)p(x_i)\)</span>.</li>
+<li>Let <span class="math inline">\(X\)</span> be a random variable with density <span class="math inline">\(f(x)\)</span>. The expected value of a function <span class="math inline">\(g(\cdot)\)</span> of the random variable, denoted <span class="math inline">\(E(g(X))\)</span>, is defined to be <span class="math inline">\(E(g(X)) = \int_{-\infty}^{\infty} g(x)f(x)dx\)</span>.</li>
+</ul>
+</section>
+<section id="expectation-of-function-properties" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-of-function-properties">Expectation of function Properties</h3>
+<p>Let <span class="math inline">\(X\)</span> be a RV and <span class="math inline">\(a, b\)</span> and <span class="math inline">\(c\)</span> are constants. Then, for any functions <span class="math inline">\(g_1(x)\)</span> and <span class="math inline">\(g_2(x)\)</span> whose expectations exist:</p>
+<ol type="a">
+<li><p><span class="math inline">\(E(ag_1(x) + bg_2(x) + c) = aEg_1(x) + bEg_2(x) + c\)</span></p></li>
+<li><p>If <span class="math inline">\(g_1(x) \ge 0\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(Eg_1(x) \ge 0\)</span></p></li>
+<li><p>If <span class="math inline">\(g_1(x) \ge g_2(x)\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(Eg_1(x) \ge Eg_2(x)\)</span></p></li>
+<li><p>If <span class="math inline">\(a \le g_1(x) \le b\)</span> for all <span class="math inline">\(x\)</span>, then <span class="math inline">\(a \le Eg_1(x) \le b\)</span></p></li>
+</ol>
+</section>
+</section>
+<section id="moments-and-moment-generating-function" class="level2">
+<h2 class="anchored" data-anchor-id="moments-and-moment-generating-function">Moments and Moment generating function</h2>
+<section id="moments" class="level3">
+<h3 class="anchored" data-anchor-id="moments">Moments</h3>
+<div class="cell" name="Methods of Moments">
+<pre class="definition cell-code"><code>The moments of RV or of a distributions are the expectations of the powers of the RV which has the given distributions. If $X$ is a RV, the $r$th moment of $x$ is defined as $\mu_r' = E[X^r]$. Therefore, the $r$th moment about the origin of a random variable is the expected value of $X^r$:
+
+
+\begin{align}
+\mu_{r}^{'} =  E[X^r] = 
+\begin{cases}
+\sum_{x} x^r f(x) \\
+&amp; \\
+\int x^r f(x) \\
+\end{cases}
+\end{align}
+
+- The first moment is the mean, i.e. $E[X]$
+</code></pre>
+</div>
+<p>The first moment is <span class="math inline">\(E(X)\)</span>.</p>
+</section>
+<section id="central-moments" class="level3">
+<h3 class="anchored" data-anchor-id="central-moments">Central Moments</h3>
+<div class="cell" name="Centrol Moments">
+<pre class="definition cell-code"><code>The $r$th moment about the mean of a random variable $X$, is the expected value of $(X - \mu_X)^r$, symbolically,
+
+$$\mu_r = E[(X - \mu_X)^r] = \begin{cases} \sum_x (x - \mu_X)^r f(x) \\ \int_{-\infty}^{\infty} (x - \mu_X)^r f(x)dx \end{cases}$$</code></pre>
+</div>
+<p>The <span class="math inline">\(r\)</span>th moment about the mean of a random variable <span class="math inline">\(X\)</span> is sometimes called the <span class="math inline">\(r\)</span>th central moment of <span class="math inline">\(X\)</span>. Note that: * <span class="math inline">\(\mu_1 = E[(X - \mu_X)] = 0\)</span> * <span class="math inline">\(\mu_2 = E[(X - \mu_X)^2] = Var[X]\)</span> Variance can be also written as <span class="math inline">\(\sigma_X^2 = \mu_2' - \mu_X^2\)</span>.</p>
+<p>The first moment is mean of <span class="math inline">\(E(X)\)</span>. The second central moment is the variance. If <span class="math inline">\(E(X^n)\)</span> exists for some +ve integers <span class="math inline">\(n\)</span>, we call <span class="math inline">\(E(X^n)\)</span> the <span class="math inline">\(n\)</span>th moment of <span class="math inline">\(X\)</span> about the origin. If <span class="math inline">\(E|X^n| &lt; \infty\)</span> for some +ve real number <span class="math inline">\(\alpha\)</span>, we call <span class="math inline">\(E|X^n|\)</span> the <span class="math inline">\(\alpha\)</span>th absolute moment of <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="moment-generating-function-mgf" class="level3">
+<h3 class="anchored" data-anchor-id="moment-generating-function-mgf">Moment Generating Function (MGF)</h3>
+<div class="cell" name="Moment Generating Function (MGF)">
+<pre class="definition cell-code"><code>Moment generating function $M(t)$ of the RV $X$ is defined for all real values of $t$ by:
+$$M(t) = E[e^{tx}] = \begin{cases} \sum e^{tx} p(x) &amp; \text{if } X \text{ is discrete} \\ \int_{-\infty}^{\infty} e^{tx} \cdot f(x)dx &amp; \text{if } X \text{ is continuous} \end{cases}$$</code></pre>
+</div>
+<div class="cell" name="Example 12 (Discrete case)">
+<pre class="example cell-code"><code>Let the p.m.f. of $X$ be defined by $f(x) = x/6$, where $x=1,2,3$. Find the mgf of RV of $X$.</code></pre>
+</div>
+<div class="cell" name="Example 21 (Continuous  case)">
+<pre class="example cell-code"><code>
+ $X$ is Random variable with probability density function of $X$ is 
+
+\begin{align}
+   f(x) = 
+   \begin{cases}
+   1/6 &amp; \text{for } 1 \le x \le 7 \\ 
+   0 &amp; \text{otherwise}
+   \end{cases}
+\end{align}
+
+ Find the mgf of $X$.</code></pre>
+</div>
+</section>
+<section id="finding-probability-distribution-from-mgf" class="level3">
+<h3 class="anchored" data-anchor-id="finding-probability-distribution-from-mgf">Finding probability distribution from mgf</h3>
+<p>Sometimes we can find the probability distribution of the random variable from observing their mgf. Since mgf is unique to each RV if the mgf exists. For discrete case; let space of <span class="math inline">\(S\)</span> is <span class="math inline">\(\{b_1, b_2, b_3, \dots\}\)</span>, then the moment-generating function is given by the expansion: <span class="math display">\[M_X(t) = e^{tb_1}f(b_1) + e^{tb_2}f(b_2) + e^{tb_3}f(b_3) + \dots\]</span> Thus, the coefficient of <span class="math inline">\(e^{tb_i}\)</span> is the probability of <span class="math inline">\(f(b_i) = P(X=b_i)\)</span>.</p>
+<p>For continuous case; it is not as easy as the discrete case since it does not involve with expansion. But since mgf is unique to one random variable, we can see that in later topic, it is easy to find the pdf of given mgf.</p>
+</section>
+<section id="properties-of-mgf" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-mgf">Properties of mgf</h3>
+<p><span class="math display">\[M'(t) = \frac{d}{dt}E[e^{tx}] = E\left[ \frac{d}{dt}(e^{tx}) \right] = E[Xe^{tx}]\]</span> <span class="math display">\[M'(0) = E(x)\]</span> <span class="math display">\[M''(t) = \frac{d}{dt}M'(t) = \frac{d}{dt}E[Xe^{tx}] = E\left[ \frac{d}{dt}(Xe^{tx}) \right] = E[X^2e^{tx}]\]</span> <span class="math display">\[M''(0) = E(X^2)\]</span></p>
+<ol type="1">
+<li>If <span class="math inline">\(M_X(t)\)</span> exists, then for any positive integer <span class="math inline">\(k\)</span>, <span class="math inline">\(\frac{d^k M_X(t)}{dt^k} \Big|_{t=0} = M_X^{(k)}(0) = E(X^k)\)</span>, i.e.&nbsp;we can find the <span class="math inline">\(k\)</span>th mgf through the <span class="math inline">\(k\)</span>th derivative of with respect to <span class="math inline">\(t\)</span> by setting <span class="math inline">\(t=0\)</span> (discrete case). We call <span class="math inline">\(M_X(t)\)</span> the mgf because all the moments of <span class="math inline">\(X\)</span> can be obtained by differentiating <span class="math inline">\(M_X(t)\)</span> and then evaluating the result at <span class="math inline">\(t=0\)</span>.</li>
+</ol>
+<div class="cell" name="Example 11 (Cntinuous  case)">
+<pre class="example cell-code"><code>using the same problem in example 11, find mean and variance of $X$ using the mgf.</code></pre>
+</div>
+<p>If <span class="math inline">\(X\)</span> has mgf, then <span class="math inline">\(E(X^k) = \frac{d^k M_X(t)}{dt^k} \Big|_{t=0} = M_X^{(k)}(0)\)</span>, i.e.&nbsp;the <span class="math inline">\(n\)</span>th moment of the distribution is equal to the <span class="math inline">\(n\)</span>th derivative evaluated at <span class="math inline">\(t=0\)</span> (continuous case).</p>
+<p>For independent variable <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; <span class="math inline">\(M_{X+Y}(t) = M_X(t) \cdot M_Y(t)\)</span> and for any constant <span class="math inline">\(a,b \in \mathbb{R}\)</span>: * <span class="math inline">\(M_{X+a}(t) = E(e^{(X+a)t}) = e^{at} \cdot M_X(t)\)</span> * <span class="math inline">\(M_{bX}(t) = E(e^{bXt}) = M_X(bt)\)</span> * <span class="math inline">\(M_{\frac{X+a}{b}}(t) = E\left(e^{\frac{X+a}{b}t}\right) = e^{\frac{a}{b}t} M_X\left(\frac{t}{b}\right)\)</span></p>
+<div class="cell">
+<pre class="exercise cell-code"><code>If the moment-generating function of $X$ is
+
+$$M(t) = \frac{2}{5}e^t + \frac{1}{5}e^{2t} + \frac{2}{5}e^{3t}$$
+
+Find the mean, variance, and pmf of $X$.</code></pre>
+</div>
+</section>
+</section>
+<section id="tutorials" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
+<ol type="1">
+<li><p>Let <span class="math inline">\(X\)</span> represent the difference between the number of heads and the number of tails obtained when a coin is tossed <span class="math inline">\(6\)</span> times. What are the possible values of <span class="math inline">\(X\)</span>?</p></li>
+<li><p>Computer chips often contain surface imperfections. For a certain type of computer chip, the probability mass function of the number of defects X is presented in the following table.</p></li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">3</th>
+<th style="text-align: left;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X = x)\)</span></td>
+<td style="text-align: left;">0.4</td>
+<td style="text-align: left;">0.20</td>
+<td style="text-align: left;">0.35</td>
+<td style="text-align: left;">0.15</td>
+<td style="text-align: left;">0.10</td>
+</tr>
+</tbody>
+</table>
+<p>Answer the following:</p>
+<ol type="a">
+<li>Find <span class="math inline">\(P(X \le 3)\)</span>.</li>
+<li>Find <span class="math inline">\(P(X &gt; 2)\)</span>.</li>
+<li>Find <span class="math inline">\(\mu_{X}\)</span> .</li>
+<li>Find <span class="math inline">\(\sigma^{2}\)</span></li>
+<li>Find <span class="math inline">\(\sigma\)</span></li>
+</ol>
+<ol start="3" type="1">
+<li>A survey of cars on a certain stretch of highway during morning commute hours showed that 50% had only one occupant, 25% had 2, 20% had 3, 3% had 4, and 2% had 5. Let <span class="math inline">\(X\)</span> represent the number of occupants in a randomly chosen car.</li>
+</ol>
+<ol type="a">
+<li>Find <span class="math inline">\(P(X \le 3)\)</span>.</li>
+<li>Find <span class="math inline">\(P(X &gt; 2)\)</span>.</li>
+<li>Find <span class="math inline">\(\mu_{X}\)</span> .</li>
+<li>Find <span class="math inline">\(\sigma^{2}\)</span></li>
+<li>Find <span class="math inline">\(\sigma\)</span></li>
+</ol>
+<ol start="4" type="1">
+<li>The delay time (in minutes) for vehicles passing through the Mines Highway (Besraya) toll plaza during morning peak hours is modeled by a continuous random variable <span class="math inline">\(T\)</span>.</li>
+</ol>
+<p>The probability density function (p.d.f.) for the delay time is given by:<span class="math display">\[f(t) = \begin{cases} \frac{1}{2} - \frac{1}{8}t &amp; 0 \le t \le 4 \\ 0 &amp; \text{otherwise} \end{cases}\]</span>a. Find <span class="math inline">\(P(T \le 2)\)</span>.b. Find <span class="math inline">\(P(T &gt; 3)\)</span>.c. Find the expected delay time, <span class="math inline">\(\mu_T\)</span>.d. Find the variance, <span class="math inline">\(\sigma^2\)</span>.e. Find the standard deviation, <span class="math inline">\(\sigma\)</span>.</p>
+<ol start="5" type="1">
+<li>The waiting time (in hours) for patients to see a medical officer at a public hospital outpatient clinic in Selangor is modeled by a continuous random variable <span class="math inline">\(X\)</span>. The probability density function (p.d.f.) for the waiting time is given by:</li>
+</ol>
+<p><span class="math display">\[f(x) = \begin{cases} \frac{2}{9}x &amp; 0 \le x \le 3 \\ 0 &amp; \text{otherwise} \end{cases}\]</span> Instead of finding the probabilities, the hospital management wants to determine specific target waiting times (<span class="math inline">\(x\)</span>) based on their Key Performance Indicators (KPIs).</p>
+<ol type="a">
+<li>Find the waiting time <span class="math inline">\(x\)</span> such that exactly 25% of the patients wait less than <span class="math inline">\(x\)</span> hours (i.e., find <span class="math inline">\(x\)</span> where <span class="math inline">\(P(X \le x) = 0.25\)</span>).</li>
+<li>Find the waiting time <span class="math inline">\(x\)</span> such that the probability a patient waits longer than <span class="math inline">\(x\)</span> hours is <span class="math inline">\(0.64\)</span> (i.e., find <span class="math inline">\(x\)</span> where <span class="math inline">\(P(X &gt; x) = 0.64\)</span>).</li>
+<li>Find the median waiting time <span class="math inline">\(x\)</span> (the time where <span class="math inline">\(P(X \le x) = 0.50\)</span>).</li>
+<li>Find the expected waiting time a patient will experience, <span class="math inline">\(E(X)\)</span>.</li>
+<li>Patients must pay a hospital parking fee of RM 4.00 per hour of waiting time, alongside a fixed clinic registration fee of RM 5.00. Let <span class="math inline">\(Y = 4X + 5\)</span> represent the total out-of-pocket cost incurred by a patient before seeing the doctor. Using the linear properties of expectation and variance, calculate the expected total cost, <span class="math inline">\(E(Y)\)</span>, and the variance of the total cost, <span class="math inline">\(Var(Y)\)</span>.</li>
+</ol>
+<ol start="6" type="1">
+<li>The number of customers in line at a supermarket express checkout counter is a random variable whose probability mass function is given in the following table.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">3</th>
+<th style="text-align: left;">4</th>
+<th style="text-align: left;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X = x)\)</span></td>
+<td style="text-align: left;">0.15</td>
+<td style="text-align: left;">0.20</td>
+<td style="text-align: left;">0.35</td>
+<td style="text-align: left;">0.15</td>
+<td style="text-align: left;">0.10</td>
+<td style="text-align: left;">0.05</td>
+</tr>
+</tbody>
+</table>
+<p>Let <span class="math inline">\(X\)</span> denote the number of customers in line, and let <span class="math inline">\(Y\)</span> denote the total number of items purchased by all the customers in line. Assume the number of items purchased by one customer is independent of the number of items purchased by any other customer.</p>
+<ol type="a">
+<li>Find <span class="math inline">\(P(X = 2 \text{and} Y = 2)\)</span>.</li>
+<li>Find <span class="math inline">\(P(X = 2 \text{and} Y = 6)\)</span>.</li>
+<li>Find <span class="math inline">\(P(Y = 2)\)</span>.</li>
+</ol>
+<ol start="7" type="1">
+<li>A local meteorologist in Dengkil is analyzing daily weather patterns during the November monsoon season. The experiment consists of recording the primary weather condition for a randomly selected day.Based on historical data, the outcome space <span class="math inline">\(S\)</span> consists of four weather conditions with the following probabilities:</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Weather conditions</th>
+<th style="text-align: left;">Sunny (S)</th>
+<th style="text-align: left;">Cloudy (C)</th>
+<th style="text-align: left;">Rainy (R)</th>
+<th style="text-align: left;">$Thunderstorm (T)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Probability</td>
+<td style="text-align: left;"><span class="math inline">\(0.15\)</span></td>
+<td style="text-align: left;">$<span class="math inline">\(0.35\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.40\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.10\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>To evaluate the potential impact on local infrastructure, the meteorologist defines a discrete random variable <span class="math inline">\(X\)</span> representing the “Weather Severity Index.” The index assigns a value of:</p>
+<ul>
+<li><span class="math inline">\(0\)</span> for Sunny</li>
+<li><span class="math inline">\(1\)</span> for Cloudy</li>
+<li><span class="math inline">\(3\)</span> for Rainy</li>
+<li><span class="math inline">\(5\)</span> for a Thunderstorm.</li>
+</ul>
+<p>Answer the following:</p>
+<ol type="a">
+<li><p>Construct the probability mass function (PMF) table for the random variable <span class="math inline">\(X\)</span>. (4 marks)</p></li>
+<li><p>Calculate the probability that a randomly selected day has a severity index of strictly less than 3. (2 mark)</p></li>
+<li><p>Calculate the expected Weather Severity Index, <span class="math inline">\(E(X)\)</span>, for a day in November. (3 marks)</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
