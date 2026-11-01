@@ -1,0 +1,93 @@
+---
+title: "Probability Reference Sheets"
+format:
+  html:
+    page-layout: full
+    toc: true
+    html-math-method: mathjax
+    css: styles.css
+---
+
+```{=html}
+<style>
+/* Remove extra body & container offsets */
+#quarto-content {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+main.content {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Ensure horizontal scroll if screen is smaller than the table */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-left: 0 !important;
+}
+
+table {
+  width: 100% !important;
+  min-width: 1050px;
+  margin-left: 0 !important;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: middle;
+  padding: 6px 10px !important;
+}
+
+/* Force balanced column widths */
+.dist-table th:nth-child(1), .dist-table td:nth-child(1) { width: 14%; }
+.dist-table th:nth-child(2), .dist-table td:nth-child(2) { width: 18%; }
+.dist-table th:nth-child(3), .dist-table td:nth-child(3) { width: 25%; }
+.dist-table th:nth-child(4), .dist-table td:nth-child(4) { width: 18%; }
+.dist-table th:nth-child(5), .dist-table td:nth-child(5) { width: 10%; }
+.dist-table th:nth-child(6), .dist-table td:nth-child(6) { width: 15%; }
+</style>
+---
+
+### Fundamental Probability Concepts
+
+| Concept | Formula | Notes |
+| :--- | :--- | :--- |
+| **1. Independent Probability** | $P(A \cap B) = P(A) \cdot P(B)$ | Equivalent to $P(A \mid B) = P(A)$ when $P(B) > 0$. |
+| **2. Conditional Probability** | $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$ | Defined for $P(B) > 0$. |
+| **3. Bayes' Rule** | $P(A_i \mid B) = \dfrac{P(B \mid A_i)P(A_i)}{\sum_{j=1}^{k} P(B \mid A_j)P(A_j)}$ | Partition $\{A_1, A_2, \dots, A_k\}$ where $P(B) > 0$. |
+| **4. Discrete Probability** | **Mean:** $\mu = E[X] = \sum x \, p(x)$<br>**Variance:** $\sigma^2 = \text{Var}(X) = \sum (x - \mu)^2 p(x) = E[X^2] - (E[X])^2$ | $p(x) = P(X = x)$. |
+| **5. Continuous Probability** | **Mean:** $\mu = E[X] = \int_{-\infty}^{\infty} x \, f(x) \, dx$<br>**Variance:** $\sigma^2 = \text{Var}(X) = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx = E[X^2] - (E[X])^2$ | $f(x)$ is the Probability Density Function (PDF). |
+
+---
+
+### Parametric Distributions Summary (Discrete)
+
+| Distribution | PMF | CDF ($F(x) = P(X \le x)$) | Values of $x$ (Support) | Mean ($E[X]$) | Variance ($\text{Var}(X)$) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Bernoulli** $(p)$ | $p^x (1-p)^{1-x}$ | $\begin{cases} 0, & x < 0 \\ 1 - p, & 0 \le x < 1 \\ 1, & x \ge 1 \end{cases}$ | $x \in \{0, 1\}$ | $p$ | $p(1 - p)$ |
+| **Binomial** $(n, p)$ | $\binom{n}{x} p^x (1-p)^{n-x}$ | $\sum_{k=0}^{\lfloor x \rfloor} \binom{n}{k} p^k (1-p)^{n-k}$ | $x \in \{0, 1, 2, \dots, n\}$ | $np$ | $np(1 - p)$ |
+| **Discrete Uniform** $(a, b)$ | $\dfrac{1}{n}$, where $n = b - a + 1$ | $\dfrac{\lfloor x \rfloor - a + 1}{n}$ *(for $a \le x \le b$)* | $x \in \{a, a+1, \dots, b\}$ | $\dfrac{a + b}{2}$ | $\dfrac{(b - a + 1)^2 - 1}{12}$ |
+| **Continuous Uniform** $(a, b)$ | $f(x) = \dfrac{1}{b - a}$ | $\begin{cases} 0, & x < a \\ \dfrac{x - a}{b - a}, & a \le x \le b \\ 1, & x > b \end{cases}$ | $x \in [a, b]$ | $\dfrac{a + b}{2}$ | $\dfrac{(b - a)^2}{12}$ |
+| **Geometric** $(p)$ *(trials to 1st success)* | $(1 - p)^{x-1} p$ | $1 - (1 - p)^{\lfloor x \rfloor}$ | $x \in \{1, 2, 3, \dots\}$ | $\dfrac{1}{p}$ | $\dfrac{1 - p}{p^2}$ |
+| **Negative Binomial** $(r, p)$ *(trials to $r$ successes)* | $\binom{x - 1}{r - 1} p^r (1 - p)^{x - r}$ | $\sum_{k=r}^{\lfloor x \rfloor} \binom{k-1}{r-1} p^r (1-p)^{k-r}$ | $x \in \{r, r+1, r+2, \dots\}$ | $\dfrac{r}{p}$ | $\dfrac{r(1 - p)}{p^2}$ |
+| **Hypergeometric** $(N, K, n)$ | $\dfrac{\binom{K}{x} \binom{N - K}{n - x}}{\binom{N}{n}}$ | $\sum_{k=0}^{\lfloor x \rfloor} \dfrac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}$ | $\max(0, n - (N - K)) \le x \le \min(n, K)$ | $n \dfrac{K}{N}$ | $n \dfrac{K}{N} \left(1 - \dfrac{K}{N}\right) \left(\dfrac{N - n}{N - 1}\right)$ |
+| **Poisson** $(\lambda)$ | $\dfrac{\lambda^x e^{-\lambda}}{x!}$ | $\sum_{k=0}^{\lfloor x \rfloor} \dfrac{\lambda^k e^{-\lambda}}{k!} = \dfrac{\Gamma(\lfloor x \rfloor + 1, \lambda)}{\lfloor x \rfloor!}$ | $x \in \{0, 1, 2, \dots\}$ | $\lambda$ | $\lambda$ |
+
+---
+
+### Parametric Distributions Summary (Continuous)
+
+| Distribution | PDF ($f(x)$) | CDF ($F(x) = P(X \le x)$) | Values of $x$ (Support) | Mean ($E[X]$) | Variance ($\text{Var}(X)$) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Continuous Uniform** $(a, b)$ | $\dfrac{1}{b - a}$ | $\begin{cases} 0, & x < a \\ \dfrac{x - a}{b - a}, & a \le x \le b \\ 1, & x > b \end{cases}$ | $x \in [a, b]$ | $\dfrac{a + b}{2}$ | $\dfrac{(b - a)^2}{12}$ |
+| **Exponential** $(\lambda)$ | $\lambda e^{-\lambda x}$ | $\begin{cases} 0, & x < 0 \\ 1 - e^{-\lambda x}, & x \ge 0 \end{cases}$ | $x \in [0, \infty)$[cite: 7] | $\dfrac{1}{\lambda}$ | $\dfrac{1}{\lambda^2}$ |
+| **Normal** $(\mu, \sigma^2)$ | $\dfrac{1}{\sigma \sqrt{2\pi}} \exp\left(-\dfrac{(x - \mu)^2}{2\sigma^2}\right)$ | $\Phi\left(\dfrac{x - \mu}{\sigma}\right) = \dfrac{1}{2}\left[1 + \text{erf}\left(\dfrac{x - \mu}{\sigma\sqrt{2}}\right)\right]$ | $x \in (-\infty, \infty)$ | $\mu$ | $\sigma^2$ |
+| **Standard Normal** $(0, 1)$ | $\dfrac{1}{\sqrt{2\pi}} e^{-z^2/2}$ | $\Phi(z) = \int_{-\infty}^{z} \dfrac{1}{\sqrt{2\pi}} e^{-u^2/2} \, du$ | $z \in (-\infty, \infty)$ | $0$ | $1$ |
+| **Chi-Squared** $(k)$ | $\dfrac{1}{2^{k/2}\Gamma(k/2)} x^{(k/2)-1} e^{-x/2}$ | $\dfrac{\gamma\left(\frac{k}{2}, \frac{x}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}$ | $x \in (0, \infty)$ | $k$ | $2k$ |
+| **Gamma** $(\alpha, \beta)$ *(shape $\alpha$, rate $\beta$)* | $\dfrac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x}$ | $\dfrac{\gamma(\alpha, \beta x)}{\Gamma(\alpha)}$ | $x \in (0, \infty)$ | $\dfrac{\alpha}{\beta}$ | $\dfrac{\alpha}{\beta^2}$ |
+| **Beta** $(\alpha, \beta)$ | $\dfrac{1}{\text{B}(\alpha, \beta)} x^{\alpha - 1} (1 - x)^{\beta - 1}$ | $I_x(\alpha, \beta) = \dfrac{\text{B}(x; \alpha, \beta)}{\text{B}(\alpha, \beta)}$ | $x \in (0, 1)$ | $\dfrac{\alpha}{\alpha + \beta}$ | $\dfrac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}$ |
+| **Weibull** $(k, \lambda)$ *(shape $k$, scale $\lambda$)* | $\dfrac{k}{\lambda}\left(\dfrac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}$ | $\begin{cases} 0, & x < 0 \\ 1 - e^{-(x/\lambda)^k}, & x \ge 0 \end{cases}$ | $x \in [0, \infty)$ | $\lambda \Gamma\left(1 + \dfrac{1}{k}\right)$ | $\lambda^2 \left[ \Gamma\left(1 + \dfrac{2}{k}\right) - \left(\Gamma\left(1 + \dfrac{1}{k}\right)\right)^2 \right]$ |

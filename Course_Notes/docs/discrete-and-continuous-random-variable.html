@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Discrete and Continuous Random Variable | Inferential Statistics Module</title>
+  <meta name="description" content="A 14-week course module for Inferential Statistics." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Discrete and Continuous Random Variable | Inferential Statistics Module" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Discrete and Continuous Random Variable | Inferential Statistics Module" />
+  
+  <meta name="twitter:description" content="A 14-week course module for Inferential Statistics." />
+  
+
+<meta name="author" content="NAT" />
+
+
+<meta name="date" content="2026-10-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chapter-2-random-variables-expectation-and-moments.html"/>
+<link rel="next" href="overview.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.12/grViz.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#course-learning-outcomes-clos"><i class="fa fa-check"></i><b>1.1</b> Course Learning Outcomes (CLOs)</a></li>
+<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#assessments"><i class="fa fa-check"></i><b>1.2</b> Assessments</a></li>
+<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#course-structure"><i class="fa fa-check"></i><b>1.3</b> Course Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Probability (Basic Concepts)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#basic-concepts-of-statistics-random-experiments"><i class="fa fa-check"></i><b>2.1</b> Basic Concepts of Statistics &amp; Random Experiments</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-of-a-set-membership"><i class="fa fa-check"></i><b>2.2</b> Definition of a Set &amp; Membership</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#specifying-sets"><i class="fa fa-check"></i><b>2.3</b> Specifying sets</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#standard-sets"><i class="fa fa-check"></i><b>2.4</b> Standard sets</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#definition-and-properties-of-probability"><i class="fa fa-check"></i><b>2.5</b> Definition and Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#examples-of-random-experiments"><i class="fa fa-check"></i><b>2.5.1</b> Examples of Random Experiments</a></li>
+<li class="chapter" data-level="2.5.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#applied-real-life-examples"><i class="fa fa-check"></i><b>2.5.2</b> Applied Real-Life Examples</a></li>
+<li class="chapter" data-level="2.5.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability"><i class="fa fa-check"></i><b>2.5.3</b> Properties of Probability</a></li>
+<li class="chapter" data-level="2.5.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-probability-examples"><i class="fa fa-check"></i><b>2.5.4</b> Properties of Probability: Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#review-of-set-algebra"><i class="fa fa-check"></i><b>2.6</b> Review of Set Algebra</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-set-operations"><i class="fa fa-check"></i><b>2.6.1</b> Properties of Set Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#additional-properties-of-probability"><i class="fa fa-check"></i><b>2.7</b> Additional Properties of Probability</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#axioms-of-probabilities"><i class="fa fa-check"></i><b>2.7.1</b> Axioms of probabilities</a></li>
+<li class="chapter" data-level="2.7.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example"><i class="fa fa-check"></i><b>2.7.2</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-example-1"><i class="fa fa-check"></i><b>2.7.3</b> Probability Calculation Example</a></li>
+<li class="chapter" data-level="2.7.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-calculation-in-class-exercise-a-practice-to-your-quiz"><i class="fa fa-check"></i><b>2.7.4</b> Probability Calculation: In-class exercise (A practice to your quiz)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#method-of-enumeration-multiplication-principle"><i class="fa fa-check"></i><b>2.8</b> Method of Enumeration &amp; Multiplication Principle</a></li>
+<li class="chapter" data-level="2.9" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-distribution"><i class="fa fa-check"></i><b>2.9</b> Probability Distribution</a></li>
+<li class="chapter" data-level="2.10" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutations-and-combinations-sampling"><i class="fa fa-check"></i><b>2.10</b> Permutations and Combinations (Sampling)</a></li>
+<li class="chapter" data-level="2.11" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#permutation-calculation-example"><i class="fa fa-check"></i><b>2.11</b> Permutation Calculation Example</a></li>
+<li class="chapter" data-level="2.12" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#intervals"><i class="fa fa-check"></i><b>2.12</b> Intervals</a></li>
+<li class="chapter" data-level="2.13" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability"><i class="fa fa-check"></i><b>2.13</b> Probability</a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event"><i class="fa fa-check"></i><b>2.13.1</b> Probability of an event</a></li>
+<li class="chapter" data-level="2.13.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-equally-likely-outcomes"><i class="fa fa-check"></i><b>2.13.2</b> Probability of an event: Equally likely outcomes</a></li>
+<li class="chapter" data-level="2.13.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-frequency-interpretation-of-probability"><i class="fa fa-check"></i><b>2.13.3</b> Probability of an event: Frequency interpretation of probability</a></li>
+<li class="chapter" data-level="2.13.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example"><i class="fa fa-check"></i><b>2.13.4</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-example-1"><i class="fa fa-check"></i><b>2.13.5</b> Probability of an event: Example</a></li>
+<li class="chapter" data-level="2.13.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures"><i class="fa fa-check"></i><b>2.13.6</b> Probability of an event: Classical vs Uniform Measures</a></li>
+<li class="chapter" data-level="2.13.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example"><i class="fa fa-check"></i><b>2.13.7</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+<li class="chapter" data-level="2.13.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-of-an-event-classical-vs-uniform-measures-example-1"><i class="fa fa-check"></i><b>2.13.8</b> Probability of an event: Classical vs Uniform Measures: Example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-vs.-dependent-events"><i class="fa fa-check"></i><b>2.14</b> Independent vs. Dependent Events</a>
+<ul>
+<li class="chapter" data-level="2.14.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example"><i class="fa fa-check"></i><b>2.14.1</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-example-1"><i class="fa fa-check"></i><b>2.14.2</b> Independent Events: Example</a></li>
+<li class="chapter" data-level="2.14.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise"><i class="fa fa-check"></i><b>2.14.3</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-exercise-1"><i class="fa fa-check"></i><b>2.14.4</b> Independent Events: Exercise</a></li>
+<li class="chapter" data-level="2.14.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#independent-events-vs.-dependent-events-examples"><i class="fa fa-check"></i><b>2.14.5</b> Independent Events vs. Dependent Events: Examples</a></li>
+<li class="chapter" data-level="2.14.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#probability-tree-diagram"><i class="fa fa-check"></i><b>2.14.6</b> Probability Tree Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>2.15</b> Conditional Probability</a>
+<ul>
+<li class="chapter" data-level="2.15.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#properties-of-independent-events"><i class="fa fa-check"></i><b>2.15.1</b> Properties of Independent Events</a></li>
+<li class="chapter" data-level="2.15.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example"><i class="fa fa-check"></i><b>2.15.2</b> Conditional Probability: Example</a></li>
+<li class="chapter" data-level="2.15.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-birthday-problem"><i class="fa fa-check"></i><b>2.15.3</b> The Birthday Problem</a></li>
+<li class="chapter" data-level="2.15.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#interactive-game-the-impossible-bet"><i class="fa fa-check"></i><b>2.15.4</b> Interactive Game: The Impossible Bet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.16" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-example-1"><i class="fa fa-check"></i><b>2.16</b> Conditional Probability: Example</a>
+<ul>
+<li class="chapter" data-level="2.16.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise"><i class="fa fa-check"></i><b>2.16.1</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#conditional-probability-exercise-1"><i class="fa fa-check"></i><b>2.16.2</b> Conditional Probability: Exercise</a></li>
+<li class="chapter" data-level="2.16.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem"><i class="fa fa-check"></i><b>2.16.3</b> Bayes’ Theorem</a></li>
+<li class="chapter" data-level="2.16.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-proof"><i class="fa fa-check"></i><b>2.16.4</b> Bayes’ Theorem: Proof</a></li>
+<li class="chapter" data-level="2.16.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-rule-example-1"><i class="fa fa-check"></i><b>2.16.5</b> Bayes Rule: Example 1</a></li>
+<li class="chapter" data-level="2.16.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-rule-example-2-heart-disease-medical-screening"><i class="fa fa-check"></i><b>2.16.6</b> Bayes Rule: Example 2 (Heart Disease (Medical Screening))</a></li>
+<li class="chapter" data-level="2.16.7" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example"><i class="fa fa-check"></i><b>2.16.7</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.8" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-example-1"><i class="fa fa-check"></i><b>2.16.8</b> Bayes’ Theorem Application: Example</a></li>
+<li class="chapter" data-level="2.16.9" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#bayes-theorem-application-exercise"><i class="fa fa-check"></i><b>2.16.9</b> Bayes’ Theorem Application: Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.17" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#tutorials"><i class="fa fa-check"></i><b>2.17</b> Tutorials</a></li>
+<li class="chapter" data-level="2.18" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#discussion-on-monty-hall-problem"><i class="fa fa-check"></i><b>2.18</b> Discussion on Monty Hall Problem</a>
+<ul>
+<li class="chapter" data-level="2.18.1" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-1990-math-meltdown"><i class="fa fa-check"></i><b>2.18.1</b> 🤯 The 1990 Math Meltdown</a></li>
+<li class="chapter" data-level="2.18.2" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#the-monty-hall-problem-to-switch-or-not-to-switch"><i class="fa fa-check"></i><b>2.18.2</b> 🐐 The Monty Hall Problem: To Switch or Not to Switch?</a></li>
+<li class="chapter" data-level="2.18.3" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#breaking-down-the-probabilities"><i class="fa fa-check"></i><b>2.18.3</b> 📊 Breaking Down the Probabilities</a></li>
+<li class="chapter" data-level="2.18.4" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#have-a-go-at-the-game"><i class="fa fa-check"></i><b>2.18.4</b> Have a go at the Game</a></li>
+<li class="chapter" data-level="2.18.5" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#using-tree-diagram"><i class="fa fa-check"></i><b>2.18.5</b> Using 🌳 Tree Diagram</a></li>
+<li class="chapter" data-level="2.18.6" data-path="probability-basic-concepts.html"><a href="probability-basic-concepts.html#prove-it-in-r"><i class="fa fa-check"></i><b>2.18.6</b> 💻 Prove it in R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html"><i class="fa fa-check"></i><b>3</b> Chapter 2: Random Variables, Expectation, and Moments</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#random-variables"><i class="fa fa-check"></i><b>3.1</b> Random Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#rv-and-distribution-function"><i class="fa fa-check"></i><b>3.2</b> RV and Distribution Function</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#discrete-random-variable"><i class="fa fa-check"></i><b>3.3</b> Discrete Random Variable</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#continuous-random-variable"><i class="fa fa-check"></i><b>3.4</b> Continuous Random Variable</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-continuous-random-variable"><i class="fa fa-check"></i><b>3.4.1</b> Properties of continuous Random Variable</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#cumulative-distributive-function-cdf"><i class="fa fa-check"></i><b>3.4.2</b> Cumulative Distributive Function (CDF)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#relationship-between-cdf-fx-and-p.m.f-or-p.d.f"><i class="fa fa-check"></i><b>3.4.3</b> Relationship between CDF, <span class="math inline">\(F(x)\)</span> and p.m.f or p.d.f</a></li>
+<li class="chapter" data-level="3.4.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-cdf"><i class="fa fa-check"></i><b>3.4.4</b> Properties of CDF</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-and-expected-function"><i class="fa fa-check"></i><b>3.5</b> Expected Values and Expected Function</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expected-values-properties"><i class="fa fa-check"></i><b>3.5.1</b> Expected Values: Properties</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#variance-and-standard-deviation"><i class="fa fa-check"></i><b>3.6</b> Variance and standard deviation</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#property-of-variance"><i class="fa fa-check"></i><b>3.6.1</b> Property of Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#functions-of-random-variable"><i class="fa fa-check"></i><b>3.7</b> Functions of Random Variable</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#functions-of-random-variable-expected-values"><i class="fa fa-check"></i><b>3.7.1</b> Functions of Random Variable: Expected Values</a></li>
+<li class="chapter" data-level="3.7.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#functions-of-random-variable-expected-values-properties"><i class="fa fa-check"></i><b>3.7.2</b> Functions of Random Variable: Expected Values Properties</a></li>
+<li class="chapter" data-level="3.7.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-of-function"><i class="fa fa-check"></i><b>3.7.3</b> Expectation of function</a></li>
+<li class="chapter" data-level="3.7.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#expectation-of-function-properties"><i class="fa fa-check"></i><b>3.7.4</b> Expectation of function Properties</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#moments-and-moment-generating-function"><i class="fa fa-check"></i><b>3.8</b> Moments and Moment generating function</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#moments"><i class="fa fa-check"></i><b>3.8.1</b> Moments</a></li>
+<li class="chapter" data-level="3.8.2" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#central-moments"><i class="fa fa-check"></i><b>3.8.2</b> Central Moments</a></li>
+<li class="chapter" data-level="3.8.3" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#moment-generating-function-mgf"><i class="fa fa-check"></i><b>3.8.3</b> Moment Generating Function (MGF)</a></li>
+<li class="chapter" data-level="3.8.4" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#finding-probability-distribution-from-mgf"><i class="fa fa-check"></i><b>3.8.4</b> Finding probability distribution from mgf</a></li>
+<li class="chapter" data-level="3.8.5" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#properties-of-mgf"><i class="fa fa-check"></i><b>3.8.5</b> Properties of mgf</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="chapter-2-random-variables-expectation-and-moments.html"><a href="chapter-2-random-variables-expectation-and-moments.html#tutorials-1"><i class="fa fa-check"></i><b>3.9</b> Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html"><i class="fa fa-check"></i><b>4</b> Discrete and Continuous Random Variable</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#discrete-random-variables"><i class="fa fa-check"></i><b>4.1</b> Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#uniform-discrete-distribution"><i class="fa fa-check"></i><b>4.1.1</b> Uniform (discrete) Distribution</a></li>
+<li class="chapter" data-level="4.1.2" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.1.2</b> Bernoulli Distribution</a></li>
+<li class="chapter" data-level="4.1.3" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#binomial-distribution"><i class="fa fa-check"></i><b>4.1.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="4.1.4" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#geometric-distribution"><i class="fa fa-check"></i><b>4.1.4</b> Geometric Distribution</a></li>
+<li class="chapter" data-level="4.1.5" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>4.1.5</b> Negative Binomial Distribution</a></li>
+<li class="chapter" data-level="4.1.6" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#hypergeometric-distribution"><i class="fa fa-check"></i><b>4.1.6</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="4.1.7" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#poisson-distribution"><i class="fa fa-check"></i><b>4.1.7</b> Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#continuous-distributions"><i class="fa fa-check"></i><b>4.2</b> Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#continuous-uniform-distribution-uab"><i class="fa fa-check"></i><b>4.2.1</b> Continuous Uniform Distribution <span class="math inline">\(U(a,b)\)</span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#exponential-distribution-exptheta"><i class="fa fa-check"></i><b>4.2.2</b> Exponential Distribution <span class="math inline">\(Exp(\theta)\)</span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#gamma-distribution-gammaalpha-theta"><i class="fa fa-check"></i><b>4.2.3</b> Gamma Distribution <span class="math inline">\(Gamma(\alpha, \theta)\)</span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#chi-squared-distribution-chi2r"><i class="fa fa-check"></i><b>4.2.4</b> Chi-Squared Distribution <span class="math inline">\(\chi^2(r)\)</span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#standard-normal-distribution"><i class="fa fa-check"></i><b>4.2.5</b> Standard Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="discrete-and-continuous-random-variable.html"><a href="discrete-and-continuous-random-variable.html#tutorials-2"><i class="fa fa-check"></i><b>4.3</b> Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>5</b> Overview</a></li>
+<li class="chapter" data-level="6" data-path="random-walk-for-discrete-random-variable.html"><a href="random-walk-for-discrete-random-variable.html"><i class="fa fa-check"></i><b>6</b> Random Walk for Discrete Random Variable</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="random-walk-for-discrete-random-variable.html"><a href="random-walk-for-discrete-random-variable.html#application-of-random-walk"><i class="fa fa-check"></i><b>6.0.1</b> Application of Random Walk</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inferential Statistics Module</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="discrete-and-continuous-random-variable" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Discrete and Continuous Random Variable<a href="discrete-and-continuous-random-variable.html#discrete-and-continuous-random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Random variables can be categorized into discrete, continuous and mixed random variables. We are focussing on the first two. This chapter will explore the parametric distributions.</p>
+<div id="discrete-random-variables" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Discrete Random Variables<a href="discrete-and-continuous-random-variable.html#discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Uniform (discrete) Distribution</p></li>
+<li><p>Bernoulli Distribution</p></li>
+<li><p>Binomial Distribution</p></li>
+<li><p>Poisson Distribution</p></li>
+</ul>
+<div id="uniform-discrete-distribution" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Uniform (discrete) Distribution<a href="discrete-and-continuous-random-variable.html#uniform-discrete-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unif-distr-def" class="definition"><strong>Definition 4.1  (Uniform Distribution) </strong></span>A random variable <span class="math inline">\(X\)</span> follows the discrete uniform distribution on the interval <span class="math inline">\([a, a+1, \dots, b]\)</span>, if it may attain each of these values with equal probability</p>
+<p><span class="math display">\[f(x) = \frac{1}{N}$ for $x=1,2,..,N\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the parameterss</p>
+</div>
+<div id="properties-of-uniform-distribution" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Properties of Uniform Distribution<a href="discrete-and-continuous-random-variable.html#properties-of-uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Note: You may need to show how to obtain the mean and variance. Refer to the previous chapter how to derive the mean and variance of discrete distribution.</p>
+<ul>
+<li><p>Mean: <span class="math inline">\(\frac{N+1}{2}\)</span></p></li>
+<li><p>Variance: <span class="math inline">\(\frac{N^2-1}{12}\)</span></p></li>
+<li><p>MGF: <span class="math inline">\(M_X(t) = \sum_{x=1}^{N} e^{tx} \frac{1}{N}\)</span></p></li>
+</ul>
+<div class="example">
+<p><span id="exm:unif-distr-example-1" class="example"><strong>Example 4.1  </strong></span>Let <span class="math inline">\(x\)</span> equal the number of spots on the side facing upward after a six-sided die is cast at random. If everything is fair about this experiment, a reasonable probability model is given by the p.m.f</p>
+<p>Find the mean and variance of the random variable <span class="math inline">\(X\)</span>.</p>
+<p>** Solution**</p>
+<p>Since <span class="math inline">\(X\)</span> follow the discrete uniform distribution with parameter <span class="math inline">\(N=6\)</span>, then;</p>
+<p><span class="math display">\[\begin{align*}
+E[X] =&amp; \frac{N + 1}{2} = \frac{6 + 1}{2} = 3.5 \\
+Var[X] =&amp; \frac{N^2 - 1}{12} = \frac{6^2 - 1}{12} = \frac{35}{12}
+\end{align*}\]</span></p>
+</div>
+</div>
+<div id="cdf-uniform-uniform-distribution" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> CDF Uniform Uniform Distribution<a href="discrete-and-continuous-random-variable.html#cdf-uniform-uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Theorem: A random variable <span class="math inline">\(X\)</span> follows the discrete uniform distribution on the interval <span class="math inline">\([a,a+1,…,b]\)</span>, if it may attain each of these values with equal probability. We have then ;</p>
+<p><span class="math display">\[\begin{align*}
+P(X=x) = \begin{cases} \frac{1}{n} &amp; \text{for } a \le x \le b \\ 0 &amp; \text{otherwise} \end{cases}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+F(x) = \begin{cases} 0 &amp; \text{for } x &lt; a \\ \frac{x-a+1}{n} &amp; \text{for } a \le x \le b \\ 1 &amp; \text{for } x &gt; b \end{cases}
+\end{align*}\]</span></p>
+<p>Where <span class="math inline">\(n=b-a+1\)</span> denotes the number of values that <span class="math inline">\(X\)</span> may take</p>
+</div>
+</div>
+<div id="bernoulli-distribution" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Bernoulli Distribution<a href="discrete-and-continuous-random-variable.html#bernoulli-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Bernoulli experiment is a random experiment with two mutually exclusive and exhaustive outcomes, for instance, success (1) and failure (0).</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(f(x,p) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = p\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = pq\)</span> (where <span class="math inline">\(q = 1-p\)</span>)</li>
+<li>**MGF^{*}**: <span class="math inline">\(M_X(t) = pe^t + q\)</span></li>
+</ul>
+</div>
+<div id="binomial-distribution" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Binomial Distribution<a href="discrete-and-continuous-random-variable.html#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A sequence of <span class="math inline">\(n\)</span> Bernoulli trials such that when a Bernoulli experiment is performed several independent times and the probability of success—say, <span class="math inline">\(p\)</span>—remains the same from trial to trial.</p>
+<p>The number of ways of selecting the <span class="math inline">\(r\)</span> positions for the <span class="math inline">\(x\)</span> successes in <span class="math inline">\(n\)</span> trials is</p>
+<p><span class="math display">\[\binom{n}{x} = \frac{n!}{x!(n-x)!}\]</span>
+Since the probabilities of success and failure on each trial are <span class="math inline">\(p\)</span> and <span class="math inline">\((1-p)\)</span> respectively, the probability of each of these ways is</p>
+<p><span class="math display">\[p^{x}(1 - p)^{1 = x}\]</span>
+Then, for <span class="math inline">\(f(x) \ge 0\)</span>,</p>
+<p><span class="math display">\[\sum f_X(x) = \sum_{x=0}^{n} \binom{n}{x} p^x (q)^{n-x} = ((1-p) + p)^n = 1\]</span></p>
+<div class="definition">
+<p><span id="def:binom-distr-def" class="definition"><strong>Definition 4.2  (Binomial Distribution) </strong></span>A random variable <span class="math inline">\(X\)</span> is defined to have a binomial distribution if the pmf of <span class="math inline">\(X\)</span> is given by</p>
+f(x; n, p) =
+<span class="math display">\[\begin{cases}
+\binom{n}{x} p^x (1-p)^{n-x} &amp; \text{for } x = 0, 1, \dots, n \\
+0 &amp; \text{otherwise}
+\end{cases}\]</span>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-1" class="proof"><em>Proof</em> (Binomial Distribution Properties). </span>Let <span class="math inline">\(X\)</span> be a random variable with binomial distribution that has parameter <span class="math inline">\(p\)</span> and <span class="math inline">\(n\)</span>. <strong>Derive</strong> the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = np\)</span></p></li>
+<li><p><span class="math inline">\(Var[X] = np(1 -  p)\)</span></p></li>
+</ol>
+<p><strong>Proof</strong></p>
+<ol style="list-style-type: decimal">
+<li>Deriving the means</li>
+</ol>
+<p><span class="math display">\[E[X] = \sum_{x=0}^{n} x \cdot P(X=x)\]</span></p>
+<p>Substitute the probability mass function (PMF) of the binomial distribution, <span class="math inline">\(P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}\)</span>:</p>
+<p><span class="math display">\[E[X] = \sum_{x=0}^{n} x \binom{n}{x} p^x (1-p)^{n-x}\]</span></p>
+<p>Expand the binomial coefficient <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span>:<span class="math display">\[E[X] = \sum_{x=0}^{n} x \frac{n!}{x!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>Since the first term of the sum (when <span class="math inline">\(x=0\)</span>) is <span class="math inline">\(0\)</span>, we can start the summation at <span class="math inline">\(x=1\)</span>:<span class="math display">\[E[X] = \sum_{x=1}^{n} x \frac{n!}{x(x-1)!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>Cancel the <span class="math inline">\(x\)</span> in the numerator and denominator:</p>
+<p><span class="math display">\[E[X] = \sum_{x=1}^{n} \frac{n!}{(x-1)!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>To reshape this into another binomial expansion, factor out one <span class="math inline">\(n\)</span> and one <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[E[X] = np \sum_{x=1}^{n} \frac{(n-1)!}{(x-1)!(n-x)!} p^{x-1} (1-p)^{n-x}\]</span></p>
+<p>Now, use a change of variables. Let <span class="math inline">\(y = x - 1\)</span>.As <span class="math inline">\(x\)</span> goes from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, <span class="math inline">\(y\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(n-1\)</span>.The exponent <span class="math inline">\((n-x)\)</span> becomes <span class="math inline">\((n - 1 - y)\)</span>.Substitute <span class="math inline">\(y\)</span> into the summation:</p>
+<p><span class="math display">\[E[X] = np \sum_{y=0}^{n-1} \frac{(n-1)!}{y!(n-1-y)!} p^y (1-p)^{n-1-y}\]</span></p>
+<p>Rewrite the fractional term as a binomial coefficient:<span class="math display">\[E[X] = np \sum_{y=0}^{n-1} \binom{n-1}{y} p^y (1-p)^{n-1-y}\]</span></p>
+<p>According to the Binomial Theorem, <span class="math inline">\(\sum_{k=0}^{m} \binom{m}{k} a^k b^{m-k} = (a+b)^m\)</span>.</p>
+<p>Applying this to our sum where <span class="math inline">\(m = n-1\)</span>, <span class="math inline">\(a = p\)</span>, and <span class="math inline">\(b = 1-p\)</span>:</p>
+<p><span class="math display">\[E[X] = np (p + (1-p))^{n-1}\]</span></p>
+</div>
+<div id="example-binomial-distribution" class="section level4 hasAnchor" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> Example: Binomial Distribution<a href="discrete-and-continuous-random-variable.html#example-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Suppose that the probability of germination of a durian seed is <span class="math inline">\(0.3\)</span> and the germination of a seed is considered a success. If we plant 10 durian seeds and germination of one seed is independent of the germination of another seed, this would correspond to 10 Bernoulli trials with <span class="math inline">\(p = 0.2\)</span>.</li>
+</ol>
+<div class="definition">
+<p><span id="def:bin-distr-def" class="definition"><strong>Definition 4.3  (Binomial Distribution) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable associated that follows a Bernoulli trial with two outcomes, success and failure. Then, <span class="math inline">\(N\)</span> independent trials follows a Binomial Distribution with PMF</p>
+<p><span class="math display">\[f(x;n,p) = \binom{n}{x} p^x (1-p)^{n-x}$ for $x=0, 1, \dots, n\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span>: Number of trials</p></li>
+<li><p><span class="math inline">\(p\)</span>: probability of success</p></li>
+</ul>
+</div>
+<p>The random variable <span class="math inline">\(X\)</span> equals the number of observed successes in <span class="math inline">\(n\)</span> independent Bernoulli trials.</p>
+<div class="exercise">
+<p><span id="exr:bin-distr-exer1" class="exercise"><strong>Exercise 4.1  (Binomial Distribution Exercise 1) </strong></span>Let <span class="math inline">\(X\)</span> be the number of heads(success) in $n=7 <span class="math inline">\(independent tosses of unbiased coin. Then the p.m.f of\)</span> X$ is</p>
+<p><span class="math display">\[
+f(x) = \binom{7}{x} \left(\frac{1}{2}\right)^x \left(\frac{1}{2}\right)^{7-x} \quad where \ x = 0,1,2,3,4,5,6,7
+\]</span></p>
+<p>Find mean, variance, and mgf of <span class="math inline">\(X\)</span>. Then, find the probability that</p>
+<ul>
+<li><p>at most 2 heads appear</p></li>
+<li><p>exactly 5 heads appear.</p></li>
+</ul>
+<p>Solution: since <span class="math inline">\(X\)</span> has similar distribution with binomial distribution of parameter <span class="math inline">\(n=7\)</span> and <span class="math inline">\(p=1/2\)</span>, then we can conclude that,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Mean} &amp;= np \\
+&amp;= 7\left(\frac{1}{2}\right) \\
+&amp;= \frac{7}{2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Var(X)} &amp;= npq \\
+&amp;= 7\left(\frac{1}{2}\right)\left(\frac{1}{2}\right) \\
+&amp;= \frac{7}{4}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{M}_X\textbf{(t)} &amp;= (pe^t + q)^n \\
+&amp;= \left(\frac{1}{2}e^t + \frac{1}{2}\right)^7
+\end{aligned}
+\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:bin-distr-exer2" class="exercise"><strong>Exercise 4.2  (Binomial Distribution Exercise 2) </strong></span>If X is <span class="math inline">\(bin\sim(n, \frac{1}{3})\)</span>, then <span class="math inline">\(P(X \ge 1) = 1 - P(X = 0) = 1 - (\frac{2}{3})^n\)</span>. Suppose that we wanted the probability of at least 1 success, <span class="math inline">\(P(X \ge 1) &gt; 0.8\)</span>, then find the smallest value of number of trial, <span class="math inline">\(n\)</span> that satisfy that constraint.[cite: 7]</p>
+<p><strong>Solution:</strong></p>
+<p>We need to find the smallest integer <span class="math inline">\(n\)</span> that satisfies the given constraint:
+<span class="math display">\[1 - \left(\frac{2}{3}\right)^n &gt; 0.8\]</span></p>
+<p>First, isolate the term with <span class="math inline">\(n\)</span>:
+<span class="math display">\[1 - 0.8 &gt; \left(\frac{2}{3}\right)^n\]</span>
+<span class="math display">\[0.2 &gt; \left(\frac{2}{3}\right)^n\]</span></p>
+<p>Next, take the natural logarithm of both sides:
+<span class="math display">\[\ln(0.2) &gt; \ln\left(\left(\frac{2}{3}\right)^n\right)\]</span>
+<span class="math display">\[\ln(0.2) &gt; n \ln\left(\frac{2}{3}\right)\]</span></p>
+<p>Now, divide by <span class="math inline">\(\ln\left(\frac{2}{3}\right)\)</span>. Because <span class="math inline">\(\ln\left(\frac{2}{3}\right)\)</span> is a negative number, dividing by it will flip the inequality sign:
+<span class="math display">\[n &gt; \frac{\ln(0.2)}{\ln(2/3)}\]</span></p>
+<p>Calculate the numerical value:
+<span class="math display">\[n &gt; \frac{-1.6094}{-0.4055}\]</span>
+<span class="math display">\[n &gt; 3.969\]</span></p>
+<p>Since the number of trials <span class="math inline">\(n\)</span> must be an integer, we round up to the next whole number.</p>
+<p>The smallest value of <span class="math inline">\(n\)</span> that satisfies the constraint is <strong>4</strong>.</p>
+</div>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(f(x;n,p) = \binom{n}{x} p^x (1-p)^{n-x}\)</span> for <span class="math inline">\(x=0, 1, \dots, n\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = np\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = npq\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = (q + pe^t)^n\)</span></li>
+</ul>
+</div>
+</div>
+<div id="geometric-distribution" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Geometric Distribution<a href="discrete-and-continuous-random-variable.html#geometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> equal the number of trials until the <strong>first success</strong> is obtained in a sequence of independent Bernoulli trials.</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = (1-p)^{x-1}p\)</span> for <span class="math inline">\(x=1, 2, 3, \dots\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{1}{p}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{q}{p^2}\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \frac{pe^t}{1 - qe^t}\)</span></li>
+</ul>
+</div>
+<div id="negative-binomial-distribution" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Negative Binomial Distribution<a href="discrete-and-continuous-random-variable.html#negative-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> be the number of trials needed to achieve the <span class="math inline">\(r\)</span>-th number of success.</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}\)</span> for <span class="math inline">\(x=r, r+1, \dots\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{r}{p}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{rq}{p^2}\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r\)</span></li>
+</ul>
+</div>
+<div id="hypergeometric-distribution" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Hypergeometric Distribution<a href="discrete-and-continuous-random-variable.html#hypergeometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Used for sampling <span class="math inline">\(n\)</span> individuals without replacement from a finite population of size <span class="math inline">\(N\)</span> containing <span class="math inline">\(M\)</span> successes.</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\)</span> for <span class="math inline">\(\max(0, n - N + M) \le x \le \min(n, M)\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = n \left(\frac{M}{N}\right)\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \left(\frac{N-n}{N-1}\right) n \left(\frac{M}{N}\right) \left(1-\frac{M}{N}\right)\)</span></li>
+</ul>
+</div>
+<div id="poisson-distribution" class="section level3 hasAnchor" number="4.1.7">
+<h3><span class="header-section-number">4.1.7</span> Poisson Distribution<a href="discrete-and-continuous-random-variable.html#poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Describes the number of occurrences of an event in a given continuous interval with an average rate <span class="math inline">\(\lambda &gt; 0\)</span>.</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}\)</span> for <span class="math inline">\(x = 0, 1, 2, \dots\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \lambda\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \lambda\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = e^{\lambda(e^t-1)}\)</span></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="continuous-distributions" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Continuous Distributions<a href="discrete-and-continuous-random-variable.html#continuous-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As in the case of discrete variables, continuous random variables may be described by known probability density functions (PDFs).</p>
+<div id="continuous-uniform-distribution-uab" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Continuous Uniform Distribution <span class="math inline">\(U(a,b)\)</span><a href="discrete-and-continuous-random-variable.html#continuous-uniform-distribution-uab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A continuous random variable <span class="math inline">\(X\)</span> has a Uniform distribution if the probability of any possible value occurring is the same over the interval <span class="math inline">\([a, b]\)</span>.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{b-a}\)</span> for <span class="math inline">\(a \le x \le b\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{a+b}{2}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{(b-a)^2}{12}\)</span></li>
+</ul>
+</div>
+<div id="exponential-distribution-exptheta" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Exponential Distribution <span class="math inline">\(Exp(\theta)\)</span><a href="discrete-and-continuous-random-variable.html#exponential-distribution-exptheta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Normally associated with “waiting-time” between events. It is memoryless.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\theta} e^{-x/\theta}\)</span> for <span class="math inline">\(x &gt; 0\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \theta\)</span> (Note: <span class="math inline">\(\theta = 1/\lambda\)</span>)</li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \theta^2\)</span></li>
+</ul>
+</div>
+<div id="gamma-distribution-gammaalpha-theta" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Gamma Distribution <span class="math inline">\(Gamma(\alpha, \theta)\)</span><a href="discrete-and-continuous-random-variable.html#gamma-distribution-gammaalpha-theta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Defined as the waiting time for the <span class="math inline">\(\alpha\)</span>-th occurrence. It describes phenomena that are skewed to the right.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\Gamma(\alpha)\theta^\alpha} x^{\alpha-1} e^{-x/\theta}\)</span> for <span class="math inline">\(x \ge 0\)</span></li>
+<li><strong>Parameters</strong>: <span class="math inline">\(\theta\)</span> (scale) and <span class="math inline">\(\alpha\)</span> (shape).</li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \alpha\theta\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \alpha\theta^2\)</span></li>
+</ul>
+</div>
+<div id="chi-squared-distribution-chi2r" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Chi-Squared Distribution <span class="math inline">\(\chi^2(r)\)</span><a href="discrete-and-continuous-random-variable.html#chi-squared-distribution-chi2r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A special case of a Gamma distribution where <span class="math inline">\(\alpha = r/2\)</span> and <span class="math inline">\(\theta = 2\)</span>. It is mainly used in statistical significance tests (like goodness of fit).</p>
+<ul>
+<li><strong>Parameter</strong>: <span class="math inline">\(r\)</span>, a positive integer specifying the degrees of freedom.</li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = r\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = 2r\)</span></li>
+</ul>
+<div id="normal-distribution-nmu-sigma2" class="section level4 hasAnchor" number="4.2.4.1">
+<h4><span class="header-section-number">4.2.4.1</span> Normal Distribution <span class="math inline">\(N(\mu, \sigma^2)\)</span><a href="discrete-and-continuous-random-variable.html#normal-distribution-nmu-sigma2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The most widely used model, giving a symmetric bell-shaped curve.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span> for <span class="math inline">\(-\infty \le x \le \infty\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}\)</span></li>
+</ul>
+</div>
+</div>
+<div id="standard-normal-distribution" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Standard Normal Distribution<a href="discrete-and-continuous-random-variable.html#standard-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To compute probabilities for the normal distribution, we standardize <span class="math inline">\(X\)</span> to <span class="math inline">\(Z\)</span>:
+<span class="math display">\[Z = \frac{X-\mu}{\sigma} \sim N(0,1)\]</span></p>
+<p>To find the probability <span class="math inline">\(P(a \le X \le b)\)</span>:
+<span class="math display">\[P(a \le X \le b) = P\left(\frac{a-\mu}{\sigma} \le Z \le \frac{b-\mu}{\sigma}\right)\]</span></p>
+</div>
+</div>
+<div id="tutorials-2" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Tutorials<a href="discrete-and-continuous-random-variable.html#tutorials-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter-2-random-variables-expectation-and-moments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Inferential_Statistics.pdf", "Inferential_Statistics.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

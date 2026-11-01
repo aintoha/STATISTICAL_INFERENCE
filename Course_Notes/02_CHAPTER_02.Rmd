@@ -278,13 +278,62 @@ b. Hence, $P(X>1) = \frac{3}{8} \int_{1}^{2} (4x - 2x^2)dx = \frac{1}{2}$.
 
 ```{exercise, rv-exercise-6}
 The amount of time in hours that a computer functions before breaking down is a continuous random variable with probability density function given by 
+
 $$f(x) = \begin{cases} \lambda e^{-x/100} & x \ge 0 \\ 0 & x < 0 \end{cases}$$
 
 What is the probability that:
 
 a. A computer will function between 50 and 150 hours before breaking down?
 
+
 b. It will function for fewer than 100 hours?
+
+**Solution**
+
+**Solution**
+
+Determine the value of $\lambda$
+For $f(x)$ to be a valid probability density function, the total area under the curve must equal 1:
+$$\int_{0}^{\infty} \lambda e^{-x/100} dx = 1$$
+
+Integrate using substitution (let $u = -x/100$, $du = -1/100 dx$):
+\begin{align}
+\lambda \left[ -100 e^{-x/100} \right]_{0}^{\infty} &= 1 \\
+-100\lambda \left( \lim_{x \to \infty} e^{-x/100} - e^{0} \right) &= 1 \\
+-100\lambda (0 - 1) &= 1\\
+100\lambda &= 1 \implies \lambda = \frac{1}{100}
+\end{align}
+
+The complete PDF is:
+
+$$f(x) = \begin{cases} \frac{1}{100} e^{-x/100} & x \ge 0 \\ 0 & x < 0 \end{cases}$$
+
+This is an Exponential distribution with a rate parameter of $1/100$.
+
+The CDF, $F(x) = P(X \le x)$, makes calculating probabilities easier:
+\begin{align}
+F(x) &= \int_{0}^{x} \frac{1}{100} e^{-t/100} dt \\
+F(x) &= \left[ -e^{-t/100} \right]_{0}^{x} = -e^{-x/100} - (-1) \\
+F(x) &= 1 - e^{-x/100} \quad \text{for } x \ge 0 
+\end{align}
+
+a. Probability a computer functions between 50 and 150 hours
+
+\begin{align}
+P(50 < X < 150) &= F(150) - F(50) \\ 
+P(50 < X < 150) &= \left(1 - e^{-150/100}\right) - \left(1 - e^{-50/100}\right) \\
+P(50 < X < 150) &= e^{-0.5} - e^{-1.5} \\
+P(50 < X < 150) & \approx 0.6065 - 0.2231 = 0.3834
+\end{align}
+
+b. Probability a computer functions for fewer than 100 hours
+
+\begin{align}
+P(X < 100) &= F(100) \\
+P(X < 100) &= 1 - e^{-100/100} \\
+P(X < 100) &= 1 - e^{-1} \\
+P(X < 100) \approx 1 - 0.3679 = 0.6321
+\end{align}
 ```
 
 ### Cumulative Distributive Function (CDF)
@@ -595,6 +644,8 @@ f(x) =
 **Calculate** the expected value of the distribution of $X$. 
 
 **Solution**
+
+
 
 \begin{align}
 E[X]  &= \int_{0}^{1} x f(x) \\ 

@@ -1,0 +1,64 @@
+---
+title: "Tutorial 5: Probability Distributions"
+author: "NAT"
+date: today
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+**Uniform distribution**
+
+1. A data scientist analyzes GPS telemetry to model the arrival times of supply trucks at a distribution center. The data shows that after passing a specific highway checkpoint, a truck's remaining travel time is continuously and uniformly distributed between 30 and 50 minutes. The operational research (OR) team uses this model to optimize the scheduling of the forklift unloading crew.
+
+a.  What is the probability that the truck arrives exactly 40.000 minutes after passing the checkpoint?Solution: Because travel time is a continuous random variable, the probability of any single, exact point in time is zero. $P(X = 40) = 0$. The data scientist must evaluate ranges (intervals) rather than discrete points.
+
+b. What is the expected travel time the OR team should use as a baseline for the daily schedule?
+
+c. The forklift crew is scheduled to take their mandatory break 45 minutes after the truck passes the checkpoint. What is the probability the truck arrives after the break starts (taking more than 45 minutes)?
+
+2. The time it takes a student to comprehend and formulate a response to a complex exam question is continuously and uniformly distributed between 2 and 8 minutes. However, the testing portal enforces a strict 5-minute time limit per question. If a student's required processing time exceeds 5 minutes, the system times out, resulting in no response submitted and an inability to answer the question.
+
+    What is the probability that a randomly selected student is timed out and fails to give a response?
+
+3. A cloud server's data retrieval time is uniformly distributed. The absolute minimum retrieval time is known to be $a = 2$ milliseconds. If the probability that a retrieval takes more than 5 milliseconds is 0.25, what is the maximum possible retrieval time ($b$)?
+
+4. A bakery's daily demand for fresh flour is uniformly distributed between 200 kg and 600 kg. Calculate the expected daily demand (mean) and the variance of the demand to help the manager plan their inventory.
+
+5. An automated sorting machine processes packages with a processing time that is uniformly distributed. The expected (mean) processing time is 10 seconds. The probability that a package is processed in less than 8 seconds is 0.3. Find the minimum ($a$) and maximum ($b$) processing times.
+
+ **Exponential Distribution**
+
+6. Let $X$ be a continuous random variable having an exponential distribution with parameter $\theta$, denoted as $X \sim \text{Exp}(\theta)$, where the probability density function is given by:
+   $$f(x) = \frac{1}{\theta} e^{-x/\theta}, \quad x \ge 0$$
+Suppose $\theta = 5$ (or $\lambda = 0.2$).   
+
+a. Derive the cumulative distribution function $F(x) = P(X \le x)$ by integration.   
+
+b. Calculate the cumulative probability $P(X \le 4)$.
+
+c. Calculate the tail probability $P(X > 4)$.
+
+
+7. The time (in hours) required to repair a machine is an exponentially distributed random variable with parameter $\lambda = \frac{1}{3}$. What is:
+
+a. the probability that a repair time exceeds 3 hours? 
+
+b. the conditional probability that a repair takes at least 11 hours, given that its duration exceeds 8 hours?
+
+8. The length of time (in minutes) that a customer spends browsing a telehealth consultation app is exponentially distributed with a mean duration of 10 minutes ($\theta = 10$). What is the probability that a randomly chosen customer spends more than 15 minutes on the app?
+
+9. The time between patient arrivals at an emergency clinic follows an exponential distribution with rate $\lambda = 0.5$ arrivals per hour. What is the probability that the next arrival occurs between 1 and 3 hours from now?
+
+10. A medical device manufacturer tests a portable heart monitor sensor. The sensor failure time $T$ (in years) follows an exponential distribution. Field test data indicates that exactly 20% of the sensors fail before 2 years ($P(T \le 2) = 0.20$). Determine the mean lifespan ($\theta$) of the sensor.
+
+11. A team is modeling time-to-event (survival) data for patients discharged following a specific cardiac surgery. In baseline survival analysis, the time $T$ (in months) until a patient experiences an unplanned hospital readmission is modeled as an exponential random variable with constant hazard rate $\lambda = 0.04$ per month (mean time between events $\theta = \frac{1}{\lambda} = 25$ months).   The team needs to estimate the survival function, evaluate readmission risk over specific clinical timeframes, and leverage the memoryless property for risk stratification.  
+
+a. What is the probability that a patient remains complication-free (survives without readmission) for more than 12 months post-discharge?
+
+b. A patient has successfully reached their 18-month check-up without any readmission. What is the probability that they will survive without readmission for at least another 6 months (i.e., reaching month 24)? (this is conditional probability)
+
+c. What is the probability that a high-risk cohort patient requires readmission between months 3 and 9?

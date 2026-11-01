@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Discrete and Continuous Random Variable | 03_CHAPTER_03.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Discrete and Continuous Random Variable | 03_CHAPTER_03.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Discrete and Continuous Random Variable | 03_CHAPTER_03.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#discrete-and-continuous-random-variable"><i class="fa fa-check"></i><b>1</b> Discrete and Continuous Random Variable</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#discrete-random-variables"><i class="fa fa-check"></i><b>1.1</b> Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#uniform-discrete-distribution"><i class="fa fa-check"></i><b>1.1.1</b> Uniform (discrete) Distribution</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#bernoulli-distribution"><i class="fa fa-check"></i><b>1.1.2</b> Bernoulli Distribution</a></li>
+<li class="chapter" data-level="1.1.3" data-path=""><a href="#binomial-distribution"><i class="fa fa-check"></i><b>1.1.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="1.1.4" data-path=""><a href="#geometric-distribution"><i class="fa fa-check"></i><b>1.1.4</b> Geometric Distribution</a></li>
+<li class="chapter" data-level="1.1.5" data-path=""><a href="#negative-binomial-distribution"><i class="fa fa-check"></i><b>1.1.5</b> Negative Binomial Distribution</a></li>
+<li class="chapter" data-level="1.1.6" data-path=""><a href="#hypergeometric-distribution"><i class="fa fa-check"></i><b>1.1.6</b> Hypergeometric Distribution</a></li>
+<li class="chapter" data-level="1.1.7" data-path=""><a href="#poisson-distribution"><i class="fa fa-check"></i><b>1.1.7</b> Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#continuous-distributions"><i class="fa fa-check"></i><b>1.2</b> Continuous Distributions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#continuous-uniform-distribution-uab"><i class="fa fa-check"></i><b>1.2.1</b> Continuous Uniform Distribution <span class="math inline">\(U(a,b)\)</span></a></li>
+<li class="chapter" data-level="1.2.2" data-path=""><a href="#exponential-distribution-exptheta"><i class="fa fa-check"></i><b>1.2.2</b> Exponential Distribution <span class="math inline">\(Exp(\theta)\)</span></a></li>
+<li class="chapter" data-level="1.2.3" data-path=""><a href="#gamma-distribution-gammaalpha-theta"><i class="fa fa-check"></i><b>1.2.3</b> Gamma Distribution <span class="math inline">\(Gamma(\alpha, \theta)\)</span></a></li>
+<li class="chapter" data-level="1.2.4" data-path=""><a href="#chi-squared-distribution-chi2r"><i class="fa fa-check"></i><b>1.2.4</b> Chi-Squared Distribution <span class="math inline">\(\chi^2(r)\)</span></a></li>
+<li class="chapter" data-level="1.2.5" data-path=""><a href="#standard-normal-distribution"><i class="fa fa-check"></i><b>1.2.5</b> Standard Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#tutorials"><i class="fa fa-check"></i><b>1.3</b> Tutorials</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="discrete-and-continuous-random-variable" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Discrete and Continuous Random Variable<a href="#discrete-and-continuous-random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Random variables can be categorized into discrete, continuous and mixed random variables. We are focussing on the first two. This chapter will explore the parametric distributions.</p>
+<div id="discrete-random-variables" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Discrete Random Variables<a href="#discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Uniform (discrete) Distribution</p></li>
+<li><p>Bernoulli Distribution</p></li>
+<li><p>Binomial Distribution</p></li>
+<li><p>Poisson Distribution</p></li>
+</ul>
+<div id="uniform-discrete-distribution" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Uniform (discrete) Distribution<a href="#uniform-discrete-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unif-distr-def" class="definition"><strong>Definition 1.1  (Uniform Distribution) </strong></span>A random variable <span class="math inline">\(X\)</span> follows the discrete uniform distribution on the interval <span class="math inline">\([a, a+1, \dots, b]\)</span>, if it may attain each of these values with equal probability</p>
+<p><span class="math display">\[f(x) = \frac{1}{N}$ for $x=1,2,..,N\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the parameterss</p>
+</div>
+<div id="properties-of-uniform-distribution" class="section level4 hasAnchor" number="1.1.1.1">
+<h4><span class="header-section-number">1.1.1.1</span> Properties of Uniform Distribution<a href="#properties-of-uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Note: You may need to show how to obtain the mean and variance. Refer to the previous chapter how to derive the mean and variance of discrete distribution.</p>
+<ul>
+<li><p>Mean: <span class="math inline">\(\frac{N+1}{2}\)</span></p></li>
+<li><p>Variance: <span class="math inline">\(\frac{N^2-1}{12}\)</span></p></li>
+<li><p>MGF: <span class="math inline">\(M_X(t) = \sum_{x=1}^{N} e^{tx} \frac{1}{N}\)</span></p></li>
+</ul>
+<div class="example">
+<p><span id="exm:unif-distr-example-1" class="example"><strong>Example 1.1  </strong></span>Let <span class="math inline">\(x\)</span> equal the number of spots on the side facing upward after a six-sided die is cast at random. If everything is fair about this experiment, a reasonable probability model is given by the p.m.f</p>
+<p>Find the mean and variance of the random variable <span class="math inline">\(X\)</span>.</p>
+<p>** Solution**</p>
+<p>Since <span class="math inline">\(X\)</span> follow the discrete uniform distribution with parameter <span class="math inline">\(N=6\)</span>, then;</p>
+<p><span class="math display">\[\begin{align*}
+E[X] =&amp; \frac{N + 1}{2} = \frac{6 + 1}{2} = 3.5 \\
+Var[X] =&amp; \frac{N^2 - 1}{12} = \frac{6^2 - 1}{12} = \frac{35}{12}
+\end{align*}\]</span></p>
+</div>
+</div>
+<div id="cdf-uniform-uniform-distribution" class="section level4 hasAnchor" number="1.1.1.2">
+<h4><span class="header-section-number">1.1.1.2</span> CDF Uniform Uniform Distribution<a href="#cdf-uniform-uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Theorem: A random variable <span class="math inline">\(X\)</span> follows the discrete uniform distribution on the interval <span class="math inline">\([a,a+1,…,b]\)</span>, if it may attain each of these values with equal probability. We have then ;</p>
+<p><span class="math display">\[\begin{align*}
+P(X=x) = \begin{cases} \frac{1}{n} &amp; \text{for } a \le x \le b \\ 0 &amp; \text{otherwise} \end{cases}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+F(x) = \begin{cases} 0 &amp; \text{for } x &lt; a \\ \frac{x-a+1}{n} &amp; \text{for } a \le x \le b \\ 1 &amp; \text{for } x &gt; b \end{cases}
+\end{align*}\]</span></p>
+<p>Where <span class="math inline">\(n=b-a+1\)</span> denotes the number of values that <span class="math inline">\(X\)</span> may take</p>
+</div>
+</div>
+<div id="bernoulli-distribution" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Bernoulli Distribution<a href="#bernoulli-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Bernoulli experiment is a random experiment with two mutually exclusive and exhaustive outcomes, for instance, success (1) and failure (0).</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(f(x,p) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = p\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = pq\)</span> (where <span class="math inline">\(q = 1-p\)</span>)</li>
+<li>**MGF^{*}**: <span class="math inline">\(M_X(t) = pe^t + q\)</span></li>
+</ul>
+</div>
+<div id="binomial-distribution" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Binomial Distribution<a href="#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A sequence of <span class="math inline">\(n\)</span> Bernoulli trials such that when a Bernoulli experiment is performed several independent times and the probability of success—say, <span class="math inline">\(p\)</span>—remains the same from trial to trial.</p>
+<p>The number of ways of selecting the <span class="math inline">\(r\)</span> positions for the <span class="math inline">\(x\)</span> successes in <span class="math inline">\(n\)</span> trials is</p>
+<p><span class="math display">\[\binom{n}{x} = \frac{n!}{x!(n-x)!}\]</span>
+Since the probabilities of success and failure on each trial are <span class="math inline">\(p\)</span> and <span class="math inline">\((1-p)\)</span> respectively, the probability of each of these ways is</p>
+<p><span class="math display">\[p^{x}(1 - p)^{1 = x}\]</span>
+Then, for <span class="math inline">\(f(x) \ge 0\)</span>,</p>
+<p><span class="math display">\[\sum f_X(x) = \sum_{x=0}^{n} \binom{n}{x} p^x (q)^{n-x} = ((1-p) + p)^n = 1\]</span></p>
+<div class="definition">
+<p><span id="def:binom-distr-def" class="definition"><strong>Definition 1.2  (Binomial Distribution) </strong></span>A random variable <span class="math inline">\(X\)</span> is defined to have a binomial distribution if the pmf of <span class="math inline">\(X\)</span> is given by</p>
+f(x; n, p) =
+<span class="math display">\[\begin{cases}
+\binom{n}{x} p^x (1-p)^{n-x} &amp; \text{for } x = 0, 1, \dots, n \\
+0 &amp; \text{otherwise}
+\end{cases}\]</span>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-1" class="proof"><em>Proof</em> (Binomial Distribution Properties). </span>Let <span class="math inline">\(X\)</span> be a random variable with binomial distribution that has parameter <span class="math inline">\(p\)</span> and <span class="math inline">\(n\)</span>. <strong>Derive</strong> the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = np\)</span></p></li>
+<li><p><span class="math inline">\(Var[X] = np(1 -  p)\)</span></p></li>
+</ol>
+<p><strong>Proof</strong></p>
+<ol style="list-style-type: decimal">
+<li>Deriving the means</li>
+</ol>
+<p><span class="math display">\[E[X] = \sum_{x=0}^{n} x \cdot P(X=x)\]</span></p>
+<p>Substitute the probability mass function (PMF) of the binomial distribution, <span class="math inline">\(P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}\)</span>:</p>
+<p><span class="math display">\[E[X] = \sum_{x=0}^{n} x \binom{n}{x} p^x (1-p)^{n-x}\]</span></p>
+<p>Expand the binomial coefficient <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span>:<span class="math display">\[E[X] = \sum_{x=0}^{n} x \frac{n!}{x!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>Since the first term of the sum (when <span class="math inline">\(x=0\)</span>) is <span class="math inline">\(0\)</span>, we can start the summation at <span class="math inline">\(x=1\)</span>:<span class="math display">\[E[X] = \sum_{x=1}^{n} x \frac{n!}{x(x-1)!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>Cancel the <span class="math inline">\(x\)</span> in the numerator and denominator:</p>
+<p><span class="math display">\[E[X] = \sum_{x=1}^{n} \frac{n!}{(x-1)!(n-x)!} p^x (1-p)^{n-x}\]</span></p>
+<p>To reshape this into another binomial expansion, factor out one <span class="math inline">\(n\)</span> and one <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[E[X] = np \sum_{x=1}^{n} \frac{(n-1)!}{(x-1)!(n-x)!} p^{x-1} (1-p)^{n-x}\]</span></p>
+<p>Now, use a change of variables. Let <span class="math inline">\(y = x - 1\)</span>.As <span class="math inline">\(x\)</span> goes from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, <span class="math inline">\(y\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(n-1\)</span>.The exponent <span class="math inline">\((n-x)\)</span> becomes <span class="math inline">\((n - 1 - y)\)</span>.Substitute <span class="math inline">\(y\)</span> into the summation:</p>
+<p><span class="math display">\[E[X] = np \sum_{y=0}^{n-1} \frac{(n-1)!}{y!(n-1-y)!} p^y (1-p)^{n-1-y}\]</span></p>
+<p>Rewrite the fractional term as a binomial coefficient:<span class="math display">\[E[X] = np \sum_{y=0}^{n-1} \binom{n-1}{y} p^y (1-p)^{n-1-y}\]</span></p>
+<p>According to the Binomial Theorem, <span class="math inline">\(\sum_{k=0}^{m} \binom{m}{k} a^k b^{m-k} = (a+b)^m\)</span>.</p>
+<p>Applying this to our sum where <span class="math inline">\(m = n-1\)</span>, <span class="math inline">\(a = p\)</span>, and <span class="math inline">\(b = 1-p\)</span>:</p>
+<p><span class="math display">\[E[X] = np (p + (1-p))^{n-1}\]</span></p>
+</div>
+<div id="example-binomial-distribution" class="section level4 hasAnchor" number="1.1.3.1">
+<h4><span class="header-section-number">1.1.3.1</span> Example: Binomial Distribution<a href="#example-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Suppose that the probability of germination of a durian seed is <span class="math inline">\(0.3\)</span> and the germination of a seed is considered a success. If we plant 10 durian seeds and germination of one seed is independent of the germination of another seed, this would correspond to 10 Bernoulli trials with <span class="math inline">\(p = 0.2\)</span>.</li>
+</ol>
+<div class="definition">
+<p><span id="def:bin-distr-def" class="definition"><strong>Definition 1.3  (Binomial Distribution) </strong></span>Let <span class="math inline">\(X\)</span> be a random variable associated that follows a Bernoulli trial with two outcomes, success and failure. Then, <span class="math inline">\(N\)</span> independent trials follows a Binomial Distribution with PMF</p>
+<p><span class="math display">\[f(x;n,p) = \binom{n}{x} p^x (1-p)^{n-x}$ for $x=0, 1, \dots, n\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span>: Number of trials</p></li>
+<li><p><span class="math inline">\(p\)</span>: probability of success</p></li>
+</ul>
+</div>
+<p>The random variable <span class="math inline">\(X\)</span> equals the number of observed successes in <span class="math inline">\(n\)</span> independent Bernoulli trials.</p>
+<div class="exercise">
+<p><span id="exr:bin-distr-exer1" class="exercise"><strong>Exercise 1.1  (Binomial Distribution Exercise 1) </strong></span>Let <span class="math inline">\(X\)</span> be the number of heads(success) in $n=7 <span class="math inline">\(independent tosses of unbiased coin. Then the p.m.f of\)</span> X$ is</p>
+<p><span class="math display">\[
+f(x) = \binom{7}{x} \left(\frac{1}{2}\right)^x \left(\frac{1}{2}\right)^{7-x} \quad where \ x = 0,1,2,3,4,5,6,7
+\]</span></p>
+<p>Find mean, variance, and mgf of <span class="math inline">\(X\)</span>. Then, find the probability that</p>
+<ul>
+<li><p>at most 2 heads appear</p></li>
+<li><p>exactly 5 heads appear.</p></li>
+</ul>
+<p>Solution: since <span class="math inline">\(X\)</span> has similar distribution with binomial distribution of parameter <span class="math inline">\(n=7\)</span> and <span class="math inline">\(p=1/2\)</span>, then we can conclude that,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Mean} &amp;= np \\
+&amp;= 7\left(\frac{1}{2}\right) \\
+&amp;= \frac{7}{2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Var(X)} &amp;= npq \\
+&amp;= 7\left(\frac{1}{2}\right)\left(\frac{1}{2}\right) \\
+&amp;= \frac{7}{4}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{M}_X\textbf{(t)} &amp;= (pe^t + q)^n \\
+&amp;= \left(\frac{1}{2}e^t + \frac{1}{2}\right)^7
+\end{aligned}
+\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:bin-distr-exer2" class="exercise"><strong>Exercise 1.2  (Binomial Distribution Exercise 2) </strong></span>If X is <span class="math inline">\(bin\sim(n, \frac{1}{3})\)</span>, then <span class="math inline">\(P(X \ge 1) = 1 - P(X = 0) = 1 - (\frac{2}{3})^n\)</span>. Suppose that we wanted the probability of at least 1 success, <span class="math inline">\(P(X \ge 1) &gt; 0.8\)</span>, then find the smallest value of number of trial, <span class="math inline">\(n\)</span> that satisfy that constraint.</p>
+<p><strong>Solution:</strong></p>
+<p>We need to find the smallest integer <span class="math inline">\(n\)</span> that satisfies the given constraint:
+<span class="math display">\[1 - \left(\frac{2}{3}\right)^n &gt; 0.8\]</span></p>
+<p>First, isolate the term with <span class="math inline">\(n\)</span>:
+<span class="math display">\[1 - 0.8 &gt; \left(\frac{2}{3}\right)^n\]</span>
+<span class="math display">\[0.2 &gt; \left(\frac{2}{3}\right)^n\]</span></p>
+<p>Next, take the natural logarithm of both sides:
+<span class="math display">\[\ln(0.2) &gt; \ln\left(\left(\frac{2}{3}\right)^n\right)\]</span>
+<span class="math display">\[\ln(0.2) &gt; n \ln\left(\frac{2}{3}\right)\]</span></p>
+<p>Now, divide by <span class="math inline">\(\ln\left(\frac{2}{3}\right)\)</span>. Because <span class="math inline">\(\ln\left(\frac{2}{3}\right)\)</span> is a negative number, dividing by it will flip the inequality sign:
+<span class="math display">\[n &gt; \frac{\ln(0.2)}{\ln(2/3)}\]</span></p>
+<p>Calculate the numerical value:
+<span class="math display">\[n &gt; \frac{-1.6094}{-0.4055}\]</span>
+<span class="math display">\[n &gt; 3.969\]</span></p>
+<p>Since the number of trials <span class="math inline">\(n\)</span> must be an integer, we round up to the next whole number.</p>
+<p>The smallest value of <span class="math inline">\(n\)</span> that satisfies the constraint is <strong>4</strong>.</p>
+</div>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(f(x;n,p) = \binom{n}{x} p^x (1-p)^{n-x}\)</span> for <span class="math inline">\(x=0, 1, \dots, n\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = np\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = npq\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = (q + pe^t)^n\)</span></li>
+</ul>
+</div>
+</div>
+<div id="geometric-distribution" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Geometric Distribution<a href="#geometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> equal the number of trials until the <strong>first success</strong> is obtained in a sequence of independent Bernoulli trials. The event <span class="math inline">\(X = x\)</span> corresponds to <span class="math inline">\(x – 1\)</span> failures, and then a success. Thus,</p>
+<p><span class="math display">\[P(X=x) = (1-p)^{x-1}p\]</span></p>
+<p>for <span class="math inline">\(x=1, 2, 3, \dots\)</span></p>
+<div id="derivation-of-geometric-distribution-cdf" class="section level4 hasAnchor" number="1.1.4.1">
+<h4><span class="header-section-number">1.1.4.1</span> Derivation of Geometric Distribution CDF<a href="#derivation-of-geometric-distribution-cdf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The cumulative distribution function (CDF), <span class="math inline">\(F(x)\)</span>, represents the probability that the first success occurs on or before the <span class="math inline">\(x^\text{th}\)</span> trial. It is derived by summing the probability mass function from <span class="math inline">\(k = 1\)</span> to <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[F(x) = \sum_{k=1}^{x} (1 - p)^{k-1}p\]</span></p>
+<p>Factor out the constant probability of success, <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[F(x) = p \sum_{k=1}^{x} (1 - p)^{k-1}\]</span></p>
+<p>The summation is a finite geometric series with a common ratio of <span class="math inline">\((1 - p)\)</span>. Using the standard formula for the sum of a finite geometric series, <span class="math inline">\(\sum_{k=1}^{x} r^{k-1} = \frac{1 - r^x}{1 - r}\)</span> where <span class="math inline">\(r = (1-p)\)</span>:</p>
+<p><span class="math display">\[F(x) = p \left( \frac{1 - (1 - p)^x}{1 - (1 - p)} \right)\]</span></p>
+<p>Simplify the denominator, noting that <span class="math inline">\(1 - (1 - p) = p\)</span>:</p>
+<p><span class="math display">\[F(x) = \frac{p(1 - (1 - p)^x)}{p}\]</span></p>
+<p>Cancel the <span class="math inline">\(p\)</span> in the numerator and denominator to arrive at the final CDF:</p>
+<p><span class="math display">\[F(x) = 1 - (1 - p)^x\]</span></p>
+</div>
+<div id="properties-of-geometric-distribution" class="section level4 hasAnchor" number="1.1.4.2">
+<h4><span class="header-section-number">1.1.4.2</span> Properties of Geometric Distribution<a href="#properties-of-geometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{1}{p}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{q}{p^2}\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \frac{pe^t}{1 - qe^t}\)</span></li>
+</ul>
+</div>
+<div id="geometric-distribution-examples" class="section level4 hasAnchor" number="1.1.4.3">
+<h4><span class="header-section-number">1.1.4.3</span> Geometric Distribution: Examples<a href="#geometric-distribution-examples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><p>A die is tossed repeatedly. What is the probability that we observe a 3 for the first time on the <span class="math inline">\(8^\text{th}\)</span> toss?</p></li>
+<li><p>A basketball player has a 75% chance of making a free throw. What is the probability that the player makes their first free throw on the 3rd attempt?</p></li>
+<li><p>A manufacturing machine produces items with a 5% defect rate. An inspector checks items one by one. What is the probability that the first defective item found is the 10th item inspected?</p></li>
+<li><p>A telemarketer has a 10% chance of making a sale on any given call. What is the probability that they make their first sale on their 6th call of the day?</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:geom-distr-example-1" class="example"><strong>Example 1.2  </strong></span>A die was tossed repeatedly. What is the probability that we observe a 3 for the first time on the 8th toss?</p>
+<p><strong>Solution</strong></p>
+<p>This random variable is having a geometric distribution since we wanted to find what is the probability of getting success(3) on the 8th trial. So here, the parameter for this distribution is <span class="math inline">\(p = \frac{1}{6}\)</span> since the probability of getting 3 in each trial is <span class="math inline">\(\frac{1}{6}\)</span>.</p>
+<p>Hence the pmf of <span class="math inline">\(X\)</span> is
+<span class="math display">\[
+\begin{aligned}
+f(x) &amp;= (1 - p)^{x-1}(p) \\
+&amp;= \left(\frac{5}{6}\right)^{x-1}\left(\frac{1}{6}\right)
+\end{aligned}
+\]</span></p>
+<p>Since we wanted to find the probability when X=8,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(X = 8) &amp;= f(8) \\
+&amp;= \left(\frac{5}{6}\right)^{8-1}\left(\frac{1}{6}\right) \approx 0.0465
+\end{aligned}
+\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:geom-distr-example-2" class="example"><strong>Example 1.3  </strong></span>A basketball player has a 75% chance of making a free throw. What is the probability that the player makes their first free throw on the 3rd attempt?</p>
+<p><strong>Solution</strong>:</p>
+<p>This follows a geometric distribution because we are looking for the first success (making the shot) on a specific trial.The probability of success on a single attempt is <span class="math inline">\(p = 0.75\)</span>, and the probability of failure is <span class="math inline">\(1 - p = 0.25\)</span>.To find the probability of the first success on the 3rd attempt (<span class="math inline">\(X = 3\)</span>), apply the geometric PMF:</p>
+<p><span class="math display">\[P(X = 3) = (0.25)^{3-1}(0.75) = (0.25)^2(0.75) = 0.046875\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:geom-distr-example-3" class="example"><strong>Example 1.4  </strong></span>A manufacturing machine produces items with a 5% defect rate. An inspector checks items one by one. What is the probability that the first defective item found is the 10th item inspected?</p>
+<p><strong>Solution:</strong></p>
+<p>Here, a “success” is defined as finding a defective item.The probability of success is <span class="math inline">\(p = 0.05\)</span>, and the probability of failure (a functional item) is <span class="math inline">\(1 - p = 0.95\)</span>.We want the probability of the first success on the 10th trial (<span class="math inline">\(X = 10\)</span>):</p>
+<p><span class="math display">\[P(X = 10) = (0.95)^{10-1}(0.05) = (0.95)^9(0.05) \approx 0.0315\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:geom-distr-exercise-1" class="exercise"><strong>Exercise 1.3  </strong></span>A telemarketer has a 10% chance of making a sale on any given call. What is the probability that they make their first sale on their 6th call of the day?</p>
+<p><strong>Solution:</strong></p>
+<p>The probability of making a sale (success) is <span class="math inline">\(p = 0.10\)</span>, and the probability of not making a sale is <span class="math inline">\(1 - p = 0.90\)</span>.We want the first success to occur on the 6th call (<span class="math inline">\(X = 6\)</span>):<span class="math display">\[P(X = 6) = (0.90)^{6-1}(0.10) = (0.90)^5(0.10) \approx 0.0590\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:geom-distr-exercise-2" class="exercise"><strong>Exercise 1.4  </strong></span>Suppose the telemarketer wants to be at least 80% sure that they will make at least one sale today. How many calls (<span class="math inline">\(n\)</span>) do they need to make to achieve this probability?</p>
+<p><strong>Solution:</strong></p>
+<p>Using the Cumulative Distribution Function (CDF) for the geometric distribution, the probability of getting the first success on or before the <span class="math inline">\(n^\text{th}\)</span> trial is <span class="math inline">\(P(X \le n) = 1 - (1 - p)^n\)</span>.</p>
+<p>Set up the inequality with the target probability of 0.80 and <span class="math inline">\(p = 0.10\)</span>:
+<span class="math display">\[1 - (1 - 0.10)^n &gt; 0.80\]</span>
+<span class="math display">\[1 - (0.90)^n &gt; 0.80\]</span></p>
+<p>Isolate the term with <span class="math inline">\(n\)</span>:
+<span class="math display">\[1 - 0.80 &gt; (0.90)^n\]</span>
+<span class="math display">\[0.20 &gt; (0.90)^n\]</span></p>
+<p>Take the natural logarithm (<span class="math inline">\(\ln\)</span>) of both sides to bring down the exponent:
+<span class="math display">\[\ln(0.20) &gt; \ln((0.90)^n)\]</span>
+<span class="math display">\[\ln(0.20) &gt; n \ln(0.90)\]</span></p>
+<p>Divide by <span class="math inline">\(\ln(0.90)\)</span>. Because <span class="math inline">\(\ln(0.90)\)</span> is a negative number, the inequality sign flips:
+<span class="math display">\[n &gt; \frac{\ln(0.20)}{\ln(0.90)}\]</span></p>
+<p>Calculate the numerical value:
+<span class="math display">\[n &gt; \frac{-1.6094}{-0.1054}\]</span>
+<span class="math display">\[n &gt; 15.27\]</span></p>
+<p>Since the telemarketer cannot make a fraction of a call, we round up to the next whole integer.</p>
+<p>The telemarketer must make <strong>16 calls</strong> to have a greater than 80% probability of making their first sale.</p>
+</div>
+</div>
+</div>
+<div id="negative-binomial-distribution" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Negative Binomial Distribution<a href="#negative-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>In the Negative Binomial distribution, we want to find the number of trials needed to achieve the <span class="math inline">\(r^{\text{th}}\)</span> success.</p></li>
+<li><p>Let <span class="math inline">\(X\)</span> be the random variable representing the total number of trials required until the <span class="math inline">\(r^{\text{th}}\)</span> success is obtained.</p></li>
+<li><p>To understand how the probability mass function (PMF) is constructed, we break the sequence of trials into two distinct parts:</p></li>
+</ul>
+<p><strong>Part 1: The first <span class="math inline">\(x-1\)</span> trials</strong></p>
+<p>For the <span class="math inline">\(r^{\text{th}}\)</span> success to occur exactly on the <span class="math inline">\(x^{\text{th}}\)</span> trial, there must be exactly <span class="math inline">\(r-1\)</span> successes occurring somewhere within the first <span class="math inline">\(x-1\)</span> trials.</p>
+<p>Because the order of those earlier successes and failures doesn’t matter, the number of ways to arrange them is given by the binomial coefficient <span class="math inline">\(\binom{x-1}{r-1}\)</span>. Using standard binomial probability logic, the probability of having exactly <span class="math inline">\(r-1\)</span> successes and <span class="math inline">\(x-r\)</span> failures by time <span class="math inline">\(x-1\)</span> is:</p>
+<p><span class="math display">\[
+\binom{x-1}{r-1} p^{r-1} q^{(x-1)-(r-1)} = \binom{x-1}{r-1} p^{r-1} q^{x-r}
+\]</span></p>
+<p><em>(Where <span class="math inline">\(p\)</span> is the constant probability of success, and <span class="math inline">\(q = 1-p\)</span> is the probability of failure).</em></p>
+<p><strong>Part 2: The <span class="math inline">\(x^{\text{th}}\)</span> trial</strong></p>
+<p>Since the <span class="math inline">\(x^{\text{th}}\)</span> trial must be the final success that stops the sequence, its probability is simply <span class="math inline">\(p\)</span>. Using the multiplicative rule for independent events, we multiply the probability from Part 1 by <span class="math inline">\(p\)</span> to get the final PMF of <span class="math inline">\(X=x\)</span>:</p>
+<p><span class="math display">\[
+p \cdot \binom{x-1}{r-1} p^{r-1} q^{x-r} = \binom{x-1}{r-1} p^r q^{x-r}
+\]</span></p>
+<div class="definition">
+<p><span id="def:negative-bin-distr" class="definition"><strong>Definition 1.4  </strong></span>Let <span class="math inline">\(X\)</span> be the random variable with the PMF</p>
+<p><span class="math display">\[P(X = x) = \binom{x - 1}{r - 1} p^r (1 - p)^{x-r}\]</span></p>
+<p>where <span class="math inline">\(x = r, r + 1,\)</span></p>
+<p>Then it is a probability distribution called as negative binomial distribution with parameter <span class="math inline">\(r\)</span> and <span class="math inline">\(p\)</span>.</p>
+<p>Remarks, if $ r=1$, then the negative binomial distribution was just basically identical to geometric distribution.</p>
+</div>
+<div id="summary-of-parameters" class="section level4 hasAnchor" number="1.1.5.1">
+<h4><span class="header-section-number">1.1.5.1</span> Summary of Parameters:<a href="#summary-of-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong><span class="math inline">\(x\)</span></strong>: Total number of trials (<span class="math inline">\(x = r, r+1, r+2, \dots\)</span>)</li>
+<li><strong><span class="math inline">\(r\)</span></strong>: Target number of successes</li>
+<li><strong><span class="math inline">\(p\)</span></strong>: Probability of success on any given independent trial</li>
+<li><strong><span class="math inline">\(q\)</span></strong>: Probability of failure (<span class="math inline">\(1 - p\)</span>)</li>
+</ul>
+<p><em>Note: The Geometric distribution is a special case of the Negative Binomial distribution where we are looking for the very first success (<span class="math inline">\(r=1\)</span>).</em></p>
+</div>
+<div id="properties" class="section level4 hasAnchor" number="1.1.5.2">
+<h4><span class="header-section-number">1.1.5.2</span> Properties<a href="#properties" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}\)</span> for <span class="math inline">\(x=r, r+1, \dots\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{r}{p}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{rq}{p^2}\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r\)</span></li>
+</ul>
+<div class="example">
+<p><span id="exm:negative-binomial-example1" class="example"><strong>Example 1.5  </strong></span>Team A plays team B in a seven-game world series. That is, the series is over when either team wins four games. For each game, <span class="math inline">\(P(A \ wins) = 0.6\)</span> and the games are assumed independent. What is the probability that the series will end in exactly six games? We have <span class="math inline">\(x = 6, r = 4 ,\)</span> and <span class="math inline">\(p = 0.6\)</span>.</p>
+<p><strong>Case 1: A win four game</strong></p>
+<p>Since A winning those four game, we P(success)=P (A wins)=0.6. This can be a probability of Negative binomial with parameter r=4 and p=0.6 when <span class="math inline">\(X=6\)</span>.</p>
+<p>Hence</p>
+<p><span class="math display">\[\begin{align*}
+P(\text{A win series in 6}) &amp;= NegBin(6,4,0.6) \\
+&amp;= \binom{6-1}{4-1} (0.6)^4(0.4)^{6-4} \\
+&amp;= 0.20736
+\end{align*}\]</span></p>
+<p><strong>Case 2: B win Four game</strong>
+Since <span class="math inline">\(B\)</span> winning those four game,</p>
+<p><span class="math display">\[P(success)=P(B wins)=0.4\]</span></p>
+<p>This can be a probability of Negative binomial with parameter <span class="math inline">\(r=4\)</span> and p=0.4 when X=6.</p>
+<p>Hence</p>
+<p><span class="math display">\[\begin{align*}
+P(\text{B win series in 6}) &amp;= NegBin(6,4,0.4) \\
+&amp;= \binom{6-1}{4-1} (0.4)^4(0.6)^{6-4} \\
+&amp;= 0.09216
+\end{align*}\]</span></p>
+<p>We wanted to find the probability the series end in <span class="math inline">\(6\)</span> game. So it can be either A win series in <span class="math inline">\(6\)</span> game or B. since the event is mutually exclusive, than</p>
+<p><span class="math display">\[\begin{align*}
+P(\text{series end in 6 game}) &amp;= P(\text{A win series in 6}) + P(\text{B win series in 6}) \\
+&amp;= 0.20736 + 0.09216 \\
+&amp;= 0.29952
+\end{align*}\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:negative-binomial-distr-exercise-1" class="exercise"><strong>Exercise 1.5  </strong></span>An excellent free-throw shooter attempts several free throws until she misses.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If <span class="math inline">\(p = 0.9\)</span> is her probability of making a free throw, what is the probability of having the first miss on the 13th attempt or later?</p></li>
+<li><p>If she continues shooting until she misses three, what is the probability that the third miss occurs on the 30th attempt?</p></li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>For this problem, because the sequence stops upon a “miss”, we must define a “success” for our formulas as <strong>missing the free throw</strong>.</li>
+</ol>
+<ul>
+<li><p>Probability of making a throw: <span class="math inline">\(P(make) = 0.9\)</span></p></li>
+<li><p>Probability of missing (our “success” event): <span class="math inline">\(p_{miss} = 1 - 0.9 = 0.1\)</span></p></li>
+</ul>
+<p>To have the first miss on the 13th attempt or later, the shooter must successfully make all of the first 12 attempts.
+Since each throw is independent, we simply multiply the probability of making a throw 12 times:</p>
+<p><span class="math display">\[\begin{align*}
+P(\text{first miss} \ge 13) &amp;= P(\text{makes first 12 throws}) \\
+&amp;= (0.9)^{12} \\
+&amp;\approx 0.2824
+\end{align*}\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>This scenario follows a Negative Binomial distribution where we want the <span class="math inline">\(r^{\text{th}}\)</span> “success” (miss) to occur on the <span class="math inline">\(x^{\text{th}}\)</span> trial.</p>
+<ul>
+<li><p><span class="math inline">\(x = 30\)</span> (total trials)</p></li>
+<li><p><span class="math inline">\(r = 3\)</span> (target number of misses)</p></li>
+<li><p><span class="math inline">\(p = 0.1\)</span> (probability of a miss)</p></li>
+</ul></li>
+</ol>
+<p>Using the Negative Binomial probability mass function:</p>
+<p><span class="math display">\[P(X = x) = \binom{x - 1}{r - 1} p^r (1 - p)^{x-r}\]</span></p>
+<p>Substitute the values:</p>
+<p><span class="math display">\[\begin{align*}
+P(X = 30) &amp;= \binom{30 - 1}{3 - 1} (0.1)^3 (0.9)^{30-3} \\
+&amp;= \binom{29}{2} (0.1)^3 (0.9)^{27} \\
+&amp;= \frac{29 \times 28}{2} (0.001) (0.9)^{27} \\
+&amp;= 406 \times 0.001 \times 0.0581497 \\
+&amp;\approx 0.0236
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+<div id="hypergeometric-distribution" class="section level3 hasAnchor" number="1.1.6">
+<h3><span class="header-section-number">1.1.6</span> Hypergeometric Distribution<a href="#hypergeometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Used for sampling <span class="math inline">\(n\)</span> individuals without replacement from a finite population of size <span class="math inline">\(N\)</span> containing <span class="math inline">\(M\)</span> successes.</p>
+<p><span class="math inline">\(P(X=x) = \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\)</span> for <span class="math inline">\(\max(0, n - N + M) \le x \le \min(n, M)\)</span></p>
+<p>The assumptions leading to the hypergeometric distribution are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>The population or set to be sampled consists of <span class="math inline">\(N\)</span> individuals, objects, or elements (a <em>finite</em> population).</p></li>
+<li><p>Each individual can be characterized as a success (<span class="math inline">\(S\)</span>) or a failure (<span class="math inline">\(F\)</span>), and there are <span class="math inline">\(M\)</span> successes in the population.</p></li>
+<li><p>A sample of <span class="math inline">\(n\)</span> individuals is selected without replacement in such a way that each subset of size <span class="math inline">\(n\)</span> is equally likely to be chosen.</p></li>
+</ol>
+<p>By definition; let n be the number of samples drawn from the population without replacement and let random variable X be the number of green ball drawn. Its pmf is given by the hypergeometric distribution</p>
+<p><span class="math display">\[
+P(X = x) = \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}
+\]</span></p>
+<p>for <span class="math inline">\(x\)</span>, an integer, satisfying max <span class="math inline">\((0, n - N + M) \le x \le \text{min } (n, M)\)</span>.</p>
+<div id="properties-1" class="section level4 hasAnchor" number="1.1.6.1">
+<h4><span class="header-section-number">1.1.6.1</span> Properties<a href="#properties-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If <span class="math inline">\(X\)</span> is a random variable with hypergeometric distribution with parameter <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> and <span class="math inline">\(n\)</span>. then</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\text{Mean} = n \cdot \frac{M}{N}\)</span></p></li>
+<li><p><span class="math inline">\(\text{Variance} = \left(\frac{N-n}{N-1}\right) \cdot n \cdot \frac{M}{n} \cdot \left(1 - \frac{M}{N}\right)\)</span></p></li>
+</ol>
+<p><em>(Note: the formula in the image contains a typo, it should be <span class="math inline">\(n \cdot \frac{M}{N}\)</span> in the middle term)</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(\text{M}_x\text{(t)} = \text{NA}\)</span></li>
+</ol>
+<p>To prove this properties, a knowledge of future topic would be need. Hence the proof will be left out for future topic.</p>
+<div class="example">
+<p><span id="exm:hypergeometric_distr-example1" class="example"><strong>(#exm:hypergeometric_distr-example1) </strong></span>A lot consisting of <span class="math inline">\(50\)</span> bulbs is inspected by taking at random <span class="math inline">\(10\)</span> bulbs and testing them.If the number of defective bulbs is at most <span class="math inline">\(1\)</span>, the lot is accepted; otherwise it is rejected. If there are in fact, <span class="math inline">\(10\)</span> defective bulbs in the lot, what is the probability that the lot would be accepted?</p>
+<p><strong>Solution:</strong>
+We use the hypergeometric distribution because we are sampling without replacement from a finite population.</p>
+<ul>
+<li><p><span class="math inline">\(N = 50\)</span> (total bulbs)</p></li>
+<li><p><span class="math inline">\(M = 10\)</span> (total defective bulbs in the population)</p></li>
+<li><p><span class="math inline">\(n = 10\)</span> (number of bulbs sampled)</p></li>
+<li><p><span class="math inline">\(x\)</span> = number of defective bulbs in the sample</p></li>
+</ul>
+<p>The lot is accepted if the number of defective bulbs is at most 1 (<span class="math inline">\(x \le 1\)</span>). So we need to find <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+P(X \le 1) &amp;= P(X=0) + P(X=1) \\
+&amp;= \frac{\binom{10}{0}\binom{50-10}{10-0}}{\binom{50}{10}} + \frac{\binom{10}{1}\binom{50-10}{10-1}}{\binom{50}{10}} \\
+&amp;= \frac{\binom{10}{0}\binom{40}{10}}{\binom{50}{10}} + \frac{\binom{10}{1}\binom{40}{9}}{\binom{50}{10}} \\
+&amp;\approx 0.0825 + 0.2667 \\
+&amp;\approx 0.3492
+\end{align}\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:hypergeometric_distr-example2" class="example"><strong>(#exm:hypergeometric_distr-example2) </strong></span>If <span class="math inline">\(5\)</span> cards are drawn at random from a deck of <span class="math inline">\(52\)</span> cards and are not replaced, find the probability of getting at least one diamond.</p>
+<p><strong>Solution:</strong>
+We use the hypergeometric distribution because we are drawing without replacement.
+* <span class="math inline">\(N = 52\)</span> (total cards)
+* <span class="math inline">\(M = 13\)</span> (total diamonds in a deck)
+* <span class="math inline">\(n = 5\)</span> (cards drawn)
+* <span class="math inline">\(x\)</span> = number of diamonds drawn</p>
+<p>We want to find the probability of getting <em>at least</em> one diamond, which is <span class="math inline">\(P(X \ge 1)\)</span>. The easiest way to calculate this is using the complement rule: <span class="math inline">\(1 - P(X = 0)\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+P(X \ge 1) &amp;= 1 - P(X = 0) \\
+&amp;= 1 - \frac{\binom{13}{0}\binom{52-13}{5-0}}{\binom{52}{5}} \\
+&amp;= 1 - \frac{\binom{13}{0}\binom{39}{5}}{\binom{52}{5}} \\
+&amp;= 1 - \frac{1 \times 575757}{2598960} \\
+&amp;\approx 1 - 0.2215 \\
+&amp;\approx 0.7785
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+<div id="poisson-distribution" class="section level3 hasAnchor" number="1.1.7">
+<h3><span class="header-section-number">1.1.7</span> Poisson Distribution<a href="#poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let the number of occurrences of some event in a given continuous interval be counted. Then we have an <strong>approximate Poisson process</strong> with parameter <span class="math inline">\(\lambda &gt; 0\)</span> if the following conditions are satisfied:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The numbers of occurrences in nonoverlapping subintervals are independent.</p></li>
+<li><p>The probability of exactly one occurrence in a sufficiently short subinterval of length <span class="math inline">\(h\)</span> is approximately <span class="math inline">\(\lambda h\)</span>.</p></li>
+<li><p>The probability of two or more occurrences in a sufficiently short subinterval is essentially zero.</p></li>
+</ol>
+<p>Suppose that we wanted to find the probability of number of occurrence, <span class="math inline">\(x\)</span> of event in a time period given the length of the period and the average events per time. than the pmf of X is</p>
+<p><span class="math display">\[P(x \text{ events in time period}) = e^{\left(\frac{-\text{events}}{\text{time}}\right)(\text{time period})} * \frac{\left(\left(\frac{\text{events}}{\text{time}}\right)(\text{time period})\right)^x}{x!}\]</span></p>
+<p>Usually, in describing poisson distribution, we mainly concerning on the rate of occurrence which events/time * time period is usually simplified into a single parameter, <span class="math inline">\(\lambda\)</span>, lambda, the rate parameter.</p>
+<p>Hence, <strong>Deff:</strong> a random variable X is said to have poisson distribution with parameter <span class="math inline">\(\lambda &gt; 0\)</span> if its pmf is given by</p>
+<p><span class="math display">\[
+P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}
+\]</span>
+Where <span class="math inline">\(x = 0,1,2,3, \ldots\)</span></p>
+<p>To prove that the Poisson distribution is a valid probability distribution, we need to show that</p>
+<p><span class="math display">\[\sum_{x=0}^{\infty} \frac{e^{-\lambda}\lambda^x}{x!} = 1\]</span></p>
+<p><strong>Proof</strong>
+From maclaurin series, it is given that</p>
+<p><span class="math display">\[e^\lambda = \sum_{x=0}^{\infty} \frac{\lambda^x}{x!}\]</span></p>
+<p>So we can rewrite the pmf of X to be
+<span class="math display">\[
+\sum_{x=0}^{\infty} \frac{e^{-\lambda}\lambda^x}{x!} = e^{-\lambda} \sum_{x=0}^{\infty} \frac{\lambda^x}{x!} = e^{-\lambda} e^{\lambda} = 1
+\]</span></p>
+<p>Hence it is proven.</p>
+<p>If <span class="math inline">\(X\)</span> is a random variable of poisson distribution wth parameter <span class="math inline">\(\lambda&gt;0\)</span>, then</p>
+<ol style="list-style-type: decimal">
+<li><p>Mean <span class="math inline">\(= \lambda\)</span></p></li>
+<li><p>Variance <span class="math inline">\(= \lambda\)</span></p></li>
+<li><p><span class="math inline">\(M_X(t) = e^{\lambda(e^t - 1)}\)</span></p></li>
+</ol>
+<p>Describes the number of occurrences of an event in a given continuous interval with an average rate <span class="math inline">\(\lambda &gt; 0\)</span>.</p>
+<ul>
+<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}\)</span> for <span class="math inline">\(x = 0, 1, 2, \dots\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \lambda\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \lambda\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = e^{\lambda(e^t-1)}\)</span></li>
+</ul>
+</div>
+</div>
+<div id="continuous-distributions" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Continuous Distributions<a href="#continuous-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As in the case of discrete variables, continuous random variables may be described by known probability density functions (PDFs).</p>
+<div id="continuous-uniform-distribution-uab" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Continuous Uniform Distribution <span class="math inline">\(U(a,b)\)</span><a href="#continuous-uniform-distribution-uab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A continuous random variable <span class="math inline">\(X\)</span> has a Uniform distribution if the probability of any possible value occurring is the same over the interval <span class="math inline">\([a, b]\)</span>.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{b-a}\)</span> for <span class="math inline">\(a \le x \le b\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{a+b}{2}\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{(b-a)^2}{12}\)</span></li>
+</ul>
+</div>
+<div id="exponential-distribution-exptheta" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Exponential Distribution <span class="math inline">\(Exp(\theta)\)</span><a href="#exponential-distribution-exptheta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Normally associated with “waiting-time” between events. It is memoryless.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\theta} e^{-x/\theta}\)</span> for <span class="math inline">\(x &gt; 0\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \theta\)</span> (Note: <span class="math inline">\(\theta = 1/\lambda\)</span>)</li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \theta^2\)</span></li>
+</ul>
+</div>
+<div id="gamma-distribution-gammaalpha-theta" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Gamma Distribution <span class="math inline">\(Gamma(\alpha, \theta)\)</span><a href="#gamma-distribution-gammaalpha-theta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Defined as the waiting time for the <span class="math inline">\(\alpha\)</span>-th occurrence. It describes phenomena that are skewed to the right.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\Gamma(\alpha)\theta^\alpha} x^{\alpha-1} e^{-x/\theta}\)</span> for <span class="math inline">\(x \ge 0\)</span></li>
+<li><strong>Parameters</strong>: <span class="math inline">\(\theta\)</span> (scale) and <span class="math inline">\(\alpha\)</span> (shape).</li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = \alpha\theta\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \alpha\theta^2\)</span></li>
+</ul>
+</div>
+<div id="chi-squared-distribution-chi2r" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Chi-Squared Distribution <span class="math inline">\(\chi^2(r)\)</span><a href="#chi-squared-distribution-chi2r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A special case of a Gamma distribution where <span class="math inline">\(\alpha = r/2\)</span> and <span class="math inline">\(\theta = 2\)</span>. It is mainly used in statistical significance tests (like goodness of fit).</p>
+<ul>
+<li><strong>Parameter</strong>: <span class="math inline">\(r\)</span>, a positive integer specifying the degrees of freedom.</li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu = r\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = 2r\)</span></li>
+</ul>
+<div id="normal-distribution-nmu-sigma2" class="section level4 hasAnchor" number="1.2.4.1">
+<h4><span class="header-section-number">1.2.4.1</span> Normal Distribution <span class="math inline">\(N(\mu, \sigma^2)\)</span><a href="#normal-distribution-nmu-sigma2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The most widely used model, giving a symmetric bell-shaped curve.</p>
+<ul>
+<li><strong>PDF</strong>: <span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span> for <span class="math inline">\(-\infty \le x \le \infty\)</span></li>
+<li><strong>Mean</strong>: <span class="math inline">\(\mu\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2\)</span></li>
+<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}\)</span></li>
+</ul>
+</div>
+</div>
+<div id="standard-normal-distribution" class="section level3 hasAnchor" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Standard Normal Distribution<a href="#standard-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To compute probabilities for the normal distribution, we standardize <span class="math inline">\(X\)</span> to <span class="math inline">\(Z\)</span>:
+<span class="math display">\[Z = \frac{X-\mu}{\sigma} \sim N(0,1)\]</span></p>
+<p>To find the probability <span class="math inline">\(P(a \le X \le b)\)</span>:
+<span class="math display">\[P(a \le X \le b) = P\left(\frac{a-\mu}{\sigma} \le Z \le \frac{b-\mu}{\sigma}\right)\]</span></p>
+</div>
+</div>
+<div id="tutorials" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Tutorials<a href="#tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": false,
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
