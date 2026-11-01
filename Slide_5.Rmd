@@ -438,7 +438,7 @@ b. Show $P(X > 20) = 0.368$
 
 ---
 
-#### Exponentialdistribution: Relationship with Poisson distribution   
+#### Exponential Distribution: Relationship with Poisson distribution   
 
 - Special relationship: Exponential dist can be derived from Poisson rv.   
 
@@ -450,7 +450,7 @@ b. Show $P(X > 20) = 0.368$
 
 ---
 
-#### Exponentialdistribution:
+#### EExponential Distribution:
 
 - Suppose we let $\rightarrow$ X : No occurrences in a unit interval. Then $X$ can be described by a Poisson with mean $\lambda$.   And let Y : Waiting time until the first changes /occurrences.
 
@@ -473,7 +473,7 @@ e.g. if $\lambda = 5$ per minute, then $1/\lambda = \theta = 1/5$.
 
 ---
 
-#### Exponentialdistribution: Example 2
+#### Exponential Distribution: Example 2
 
 Customer arrive in a certain shop according to an approximate Poisson process at a mean rate of 20 per hour. What is the probability that the shopkeeper will have to wait more than 5 minutes for the arrival of the first customer?
 
@@ -486,7 +486,7 @@ Customer arrive in a certain shop according to an approximate Poisson process at
 
 ---
 
-#### Exponentialdistribution: Exercise 1
+#### Exponential Distribution: Exercise 1
 
 Suppose that the length of a phone call in minutes is an exponential random variable with parameter $\lambda = \frac{1}{12}$.If someone arrives immediately ahead of you at a public telephone booth, find the probability that you will have to wait
 
@@ -496,7 +496,7 @@ b.  between 11 and 18 minutes.
 
 ---
 
-#### Exponentialdistribution: Exercise 2
+#### Exponential Distribution: Exercise 2
 
 Suppose that the total mileage an electric vehicle (EV) battery pack can operate before experiencing critical cell failure is exponentially distributed with a mean lifespan of $\theta = 150{,}000$ miles (or failure rate $\lambda = \frac{1}{150{,}000}$ per mile). A logistics delivery company purchases a pre-owned EV fleet vehicle that has already accumulated $100{,}000$ miles without any battery failure. 
 
