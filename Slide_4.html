@@ -11,7 +11,7 @@
 
   <meta name="author" content="NAT">
   <meta name="dcterms.date" content="2026-11-01">
-  <title>Discrete and Continuous Distributions</title>
+  <title>Discrete Distributions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,13 +128,18 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+    .reveal { font-size: 40px !important; }
+    .reveal table { font-size: 0.7em !important; }
+    .reveal pre, .reveal code { font-size: 0.65em !important; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Discrete and Continuous Distributions</h1>
+  <h1 class="title">Discrete Distributions</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -159,7 +164,7 @@ NAT
 <ol type="1">
 <li><p>Parametric Distributions</p></li>
 <li><p>Calculate probability of discrete distributions: Uniform, Bernoulli, Binomial, Geometric, Negative Binomial, Poisson, Hypergeometric</p></li>
-<li><p>Calculate probability of continuoud distributions</p></li>
+<li><p>Calculate probability of continuous distributions</p></li>
 </ol>
 </section>
 <section id="discrete-and-continuous-random-variable" class="slide level2">
@@ -793,236 +798,6 @@ e^{-1} + e^{-1} \approx 0.7358
 <li><p>Using the same <code>payment_gateway_error</code> rate (3%), you need to extract exactly 4 examples of this error to send to the data engineering team. What is the probability the script needs to parse exactly 60 rows to find the 4th error?</p></li>
 <li><p>System “account lockout” events are randomly distributed over time at a constant average rate of 2.5 lockouts per hour. What is the probability of querying a random 1-hour window in the dataset and finding exactly 4 account lockouts?</p></li>
 </ol>
-</section>
-<section id="continuous-distribution" class="slide level2">
-<h2>Continuous Distribution</h2>
-<ul>
-<li><p>Uniform distribution</p></li>
-<li><p>Exponential distribution</p></li>
-<li><p>Gamma distribution</p></li>
-<li><p>Chi-Square distribution</p></li>
-<li><p>Normal distribution</p></li>
-</ul>
-<h3 id="uniform-distribution-continuous">Uniform Distribution (Continuous)</h3>
-<ul>
-<li>Uniform distribution is one of the simplest continuous distributions.</li>
-</ul>
-<h3 id="uniform-distribution-continuous-definition">Uniform Distribution (Continuous): Definition</h3>
-<p>A continuous rv <span class="math inline">\(X\)</span> with a probability density function (pdf) given by</p>
-<p><span class="math display">\[f(x) = \frac{1}{b - a} ; \quad a \le X \le b\]</span> is said to follow a Uniform distribution, denoted <span class="math inline">\(U(a, b)\)</span>.</p>
-<ul>
-<li>i.e., if the probability of any possible value of <span class="math inline">\(X\)</span> to occur is the same, then <span class="math inline">\(X\)</span> may follow a Uniform Distribution.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-graph-of-pdf-and-cdf">Uniform distribution: Graph of PDF and CDF</h4>
-<p><em>(Refer to visual rectangular pdf plot and linear increasing cdf plot from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>)</em></p>
-
-<img data-src="Slide_4_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-properties">Uniform distribution: Properties</h4>
-<p>If random variable <span class="math inline">\(X\)</span> has a uniform distribution with parameter <span class="math inline">\(a, b\)</span>, <span class="math inline">\(U(a, b)\)</span>, then:</p>
-<p><span class="math display">\[M_X(t) = E(e^{tX}) = \frac{e^{tb} - e^{ta}}{t(b - a)}\]</span></p>
-<p><span class="math display">\[\mu = E(X) = \frac{(a + b)}{2}\]</span></p>
-<p><span class="math display">\[\sigma^2 = \frac{(b - a)^2}{12}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-derivation-of-mgf">Uniform distribution: Derivation of MGF</h4>
-<p><span class="math display">\[f(x) = \frac{1}{b - a}, \quad a \le x \le b.\]</span> <span class="math display">\[\begin{align*}
-M_X(t) &amp;= E(e^{tX}) = \int_{a}^{b} e^{tX} f(x) dx \\
-&amp;= \int_{a}^{b} e^{tX} \frac{1}{(b - a)} dx \\
-&amp;= \frac{1}{b - a} \int_{a}^{b} e^{tX} dx \\
-&amp;= \frac{1}{(b - a)} \left[ \frac{e^{tX}}{t} \right]_{a}^{b} = \frac{e^{tb} - e^{ta}}{t(b - a)}
-\end{align*}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-derivation-of-mean-ex">Uniform distribution: Derivation of mean <span class="math inline">\(E[X]\)</span></h4>
-<p><span class="math display">\[f(x) = \frac{1}{b - a}, \quad a \le x \le b\]</span> <span class="math display">\[\begin{align*}
-\mu &amp;= E(x) = \int_{a}^{b} x f(x) \ dx \\
-&amp;= \int_{a}^{b} x \cdot \frac{1}{b - a} \ dx \\
-&amp;= \frac{1}{b - a} \int_{a}^{b} x \ dx = \frac{1}{b - a} \left[ \frac{x^2}{2} \right]_{a}^{b} \\
-&amp;= \frac{1}{2(b - a)} [x^2]_{a}^{b} \\
-&amp;= \frac{b^2 - a^2}{2(b - a)} \\
-&amp;= \frac{(b - a)(b + a)}{2(b - a)} = \frac{b + a}{2}
-\end{align*}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-derivation-of-variance-varx">Uniform distribution: Derivation of Variance <span class="math inline">\(Var[X]\)</span></h4>
-<p><span class="math display">\[\sigma^2 = E(x^2) - (E(x))^2,\]</span></p>
-<p><span class="math display">\[\begin{align*}
-E(x^2) &amp;= \int_{a}^{b} x^2 f(x) \ dx  = \frac{1}{b - a} \int_{a}^{b} x^2 \ dx \\
-&amp;= \frac{1}{b - a} \left[ \frac{x^3}{3} \right]_{a}^{b} = \frac{1}{3(b - a)} [x^3]_{a}^{b} \\
-&amp;= \frac{b^3 - a^3}{3(b - a)} \\
-&amp;= \frac{(b - a)(b^2 + ab + a^2)}{3(b - a)} \\
-&amp;= \frac{b^2 + ab + a^2}{3}, \text{ then}
-\end{align*}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-derivation-of-variance-varx-continue">Uniform distribution: Derivation of Variance <span class="math inline">\(Var[X]\)</span> (continue)</h4>
-<p><span class="math display">\[\begin{align*}
-\sigma^2 &amp;= \frac{b^2 + ab + a^2}{3} - \left( \frac{b + a}{2} \right)^2 \\
-&amp;= \frac{b^2 + ab + a^2}{3} - \frac{b^2 + 2ab + a^2}{4} \\
-&amp;= \frac{4b^2 + 4ab + 4a^2 - 3b^2 - 6ab - 3a^2}{12} \\
-&amp;= \frac{b^2 - 2ab + a^2}{12} = \frac{(b - a)^2}{12}
-\end{align*}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-example-1">Uniform distribution: Example 1</h4>
-<p>Let <span class="math inline">\(X\)</span> have the PDF</p>
-<p><span class="math display">\[f(x) = \frac{1}{100}, \quad 0 &lt; x &lt; 100\]</span> So <span class="math inline">\(X \sim U(0, 100)\)</span>. Find the mean and variance.</p>
-<p><strong>Solution:</strong> Identify the parameters: <span class="math inline">\(a = 0\)</span> and <span class="math inline">\(b = 100\)</span>.</p>
-<ul>
-<li><p><strong>Mean:</strong> <span class="math display">\[\mu = \frac{a + b}{2} = \frac{0 + 100}{2} = 50\]</span></p></li>
-<li><p><strong>Variance:</strong> <span class="math display">\[\sigma^2 = \frac{(b - a)^2}{12} = \frac{(100 - 0)^2}{12} = \frac{10000}{12} \approx 833.33\]</span></p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-exercise-1">Uniform distribution: Exercise 1</h4>
-<p>If <span class="math inline">\(X\)</span> is uniformly distributed over <span class="math inline">\((0, 10)\)</span>, calculate the probability that:</p>
-<ol type="a">
-<li><p><span class="math inline">\(X &lt; 3\)</span></p></li>
-<li><p><span class="math inline">\(X &gt; 6\)</span></p></li>
-<li><p><span class="math inline">\(3 &lt; X &lt; 8\)</span></p></li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h4 id="uniform-distribution-exercise-2">Uniform distribution: Exercise 2</h4>
-<p>Buses arrive at a specified stop at 15-minute intervals starting at 7 A.M. That is, they arrive at 7:00, 7:15, 7:30, 7:45, and so on. If a passenger arrives at the stop at a time that is uniformly distributed between 7:00 and 7:30, find the probability that he waits:</p>
-<ol type="a">
-<li><p>less than 5 minutes for a bus.</p></li>
-<li><p>more than 10 minutes for a bus.</p></li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3 id="exponential-distribution-exptheta">Exponential Distribution <span class="math inline">\(Exp(\theta)\)</span></h3>
-<ul>
-<li>If the pdf of random variable <span class="math inline">\(X\)</span> is given by: <span class="math display">\[f(x) = \frac{1}{\theta} e^{-x/\theta}, \quad 0 \le X &lt; \infty\]</span> Then <span class="math inline">\(X\)</span> is said to have exponential distribution, <span class="math inline">\(Exp(\theta)\)</span>.</li>
-<li>Modeling lifetime of electronic / electrical – memoryless property.</li>
-<li>Normally associated with “waiting-time” - many application of waiting-time in real-life situation.</li>
-<li>Example:
-<ul>
-<li>to estimate time between patients <em>(allocation of doctors)</em></li>
-<li>time between breakdown in machines/computers <em>(technician/engineers required at a certain time)</em></li>
-<li>time between customers at checkout counters <em>(counters to open/cashiers on duty)</em></li>
-</ul></li>
-<li>The parameter <span class="math inline">\(\theta\)</span>, describes the mean waiting time until the first / next occurrences.</li>
-</ul>
-<h4 id="exponential-distribution-graph-of-pdf-and-cdf">Exponential Distribution: Graph of PDF and CDF</h4>
-
-<img data-src="Slide_4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-
-<h4 id="exponential-distribution-properties">Exponential Distribution: Properties</h4>
-<p>If <span class="math inline">\(X\)</span> is a random variable having Exponential distribution with parameter (<span class="math inline">\(\theta\)</span>), then:</p>
-<ol type="1">
-<li><p>MGF: <span class="math display">\[M_X(t) = \frac{1}{1 - \theta t}\]</span></p></li>
-<li><p>Mean: <span class="math display">\[\mu = E[X] = \theta\]</span></p></li>
-<li><p>Variance: <span class="math display">\[\sigma^2 = Var[X] = \theta^2\]</span></p></li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h4 id="exponential-distribution-derivation-of-mgf">Exponential Distribution: Derivation of MGF</h4>
-<p><span class="math display">\[\begin{align*}
-M_X(t) &amp;= E(e^{tX}) = \int_{0}^{\infty} e^{tX} \frac{1}{\theta} e^{-x/\theta} \ dx \\
-&amp;= \frac{1}{\theta} \int_{0}^{\infty} e^{-x(\frac{1}{\theta} - t)} dx \\
-&amp;= \frac{1}{\theta} \int_{0}^{\infty} e^{-x(\frac{1}{\theta} - t)} \left( \frac{-(\frac{1}{\theta} - t)}{-(\frac{1}{\theta} - t)} \right) dx \\
-&amp;= \frac{\frac{1}{\theta}}{(\frac{1}{\theta} - t)} \int_{0}^{\infty} e^{-x(\frac{1}{\theta} - t)} \left( -(\frac{1}{\theta} - t) \right) dx \\
-&amp;= -\frac{1}{(1 - \theta t)} \left[ e^{-x(\frac{1}{\theta} - t)} \right]_{0}^{\infty} \\
-&amp;= -\frac{1}{(1 - \theta t)} [0 - 1] = \frac{1}{(1 - \theta t)}
-\end{align*}\]</span></p>
-</section>
-<section class="slide level2">
-
-<h4 id="exponential-distribution-derivation-of-mean">Exponential Distribution: Derivation of Mean</h4>
-</section>
-<section class="slide level2">
-
-<h4 id="exponential-distribution-derivation-of-variance-varx">Exponential Distribution: Derivation of Variance <span class="math inline">\(Var[X]\)</span></h4>
-</section>
-<section class="slide level2">
-
-<h4 id="exponential-distribution-example-1">Exponential Distribution: Example 1</h4>
-<p>Let <span class="math inline">\(X\)</span> be the rv the length of time in minutes between calls to 911 in a small city. Suppose the reasonable probability model for <span class="math inline">\(X\)</span> is given by <span class="math display">\[f(x) = 1/20 e^{-x/20}, \quad 0 \le x &lt; \infty\]</span></p>
-<ol type="a">
-<li><p>Show that <span class="math display">\[\int_{S} f(x) dx = 1\]</span></p></li>
-<li><p>Show <span class="math inline">\(P(X &gt; 20) = 0.368\)</span></p></li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h4 id="exponentialdistribution-relationship-with-poisson-distribution">Exponentialdistribution: Relationship with Poisson distribution</h4>
-<ul>
-<li><p>Special relationship: Exponential dist can be derived from Poisson rv.</p></li>
-<li><p>Recall: Poisson rv is defined as the number of events in a unit interval e.g.&nbsp;the number of customers arriving in one hour.</p></li>
-<li><p>Interval <span class="math inline">\(\rightarrow\)</span> The time/space/distance.</p></li>
-<li><p>The unit between one event to next event is also another random variable of interest, and because the distance / time/space are continuous variables, their distribution is continuous distribution.</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h4 id="exponentialdistribution">Exponentialdistribution:</h4>
-<ul>
-<li><p>Suppose we let <span class="math inline">\(\rightarrow\)</span> X : No occurrences in a unit interval. Then <span class="math inline">\(X\)</span> can be described by a Poisson with mean <span class="math inline">\(\lambda\)</span>. And let Y : Waiting time until the first changes /occurrences.</p></li>
-<li><p>Then <span class="math inline">\(Y\)</span> is a continuous rv which can be described by an Exponential distribution. <span class="math inline">\(Y \sim \exp(1/\lambda)\)</span>, and <span class="math inline">\(E(Y) = 1/\lambda\)</span>.</p></li>
-</ul>
-<p>NOTE: Earlier we use <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\theta = 1/\lambda\)</span></p>
-<ul>
-<li>So if <span class="math inline">\(\lambda\)</span> is the mean number of changes/occurrences in a unit interval, then <span class="math inline">\(1/\lambda\)</span> is the mean waiting time for the first change.</li>
-</ul>
-<p>e.g.&nbsp;if <span class="math inline">\(\lambda = 5\)</span> per minute, then <span class="math inline">\(1/\lambda = \theta = 1/5\)</span>.</p>
-<ul>
-<li><p>This relationship is proven by the following theorem:</p>
-<ul>
-<li><p>THM: Suppose a series of events satisfying the Poisson model are occurring at a rate of <span class="math inline">\(\lambda\)</span> per unit time.</p></li>
-<li><p>Let rv <span class="math inline">\(Y\)</span> be “the interval between consecutive events”.</p></li>
-<li><p>Then <span class="math inline">\(Y\)</span> has exponential distribution with mean <span class="math inline">\(E(Y) = 1/\lambda\)</span><br>
-<span class="math display">\[f(y) = \lambda e^{-\lambda y}, \quad y &gt; 0\]</span></p></li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h4 id="exponentialdistribution-example-2">Exponentialdistribution: Example 2</h4>
-<p>Customer arrive in a certain shop according to an approximate Poisson process at a mean rate of 20 per hour. What is the probability that the shopkeeper will have to wait more than 5 minutes for the arrival of the first customer?</p>
-<p><strong>Solution</strong></p>
-<ul>
-<li><p>Let <span class="math inline">\(x\)</span> denote the waiting time in minutes until the first customer arrives and note that <span class="math inline">\(\lambda = \frac{1}{3}\)</span> is the expected number of arrivals per minute.</p></li>
-<li><p>Thus, Code snippet# Expected number of arrivals per minute (lambda) = 20 arrivals / 60 mins = 1/3</p></li>
-<li><p>We want P(X &gt; 5)</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h4 id="exponentialdistribution-exercise-1">Exponentialdistribution: Exercise 1</h4>
-<p>Suppose that the length of a phone call in minutes is an exponential random variable with parameter <span class="math inline">\(\lambda = \frac{1}{12}\)</span>.If someone arrives immediately ahead of you at a public telephone booth, find the probability that you will have to wait</p>
-<ol type="a">
-<li><p>more than 11 minutes;</p></li>
-<li><p>between 11 and 18 minutes.</p></li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h4 id="exponentialdistribution-exercise-2">Exponentialdistribution: Exercise 2</h4>
-<p>Suppose that the total mileage an electric vehicle (EV) battery pack can operate before experiencing critical cell failure is exponentially distributed with a mean lifespan of <span class="math inline">\(\theta = 150{,}000\)</span> miles (or failure rate <span class="math inline">\(\lambda = \frac{1}{150{,}000}\)</span> per mile). A logistics delivery company purchases a pre-owned EV fleet vehicle that has already accumulated <span class="math inline">\(100{,}000\)</span> miles without any battery failure.</p>
-<ol type="a">
-<li><p>Using the <strong>memoryless property</strong> of the Exponential distribution, find the probability that this vehicle can complete a long-haul cross-country commercial route of <span class="math inline">\(5{,}000\)</span> miles without requiring a battery pack replacement.</p></li>
-<li><p>How does this probability compare to the probability that a <em>brand-new</em> EV battery completes the same <span class="math inline">\(5{,}000\)</span>-mile trip?</p></li>
-<li><p>What can be said if the true underlying lifespan distribution of the EV battery pack is <strong>not exponential</strong> (e.g., following a Weibull distribution with an increasing failure rate due to electrochemical wear and aging)?</p></li>
-</ol>
-</section>
-<section class="slide level2">
-
 
 </section>
     </div>
@@ -1061,7 +836,7 @@ M_X(t) &amp;= E(e^{tX}) = \int_{0}^{\infty} e^{tX} \frac{1}{\theta} e^{-x/\theta
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
+'smaller': true,
  
         // Display controls in the bottom right corner
         controls: false,
