@@ -5,17 +5,23 @@ date: "`r Sys.Date()`"
 format:
   revealjs:
     theme: default
+    center: false
     smaller: true
     include-in-header:
       text: |
         <style>
-          .reveal { font-size: 40px !important; }
-          .reveal table { font-size: 0.7em !important; }
-          .reveal pre, .reveal code { font-size: 0.65em !important; }
+          /* Remove slide top margin/padding */
+          .reveal .slides section {
+            top: -50 !important;
+            padding-top: 10px !important;
+          }
+          /* Eliminate the top margin on headers */
+          .reveal h2, .reveal h3 {
+            margin-top: -50 !important;
+            padding-top: -50 !important;
+          }
         </style>
-
 ---
-
 ## CLO
 1. CLO 1: APPLY the concept of probability in relation to the concept of sampling error. (C3)
 
@@ -194,6 +200,7 @@ According to the Binomial Theorem, $\sum_{k=0}^{m} \binom{m}{k} a^k b^{m-k} = (a
 Applying this to our sum where $m = n-1$, $a = p$, and $b = 1- p$:
 
 $$E[X] = np (p + (1-p))^{n-1}$$
+
 ---
 
 
@@ -348,6 +355,7 @@ A telemarketer has a 10% chance of making a sale on any given call. What is the 
 
 Suppose the telemarketer wants to be at least 80% sure that they will make at least one sale today. How many calls ($n$) do they need to make to achieve this probability?
 
+---
 
 ### Hypergeometric Distribution
 
@@ -396,10 +404,18 @@ A lot consisting of 50 bulbs is inspected by taking at random 10 bulbs and testi
 **Solution:**
 
 We use the hypergeometric distribution because we are sampling without replacement from a finite population.
-*   $N = 50$ (total bulbs)
-*   $M = 10$ (total defective bulbs in the population)
-*   $n = 10$ (number of bulbs sampled)
-*   $x$ = number of defective bulbs in the sample
+
+-   $N = 50$ (total bulbs)
+
+-   $M = 10$ (total defective bulbs in the population)
+
+-   $n = 10$ (number of bulbs sampled)
+
+-   $x$ = number of defective bulbs in the sample
+
+---
+
+#### Hypergeometric Distribution: Example 1 (continue)
 
 The lot is accepted if the number of defective bulbs is at most 1 ($x \le 1$). So we need to find $P(X = 0) + P(X = 1)$.
 
@@ -418,11 +434,16 @@ P(X \le 1) &= P(X=0) + P(X=1) \\
 If 5 cards are drawn at random from a deck of 52 cards and are not replaced, find the probability of getting at least one diamond.
 
 **Solution:**
+
 We use the hypergeometric distribution because we are drawing without replacement. 
-*   $N = 52$ (total cards)
-*   $M = 13$ (total diamonds in a deck)
-*   $n = 5$ (cards drawn)
-*   $x$ = number of diamonds drawn
+
+-   $N = 52$ (total cards)
+
+-   $M = 13$ (total diamonds in a deck)
+
+-   $n = 5$ (cards drawn)
+
+-   $x$ = number of diamonds drawn
 
 We want to find the probability of getting *at least* one diamond, which is $P(X \ge 1)$. The easiest way to calculate this is using the complement rule: $1 - P(X = 0)$.
 
@@ -482,25 +503,31 @@ where $x = r, r + 1,$
 
 Then it is a probability distribution called as negative binomial distribution with parameter $r$ and $p$.
 
-Remarks, if $ r=1$, then the negative binomial distribution was just basically identical to geometric distribution.
+Remarks, if $r=1$, then the negative binomial distribution was just basically identical to geometric distribution.
 
 ---
 
 #### Negative Binomial Distribution: Summary of Parameters
 
-*   **$x$**: Total number of trials ($x = r, r+1, r+2, \dots$)
-*   **$r$**: Target number of successes
-*   **$p$**: Probability of success on any given independent trial
-*   **$q$**: Probability of failure ($1 - p$)
+-   **$x$**: Total number of trials ($x = r, r+1, r+2, \dots$)
+
+-  **$r$**: Target number of successes
+
+-   **$p$**: Probability of success on any given independent trial
+
+-   **$q$**: Probability of failure ($1 - p$)
 
 *Note: The Geometric distribution is a special case of the Negative Binomial distribution where we are looking for the very first success ($r=1$).*
 
 #### Negative Binomial Distribution: Properties 
 
-* **PMF**: $P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}$ for $x=r, r+1, \dots$
-* **Mean**: $\mu = \frac{r}{p}$ 
-* **Variance**: $\sigma^2 = \frac{rq}{p^2}$
-* **MGF**: $M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r$
+- **PMF**: $P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}$ for $x=r, r+1, \dots$
+
+- **Mean**: $\mu = \frac{r}{p}$ 
+
+- **Variance**: $\sigma^2 = \frac{rq}{p^2}$
+
+- **MGF**: $M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r$
 
 ---
 
@@ -510,7 +537,7 @@ Team A plays team B in a seven-game world series. That is, the series is over wh
 
 **Case 1: A win four game**
 
-Since A winning those four game, we P(success)=P (A wins)=0.6. This can be a probability of Negative binomial with parameter r=4 and p=0.6 when $X=6$.
+Since A winning those four game, we $P(success) = P (A wins) = 0.6$. This can be a probability of Negative binomial with parameter $r=4$ and $p=0.6$ when $X=6$.
 
 Hence
 
@@ -520,12 +547,16 @@ P(\text{A win series in 6}) &= NegBin(6,4,0.6) \\
 &= 0.20736
 \end{align*}
 
+---
+
+### Negative Binomial Distribution: Example 1 (continue)
+
 **Case 2: B win Four game**
 Since $B$ winning those four game, 
 
 $$P(success)=P(B wins)=0.4$$
 
-This can be a probability of Negative binomial with parameter $r=4$ and p=0.4 when X=6.
+This can be a probability of Negative binomial with parameter $r=4$ and $p=0.4$ when $X=6$.
 
 Hence
 
@@ -553,7 +584,6 @@ An excellent free-throw shooter attempts several free throws until she misses.
 
 (b) If she continues shooting until she misses three, what is the probability that the third miss occurs on the 30th attempt?
 
-
 **Solution**
 
 (a) For this problem, because the sequence stops upon a "miss", we must define a "success" for our formulas as **missing the free throw**. 
@@ -571,6 +601,9 @@ P(\text{first miss} \ge 13) &= P(\text{makes first 12 throws}) \\
 &\approx 0.2824
 \end{align*}
 
+---
+
+#### Negative Binomial Distribution: Example 2 (continue)
 
 (b) This scenario follows a Negative Binomial distribution where we want the $r^{\text{th}}$ "success" (miss) to occur on the $x^{\text{th}}$ trial.
 
@@ -842,7 +875,7 @@ $$
 
 ---
 
-### Exercise 1
+#### Discrete Distribution: Exercise 1
 
 An operations manager is optimizing a semiconductor manufacturing plant where a specific machine produces microchips.
 
@@ -854,7 +887,7 @@ An operations manager is optimizing a semiconductor manufacturing plant where a 
 
 ---
 
-### Exercise 1 (continue)
+#### DiscreteDistribution: Exercise 1 (continue)
 
 
 4. A specific, isolated crate contains exactly 100 chips for an urgent client shipment. The client randomly tests 5 chips from this specific crate without replacement. If there are 3 actual defects in the crate, what is the probability the client finds 0 defects in their sample?
@@ -867,7 +900,7 @@ An operations manager is optimizing a semiconductor manufacturing plant where a 
 
 ---
 
-### Exercise 2
+#### Discrete Distribution: Exercise 2
 
 You are give a large dataset of customer session logs. You are tasked to perform exploratory data analysis on the dataset to understand how different variables and events are distributed.
 
@@ -879,7 +912,7 @@ You are give a large dataset of customer session logs. You are tasked to perform
 
 ---
 
-### Exercise 2 (continue)
+#### Discrete Distribution: Exercise 2 (continue)
 
 4. You filter your dataset to a finite subset of exactly 50 sessions from "VIP" tier users. Within this subset, exactly 12 sessions used the iOS app. If you randomly sample 10 rows from this VIP subset without replacement for a manual audit, what is the probability that exactly 3 of the audited rows are from iOS devices?
 

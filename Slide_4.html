@@ -129,9 +129,16 @@
     }
   </style>
   <style>
-    .reveal { font-size: 40px !important; }
-    .reveal table { font-size: 0.7em !important; }
-    .reveal pre, .reveal code { font-size: 0.65em !important; }
+    /* Remove slide top margin/padding */
+    .reveal .slides section {
+      top: -50 !important;
+      padding-top: 10px !important;
+    }
+    /* Eliminate the top margin on headers */
+    .reveal h2, .reveal h3 {
+      margin-top: -50 !important;
+      padding-top: -50 !important;
+    }
   </style>
 </head>
 <body class="quarto-light">
@@ -279,9 +286,10 @@ F(x) = \begin{cases} 0 &amp; \text{for } x &lt; a \\ \frac{x-a+1}{n} &amp; \text
 <p>Rewrite the fractional term as a binomial coefficient:<span class="math display">\[E[X] = np \sum_{y=0}^{n-1} \binom{n-1}{y} p^y (1-p)^{n-1-y}\]</span></p>
 <p>According to the Binomial Theorem, <span class="math inline">\(\sum_{k=0}^{m} \binom{m}{k} a^k b^{m-k} = (a+b)^m\)</span>.</p>
 <p>Applying this to our sum where <span class="math inline">\(m = n-1\)</span>, <span class="math inline">\(a = p\)</span>, and <span class="math inline">\(b = 1- p\)</span>:</p>
+<p><span class="math display">\[E[X] = np (p + (1-p))^{n-1}\]</span></p>
 </section>
-<section id="ex-np-p-1-pn-1" class="slide level2">
-<h2><span class="math display">\[E[X] = np (p + (1-p))^{n-1}\]</span></h2>
+<section class="slide level2">
+
 <h4 id="binomial-distribution-example">Binomial Distribution: Example</h4>
 <ol type="1">
 <li>Suppose that the probability of germination of a durian seed is <span class="math inline">\(0.3\)</span> and the germination of a seed is considered a success. If we plant 10 durian seeds and germination of one seed is independent of the germination of another seed, this would correspond to <span class="math inline">\(10\)</span> Bernoulli trials with <span class="math inline">\(p = 0.3\)</span>.</li>
@@ -394,6 +402,9 @@ P(X = 8) &amp;= f(8) \\
 <p>A telemarketer has a 10% chance of making a sale on any given call. What is the probability that they make their first sale on their 6th call of the day?</p>
 <h4 id="geometric-distribution-exercise-1">Geometric Distribution: Exercise</h4>
 <p>Suppose the telemarketer wants to be at least 80% sure that they will make at least one sale today. How many calls (<span class="math inline">\(n\)</span>) do they need to make to achieve this probability?</p>
+</section>
+<section class="slide level2">
+
 <h3 id="hypergeometric-distribution">Hypergeometric Distribution</h3>
 <p>The assumptions leading to the hypergeometric distribution are as follows:</p>
 <ol type="1">
@@ -430,7 +441,17 @@ P(X = x) = \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}
 <h4 id="hypergeometric-distribution-example-1">Hypergeometric Distribution: Example 1</h4>
 <p>A lot consisting of 50 bulbs is inspected by taking at random 10 bulbs and testing them. If the number of defective bulbs is at most 1, the lot is accepted; otherwise it is rejected. If there are in fact, 10 defective bulbs in the lot, what is the probability that the lot would be accepted?</p>
 <p><strong>Solution:</strong></p>
-<p>We use the hypergeometric distribution because we are sampling without replacement from a finite population. * <span class="math inline">\(N = 50\)</span> (total bulbs) * <span class="math inline">\(M = 10\)</span> (total defective bulbs in the population) * <span class="math inline">\(n = 10\)</span> (number of bulbs sampled) * <span class="math inline">\(x\)</span> = number of defective bulbs in the sample</p>
+<p>We use the hypergeometric distribution because we are sampling without replacement from a finite population.</p>
+<ul>
+<li><p><span class="math inline">\(N = 50\)</span> (total bulbs)</p></li>
+<li><p><span class="math inline">\(M = 10\)</span> (total defective bulbs in the population)</p></li>
+<li><p><span class="math inline">\(n = 10\)</span> (number of bulbs sampled)</p></li>
+<li><p><span class="math inline">\(x\)</span> = number of defective bulbs in the sample</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h4 id="hypergeometric-distribution-example-1-continue">Hypergeometric Distribution: Example 1 (continue)</h4>
 <p>The lot is accepted if the number of defective bulbs is at most 1 (<span class="math inline">\(x \le 1\)</span>). So we need to find <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
 P(X \le 1) &amp;= P(X=0) + P(X=1) \\
@@ -444,7 +465,14 @@ P(X \le 1) &amp;= P(X=0) + P(X=1) \\
 
 <h4 id="hypergeometric-distribution-example-2">Hypergeometric Distribution: Example 2</h4>
 <p>If 5 cards are drawn at random from a deck of 52 cards and are not replaced, find the probability of getting at least one diamond.</p>
-<p><strong>Solution:</strong> We use the hypergeometric distribution because we are drawing without replacement. * <span class="math inline">\(N = 52\)</span> (total cards) * <span class="math inline">\(M = 13\)</span> (total diamonds in a deck) * <span class="math inline">\(n = 5\)</span> (cards drawn) * <span class="math inline">\(x\)</span> = number of diamonds drawn</p>
+<p><strong>Solution:</strong></p>
+<p>We use the hypergeometric distribution because we are drawing without replacement.</p>
+<ul>
+<li><p><span class="math inline">\(N = 52\)</span> (total cards)</p></li>
+<li><p><span class="math inline">\(M = 13\)</span> (total diamonds in a deck)</p></li>
+<li><p><span class="math inline">\(n = 5\)</span> (cards drawn)</p></li>
+<li><p><span class="math inline">\(x\)</span> = number of diamonds drawn</p></li>
+</ul>
 <p>We want to find the probability of getting <em>at least</em> one diamond, which is <span class="math inline">\(P(X \ge 1)\)</span>. The easiest way to calculate this is using the complement rule: <span class="math inline">\(1 - P(X = 0)\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
 P(X \ge 1) &amp;= 1 - P(X = 0) \\
@@ -489,24 +517,24 @@ p \cdot \binom{x-1}{r-1} p^{r-1} q^{x-r} = \binom{x-1}{r-1} p^r q^{x-r}
 <p><span class="math display">\[P(X = x) = \binom{x - 1}{r - 1} p^r (1 - p)^{x-r}\]</span></p>
 <p>where <span class="math inline">\(x = r, r + 1,\)</span></p>
 <p>Then it is a probability distribution called as negative binomial distribution with parameter <span class="math inline">\(r\)</span> and <span class="math inline">\(p\)</span>.</p>
-<p>Remarks, if $ r=1$, then the negative binomial distribution was just basically identical to geometric distribution.</p>
+<p>Remarks, if <span class="math inline">\(r=1\)</span>, then the negative binomial distribution was just basically identical to geometric distribution.</p>
 </section>
 <section class="slide level2">
 
 <h4 id="negative-binomial-distribution-summary-of-parameters">Negative Binomial Distribution: Summary of Parameters</h4>
 <ul>
-<li><strong><span class="math inline">\(x\)</span></strong>: Total number of trials (<span class="math inline">\(x = r, r+1, r+2, \dots\)</span>)</li>
-<li><strong><span class="math inline">\(r\)</span></strong>: Target number of successes</li>
-<li><strong><span class="math inline">\(p\)</span></strong>: Probability of success on any given independent trial</li>
-<li><strong><span class="math inline">\(q\)</span></strong>: Probability of failure (<span class="math inline">\(1 - p\)</span>)</li>
+<li><p><strong><span class="math inline">\(x\)</span></strong>: Total number of trials (<span class="math inline">\(x = r, r+1, r+2, \dots\)</span>)</p></li>
+<li><p><strong><span class="math inline">\(r\)</span></strong>: Target number of successes</p></li>
+<li><p><strong><span class="math inline">\(p\)</span></strong>: Probability of success on any given independent trial</p></li>
+<li><p><strong><span class="math inline">\(q\)</span></strong>: Probability of failure (<span class="math inline">\(1 - p\)</span>)</p></li>
 </ul>
 <p><em>Note: The Geometric distribution is a special case of the Negative Binomial distribution where we are looking for the very first success (<span class="math inline">\(r=1\)</span>).</em></p>
 <h4 id="negative-binomial-distribution-properties">Negative Binomial Distribution: Properties</h4>
 <ul>
-<li><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}\)</span> for <span class="math inline">\(x=r, r+1, \dots\)</span></li>
-<li><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{r}{p}\)</span></li>
-<li><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{rq}{p^2}\)</span></li>
-<li><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r\)</span></li>
+<li><p><strong>PMF</strong>: <span class="math inline">\(P(X=x) = \binom{x-1}{r-1} p^r (1-p)^{x-r}\)</span> for <span class="math inline">\(x=r, r+1, \dots\)</span></p></li>
+<li><p><strong>Mean</strong>: <span class="math inline">\(\mu = \frac{r}{p}\)</span></p></li>
+<li><p><strong>Variance</strong>: <span class="math inline">\(\sigma^2 = \frac{rq}{p^2}\)</span></p></li>
+<li><p><strong>MGF</strong>: <span class="math inline">\(M_X(t) = \left( \frac{pe^t}{1 - qe^t} \right)^r\)</span></p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -514,16 +542,20 @@ p \cdot \binom{x-1}{r-1} p^{r-1} q^{x-r} = \binom{x-1}{r-1} p^r q^{x-r}
 <h3 id="negative-binomial-distribution-example-1">Negative Binomial Distribution: Example 1</h3>
 <p>Team A plays team B in a seven-game world series. That is, the series is over when either team wins four games. For each game, <span class="math inline">\(P(A \ wins) = 0.6\)</span> and the games are assumed independent. What is the probability that the series will end in exactly six games? We have <span class="math inline">\(x = 6, r = 4 ,\)</span> and <span class="math inline">\(p = 0.6\)</span>.</p>
 <p><strong>Case 1: A win four game</strong></p>
-<p>Since A winning those four game, we P(success)=P (A wins)=0.6. This can be a probability of Negative binomial with parameter r=4 and p=0.6 when <span class="math inline">\(X=6\)</span>.</p>
+<p>Since A winning those four game, we <span class="math inline">\(P(success) = P (A wins) = 0.6\)</span>. This can be a probability of Negative binomial with parameter <span class="math inline">\(r=4\)</span> and <span class="math inline">\(p=0.6\)</span> when <span class="math inline">\(X=6\)</span>.</p>
 <p>Hence</p>
 <p><span class="math display">\[\begin{align*}
 P(\text{A win series in 6}) &amp;= NegBin(6,4,0.6) \\
 &amp;= \binom{6-1}{4-1} (0.6)^4(0.4)^{6-4} \\
 &amp;= 0.20736
 \end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="negative-binomial-distribution-example-1-continue">Negative Binomial Distribution: Example 1 (continue)</h3>
 <p><strong>Case 2: B win Four game</strong> Since <span class="math inline">\(B\)</span> winning those four game,</p>
 <p><span class="math display">\[P(success)=P(B wins)=0.4\]</span></p>
-<p>This can be a probability of Negative binomial with parameter <span class="math inline">\(r=4\)</span> and p=0.4 when X=6.</p>
+<p>This can be a probability of Negative binomial with parameter <span class="math inline">\(r=4\)</span> and <span class="math inline">\(p=0.4\)</span> when <span class="math inline">\(X=6\)</span>.</p>
 <p>Hence</p>
 <p><span class="math display">\[\begin{align*}
 P(\text{B win series in 6}) &amp;= NegBin(6,4,0.4) \\
@@ -559,6 +591,10 @@ P(\text{first miss} \ge 13) &amp;= P(\text{makes first 12 throws}) \\
 &amp;= (0.9)^{12} \\
 &amp;\approx 0.2824
 \end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h4 id="negative-binomial-distribution-example-2-continue">Negative Binomial Distribution: Example 2 (continue)</h4>
 <ol start="2" type="a">
 <li><p>This scenario follows a Negative Binomial distribution where we want the <span class="math inline">\(r^{\text{th}}\)</span> “success” (miss) to occur on the <span class="math inline">\(x^{\text{th}}\)</span> trial.</p>
 <ul>
@@ -761,7 +797,7 @@ e^{-1} + e^{-1} \approx 0.7358
 </section>
 <section class="slide level2">
 
-<h3 id="exercise-1">Exercise 1</h3>
+<h4 id="discrete-distribution-exercise-1">Discrete Distribution: Exercise 1</h4>
 <p>An operations manager is optimizing a semiconductor manufacturing plant where a specific machine produces microchips.</p>
 <ol type="1">
 <li><p>The factory has 8 parallel assembly lines producing the same microchip. What is the probability a randomly selected chip came from Line G? (Equally likely outcomes).</p></li>
@@ -771,7 +807,7 @@ e^{-1} + e^{-1} \approx 0.7358
 </section>
 <section class="slide level2">
 
-<h3 id="exercise-1-continue">Exercise 1 (continue)</h3>
+<h4 id="discretedistribution-exercise-1-continue">DiscreteDistribution: Exercise 1 (continue)</h4>
 <ol start="4" type="1">
 <li><p>A specific, isolated crate contains exactly 100 chips for an urgent client shipment. The client randomly tests 5 chips from this specific crate without replacement. If there are 3 actual defects in the crate, what is the probability the client finds 0 defects in their sample?</p></li>
 <li><p>An automated optical inspector scans chips one by one. How many consecutive chips must the machine scan before it detects the first defect?</p></li>
@@ -781,7 +817,7 @@ e^{-1} + e^{-1} \approx 0.7358
 </section>
 <section class="slide level2">
 
-<h3 id="exercise-2">Exercise 2</h3>
+<h4 id="discrete-distribution-exercise-2">Discrete Distribution: Exercise 2</h4>
 <p>You are give a large dataset of customer session logs. You are tasked to perform exploratory data analysis on the dataset to understand how different variables and events are distributed.</p>
 <ol type="1">
 <li><p>The platform’s traffic is perfectly balanced across 5 identical database nodes (Nodes 1 through 5). What is the probability that a randomly selected row was processed by Node 3?</p></li>
@@ -791,7 +827,7 @@ e^{-1} + e^{-1} \approx 0.7358
 </section>
 <section class="slide level2">
 
-<h3 id="exercise-2-continue">Exercise 2 (continue)</h3>
+<h4 id="discrete-distribution-exercise-2-continue">Discrete Distribution: Exercise 2 (continue)</h4>
 <ol start="4" type="1">
 <li><p>You filter your dataset to a finite subset of exactly 50 sessions from “VIP” tier users. Within this subset, exactly 12 sessions used the iOS app. If you randomly sample 10 rows from this VIP subset without replacement for a manual audit, what is the probability that exactly 3 of the audited rows are from iOS devices?</p></li>
 <li><p>A specific <code>payment_gateway_error</code> occurs randomly in 3% of all rows. You write a script to iterate through the logs row-by-row. What is the probability the script must read exactly 15 rows to find the <em>first</em> error?</p></li>
