@@ -380,6 +380,12 @@ Step 1: Find the Second Derivative of $M_X(t)$
 
 From the previous derivation, the moment generating function and its first derivative are:
 $$M_X(t) = (1 - \theta t)^{-1}, \quad t < \frac{1}{\theta}$$
+
+---
+
+#### Exponential Distribution: Derivation of Variance $Var[X]$ (continous)
+
+
 $$M_X'(t) = \theta(1 - \theta t)^{-2}$$
 To find the second raw moment $E[X^2]$, differentiate $M_X'(t)$ with respect to $t$ using the chain rule:
 $$
